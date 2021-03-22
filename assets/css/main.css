@@ -1,0 +1,464 @@
+@import url("font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+/* Common */
+
+	body {
+		background-image: url("../../resources/images/Endless-Constellation.png");
+		/*background-position: top right;*/
+		background-repeat: repeat;
+		background-size: initial;
+		content: '';
+		display: block;
+		font-weight: 300;
+	}
+
+
+
+/* Viewport Sizes */
+	.v-h{
+		height: 100vh;
+	}
+
+	.v-w {
+		width: 100vw;
+	}
+
+	.v-h-w {
+		height: 100vh;
+		width: 100vw;
+	}
+
+	.h-100 {
+		max-height: 100vh;
+	}
+
+	.w-30 {
+		max-width: 30vw;
+	}
+
+/* Colour Setup */
+	.white {
+		border-color: #fff;
+		color: #fff;
+	}
+
+/* Buttons */
+
+	.button-grp > div {
+		padding: 15px;
+	}
+
+	button {
+		border-radius: 8px;
+		background: #E93415;
+		font-weight: 400;
+		color: #fff;
+	}
+
+/*  Icons */
+	/*ul.icons {
+		cursor: default;
+		list-style: none;
+		padding-left: 0;
+	}
+
+	ul.icons li {
+		display: inline-block;
+		padding: 0 1em 0 0;
+	}
+
+	ul.icons li:last-child {
+		padding-right: 0 !important;
+	}
+
+	ul.icons li .icon:before {
+		font-size: 1.25em;
+	}
+
+	.icon {
+		text-decoration: none;
+		border-bottom: none;
+		position: relative;
+	}
+
+	.icon:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-transform: none !important;
+	}
+
+	.icon > .label {
+		display: none;
+	}*/
+
+	.icons-group {
+		padding: 30px;	
+	}
+
+	icon {
+		padding: 0 10px 0 10px;
+	}
+
+	.icon:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-transform: none !important;
+	}
+
+	.icon > .label {
+		display: none;
+	}
+
+	/* List */
+
+	ul {
+		list-style: disc;
+		margin: 0 0 2.25em 0;
+		padding-left: 1em;
+	}
+
+	ul li {
+		padding-left: 0.5em;
+	}
+
+	ul.icons {
+		cursor: default;
+		list-style: none;
+		padding-left: 0;
+	}
+
+	ul.icons li {
+		display: inline-block;
+		padding: 0 1em 0 0;
+	}
+
+	ul.icons li:last-child {
+		padding-right: 0 !important;
+	}
+
+	ul.icons li .icon:before {
+		font-size: 5em;
+	}
+
+/* Progress Bar */
+
+	/*.progress-bar {
+		-webkit-appearance:none;
+		position: fixed;
+		height: 12px;
+		width: 50%;
+		border: none;
+		border-radius: 6px;
+		overflow: hidden;
+		background-color: #E93415;
+	}
+
+	::-webkit-progress-value {
+		background-color: #E93415;
+	};
+
+	::-webkit-progress-bar {
+	  background-color: #8C8C8C 32%;
+	}
+
+	.vertical {
+		 -webkit-transform: rotate(90deg);
+	}*/
+
+/* Section */
+	.padding-sides-large {
+		padding: 0px 100px 0px 100px;
+	}
+
+/* Container */
+	container {
+		padding: 10vh 5vw 5vh 5vw;
+	}
+
+	container > div {
+		padding: 10px 10px 0px 10px;
+	}
+
+	container > div > div{
+		padding: 10px;
+	}
+
+	container > .sub-container {
+		padding: 0px 20px 0px 20px;
+		vertical-align: center;
+	}
+
+/* Headings */
+
+	.heading {
+		/*font-size: 100px;*/
+		font-size: 14vh;
+		font-weight: 700;
+		letter-spacing: 0em;
+		text-align: center;
+	}
+
+	.sub-heading {
+		font-size: 40px;
+		font-weight: 300;
+	}
+
+	.heading-gradient{
+		background: linear-gradient(180deg, #525252 0%, rgba(255, 255, 255, 0.5) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+/* Paragraphs */
+	p {
+		text-align: justify;
+		color: #0F0F0F;
+		opacity: 60%;
+		font-weight: 300;
+
+	}
+
+/* Page-Breaks */
+/* Solid border */
+	hr.solid {
+		border-top: 1px solid #bbb;
+		margin-top: 0em;
+   		margin-bottom: 0em;
+	}
+
+/* Footer */
+	.footer {
+		position: absolute;
+		left: 0vw;
+		right: 0vw;
+		bottom: 0;
+		align-items: center;
+		text-align: center;
+		color: #fff;
+	}
+
+
+
+/* Section One - Intro */
+	#main > #intro {
+		background-image: url("../../resources/images/intro_sky.png");
+		background-position: top right;
+		background-repeat: no-repeat;
+		background-size: cover;
+		content: '';
+		display: block;
+	}
+
+	#main > #intro > container {
+		position: absolute;
+		top: 20vh;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		align-items: center;
+		text-align: center;
+		max-width: 100vw;
+		max-height: 100vh; 
+	}
+
+	#main > #intro > container > #header > #heading {
+	/*.heading {*/
+		font-size: 20vh;
+		font-weight: 400;
+		/*line-height: 15vh;*/
+		background: linear-gradient(180deg, #DFDFDF 0%, rgba(237, 237, 237, 0) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-shadow: 0px 0px 64px rgba(0, 0, 0, 0.25);
+		text-align: center center;
+	}
+
+	#main > #intro > container > #intro-footer {
+		color: #fff;
+	}
+
+/* Section Two - About Me */
+
+	#about-me-pic {
+		max-height: 100vh;
+		max-width: 50vw;
+	}
+
+	#about-me-header {
+		/*background-image: url("../../resources/images/ABOUT_ME-txt.png");
+		background-position: top left;
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: '';
+		display: block;*/
+	}
+
+	#about-me-paragraph {
+		/*padding: 0 10px 0 10px;*/
+		font-size: 20px;
+		line-height: 25px;
+	}
+
+/* Section Three - Portfolio */
+
+	#portfolio {
+		padding: 0 250px 0 250px;
+	}
+
+	project {
+		align-items: center;
+		align-self: center center; 
+	}
+
+	project > .coverpage {
+		align-items: justify;
+		align-self: center center; 
+	}
+
+	.project-details {
+		text-align: left;
+	}
+
+	.project-details > .team {
+		font-size: 12px;
+		font-weight: 300;
+
+	}
+
+	.project-details > .team > icon {
+		padding: 0 10px 0 0px;
+	}
+
+	.project-details > .design-type {
+		font-size: 18px;
+		font-weight: 300;
+	}
+
+	.project-details > .project-title {
+		font-size: 48px;
+		font-weight: 300;
+	}
+
+	.project-details > .project-description {
+		font-size: 24px;
+		font-weight: 300;
+	}
+
+	/*project : odd{
+		align-items: center;
+	}*/
+
+/* Section Four - Contact */
+	#main > #contact {
+		/*-webkit-appearance: none;*/
+
+		/*background: linear-gradient(-180deg, #222127 0%, #E93415 100%);
+		opacity: 0.68;
+		background-color: #000;*/
+		background: linear-gradient(180deg, #000 53.65%, #E93415 100%);
+		background-color: #000;
+		/*opacity: 0.68;*/
+		content: '';
+		display: block;
+		height: 100vh;
+		width: 100%;
+
+		box-shadow: 0px 32px 64px #848484;
+	}
+
+	#contact-number {
+		position: relative;
+		/*align-self: center;*/
+		top: 20vh;
+	}
+
+	#contact-number > button{
+		background: #E93415;
+		border-radius: 16px;
+	}
+
+	#foot-notes.footer {
+		position: relative;
+		top: 10vh;
+	}
+
+/* Media Specific */
+/* Extra Small Screen */
+  @media screen and (max-width: $screen-xs-max) {
+	/*@media screen and (max-width: 480px) {*/
+		container > .sub-container {
+			padding: 10px 40px 40px 40px;
+		}
+
+		.heading {
+			font-size: 50px;
+			padding-top: 80px;
+			font-weight: 700;
+			letter-spacing: 0em;
+			text-align: center;
+		}
+
+		#main > #intro > container > #header > #heading {
+			font-size: 10vh;
+			/*line-height: 15vh;*/
+			background: linear-gradient(180deg, #DFDFDF 0%, rgba(237, 237, 237, 0) 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-shadow: 0px 0px 64px rgba(0, 0, 0, 0.25);
+			text-align: center center;
+		}
+
+	}
+
+ /* Small Screen */
+  @media screen and (min-width: $screen-sm-min) and  (max-width: $screen-sm-max) {
+	/*@media screen and (max-width: 736px) {*/
+		container > .sub-container {
+			padding: 10px 40px 40px 40px;
+		}
+
+		.heading {
+			font-size: 50px;
+			padding-top: 80px;
+			font-weight: 700;
+			letter-spacing: 0em;
+			text-align: center;
+		}
+
+		#main > #intro > container > #header > #heading {
+			font-size: 10vh;
+			/*line-height: 15vh;*/
+			background: linear-gradient(180deg, #DFDFDF 0%, rgba(237, 237, 237, 0) 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-image: none;
+			text-shadow: 0px 0px 64px rgba(0, 0, 0, 0.25);
+			text-align: center center;
+		}
+	}
+	
+
+/* Medium Screen */
+ @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+	/*@media screen and (max-width: 1024px) {*/
+		
+	}
+
+ /* Large Screen */
+  @media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+	/*@media screen and (min-width: 1280px) {*/
+		
+	}
+
+ /* Large Screen */
+  @media screen and (min-width: $screen-xl-min) {
+	/*@media screen and (min-width: 1680px) {*/
+		
+	}
