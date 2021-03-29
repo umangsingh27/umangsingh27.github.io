@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/main.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"> -->
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     </head>
 
@@ -29,6 +28,7 @@
 
         <!-- <div><progress class="progress-bar vertical" value=20 max="100"></progress></div> -->
 
+
         <div id="main">
             
             <!-- Intro -->
@@ -42,8 +42,6 @@
                     </div>
                     <div class="footer" id="intro-footer">
                         <icon class="material-icons white">mouse</icon><br>
-                        <!-- <i class="fas fa-mouse"></i> -->
-                        <!-- <i class="fal fa-mouse"></i> -->
                         <span class="label white">Scroll for more</span> <!-- todo: add on hover cursor change to mouse scroll-->
                     </div>
                 </container>           
@@ -53,28 +51,28 @@
             <section id="about-me">
                 <div class="padding-sides-large">
                     <div class="row">
-                        <div class="col-md-5 col-lg-5 col-xl-5" align="right">
-                            <img id="about-me-pic" src="resources/images/about_me.png">
+                        <div class="col-md-5 col-lg-5 col-xl-5" align="center">
+                            <img id="about-pic" src="resources/images/about_me.png">
                         </div>
                         <div class="col-md-1 col-lg-1 col-xl-1"></div>
                         <div class="col-md-6 col-lg-6 col-xl-6">
-                            <container> <!-- todo: set top height -->
-                                <div class="heading heading-gradient">ABOUT ME</div>
+                            <container>
+                                <div class="heading heading-gradient" id="about-header"><span class="label">ABOUT ME</span></div>
                                 <div class="sub-container">
                                     
                                     <div>
-                                        <div class="sub-heading" id="about-me-header">Hello! I’m Umang Singh</div>
+                                        <div class="sub-heading" id="about-sub-header">Hello! I’m Umang Singh</div>
                                     </div>
                                     <div>
                                         <p id="about-me-paragraph">I am a User Experience (UX) Designer with a special focus in the process to create products that provide meaningful and relevant experiences to users. I am currently studying Master of Design (M. Des) from Chitkara University with a focus on acquiring and integrating products, that include aspects of branding, design, usability and function. I’m looking for experiences to learn more about career paths and ways to grow into the role of a UX Team Lead in the next few years. Feel free to contact me in case you have any suitable opportunities.</p>
                                     </div>
                                     <div>
                                         <div class="row button-grp">
-                                            <div class="col-xs col-sm col-md col-lg">                   
-                                                <button type="button" class="btn btn-block"><icon class="fa fa-download" aria-hidden="true"></icon>Resume</button>
+                                            <div class="col-xs col-sm-6 col-md col-lg col-xl float-left">                   
+                                                <button type="button" class="btn btn-block btn-md"><icon class="fa fa-download" aria-hidden="true"></icon>Resume</button>
                                             </div>
-                                            <div class="col-xs col-sm col-md col-lg">
-                                                <button type="button" class="btn btn-block"><icon class="fa fa-phone fa-flip-horizontal" aria-hidden="true"></icon>Contact Me</button>
+                                            <div class="col-xs col-sm-6 col-md col-lg col-xl float-right">
+                                                <button type="button" class="btn btn-block btn-md"><icon class="fa fa-phone" aria-hidden="true"></icon>Contact Me</button>
                                             </div>
                                         </div>
                                     </div>
@@ -91,108 +89,106 @@
             <!-- Portfolio -->
             <section id="portfolio">
                 <container align="center">
-                    <!-- <div class="sub-container"> -->
-                        <div class="heading heading-gradient">PORTFOLIO</div>
-                    <!-- </div> -->
-                    <!-- <div class="sub-container"> -->
-                        <div class="sub-heading">Check out a few of my works!</div>
-                    <!-- </div> -->
-                    <div class="sub-container">
-                        
-                        <!-- Project 1 -->
-                        <project class="row"> <!-- coverpage-float-left -->
-                            <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 col-xl-6 coverpage" align="center">
-                                <img class="h-100 w-30" src="resources/images/portfolio_frontpage.png">
-                            </div>
-                            <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
-                                <div class="project-details">
-                                    <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
-                                    <div class="design-type">Omnipresence Design</div>
-                                    <div class="project-title">Muscle & Strength</div>
-                                    <div class="project-description"><p>The mission of muscle and strength is to build a platform that provides people with the knowledge, tools and products to reach their fitness & physique goals.</p></div>
-                                    <div class="row button-grp">
-                                        <div class="col-xs col-sm col-md col-lg">                   
-                                            <button type="button" class="btn btn-block"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                        </div>
-                                        <div class="col-xs col-sm col-md col-lg">
-                                            <button type="button" class="btn btn-block"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                        </div>
+                    <div class="heading heading-gradient">PORTFOLIO</div>
+                    <div class="sub-heading">Check out a few of my works!</div>
+                    
+                    <!-- Project 1 -->
+                     <project class="row first-child">
+                        <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 col-xl-6" align="center">
+                            <img class="coverpage" src="resources/images/portfolio_frontpage.png">
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                            <div class="project-details">
+                                <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
+                                <div class="design-type">Omnipresence Design</div>
+                                <div class="project-title">Muscle & Strength</div>
+                                <div class="project-description"><p>The mission of muscle and strength is to build a platform that provides people with the knowledge, tools and products to reach their fitness & physique goals.</p></div>
+                                <div class="row button-grp">
+                                    <div class="col-xs col-sm col-md col-lg float-left">                   
+                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
+                                    </div>
+                                    <div class="col-xs col-sm col-md col-lg float-right">
+                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
                                     </div>
                                 </div>
-                            </div>  
-                        </project>
+                            </div>
+                        </div>  
+                    </project>
 
-                        <!-- Project 2 -->
-                        <project class="row">
-                            <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
-                                <div class="project-details">
-                                    <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
-                                    <div class="design-type">Omnipresence Design</div>
-                                    <div class="project-title">Muscle & Strength</div>
-                                    <div class="project-description"><p>The mission of muscle and strength is to build a platform that provides people with the knowledge, tools and products to reach their fitness & physique goals.</p></div>
-                                    <div class="row button-grp">
-                                        <div class="col-xs col-sm col-md col-lg">                   
-                                            <button type="button" class="btn btn-block"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                        </div>
-                                        <div class="col-xs col-sm col-md col-lg">
-                                            <button type="button" class="btn btn-block"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>  
-                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
-                            <div class="col-xs-3 col-sm-3 col-md-5 col-lg-5 col-xl-5 coverpage" align="center">
-                                <img class="h-100 w-30" src="resources/images/portfolio_frontpage.png">
-                            </div>
-                        </project>
+                    <hr class="solid">
 
-                        <!-- Project 3 -->
-                        <project class="row"> <!-- coverpage-float-left -->
-                            <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 col-xl-6 coverpage" align="center">
-                                <img class="h-100 w-30" src="resources/images/portfolio_frontpage.png">
-                            </div>
-                            <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
-                                <div class="project-details">
-                                    <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
-                                    <div class="design-type">Omnipresence Design</div>
-                                    <div class="project-title">Muscle & Strength</div>
-                                    <div class="project-description"><p>The mission of muscle and strength is to build a platform that provides people with the knowledge, tools and products to reach their fitness & physique goals.</p></div>
-                                    <div class="row button-grp">
-                                        <div class="col-xs col-sm col-md col-lg">                   
-                                            <button type="button" class="btn btn-block"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                        </div>
-                                        <div class="col-xs col-sm col-md col-lg">
-                                            <button type="button" class="btn btn-block"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                        </div>
+                    <!-- Project 2 -->
+                     <project class="row flex-row-reverse">
+                        <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 col-xl-6" align="center">
+                            <img class="coverpage" src="resources/images/portfolio_frontpage.png">
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                            <div class="project-details">
+                                <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
+                                <div class="design-type">Omnipresence Design</div>
+                                <div class="project-title">Muscle & Strength</div>
+                                <div class="project-description"><p>The mission of muscle and strength is to build a platform that provides people with the knowledge, tools and products to reach their fitness & physique goals.</p></div>
+                                <div class="row button-grp">
+                                    <div class="col-xs col-sm col-md col-lg float-left">                   
+                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
+                                    </div>
+                                    <div class="col-xs col-sm col-md col-lg float-right">
+                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
                                     </div>
                                 </div>
-                            </div>  
-                        </project>
+                            </div>
+                        </div>  
+                    </project>
 
-                        <!-- Project 4 -->
-                        <project class="row">
-                            <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
-                                <div class="project-details" style="padding-left: 10px;">
-                                    <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
-                                    <div class="design-type">Omnipresence Design</div>
-                                    <div class="project-title">Muscle & Strength</div>
-                                    <div class="project-description"><p>The mission of muscle and strength is to build a platform that provides people with the knowledge, tools and products to reach their fitness & physique goals.</p></div>
-                                    <div class="row button-grp">
-                                        <div class="col-xs col-sm col-md col-lg">                   
-                                            <button type="button" class="btn btn-block"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                        </div>
-                                        <div class="col-xs col-sm col-md col-lg">
-                                            <button type="button" class="btn btn-block"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                        </div>
+                    <hr class="solid">
+
+                    <!-- Project 3 -->
+                    <project class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 col-xl-6" align="center">
+                            <img class="coverpage" src="resources/images/portfolio_frontpage.png">
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                            <div class="project-details">
+                                <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
+                                <div class="design-type">Omnipresence Design</div>
+                                <div class="project-title">Muscle & Strength</div>
+                                <div class="project-description"><p>The mission of muscle and strength is to build a platform that provides people with the knowledge, tools and products to reach their fitness & physique goals.</p></div>
+                                <div class="row button-grp">
+                                    <div class="col-xs col-sm col-md col-lg float-left">                   
+                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
+                                    </div>
+                                    <div class="col-xs col-sm col-md col-lg float-right">
+                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
                                     </div>
                                 </div>
-                            </div>  
-                            <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 col-xl-6 coverpage" align="center">
-                                <img class="h-100 w-30" src="resources/images/portfolio_frontpage.png">
                             </div>
-                        </project>
-                        
-                    </div>
+                        </div>  
+                    </project>
+
+                    <hr class="solid">
+
+                    <!-- Project 4 -->
+                    <project class="row flex-row-reverse">
+                        <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 col-xl-6" align="center">
+                            <img class="coverpage" src="resources/images/portfolio_frontpage.png">
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                            <div class="project-details">
+                                <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
+                                <div class="design-type">Omnipresence Design</div>
+                                <div class="project-title">Muscle & Strength</div>
+                                <div class="project-description"><p>The mission of muscle and strength is to build a platform that provides people with the knowledge, tools and products to reach their fitness & physique goals.</p></div>
+                                <div class="row button-grp">
+                                    <div class="col-xs col-sm col-md col-lg float-left">                   
+                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
+                                    </div>
+                                    <div class="col-xs col-sm col-md col-lg float-right">
+                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </project>
                 </container>  
             </section>
 
@@ -200,7 +196,7 @@
             <section id="contact">
                 <container align="center">
                     <div class="sub-container">
-                        <div class="heading heading-gradient">CONTACT ME</div>
+                        <div class="heading heading-gradient" id="contact-header">CONTACT ME</div>
                     </div>
                     <div class="sub-container" id="contact-number">
                         <button type="button" class="btn btn-lg">
@@ -211,13 +207,13 @@
                         </button>
                         <div class="icons-group">
                             <ul class="icons">
-                                <li><a href="mailto://singh.umang1997@gmail.com" target="_blank" class="icon fa-envelope"><span class="label">Email</span></a></li>
-                                <li><a href="https://linkedin.com/in/umangsingh123/" target="_blank" class="icon fa-twitter"><span class="label">Linked In</span></a></li>
-                                <li><a href="https://instagram.com/_umangsingh/" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="mailto://singh.umang1997@gmail.com" target="_blank" class="icon fa-envelope white"><span class="label">Email</span></a></li>
+                                <li><a href="https://linkedin.com/in/umangsingh123/" target="_blank" class="icon fa-twitter white"><span class="label">Linked In</span></a></li>
+                                <li><a href="https://instagram.com/_umangsingh/" target="_blank" class="icon fa-instagram white"><span class="label">Instagram</span></a></li>
                             </ul>
                         </div>
                         <div id="foot-notes" class="footer">
-                            <span class="label white">&copy; <i>This Website is designed by Umang Singh.</i></spa>
+                            <span class="label">&copy; <i>This Website is designed by Umang Singh.</i></spa>
                         </div>
                     </div>
                 </container>
