@@ -1,18 +1,27 @@
 @import url("font-awesome.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+/*@screen-xs-min: 480px;
+@screen-xs-max: 767px;
+@screen-sm-min: 768px;
+@screen-sm-max: 991px;
+@screen-md-min: 992px;
+@screen-md-max: 1199px;
+@screen-lg-min: 1200px;
+@screen-lg-max: ;
+@screen-xl-min: ;*/
+
 /* Common */
 
 	body {
 		background-image: url("../../resources/images/Endless-Constellation.png");
-		/*background-position: top right;*/
+		background-position: top right;
 		background-repeat: repeat;
 		background-size: initial;
 		content: '';
 		display: block;
 		font-weight: 300;
 	}
-
 
 
 /* Viewport Sizes */
@@ -54,6 +63,8 @@
 		background: #E93415;
 		font-weight: 400;
 		color: #fff;
+		/*height: 58px;
+		width: 350px;*/
 	}
 
 /*  Icons */
@@ -96,7 +107,7 @@
 	}*/
 
 	.icons-group {
-		padding: 30px;	
+		padding: 5vh;	
 	}
 
 	icon {
@@ -114,6 +125,12 @@
 
 	.icon > .label {
 		display: none;
+	}
+
+	/* Table */
+	.row {
+		align-items: center;
+		align-self: center center;
 	}
 
 	/* List */
@@ -173,10 +190,9 @@
 	}*/
 
 /* Section */
-	.padding-sides-large {
-		padding: 0px 100px 0px 100px;
+	section {
+		min-height: 100vh;
 	}
-
 /* Container */
 	container {
 		padding: 10vh 5vw 5vh 5vw;
@@ -190,19 +206,15 @@
 		padding: 10px;
 	}
 
-	container > .sub-container {
-		padding: 0px 20px 0px 20px;
-		vertical-align: center;
-	}
-
 /* Headings */
 
 	.heading {
 		/*font-size: 100px;*/
-		font-size: 14vh;
+		font-size: 5vh;
 		font-weight: 700;
 		letter-spacing: 0em;
 		text-align: center;
+		padding-left: 20px;
 	}
 
 	.sub-heading {
@@ -211,7 +223,8 @@
 	}
 
 	.heading-gradient{
-		background: linear-gradient(180deg, #525252 0%, rgba(255, 255, 255, 0.5) 100%);
+		/*background: linear-gradient(180deg, #525252 0%, rgba(255, 255, 255, 0.5) 100%);*/
+		background: linear-gradient(180deg, #525252 0%, rgba(214, 214, 214, 0.5) 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
@@ -222,7 +235,6 @@
 		color: #0F0F0F;
 		opacity: 60%;
 		font-weight: 300;
-
 	}
 
 /* Page-Breaks */
@@ -242,6 +254,7 @@
 		align-items: center;
 		text-align: center;
 		color: #fff;
+		padding-bottom: 10px;
 	}
 
 
@@ -269,7 +282,6 @@
 	}
 
 	#main > #intro > container > #header > #heading {
-	/*.heading {*/
 		font-size: 20vh;
 		font-weight: 400;
 		/*line-height: 15vh;*/
@@ -286,18 +298,28 @@
 
 /* Section Two - About Me */
 
-	#about-me-pic {
+	#about-pic {
 		max-height: 100vh;
 		max-width: 50vw;
 	}
 
-	#about-me-header {
+	#about-me > div > div {
+		align-items: center;
+		align-self: center center;
+	}
+
+	#about-header {
+		text-align: left;
+	}
+
+	#about-sub-header {
 		/*background-image: url("../../resources/images/ABOUT_ME-txt.png");
-		background-position: top left;
+		background-position: center;
 		background-repeat: no-repeat;
 		background-size: contain;
 		content: '';
 		display: block;*/
+		/*object-position: -20px;*/
 	}
 
 	#about-me-paragraph {
@@ -308,21 +330,23 @@
 
 /* Section Three - Portfolio */
 
-	#portfolio {
-		padding: 0 250px 0 250px;
-	}
-
 	project {
 		align-items: center;
 		align-self: center center; 
+		max-height: 100vh;
 	}
 
-	project > .coverpage {
-		align-items: justify;
-		align-self: center center; 
+	project > div > img.coverpage {
+		max-height: 100vh;
+		max-width: 53vw;
 	}
 
-	.project-details {
+	project.first-child > div > img.coverpage {
+		max-height: 77vh;
+		max-width: 38vw;
+	}
+
+	project > div > div.project-details {
 		text-align: left;
 	}
 
@@ -357,108 +381,495 @@
 
 /* Section Four - Contact */
 	#main > #contact {
-		/*-webkit-appearance: none;*/
-
-		/*background: linear-gradient(-180deg, #222127 0%, #E93415 100%);
-		opacity: 0.68;
-		background-color: #000;*/
 		background: linear-gradient(180deg, #000 53.65%, #E93415 100%);
 		background-color: #000;
-		/*opacity: 0.68;*/
 		content: '';
 		display: block;
 		height: 100vh;
 		width: 100%;
-
 		box-shadow: 0px 32px 64px #848484;
 	}
 
 	#contact-number {
 		position: relative;
 		/*align-self: center;*/
-		top: 20vh;
-	}
-
-	#contact-number > button{
-		background: #E93415;
-		border-radius: 16px;
+		top: 12vh;
 	}
 
 	#foot-notes.footer {
-		position: relative;
+		position: inherit;
 		top: 10vh;
+		/*color: #7A7A7D;*/
+		color: #fff;
+		font-size: 0.75em;
 	}
 
 /* Media Specific */
-/* Extra Small Screen */
-  @media screen and (max-width: $screen-xs-max) {
-	/*@media screen and (max-width: 480px) {*/
-		container > .sub-container {
-			padding: 10px 40px 40px 40px;
+/* Extra small screen / phone */
+	/*@media screen and (max-width:@screen-xs-max) {*/
+	@media screen and (max-width: 767px) {
+
+		/* Common */
+		/*body{
+			background-color: orange;
+		}*/
+		.row {
+		  margin-left: 0;
+		  margin-right: 0;
 		}
 
+		.button-grp > div {
+			padding: 5px 0px 5px 0px;
+		}
+
+		ul.icons li .icon:before {
+			font-size: 40px;
+		}
+
+ 		/* Container */
+ 		container {
+			padding: 0px;
+		}
+
+		container > div {
+			padding: 0;
+		}
+
+		container > div > div{
+			padding: 0 5px 0 5px;
+		}
+
+		container > .sub-container {
+			padding: 0px 20px 10px 20px;
+		}
+		
+		/* Headings */
 		.heading {
-			font-size: 50px;
-			padding-top: 80px;
-			font-weight: 700;
-			letter-spacing: 0em;
-			text-align: center;
+			font-size: 5vh;
+			padding-left: 25px;
+		}
+
+		.sub-heading {
+			font-size: 3vh;
+		}
+
+		/* Section One - Intro */
+		#main > #intro {
+			/*background-image: url("../../resources/images/intro_sky.png");*//*change pic*/
+			/*background-position: bottom left;*/
+			background-position: 74%;
 		}
 
 		#main > #intro > container > #header > #heading {
-			font-size: 10vh;
-			/*line-height: 15vh;*/
-			background: linear-gradient(180deg, #DFDFDF 0%, rgba(237, 237, 237, 0) 100%);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			text-shadow: 0px 0px 64px rgba(0, 0, 0, 0.25);
-			text-align: center center;
+			font-size:10vh;
+			line-height: 12vh;
+			padding: 10vh 5vw 5vh 5vw;
+		}
+
+		/* Section Two - About Me */
+		#about-pic {
+			max-height: 30vh;
+			max-width: 50vw;
+		}
+
+		#about-me-paragraph {
+			font-size: 2vh;
+			line-height: 3vh;
+		}
+
+		/* Section Three - Portfolio */
+		#portfolio {
+			padding-top: 5vh;
+		}
+
+		project > div > img.coverpage {
+			max-height: 56vh;
+		}
+
+		project.first-child > div > img.coverpage {
+			max-height: 39vh;
+		}
+
+		project > div > div.project-details {
+			padding: 0px 25px 10px 25px; 
+		}
+
+		.project-details > .team {
+			font-size: 1.5vh;
+		}
+
+		.project-details > .design-type {
+			font-size: 2vh;
+		}
+
+		.project-details > .project-title {
+			font-size: 3.5vh;		}
+
+		.project-details > .project-description {
+			font-size: 2.5vh;
+			line-height: 3.5vh;
+		}
+
+		/* Section Four - Contact */
+		#contact-header {
+			padding-top: 5vh;
+		}
+
+		#contact-number {
+			position: relative;
+			/*align-self: center;*/
+			top: 25vh;
+		}
+
+		#foot-notes.footer {
+			top: 18vh;
 		}
 
 	}
 
- /* Small Screen */
-  @media screen and (min-width: $screen-sm-min) and  (max-width: $screen-sm-max) {
-	/*@media screen and (max-width: 736px) {*/
-		container > .sub-container {
-			padding: 10px 40px 40px 40px;
-		}
-
-		.heading {
-			font-size: 50px;
-			padding-top: 80px;
-			font-weight: 700;
-			letter-spacing: 0em;
-			text-align: center;
-		}
-
-		#main > #intro > container > #header > #heading {
-			font-size: 10vh;
-			/*line-height: 15vh;*/
-			background: linear-gradient(180deg, #DFDFDF 0%, rgba(237, 237, 237, 0) 100%);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-image: none;
-			text-shadow: 0px 0px 64px rgba(0, 0, 0, 0.25);
-			text-align: center center;
-		}
-	}
 	
 
-/* Medium Screen */
- @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-	/*@media screen and (max-width: 1024px) {*/
+ /* Small Screen / tablet */
+  	/*@media screen and (min-width:@screen-sm-min) and  (max-width:@screen-sm-max) {*/
+	@media screen and (min-width:768px) and (max-width: 991px) {
+
+		/* Common */
+		/*body{
+			background-color: yellow;
+		}*/
+
+		.row {
+		  margin-left: 0;
+		  margin-right: 0;
+		}
+
+		.button-grp > div.float-left {
+			padding: 0;
+			padding-right: 5px;
+		}
+
+		.button-grp > div.float-right {
+			padding: 0;
+			padding-left: 5px;
+		}
+
+		button.btn.btn-lg {
+			height: 80px;
+			width: 400px;
+			border-radius: 16px;
+		}
+
+		/* Section */
+		section {
+			min-height: unset;
+		}
+
+		/* Container */
+
+		/* Headings */
+		.heading {
+			font-size: 5vh;
+			padding-left: 25px;
+		}
+
+		.sub-heading {
+			font-size: 3vh;
+		}
+
+		/* Section One - Intro */
+		#main > #intro {
+			/*background-image: url("../../resources/images/intro_sky.png");*/
+			background-position: 77%;
+		}
+
+		#main > #intro > container {
+			top: 12vh;
+		}
+
+		#main > #intro > container > #header > #heading {
+			font-size: 12vh;
+			line-height: 15vh;
+			padding: 10vh 5vw 5vh 5vw;
+		}
 		
+		/* Section Two - About Me */
+
+		/* Section Three - Portfolio */
+		#portfolio {
+			padding-top: 5vh;
+		}
+
+		project > div > img.coverpage {
+			max-height: 100vh;
+			max-width: 45vw;
+		}
+
+		project.first-child > div > img.coverpage {
+			max-height: 100vh;
+			max-width: 45vw;
+		}
+
+		project > div > div.project-details {
+			padding: 0px 25px 10px 25px; 
+		}
+
+		.project-details > .team {
+			font-size: 1vh;
+		}
+
+		.project-details > .design-type {
+			font-size: 2vh;
+		}
+
+		.project-details > .project-title {
+			font-size: 3vh;		}
+
+		.project-details > .project-description {
+			font-size: 2vh;
+			line-height: 3vh;
+		}
+
+		/* Section Four - Contact */
+		#contact-header {
+			padding-top: 5vh;
+			font-size: 90px;
+		}
+
+		#contact-number {
+			position: relative;
+			top: 22vh;
+		}
+
+		#foot-notes.footer {
+			top: 16vh;
+		}
 	}
 
- /* Large Screen */
-  @media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-	/*@media screen and (min-width: 1280px) {*/
+/* Medium Screen / desktop/tablet */
+ 	/*@media screen and (min-width:@screen-md-min) and (max-width:@screen-md-max) {*/
+	@media screen and (min-width:992px) and (max-width: 1199px) {
+		/* Common */
+		/*body{
+			background-color: blue;
+		}*/
+
+		.row {
+		  margin-left: 0;
+		  margin-right: 0;
+		}
+
+		.button-grp > div.float-left {
+			padding: 0;
+			padding-right: 5px;
+		}
+
+		.button-grp > div.float-right {
+			padding: 0;
+			padding-left: 5px;
+		}
+
+		button.btn.btn-lg {
+			height: 110px;
+			width: 500px;
+			border-radius: 16px;
+		}
+
+		/* Section */
+		section {
+			min-height: unset;
+		}
+
+		/* Container */
+
+		/* Headings */
+		.heading {
+			font-size: 5vh;
+			padding-left: 25px;
+		}
+
+		.sub-heading {
+			font-size: 3vh;
+		}
+
+		/* Section One - Intro */
+		#main > #intro {
+			/*background-image: url("../../resources/images/intro_sky.png");*/
+			background-position: 77%;
+		}
+
+		#main > #intro > container {
+			top: 12vh;
+		}
+
+		#main > #intro > container > #header > #heading {
+			font-size: 12vh;
+			line-height: 15vh;
+			padding: 10vh 5vw 5vh 5vw;
+		}
 		
+		/* Section Two - About Me */
+
+		/* Section Three - Portfolio */
+		#portfolio {
+			padding-top: 5vh;
+		}
+
+		project > div > img.coverpage {
+			max-height: 100vh;
+			max-width: 45vw;
+		}
+
+		project.first-child > div > img.coverpage {
+			max-height: 100vh;
+			max-width: 45vw;
+		}
+
+		project > div > div.project-details {
+			padding: 0px 65px 10px 0; 
+		}
+
+		project.flex-row-reverse > div > div.project-details {
+			padding: 0px 0 10px 65px; 
+		}
+
+		.project-details > .team {
+			font-size: 1vh;
+		}
+
+		.project-details > .design-type {
+			font-size: 2vh;
+		}
+
+		.project-details > .project-title {
+			font-size: 3vh;		}
+
+		.project-details > .project-description {
+			font-size: 2vh;
+			line-height: 3vh;
+		}
+
+		/* Section Four - Contact */
+		#contact-header {
+			padding-top: 5vh;
+			font-size: 90px;
+		}
+
+		#contact-number {
+			position: relative;
+			top: 22vh;
+		}
+
+		#foot-notes.footer {
+			top: 20vh;
+			font-size: 1em;
+		}
 	}
 
- /* Large Screen */
-  @media screen and (min-width: $screen-xl-min) {
-	/*@media screen and (min-width: 1680px) {*/
+ /* Large Screen / 13" desktop / Mac airs */
+  	/*@media screen and (min-width:@screen-lg-min) and (max-width:@screen-lg-max) {*/
+	@media screen and (min-width:1200px) and (max-width: 1919px) {
+		/* Common */
+		/*body{
+			background-color: purple;
+		}*/
+
+		button.btn.btn-sm {
+			height: 50px;
+			width: 212px;
+			font-size: 18px;
+		}
+
+		button.btn.btn-md {
+			height: 50px;
+			width: 267px;
+			font-size: 18px;
+		}
+
+		button.btn.btn-lg {
+			font-size: 34px;
+			height: 85px;
+			width: 475px;
+			border-radius: 16px;
+		}
+
+		.padding-sides-large {
+			padding: 0px 100px 0px 100px;
+		}
+
+		/* Container */
+
+		/* Headings */
 		
+		/* Section One - Intro */
+
+		/* Section Two - About Me */
+
+		/* Section Three - Portfolio */
+		#portfolio {
+			padding: 0 250px 0 250px;
+		}
+
+		/* Section Four - Contact */
+		#contact-header {
+			font-size: 125px;
+		}
 	}
+
+ /* Large Screen / screen with num pad*/
+  	/*@media screen and (min-width:@screen-xl-min) {*/
+	@media screen and (min-width: 1920px) {/*min-width: 1680px*/
+		/* Common */
+		/*body{
+			background-color: green;
+		}*/
+
+		button.btn.btn-sm {
+			height: 58px;
+			width: 330px;
+			font-size: 24px;
+		}
+
+		button.btn.btn-md {
+			height: 58px;
+			width: 347px;
+			font-size: 24px;
+		}
+
+		button.btn.btn-lg {
+			font-size: 40px;
+			height: 130px;
+			width: 730px;
+			border-radius: 16px;
+		}
+
+		.padding-sides-large {
+			padding: 0px 180px 0px 180px;
+		}
+
+		/* Container */
+
+		/* Headings */
+
+		/* Section One - Intro */
+
+		/* Section Two - About Me */
+		#about-pic {
+			height: 100vh;
+		}
+
+		/* Section Three - Portfolio */
+		#portfolio {
+			padding: 0 250px 0 250px;
+		}
+
+		/* Section Four - Contact */
+		#contact-header {
+			font-size: 180px;
+		}
+
+		#foot-notes.footer {
+			font-size: 1.5em;
+		}
+
+	}
+  
