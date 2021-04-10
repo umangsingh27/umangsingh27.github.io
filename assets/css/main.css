@@ -359,16 +359,14 @@
 	project > div > img.coverpage {
 		max-height: 100vh;
 		max-width: 53vw;
-		float: left;
+		float: center;
 	}
 
 	project.first-child > div > img.coverpage {
 		max-height: 77vh;
-		max-width: 38vw;	}
-
-	project.flex-row-reverse > div > img.coverpage {
-		float: right;
+		max-width: 38vw;	
 	}
+
 
 	project > div > div.project-details {
 		text-align: left;
@@ -405,8 +403,9 @@
 
 /* Section Four - Contact */
 	#main > #contact {
-		background: linear-gradient(180deg, #000 53.65%, #E93415 100%);
-		background-color: #000;
+		/*background: linear-gradient(180deg, #000 53.65%, #E93415 100%);*/
+		/*background-color: #000;*/
+		background-color: #241e1d;
 		content: '';
 		display: block;
 		height: 100vh;
@@ -422,7 +421,7 @@
 
 	#foot-notes.footer {
 		position: inherit;
-		top: 10vh;
+		top: 8vh;
 		/*color: #7A7A7D;*/
 		color: #fff;
 		font-size: 0.75em;
@@ -831,6 +830,14 @@
 			padding: 0 250px 0 250px;
 		}
 
+		project > div > img.coverpage {
+			float: left;
+		}
+		
+		project.flex-row-reverse > div > img.coverpage {
+			float: right;
+		}
+
 		project > div > div.project-details {
 			padding: 0px 65px 10px 0; 
 		}
@@ -838,6 +845,8 @@
 		project.flex-row-reverse > div > div.project-details {
 			padding: 0px 0 10px 65px; 
 		}
+
+
 
 		/* Section Four - Contact */
 		#contact-header {
@@ -887,11 +896,25 @@
 			height: 100vh;
 		}
 
+		#about-me-paragraph {
+			/*padding: 0 10px 0 10px;*/
+			font-size: 30px;
+			line-height: 35px;
+		}
+
 		/* Section Three - Portfolio */
 		#portfolio {
 			padding: 0 250px 0 250px;
 		}
 
+		project > div > img.coverpage {
+			float: left;
+		}
+		
+		project.flex-row-reverse > div > img.coverpage {
+			float: right;
+		}
+		
 		project > div > div.project-details {
 			padding: 0px 65px 10px 0; 
 		}
@@ -907,17 +930,14 @@
 
 		.project-details > .design-type {
 			font-size: 24px;
-			font-weight: 300;
 		}
 
 		.project-details > .project-title {
 			font-size: 64px;
-			font-weight: 300;
 		}
 
 		.project-details > .project-description {
-			font-size: 36px;
-			font-weight: 300;
+			font-size: 30px;
 		}
 
 
