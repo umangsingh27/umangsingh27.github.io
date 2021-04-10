@@ -21,6 +21,14 @@
 		content: '';
 		display: block;
 		font-weight: 300;
+		overflow-x: hidden;
+		-ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+	}
+
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	body::-webkit-scrollbar {
+	  display: none;
 	}
 
 
@@ -65,6 +73,14 @@
 		color: #fff;
 		/*height: 58px;
 		width: 350px;*/
+	}
+
+	button.btn.btn-sm {
+		width: 100%;
+	}
+
+	button.btn.btn-md {
+		width: 100%;
 	}
 
 /*  Icons */
@@ -292,6 +308,10 @@
 		text-align: center center;
 	}
 
+	#get-in-touch-btn {
+		width: 256px;
+	}
+
 	#main > #intro > container > #intro-footer {
 		color: #fff;
 	}
@@ -339,11 +359,15 @@
 	project > div > img.coverpage {
 		max-height: 100vh;
 		max-width: 53vw;
+		float: left;
 	}
 
 	project.first-child > div > img.coverpage {
 		max-height: 77vh;
-		max-width: 38vw;
+		max-width: 38vw;	}
+
+	project.flex-row-reverse > div > img.coverpage {
+		float: right;
 	}
 
 	project > div > div.project-details {
@@ -775,13 +799,11 @@
 
 		button.btn.btn-sm {
 			height: 50px;
-			width: 212px;
 			font-size: 18px;
 		}
 
 		button.btn.btn-md {
 			height: 50px;
-			width: 267px;
 			font-size: 18px;
 		}
 
@@ -809,6 +831,14 @@
 			padding: 0 250px 0 250px;
 		}
 
+		project > div > div.project-details {
+			padding: 0px 65px 10px 0; 
+		}
+
+		project.flex-row-reverse > div > div.project-details {
+			padding: 0px 0 10px 65px; 
+		}
+
 		/* Section Four - Contact */
 		#contact-header {
 			font-size: 125px;
@@ -825,14 +855,14 @@
 
 		button.btn.btn-sm {
 			height: 58px;
-			width: 330px;
 			font-size: 24px;
+			border-radius: 8px;
 		}
 
 		button.btn.btn-md {
 			height: 58px;
-			width: 347px;
 			font-size: 24px;
+			border-radius: 8px;
 		}
 
 		button.btn.btn-lg {
@@ -861,6 +891,35 @@
 		#portfolio {
 			padding: 0 250px 0 250px;
 		}
+
+		project > div > div.project-details {
+			padding: 0px 65px 10px 0; 
+		}
+
+		project.flex-row-reverse > div > div.project-details {
+			padding: 0px 0 10px 65px; 
+		}
+
+		.project-details > .team {
+			font-size: 18px;
+
+		}
+
+		.project-details > .design-type {
+			font-size: 24px;
+			font-weight: 300;
+		}
+
+		.project-details > .project-title {
+			font-size: 64px;
+			font-weight: 300;
+		}
+
+		.project-details > .project-description {
+			font-size: 36px;
+			font-weight: 300;
+		}
+
 
 		/* Section Four - Contact */
 		#contact-header {
