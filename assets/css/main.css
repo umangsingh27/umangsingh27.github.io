@@ -60,6 +60,11 @@
 		color: #fff;
 	}
 
+	.grey {
+		border-color: #f0f0f0;
+		color: #f0f0f0;
+	}
+
 /* Buttons */
 
 	.button-grp > div {
@@ -535,7 +540,7 @@
 
 		/* Section Four - Contact */
 		#contact-header {
-			padding-top: 5vh;
+			padding-top: 10vh;
 		}
 
 		#contact-number {
@@ -545,7 +550,7 @@
 		}
 
 		#foot-notes.footer {
-			top: 18vh;
+			top: 13vh;
 		}
 
 	}
@@ -620,6 +625,10 @@
 		/* Section Three - Portfolio */
 		#portfolio {
 			padding-top: 5vh;
+		}
+
+		#portfolio-header {
+			font-size: 90px;
 		}
 
 		project > div > img.coverpage {
@@ -737,6 +746,10 @@
 			padding-top: 5vh;
 		}
 
+		#portfolio-header {
+			font-size: 90px;
+		}
+
 		project > div > img.coverpage {
 			max-height: 100vh;
 			max-width: 45vw;
@@ -756,17 +769,22 @@
 		}
 
 		.project-details > .team {
+			padding: 6px 0px 6px 0px;
 			font-size: 1vh;
 		}
 
 		.project-details > .design-type {
+			padding: 14px 0 14px 0;
 			font-size: 2vh;
 		}
 
 		.project-details > .project-title {
-			font-size: 3vh;		}
+			padding: 14px 0 14px 0;
+			font-size: 3vh;		
+		}
 
 		.project-details > .project-description {
+			padding: 34px 0 54px 0;
 			font-size: 2vh;
 			line-height: 3vh;
 		}
@@ -830,6 +848,10 @@
 			padding: 0 250px 0 250px;
 		}
 
+		#portfolio-header {
+			font-size: 125px;
+		}
+
 		project > div > img.coverpage {
 			float: left;
 		}
@@ -844,6 +866,23 @@
 
 		project.flex-row-reverse > div > div.project-details {
 			padding: 0px 0 10px 65px; 
+		}
+
+		.project-details > .team {
+			padding: 6px 0px 6px 0px;
+
+		}
+
+		.project-details > .design-type {
+			padding: 14px 0 14px 0;
+		}
+
+		.project-details > .project-title {
+			padding: 14px 0 14px 0;
+		}
+
+		.project-details > .project-description {
+			padding: 34px 0 54px 0;
 		}
 
 
@@ -907,6 +946,10 @@
 			padding: 0 250px 0 250px;
 		}
 
+		#portfolio-header {
+			font-size: 180px;
+		}
+
 		project > div > img.coverpage {
 			float: left;
 		}
@@ -914,7 +957,7 @@
 		project.flex-row-reverse > div > img.coverpage {
 			float: right;
 		}
-		
+
 		project > div > div.project-details {
 			padding: 0px 65px 10px 0; 
 		}
@@ -924,19 +967,23 @@
 		}
 
 		.project-details > .team {
+			padding: 6px 0px 6px 0px;
 			font-size: 18px;
 
 		}
 
 		.project-details > .design-type {
+			padding: 14px 0 14px 0;
 			font-size: 24px;
 		}
 
 		.project-details > .project-title {
+			padding: 14px 0 14px 0;
 			font-size: 64px;
 		}
 
 		.project-details > .project-description {
+			padding: 34px 0 54px 0;
 			font-size: 30px;
 		}
 
