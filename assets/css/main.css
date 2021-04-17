@@ -15,7 +15,7 @@
 
 	body {
 		background-image: url("../../resources/images/Endless-Constellation.png");
-		background-position: top right;
+		background-position: fixed top right;
 		background-repeat: repeat;
 		background-size: initial;
 		content: '';
