@@ -358,12 +358,12 @@
 	project {
 		align-items: center;
 		align-self: center center; 
-		max-height: 100vh;
+		min-height: 100vh;
 	}
 
 	project > div > img.coverpage {
 		max-height: 100vh;
-		max-width: 53vw;
+		max-width: 100%;
 		float: center;
 	}
 
@@ -510,7 +510,7 @@
 		}
 
 		project > div > img.coverpage {
-			max-height: 56vh;
+			max-height: 50vh;
 		}
 
 		project.first-child > div > img.coverpage {
@@ -849,6 +849,10 @@
 			font-size: 125px;
 		}
 
+		project:nth-child(3) > div > img.coverpage {
+			max-width: 90%;
+		}
+
 		project > div > img.coverpage {
 			float: left;
 		}
@@ -945,6 +949,10 @@
 
 		#portfolio-header {
 			font-size: 180px;
+		}
+
+		project:nth-child(3) > div > img.coverpage {
+			max-width: 90%;
 		}
 
 		project > div > img.coverpage {
