@@ -3,6 +3,7 @@
 
     <head>
       	<title>Umang Singh</title>
+        <link rel="icon" href="resources/images/DP.png" type="image/x-icon">
 
         <!-- Metadata -->
         <meta charset="utf-8">
@@ -12,246 +13,135 @@
         <!-- CSS files -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/main.css">
+        
+        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
     </head>
 
     <body>
 
-        <!-- Header -->
+        <!-- Intro Profile Pic -->
+        <div class="header">
+            <img src="resources/images/DP.png" alt="" class="rounded-circle">
+        </div>
+
         <!-- Progress Bar -->
-        <!-- <div class="progress vertical">
-          <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-             <span class="sr-only">70% Complete</span>
-          </div>
-        </div> -->
+        <div class="">
 
-        <!-- <div><progress class="progress-bar vertical" value=20 max="100"></progress></div> -->
+        </div>
+        <!-- Progress Bar Ends -->
 
+        <!-- Intro -->
+        <section id="intro" class="d-flex flex-column justify-content-between align-items-center">
+            <div>
+                <heading class="main-heading heading-gradient">UX Designer</heading>
+            </div>
+            <div class="pb-5">
+                <a href="#contact">
+                    <button type="button" class="btn btn-outline-secondary btn-md white" id="get-in-touch">Get in Touch</button>
+                </a>
+            </div>
+            <div class="footer pb-2">
+                <div>
+                    <icon class="material-icons white">mouse</icon><br>
+                    <span class="white">Scroll for more</span> <!-- todo: add on hover cursor change to mouse scroll -->
+                </div>
+            </div>
+        </section>
+        <!-- Intro Ends -->
 
-        <div id="main">
-            
-            <!-- Intro -->
-            <section id="intro" class="v-h-w">
-                <container>
-                    <div id="header">
-                        <div id ="heading">UX Designer</div>
-                        <div id ="sub-heading">
-                            <a href="#contact"><button type="button" class="btn btn-outline-secondary btn-md white" id="get-in-touch-btn">Get in Touch</button></a>
-                        </div>
-                    </div>
-                    <div class="footer" id="intro-footer">
-                        <icon class="material-icons white">mouse</icon><br>
-                        <span class="label white">Scroll for more</span> <!-- todo: add on hover cursor change to mouse scroll-->
-                    </div>
-                </container>           
-            </section>
+        <!-- Main Content -->
+        <div class="main-content">
 
             <!-- About Me -->
-            <section id="about-me">
-                <div class="padding-sides-large">
-                    <div class="row">
-                        <div class="col-md-5 col-lg-5 col-xl-5" align="center">
-                            <img id="about-pic" src="resources/aboutMe/about_me.png">
-                        </div>
-                        <div class="col-md-1 col-lg-1 col-xl-1"></div>
-                        <div class="col-md-6 col-lg-6 col-xl-6">
-                            <container>
-                                <div class="heading heading-gradient" id="about-header"><span class="label">ABOUT ME</span></div>
-                                <div class="sub-container">
-                                    
-                                    <div>
-                                        <div class="sub-heading" id="about-sub-header">Hello! I’m Umang Singh</div>
-                                    </div>
-                                    <div>
-                                        <p id="about-me-paragraph">I am a User Experience (UX) Designer with a special focus in the process to create products that provide meaningful and relevant experiences to users. I am currently studying Master of Design (M. Des) from Chitkara University with a focus on acquiring and integrating products, that include aspects of branding, design, usability and function. I’m looking for experiences to learn more about career paths and ways to grow into the role of a UX Team Lead in the next few years. Feel free to contact me in case you have any suitable opportunities.</p>
-                                    </div>
-                                    <div>
-                                        <div class="row button-grp">
-                                            <div class="col-xs col-sm-6 col-md col-lg col-xl float-left">                   
-                                                <button type="button" class="btn btn-block btn-md" onclick="window.open('resources/aboutMe/Umang_Resume_light.pdf#view=FitV'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>Resume</button>
-                                            </div>
-                                            <div class="col-xs col-sm-6 col-md col-lg col-xl float-right">
-                                                <a href="#contact"><button type="button" class="btn btn-block btn-md"><icon class="fa fa-phone" aria-hidden="true"></icon>Contact Me</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </container>
-                        </div>                    
-                    </div>
+            <section class="row" id="about-me">
+                <div class="col-md-5 col-lg-5 col-xl-5 align-self-center">
+                    <!-- px-5 mr-md-5 -->
+                    <img src="resources/aboutMe/about_me.png" class="mx-auto d-block about-pic">
                 </div>
+                <div class="col-md-1 col-lg-1 col-xl-1"></div>
+                <div class="col-md-6 col-lg-6 col-xl-6 px-md-5 align-self-center">
+                    <!-- <heading class="py-3 heading heading-gradient">ABOUT ME</heading> -->
+                    <heading class="py-2">Hello! I’m Umang Singh</heading>
+                    <p class="py-2">I am a <span class="highlight-red">User Experience (UX) Designer</span> with a special focus in the process to create products that provide meaningful and relevant experiences to users. I am currently studying Master of Design (M. Des) from Chitkara University with a focus on acquiring and integrating products, that include aspects of branding, design, usability and function. I’m looking for experiences to learn more about career paths and ways to grow into the role of a UX Team Lead in the next few years. Feel free to contact me in case you have any suitable opportunities.</p>
+                    <div class="d-flex flex-row justify-content-around btn-grp my-3">                  
+                        <button type="button" class="btn btn-block btn-fill" onclick="window.open('resources/aboutMe/Umang_Resume_light.pdf#view=FitV'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>Resume</button>
+                        <a href="#contact">
+                            <button type="button" class="btn btn-block btn-outline" id="contact-me"><icon class="fa fa-phone" aria-hidden="true"></icon>Contact Me</button>
+                        </a>
+                    </div>
+                </div>    
             </section>
+            <!-- About Me Ends -->
 
-            <!-- todo: Add Page Break-->
-            <hr class="solid">
+            <!-- <hr class="solid"> -->
 
             <!-- Portfolio -->
             <section id="portfolio">
-                <container align="center">
-                    <div class="heading heading-gradient" id="portfolio-header">PORTFOLIO</div>
-                    <div class="sub-heading">Check out a few of my works!</div>
-                    
-                    <!-- Project 1 -->
-                     <project class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-5 col-lg-5 col-xl-5" align="center">
-                            <img class="coverpage" src="resources/portfolio/project1/Fintech.png">
-                        </div>
-                        <div class="col-xs-8 col-sm-8 col-md-7 col-lg-7 col-xl-7">
-                            <div class="project-details">
-                                <div class="team"><icon class="fa fa-user" aria-hidden="true"></icon>Individual</div>
-                                <div class="design-type">Customer Experience in Fin-Tech</div>
-                                <div class="project-title">Fuel Station Payment Issues</div>
-                                <div class="project-description"><p>The payment process at fuel stations takes more time than actual refueling of the vehicle’s fuel tank. Hence, an alternative contact-less method is needed to both expedite the payment process and also to eliminate physical handling of cash.</p></div>
-                                <div class="row button-grp">
-                                    <!-- <div class="col-xs col-sm col-md col-lg float-left">                    -->
-                                        <button type="button" class="btn btn-block btn-sm" onclick="window.open('resources/portfolio/project1/Fintech_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                    <!-- </div>
-                                    <div class="col-xs col-sm col-md col-lg float-right">
-                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                    </div> -->
-                                </div>
-                            </div>
-                        </div>  
-                    </project>
-
-                    <hr class="solid">
-
-                    <!-- Project 2 -->
-                     <project class="row flex-row-reverse">
-                        <div class="col-xs-4 col-sm-4 col-md-5 col-lg-5 col-xl-5">
-                            <img class="coverpage" src="resources/portfolio/project2/m&s_frontpage.png">
-                        </div>
-                        <div class="col-xs-8 col-sm-8 col-md-7 col-lg-7 col-xl-7">
-                            <div class="project-details">
-                                <div class="team"><icon class="fa fa-users" aria-hidden="true"></icon>Group</div>
-                                <div class="design-type">Omnipresence Design</div>
-                                <div class="project-title">Muscle & Strength</div>
-                                <div class="project-description"><p>We have designed a mobile application and smart watch for the audiences who want to stay updated through the charts and routines of their workout. The app will help the people to lose weight, gain muscle, maintain fitness and also to achieve the body shape that they desire.</p></div>
-                                <div class="row button-grp">
-                                    <!-- <div class="col-xs col-sm col-md col-lg float-left">                    -->
-                                        <button type="button" class="btn btn-block btn-sm" onclick="window.open('resources/portfolio/project2/m&s_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                   <!--  </div>
-                                    <div class="col-xs col-sm col-md col-lg float-right">
-                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                    </div> -->
-                                </div>
-                            </div>
-                        </div>  
-                    </project>
-
-                    <hr class="solid">
-
-                    <!-- Project 3 -->
-                    <project class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-5 col-lg-5 col-xl-5">
-                            <img class="coverpage" src="resources/portfolio/project3/Ed-Vantage.gif" style="max-width: 90%">
-                        </div>
-                        <div class="col-xs-8 col-sm-8 col-md-7 col-lg-7 col-xl-7">
-                            <div class="project-details">
-                                <div class="team"><icon class="fa fa-user" aria-hidden="true"></icon>Individual</div>
-                                <div class="design-type">Service Design & Enterprise UX</div>
-                                <div class="project-title">Ed-Vantage</div>
-                                <div class="project-description"><p>In this project, I understood the existing examination system and thereafter tried to re-engineer the examination process in order to reduce the teacher’s and EDP operator’s work load by using technology to automate certain processes.</p></div>
-                                <div class="row button-grp">
-                                    <!-- <div class="col-xs col-sm col-md col-lg float-left">                    -->
-                                        <button type="button" class="btn btn-block btn-sm" onclick="window.open('resources/portfolio/project3/edvantage_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                   <!--  </div>
-                                    <div class="col-xs col-sm col-md col-lg float-right">
-                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                    </div> -->
-                                </div>
-                            </div>
-                        </div>  
-                    </project>
-
-                    <hr class="solid">
-
-                    <!-- Project 4 -->
-                    <project class="row flex-row-reverse">
-                        <div class="col-xs-4 col-sm-4 col-md-5 col-lg-5 col-xl-5" align="center">
-                            <img class="coverpage" src="resources/portfolio/project4/OnePlusWatch.png">
-                        </div>
-                        <div class="col-xs-8 col-sm-8 col-md-7 col-lg-7 col-xl-7">
-                            <div class="project-details">
-                                <div class="team"><icon class="fa fa-user" aria-hidden="true"></icon>Individual</div>
-                                <div class="design-type">User Interface Design</div>
-                                <div class="project-title">OnePlus Watch</div>
-                                <div class="project-description"><p>October 2020, There were rumours in the market that OnePlus was planning to launch a new digital product, Smart Watch. I gathered it's information and visualised it's User Interface. I have tried to design the same in this project.</p></div>
-                                <div class="row button-grp">
-                                    <!-- <div class="col-xs col-sm col-md col-lg float-left">                    -->
-                                        <button type="button" class="btn btn-block btn-sm" onclick="window.open('resources/portfolio/project4/onePlusWatch_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                    <!-- </div>
-                                    <div class="col-xs col-sm col-md col-lg float-right">
-                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                    </div> -->
-                                </div>
-                            </div>
-                        </div>  
-                    </project>
-
-                    <hr class="solid">
-
-                    <!-- Project 5 -->
-                    <project class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-5 col-lg-5 col-xl-5">
-                            <img class="coverpage" src="resources/portfolio/project5/cloudPass_frontpage.png">
-                        </div>
-                        <div class="col-xs-8 col-sm-8 col-md-7 col-lg-7 col-xl-7">
-                            <div class="project-details">
-                                <div class="team"><icon class="fa fa-user" aria-hidden="true"></icon>Individual</div>
-                                <div class="design-type">Digital Experience Strategy</div>
-                                <div class="project-title">Cloud Pass</div>
-                                <div class="project-description"><p>The purpose of this project is to eliminate the problems with multiple login credentials on different social media platforms, that a user faces because of multiple platforms having different patterns for these credentials.</p></div>
-                                <div class="row button-grp">
-                                    <!-- <div class="col-xs col-sm col-md col-lg float-left">                    -->
-                                        <button type="button" class="btn btn-block btn-sm" onclick="window.open('resources/portfolio/project5/cloudPass_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button>
-                                   <!--  </div>
-                                    <div class="col-xs col-sm col-md col-lg float-right">
-                                        <button type="button" class="btn btn-block btn-sm"><icon class="fa fa-download" aria-hidden="true"></icon>Download PDF</button>
-                                    </div> -->
-                                </div>
-                            </div>
-                        </div>  
-                    </project>
-                </container>  
-            </section>
-
-            <!-- Contact -->
-            <section id="contact">
-                <container align="center">
-                    <div class="sub-container">
-                        <div class="heading heading-gradient" id="contact-header">CONTACT ME</div>
+                <heading class="d-flex justify-content-center p-3">Check out a few of my works!</heading>
+                <div class="d-flex flex-row flex-wrap justify-content-around align-items-stretch flex-container">  
+                <!-- <div class="row align-items-stretch flex-container">   -->
+                    <div class="flex-item m-1 p-2" style="background: #FFFAF5; border-color: rgba(89, 46, 0);">
+                        <img class="coverpage d-flex justify-content-center" src="resources/portfolio/project1/Fintech.png">
+                        <div class="project-title d-flex justify-content-center align-items-center">Fuel Station Payment</div>
                     </div>
-                    <div class="sub-container" id="contact-number">
-                        <button type="button" class="btn btn-lg">
-                            <div class="sub-heading">
-                                <icon class="fa fa-phone" aria-hidden="true"></icon>
-                                <span class="label">+91 7003243370</span>
-                            </div>
-                        </button>
-                        <div class="icons-group">
-                            <ul class="icons">
-                                <li><a href="mailto://singh.umang1997@gmail.com" target="_blank" class="icon fa-envelope grey"><span class="label">Email</span></a></li>
-                                <li><a href="https://linkedin.com/in/umangsingh123/" target="_blank" class="icon fa-linkedin grey"><span class="label">Linked In</span></a></li> <!-- fa-square fa-border-style -->
-                                <li><a href="https://instagram.com/_umangsingh/" target="_blank" class="icon fa-instagram grey"><span class="label">Instagram</span></a></li>
-                                <!-- https://wa.me/+917003243370 -->
-                                <!-- https://umangsingh27.github.io/ -->
-                            </ul>
-                        </div>
-                        <div id="foot-notes" class="footer">
-                            <span class="label grey"><!-- &copy;  --><i>This Website is designed by Umang Singh.</i></spa>
-                        </div>
+                    <div class="flex-item m-1 p-2" style="background: #F2F9FF; border-color: rgba(0, 51, 91);">
+                        <img class="coverpage d-flex justify-content-center" src="resources/portfolio/project2/m&s_frontpage.png">
+                        <div class="project-title d-flex justify-content-center align-items-center">Muscle & Strength</div>
                     </div>
-                </container>
+                    <div class="flex-item m-1 p-2" style="background: #EEFFFE; border-color: rgba(9, 90, 85, 0.9);">
+                        <img class="coverpage d-flex justify-content-center" src="resources/portfolio/project3/Ed-Vantage.png">
+                        <div class="project-title d-flex justify-content-center align-items-center">Ed-Vantage</div>
+                    </div>
+                    <div class="flex-item m-1 p-2" style="background: #FFF5F7; border-color: rgba(235, 0, 43);">
+                        <img class="coverpage d-flex justify-content-center" src="resources/portfolio/project4/OnePlusWatch.png">
+                        <div class="project-title d-flex justify-content-center align-items-center">OnePlus Watch</div>
+                    </div>
+                    <div class="flex-item m-1 p-2" style="background: #F7F0FF; border-color: rgba(74, 6, 162);">
+                        <img class="coverpage d-flex justify-content-center" src="resources/portfolio/project5/cloudPass_frontpage.png">
+                        <div class="project-title d-flex justify-content-center align-items-center">cloudPass</div>
+                    </div>
+                </div>
             </section>
-
+            <!-- Portfolio Ends -->
         </div>
+        <!-- Main Ends Content -->
+
+        <!-- Contact -->
+        <section id="contact" class="d-flex flex-column justify-content-between">
+            <div class="d-flex flex-column justify-content-around align-items-center">
+                <heading class="d-flex flex-row justify-content-center" style="color: #949494;">Let's Connect</heading>
+                <sub-heading class="d-flex flex-row flex-wrap justify-content-center">If you like my work, feel free to get in touch with me over WhatsApp or any social network.</sub-heading>
+            </div>
+            <div class="d-flex flex-column justify-content-around align-items-center">
+                <a href="https://wa.me/+917003243370 " target="_blank">
+                    <button type="button" class="btn btn-fill">
+                        <icon class="fa fa-phone" aria-hidden="true"></icon><span>+91 7003243370</span>
+                    </button>
+                </a>
+                <div class="d-flex flex-row justify-content-around icons-group pt-3">
+                    <a href="mailto://singh.umang1997@gmail.com" target="_blank" class="icon fa-envelope grey"><span class="label">Email</span></a>
+                    <a href="https://linkedin.com/in/umangsingh123/" target="_blank" class="icon fa-linkedin grey"><span class="label">Linked In</span></a>
+                    <a href="https://instagram.com/_umangsingh/" target="_blank" class="icon fa-instagram grey"><span class="label">Instagram</span></a>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-around p-4 footer">
+                <span><i>This Website is designed by Umang Singh.</i></span>
+            </div>
+        </section>
+        <!-- Contact Ends -->
 
         <!-- JS files -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
 
+        <script>
+        // $("a[href='#contact']").click(function() {
+        //     $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        //     return false;
+        // });
+        </script>
+    </body>
 </html>
