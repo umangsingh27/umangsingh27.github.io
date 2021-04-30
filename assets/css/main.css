@@ -64,6 +64,11 @@
 		color: #FFFFFF;
 	}
 
+	.btn.btn-fill:hover {
+		/* filter: grayscale(32%); */
+		filter: saturate(1.2);
+	}
+
 	.btn.btn-outline {
 		background: rgba(89, 46, 0, 0);
 		color: #E93415;
@@ -80,6 +85,13 @@
 	.icons-group > * {
 		padding: 10px;
 		font-size: 1.5em;
+		color: #D7D7D7;
+	}
+
+	.icons-group > *:hover {
+		color: #FFEAE3;
+		text-decoration: underline;
+		text-underline-offset: 5px;
 	}
 
 	icon {
@@ -117,24 +129,9 @@
 		padding: 0 0rem;
 	}
 
-/* Flex Boxes */
-
-.flex-container > * {
-	width: 220px;
-	/* height: 510.52px; */
-	/* left: 273.41px; */
-	/* top: 2091.51px; */
-	/* background-color:rgba(214, 214, 214, 0.5); */
-	background: #FFFAF5;
-	border: 1px dashed;
-	border-color: rgba(89, 46, 0, 0.75);
-	box-sizing: border-box;
-	border-radius: 8px;
-}
-
 /* Paragraphs */
 p {
-	text-align: justify;
+	text-align: left;
 	margin-bottom: 0;
 }
 
@@ -147,7 +144,7 @@ p {
 /* Section */
 section {
 	padding: 0 10vw;
-	min-height: 90vh;
+	min-height: 95vh;
 }
 
 /* Container */
@@ -189,9 +186,6 @@ sub-heading {
 
 /* Footer */
 .footer {
-	/* position: sticky; */
-	/* position: relative;
-	top: 35vh; */
  	bottom: 0px;
 	font-size: 0.75em;
 	display: flex;
@@ -205,9 +199,10 @@ sub-heading {
 	position: absolute;
 	padding: 30px;
 }
+
 .header > * {
-	height: 82.8px;
-	width: 82.8px;
+	height: 60px;
+	width: 60px;
 }
 
 /* Section One - Intro */
@@ -269,6 +264,25 @@ sub-heading {
 #portfolio {
 	padding-top: 100px;
 	padding-bottom: 130px;
+	height: 95vh;
+}
+
+/* Flex Boxes */
+
+.flex-container > .flex-item {
+	width: 220px;
+	position: relative;
+	background: #FFFAF5;
+	border: 1px dashed;
+	border-color: rgba(89, 46, 0, 0.75);
+	box-sizing: border-box;
+	border-radius: 8px;
+}
+
+#portfolio > .flex-container > .flex-item:hover{
+	width: 280px;
+	position: relative;
+	transform: translate3d(0px, -100px, 30px);
 }
 
 img.coverpage {
@@ -282,14 +296,42 @@ img.coverpage {
 	font-style: normal;
 	/* font-weight: 400; */
 	font-size: 30px;
-	line-height: 35px;
+	line-height: 36px;
 	text-align: center;
 	color: #606060;
 }
 
+#portfolio > .flex-container > .flex-item:hover .project-title {
+	font-size: 24px;
+	line-height: 30px;
+	height: auto;
+}
+
+#portfolio > .flex-container > .flex-item:active .project-title {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.project-details {
+	display: none;
+}
+
+#portfolio > .flex-container > .flex-item:hover .project-details {
+	display: block;
+}
+
+.project-description {
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.btn.view-project {
+	font-size: 18px;
+}
+
 /* Section Four - Contact */
 #contact {
-	background-color: #241e1d;
+	background-color: #241E1D;
 	content: '';
 	display: block;
 	height: 100vh;
