@@ -1,0 +1,564 @@
+@import url("font-awesome.min.css");
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
+
+/* Common */
+
+	body {
+		/* background-image: url("../../resources/images/Endless-Constellation.png");
+		background-position: fixed top right;
+		background-repeat: repeat;
+		background-size: initial; */
+		content: '';
+		display: block;
+		font-family: Ubuntu;
+		font-size: 1.25em;
+		font-weight: 300;
+		color: rgba(0, 0, 0, 0.4);
+		overflow-x: hidden;
+		overflow-y: scroll;
+		-ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+		width: 100vw;
+	}
+
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	body::-webkit-scrollbar {
+	  display: none;
+	}
+
+/* Buttons */
+
+	.btn-grp > * {
+		margin-right: 10px;
+		width: 100%;
+	}
+
+	.btn-grp > *:nth-last-child(1) {
+		margin-right: 0;
+		width: 100%;
+	}
+
+	.btn {
+		border-radius: 8px;
+		font-size: 1em;
+		font-weight: 300;
+	}
+
+	.btn:hover {
+		/* x y blur colour opacity */
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.24);
+		-moz-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.24);
+  		-webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.24);
+	}
+
+	.btn:active {
+		box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
+		-moz-box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
+  		-webkit-box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
+		animation-delay: 30ms;
+	}
+
+	.btn.btn-fill {
+		background: #E93415;
+		color: #FFFFFF;
+	}
+
+	.btn.btn-fill:hover {
+		/* filter: grayscale(32%); */
+		filter: saturate(1.2);
+	}
+
+	.btn.btn-outline {
+		background: rgba(89, 46, 0, 0);
+		color: #E93415;
+		border: 1px solid #E93415;
+	}
+
+	.white {
+		color: #FFFFFF;
+		border-color: #FFFFFF;
+	}
+
+/*  Icons */
+
+	.icons-group > * {
+		padding: 10px;
+		font-size: 1.5em;
+		color: #D7D7D7;
+	}
+
+	.icons-group > *:hover {
+		color: #FFEAE3;
+		text-decoration: underline;
+		text-underline-offset: 5px;
+	}
+
+	icon {
+		padding: 0 10px 0 10px;
+	}
+
+	.icon:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-transform: none !important;
+	}
+
+	.icon > .label {
+		display: none;
+	}
+
+/* Href */
+	a:hover {
+		text-decoration: none;
+	}
+
+/* Table */
+
+/* Progress Bar */
+
+/* Page-Breaks */
+	/* Solid border */
+	hr.solid {
+		border-top: 1px solid #bbb;
+		margin-top: 0em;
+   		margin-bottom: 0em;
+		padding: 0 0rem;
+	}
+
+/* Paragraphs */
+p {
+	text-align: left;
+	margin-bottom: 0;
+}
+
+.highlight-red {
+	color: rgba(233, 52, 21, 0.5);
+}
+
+/* Main Content */
+
+/* Section */
+section {
+	padding: 0 10vw;
+	min-height: 95vh;
+}
+
+/* Container */
+
+/* Headings */
+heading {
+	font-size: 7vh;
+	font-weight: 600;
+	line-height: 9vh;
+	display: flex;
+	/* letter-spacing: 0em; */
+	text-align: left;
+	color: #606060;
+}
+
+sub-heading {
+	font-size: 3vh;
+	font-weight: 300;
+	line-height: 4vh;
+	display: flex;
+	/* letter-spacing: 0em; */
+	text-align: center;
+	color: #606060;
+	
+}
+
+.main-heading {
+	font-size: 20vh;
+	font-weight: 400;
+	line-height: 22vh;
+	display: flex;
+}
+
+.heading-gradient {
+	background: linear-gradient(180deg, #DFDFDF 0%, rgba(237, 237, 237, 0) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* Footer */
+.footer {
+ 	bottom: 0px;
+	font-size: 0.75em;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #5B5B5B;
+}
+
+/* Headers */
+.header {
+	position: absolute;
+	padding: 30px;
+}
+
+.header > * {
+	height: 60px;
+	width: 60px;
+}
+
+/* Section One - Intro */
+#intro {
+	background-image: url("../../resources/intro/intro_bg.png");
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: '';
+	display: block;
+	height: 100vh;
+	padding-top: 40vh;
+}
+
+#get-in-touch {
+	width: 256px;
+}
+
+#get-in-touch:hover {
+	background: #241E1D;
+}
+
+#get-in-touch:active {
+	background: #241E1D;
+	box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
+	-moz-box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
+	-webkit-box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
+	animation-delay: 30ms;
+}
+
+#get-in-touch:active {
+	/* background-color: #FFFFFF; */
+}
+
+/* Section Two - About Me */
+#about-me {
+	background: #FFF8F7;
+}
+
+#about-pic {
+	max-height: 100vh;
+	max-width: 80vw;
+}
+
+#contact-me:hover {
+	/* x y blur colour opacity */
+	background: #FFEAE3;
+}
+
+/* todo */
+#contact-me:active {
+	/* x y blur colour opacity */
+	background: #FFEAE3;
+	animation-delay: 30ms;
+
+}
+
+/* Section Three - Portfolio */
+#portfolio {
+	padding-top: 100px;
+	padding-bottom: 130px;
+	height: 95vh;
+}
+
+/* Flex Boxes */
+
+.flex-container > .flex-item {
+	width: 220px;
+	position: relative;
+	background: #FFFAF5;
+	border: 1px dashed;
+	border-color: rgba(89, 46, 0, 0.75);
+	box-sizing: border-box;
+	border-radius: 8px;
+}
+
+#portfolio > .flex-container > .flex-item:hover{
+	width: 280px;
+	position: relative;
+	transform: translate3d(0px, -100px, 30px);
+}
+
+img.coverpage {
+	max-width: 233.45px;
+	height: 315.8px;
+	margin: auto;
+}
+
+.project-title {
+	height: 70px;
+	font-style: normal;
+	/* font-weight: 400; */
+	font-size: 30px;
+	line-height: 36px;
+	text-align: center;
+	color: #606060;
+}
+
+#portfolio > .flex-container > .flex-item:hover .project-title {
+	font-size: 24px;
+	line-height: 30px;
+	height: auto;
+}
+
+#portfolio > .flex-container > .flex-item:active .project-title {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.project-details {
+	display: none;
+}
+
+#portfolio > .flex-container > .flex-item:hover .project-details {
+	display: block;
+}
+
+.project-description {
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.btn.view-project {
+	font-size: 18px;
+}
+
+/* Section Four - Contact */
+#contact {
+	background-color: #241E1D;
+	content: '';
+	display: block;
+	height: 100vh;
+	width: 100%;
+	padding: 15vh 30vw 0 30vw;
+}
+	
+
+/* Media Specific */
+/* Extra small screen / phone */
+	/*@media screen and (max-width:@screen-xs-max) {*/
+	@media screen and (max-width: 767px) {
+
+		/* Common */
+		/* body{
+			background-color: orange;
+		} */
+
+		body{
+			font-size: 12px;
+		}
+
+		/* .row{
+			padding: 10px;
+		}
+
+		.row > *{
+			margin: 10px;
+		} */
+
+		.btn-grp > * {
+			margin-right: 0;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+
+		.btn {
+			border-radius: 4px;
+			font-size: 1em;
+			font-weight: 300;
+		}
+		
+		/* Section */
+
+		/* Container */
+
+		/* Headings */
+		heading {
+			font-size: 33px;
+			line-height: 38px;
+		}
+
+		sub-heading {
+			font-size: 3vh;
+			font-weight: 300;
+			line-height: 4vh;
+		}
+		.main-heading {
+			font-size: 50px;
+			font-weight: 400;
+			line-height: 22vh;
+			display: flex;
+		}
+		/* Header */
+		.header > * {
+			height: 35px;
+			width: 35px;
+		}
+		/* Section One - Intro */
+		#intro {
+			background-image: url("../../resources/intro/intro_bg_mobile.png");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			content: '';
+			display: block;
+			padding-top: 10vh;
+		}
+
+		#get-in-touch {
+			margin-top: 20vh;
+			width: 164px;
+			font-size: 15px;
+		}
+		
+		/* Section Two - About Me */
+		#about-me {
+			padding: 25px;
+		}
+
+		#about-pic {
+			height: 32vh;
+			width: auto;
+		}
+		
+		#about-description {
+			font-size: 12px;
+			line-height: 14px;
+			padding: 30px 0 30px 0;
+
+		}
+
+		/* Section Three - Portfolio */
+
+		/* Section Four - Contact */
+
+	}
+
+	
+
+ /* Small Screen / tablet */
+  	/*@media screen and (min-width:@screen-sm-min) and  (max-width:@screen-sm-max) {*/
+	@media screen and (min-width:768px) and (max-width: 991px) {
+
+		/* Common */
+		body{
+			background-color: yellow;
+		}
+
+		/* Section */
+
+		/* Container */
+
+		/* Headings */
+
+		/* Section One - Intro */
+		#intro {
+			background-image: url("../../resources/intro/intro_bg_mobile.png");
+			background-position: top center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			content: '';
+			display: block;
+			height: 100vh;
+			padding-top: 40vh;
+		}
+		
+		/* Section Two - About Me */
+
+		/* Section Three - Portfolio */
+
+		/* Section Four - Contact */
+	}
+
+/* Medium Screen / desktop/tablet */
+ 	/*@media screen and (min-width:@screen-md-min) and (max-width:@screen-md-max) {*/
+	@media screen and (min-width:992px) and (max-width: 1199px) {
+		/* Common */
+		body{
+			background-color: blue;
+		}
+
+		/* Main Content */
+		/* .main-content {
+			padding: 0 6rem;
+		} */
+
+		/* Section */
+
+		/* Container */
+
+		/* Headings */
+
+		/* Section One - Intro */
+		
+		/* Section Two - About Me */
+
+		/* Section Three - Portfolio */
+
+		/* Section Four - Contact */
+		
+	}
+
+ /* Large Screen / 13" desktop / Mac airs */
+  	/*@media screen and (min-width:@screen-lg-min) and (max-width:@screen-lg-max) {*/
+	@media screen and (min-width:1200px) and (max-width: 1919px) {
+		/* Common */
+		/*body{
+			background-color: purple;
+		}*/
+
+		/* Main Content */
+		
+		/* Section */
+
+		/* Container */
+
+		/* Headings */
+
+		/* Section One - Intro */
+		
+		/* Section Two - About Me */
+
+		/* Section Three - Portfolio */
+
+		/* Section Four - Contact */
+	}
+
+ /* Large Screen / screen with num pad*/
+  	/*@media screen and (min-width:@screen-xl-min) {*/
+	@media screen and (min-width: 1920px) {/*min-width: 1680px*/
+		/* Common */
+		/*body{
+			background-color: green;
+		}*/
+
+		/* Main Content */
+		
+		/* Section */
+		section {
+			padding: 0 15vw;
+		}
+
+		/* Container */
+
+		/* Headings */
+
+		/* Section One - Intro */
+		
+		/* Section Two - About Me */
+
+		/* Section Three - Portfolio */
+		.project-title {
+			font-size: 36px;
+			line-height: 41px;
+		}
+
+		/* Section Four - Contact */
+
+	}
