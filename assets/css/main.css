@@ -118,6 +118,15 @@ body::-webkit-scrollbar {
 		padding: 0 0rem;
 	}
 
+/* Backgrounds */
+	.bg-negative{
+		background: #241E1D;
+		content: '';
+		display: block;
+		height: 100vh;
+		width: 100vw;
+	}
+
 /* Headings */
     heading {
         font-size: 33px;
@@ -126,6 +135,10 @@ body::-webkit-scrollbar {
         display: flex;
         text-align: left;
 	    color: #606060;
+    }
+
+	heading.negative {
+	    color:  #B9B9B9;
     }
 
     sub-heading {
@@ -166,20 +179,13 @@ body::-webkit-scrollbar {
         line-height: 16px;
     }
 
+	p.negative {
+		color: #606060;
+	}
+
     .highlight-red {
         color: rgba(233, 52, 21, 0.5);
     }
-
-/* Header */
-    #header {
-        position: absolute;
-        padding: 30px;
-    }
-
-    #header > * {
-        height: 35px;
-        width: 35px;
-    } 
     
 /* Section */
     section {
@@ -191,34 +197,88 @@ body::-webkit-scrollbar {
 
 /* Section One - Intro */
     #intro {
-        background-image: url("../../resources/intro/intro_bg_mobile.png");
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-		background-size: 100vw 100vh;
-        content: '';
-        display: block;
-        height: 100vh;
-        padding-top: 20vh;
+        padding-top: 10vh;
     }
 
+	#intro-pic {
+		max-height: 100vh;
+        max-width: 80vw;
+	}
+
+	.dropdown > button
+	 {
+		background: #433836;
+		border-radius: 4px;
+		border: none;
+		font-size: 12px;
+		line-height: 14px;
+		color: #B9B9B9;
+		text-align: left;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.dropdown.show > button,
+	.dropdown.show > button:hover,
+	.dropdown:hover > button {
+		background: #433836;
+		border-radius: 4px;
+		border: none;
+		font-size: 12px;
+		line-height: 14px;
+		color:  #606060;
+		text-align: left;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+
+	.dropdown-menu{
+		background: #433836;
+		border-radius: 8px;
+		border: none;
+		padding: 0px;
+		width: 100%;
+		font-size: 12px;
+		line-height: 14px;
+		color: #B9B9B9;
+		text-align: left;
+	}
+
+	.dropdown-item {
+		color: #B9B9B9;
+	}
+
+	.dropdown-item:hover,
+	.dropdown-item:focus,
+	.dropdown-item:active,
+	.dropdown-item.active {
+		background: #241E1D;
+		color: #B9B9B9;
+	}
+
     #get-in-touch {
-        margin-top: 20vh;
         width: 164px;
         font-size: 15px;
     }
     
     #get-in-touch:hover {
-        background: #241E1D;
+        background: #E93415;
     }
     
     #get-in-touch:active {
-        background: #241E1D;
+        background: #E93415;
         box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
         -moz-box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
         -webkit-box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.24);
         animation-delay: 30ms;
     }
+
+	#intro > .footer {
+		cursor: s-resize;
+	}
 
 /* Main Content */
 
@@ -346,11 +406,6 @@ body::-webkit-scrollbar {
 
 /* Section Four - Contact */
     #contact {
-        background-color: #241E1D;
-        content: '';
-        display: block;
-        height: 100vh;
-        width: 100%;
         padding: 20vh 10vw 0 10vw; /* retest */
     }
 
@@ -454,14 +509,8 @@ body::-webkit-scrollbar {
 
     /* Paragraphs */
         p {
-            font-size: 14px;
-            line-height: 16px;
-        }
-
-    /* Header */
-        #header > * {
-            height: 60px;
-            width: 60px;
+            font-size: 20px;
+            line-height: 28px;
         }
 
     /* Section */
@@ -470,15 +519,36 @@ body::-webkit-scrollbar {
 
     /* Section One - Intro */
         #intro {
-            background-image: url("../../resources/intro/intro_bg.png");
-            background-position: top center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding-top: 40vh;
+            padding-top: 20vh;
         }
+
+		#intro-pic {
+			max-height: 50vh;
+			max-width: 80vw;
+		}
+
+		#intro-right{
+			margin-right: 0px !important;
+			padding-left:5em;
+		}
+
+		.dropdown.show > button,
+		.dropdown:hover > button,
+		.dropdown > button,
+		.dropdown.show:hover > button {
+			border-radius: 8px;
+			font-size: 20px;
+			line-height: 24px;
+		}
+	
+		.dropdown-menu{
+			font-size: 20px;
+			line-height: 24px;
+		}
 
         #get-in-touch {
             width: 256px;
+			font-size: 24px;
         }
 
     /* Main Content */
