@@ -503,10 +503,16 @@ body::-webkit-scrollbar {
 			padding-bottom: 130px;
 			height: 95vh;
 		}
+
+		#portfolio > heading {
+			font-size: 7vh;
+            line-height: 9vh;
+		}
 		
 		.portfolio-item {
 			width: 220px;
 			position: relative;
+			height: auto;
 		}
 		
 		.portfolio-item:hover, 
@@ -548,6 +554,7 @@ body::-webkit-scrollbar {
 		.project-description {
 			font-size: 14px;
 			line-height: 16px;
+			height: auto;
 		}
 		
 		.btn.view-project {
@@ -592,9 +599,9 @@ body::-webkit-scrollbar {
 	@media screen and (min-width:768px) and (max-width: 991px) {
 
 		/* Common */
-		body{
+		/* body{
 			background-color: yellow;
-		}
+		} */
 
 		/* Section */
 
@@ -615,9 +622,9 @@ body::-webkit-scrollbar {
  	/*@media screen and (min-width:@screen-md-min) and (max-width:@screen-md-max) {*/
 	@media screen and (min-width:992px) and (max-width: 1199px) {
 		/* Common */
-		body{
+		/* body{
 			background-color: blue;
-		}
+		} */
 
 		/* Main Content */
 		/* .main-content {
@@ -644,9 +651,9 @@ body::-webkit-scrollbar {
   	/*@media screen and (min-width:@screen-lg-min) and (max-width:@screen-lg-max) {*/
 	@media screen and (min-width:1200px) and (max-width: 1919px) {
 		/* Common */
-		body{
+		/* body{
 			background-color: purple;
-		}
+		} */
 
 		/* Main Content */
 		
@@ -669,9 +676,9 @@ body::-webkit-scrollbar {
   	/*@media screen and (min-width:@screen-xl-min) {*/
 	@media screen and (min-width: 1920px) {/*min-width: 1680px*/
 		/* Common */
-		body{
+		/* body{
 			background-color: green;
-		}
+		} */
 
 		/* Main Content */
 		
