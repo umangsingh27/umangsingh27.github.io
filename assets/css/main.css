@@ -2,6 +2,12 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
 
+/* --breakpoint-xs: 0;
+--breakpoint-sm: 576px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 992px;
+--breakpoint-xl: 1200px; */
+
 /* Common */
 body {
     font-family: Ubuntu;
@@ -141,15 +147,6 @@ body::-webkit-scrollbar {
 	    color:  #B9B9B9;
     }
 
-    sub-heading {
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 16px;
-        display: flex;
-        text-align: center;
-        color: #606060;
-    }
-
     .main-heading {
         font-size: 50px;
         font-weight: 400;
@@ -201,8 +198,8 @@ body::-webkit-scrollbar {
     }
 
 	#intro-pic {
-		max-height: 100vh;
-        max-width: 80vw;
+		max-height:90vh;
+        max-width: 70vw;
 	}
 
 	.dropdown > button
@@ -312,7 +309,6 @@ body::-webkit-scrollbar {
 
 /* Section Three - Portfolio */
     #portfolio {
-        /* height: calc(78vh+80px); */
 		min-height: 95vh;
 		padding-top:20px;
 		padding-bottom: 20px;
@@ -360,17 +356,22 @@ body::-webkit-scrollbar {
 
 	.carousel-inner .carousel-item-right.active,
 	.carousel-inner .carousel-item-next {
-		transform: translateX(calc(33.33333333%+10px));
+		/* transform: translateX(calc(33.33333333% + 10px)); */
 	}
 
 	.carousel-inner .carousel-item-left.active,
 	.carousel-inner .carousel-item-prev {
-		transform: translateX(calc(33.33333333%+10px));
+		/* transform: translateX(calc(33.33333333% + 10px)); */
+	}
+
+	.carousel-inner .carousel-item-prev,
+	.carousel-inner .carousel-item-next {
+		/* transform: translateX(0); */
 	}
 
 	/* Portfolio Details */
     .portfolio-item {
-		width: calc(100%-20px);
+		width: calc(100% - 20px);
 		height: 78vh;
         border: 1px dashed;
         box-sizing: border-box;
@@ -380,7 +381,7 @@ body::-webkit-scrollbar {
 
     img.project-coverpage {
         max-width: 233.45px; /* ?? */
-        height: 315.8px; /* ?? */
+        height: calc(100% - 260px); /* ?? */
         margin: auto;
     }
     
@@ -434,6 +435,10 @@ body::-webkit-scrollbar {
 		/* Headings */
 
 		/* Section One - Intro */
+		#intro-pic {
+			height: 32vh;
+			width: auto;
+		}
 
 		/* Section Two - About Me */
 		#about-me {
@@ -489,11 +494,6 @@ body::-webkit-scrollbar {
         heading {
             font-size: 7vh;
             line-height: 9vh;
-        }
-
-        sub-heading {
-            font-size: 3vh;
-            line-height: 4vh;
         }
 
         .main-heading {
