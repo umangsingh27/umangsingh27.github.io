@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Umang Singh</title>
+        <link rel="icon" href="resources/intro/intro_pic.png" type="image/x-icon">
+
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- shrink-to-fit=no -->
+
+        <!-- CSS files -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/main.css">
+        
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+
+        <!-- Progress Bar -->
+        <div class="">
+
+        </div>
+        <!-- Progress Bar Ends -->
+
+        <!-- Intro -->
+        <section id="intro" class="d-flex flex-column justify-content-between align-items-center bg-negative">
+            <div class="row">
+                <div class="col-md-5 col-lg-5 col-xl-5 align-self-center mr-0">
+                    <img id="intro-pic" src="resources/intro/intro_pic.png" class="mx-auto d-block" >
+                </div>
+                <div id="intro-right" class="col-md-6 col-lg-6 col-xl-6 align-self-center">
+                    <heading class="negative py-4">Hey Friend!</heading>
+                    <p class="negative">I would like to know more about people who visit my website. Hence, I request you to answer the question below.</p>
+                    <div class="dropdown py-4">
+                        <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            I’m visiting your website because
+                            <i class="fa fa-angle-down fa-2x float-right"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">I’m a recruiter</a>
+                          <a class="dropdown-item" href="#">I’m a student learning UI/UX</a>
+                          <a class="dropdown-item" href="#">I’m also a UI/UX designer</a>
+                          <a class="dropdown-item" href="#">We are a company intrested in UI/UX</a>
+                          <a class="dropdown-item" href="#">I’m curious about what you do</a>
+                          <a class="dropdown-item" href="#">Others</a>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div>
+                <a href="#contact">
+                    <button  id="get-in-touch" type="button" class="btn btn-outline-secondary btn-md white align-items-center">Get in Touch</button>
+                </a>
+            </div>
+            <div class="d-flex flex-column align-items-center pb-2 footer">
+                    <icon class="d-none d-md-block material-icons white p-2">mouse</icon>
+                    <icon class="d-block d-md-none fa fa-arrow-down fa-2x white p-2"></icon>
+                    <span class="white">Scroll for more</span> <!-- todo: add on hover cursor change to mouse scroll -->
+            </div>
+        </section>
+        <!-- Intro Ends -->
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- About Me -->
+            <section id="about-me" class="row">
+                <div class="col-md-5 col-lg-5 col-xl-5 align-self-center mr-0">
+                    <img id="about-pic" src="resources/aboutMe/about_me.png" class="mx-auto d-block" >
+                </div>
+                <div id="about-details" class="col-md-6 col-lg-6 col-xl-6 align-self-center">
+                    <heading>Hello! I’m Umang Singh</heading>
+                    <!-- p-2 pl-md-5 -->
+                    <p id="about-description">I am a <span class="highlight-red">User Experience (UX) Designer</span> with a special focus on the process to create products that provide meaningful and relevant experiences to users. I am currently studying Master of Design (M. Des) from Chitkara University with a focus on acquiring and integrating products, that include aspects of branding, design, usability and function. I’m looking for experiences to learn more about career paths and ways to grow into the role of a UX Team Lead in the next few years. Feel free to contact me in case you have any suitable opportunities.</p>
+                    <!-- p-2 py-2 pl-md-5 -->
+                    <div class="d-flex flex-row flex-wrap flex-md-nowrap justify-content-around btn-grp">                  
+                        <!-- m-2 my-md-3 ml-md-5  -->
+                        <button type="button" class="btn btn-block btn-fill w-100" onclick="window.open('resources/aboutMe/Umang_Resume_light.pdf#view=FitV'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>Resume</button>
+                        <a href="#contact">
+                            <button id="contact-me" type="button" class="btn btn-block btn-outline w-100"><icon class="fa fa-phone" aria-hidden="true"></icon>Contact Me</button>
+                        </a>
+                    </div>
+                </div>    
+            </section>
+            <!-- About Me Ends -->
+
+            <!-- <hr class="solid"> -->
+
+            <!-- Portfolio -->
+            <section id="portfolio">
+                <heading class="d-flex justify-content-center p-1 p-md-3">Check out few of my works!</heading>
+                <div class="d-none d-md-block">
+                    <div class="d-flex flex-row justify-content-center align-items-start">  
+                        <div class="portfolio-item m-1 p-2" style="background: #FFFAF5; border-color: rgba(89, 46, 0);">
+                            <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project1/Fintech.png">
+                            <div class="project-title d-flex justify-content-center align-items-center">Fuel Station Payment</div>
+                            <div class="project-details">
+                                <p class="project-description p-3">The payment process at fuel stations takes more time than actual refueling of the vehicle’s fuel tank. Hence, an alternative contact-less method is needed to both expedite the payment process and also to eliminate physical handling of cash.</p>
+                                <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #E37600;" onclick="window.open('resources/portfolio/project1/Fintech_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item m-1 p-2" style="background: #F2F9FF; border-color: rgba(0, 51, 91);">
+                            <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project2/m&s_frontpage.png">
+                            <div class="project-title d-flex justify-content-center align-items-center">Muscle & Strength</div>
+                            <div class="project-details">
+                                <p class="project-description p-3">We have designed a mobile application and smart watch for the audiences who want to stay updated through the charts and routines of their workout. The app will help the people to lose weight, gain muscle, maintain fitness and also to achieve the body shape that they desire.</p>
+                                <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #005598;" onclick="window.open('resources/portfolio/project2/m&s_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item m-1 py-2" style="background: #EEFFFE; border-color: rgba(9, 90, 85, 0.9);">
+                            <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project3/Ed-Vantage.png">
+                            <div class="project-title d-flex justify-content-center align-items-center">Ed-Vantage</div>
+                            <div class="project-details">
+                                <p class="project-description p-3">In this project, I understood the existing examination system and thereafter tried to re-engineer the examination process in order to reduce the teacher’s and EDP operator’s work load by using technology to automate certain processes.</p>
+                                <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #02978E;" onclick="window.open('resources/portfolio/project3/edvantage_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item m-1 p-2" style="background: #FFF5F7; border-color: rgba(235, 0, 43);">
+                            <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project4/OnePlusWatch.png">
+                            <div class="project-title d-flex justify-content-center align-items-center">OnePlus Watch</div>
+                            <div class="project-details">
+                                <p class="project-description p-3">October 2020, There were rumours in the market that OnePlus was planning to launch a new digital product, Smart Watch. I gathered it's information and visualised it's User Interface. I have tried to design the same in this project.</p>
+                                <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #EB002B;" onclick="window.open('resources/portfolio/project4/onePlusWatch_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item m-1 p-2" style="background: #F7F0FF; border-color: rgba(74, 6, 162);">
+                            <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project5/cloudPass_frontpage.png">
+                            <div class="project-title d-flex justify-content-center align-items-center">cloudPass</div>
+                            <div class="project-details">
+                                <p class="project-description p-3">The purpose of this project is to eliminate the problems with multiple login credentials on different social media platforms, that a user faces because of multiple platforms having different patterns for these credentials.</p>
+                                <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #9F67E7;" onclick="window.open('resources/portfolio/project5/cloudPass_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-block d-md-none">
+
+                    <div id="portfolioCarousel" class="carousel slide" data-ride="carousel">
+                        
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#portfolioCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#portfolioCarousel" data-slide-to="1"></li>
+                            <li data-target="#portfolioCarousel" data-slide-to="2"></li>
+                            <li data-target="#portfolioCarousel" data-slide-to="3"></li>
+                            <li data-target="#portfolioCarousel" data-slide-to="4"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                               <div class="portfolio-item p-2" style="background: #FFFAF5; border-color: rgba(89, 46, 0);">
+                                    <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project1/Fintech.png">
+                                    <div class="project-title d-flex justify-content-center align-items-center px-3">Fuel Station Payment</div>
+                                    <div class="project-details">
+                                        <p class="project-description p-3">The payment process at fuel stations takes more time than actual refueling of the vehicle’s fuel tank. Hence, an alternative contact-less method is needed to both expedite the payment process and also to eliminate physical handling of cash.</p>
+                                        <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #E37600;" onclick="window.open('resources/portfolio/project1/Fintech_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="portfolio-item p-2" style="background: #F2F9FF; border-color: rgba(0, 51, 91);">
+                                    <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project2/m&s_frontpage.png">
+                                    <div class="project-title d-flex justify-content-center align-items-center px-3">Muscle & Strength</div>
+                                    <div class="project-details">
+                                        <p class="project-description p-3">We have designed a mobile application and smart watch for the audiences who want to stay updated through the charts and routines of their workout. The app will help the people to lose weight, gain muscle, maintain fitness and also to achieve the body shape that they desire.</p>
+                                        <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #005598;" onclick="window.open('resources/portfolio/project2/m&s_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="portfolio-item p-2" style="background: #EEFFFE; border-color: rgba(9, 90, 85, 0.9);">
+                                    <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project3/Ed-Vantage.png">
+                                    <div class="project-title d-flex justify-content-center align-items-center px-3">Ed-Vantage</div>
+                                    <div class="project-details">
+                                        <p class="project-description p-3">In this project, I understood the existing examination system and thereafter tried to re-engineer the examination process in order to reduce the teacher’s and EDP operator’s work load by using technology to automate certain processes.</p>
+                                        <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #02978E;" onclick="window.open('resources/portfolio/project3/edvantage_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="portfolio-item p-2" style="background: #FFF5F7; border-color: rgba(235, 0, 43);">
+                                    <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project4/OnePlusWatch.png">
+                                    <div class="project-title d-flex justify-content-center align-items-center px-3">OnePlus Watch</div>
+                                    <div class="project-details">
+                                        <p class="project-description p-3">October 2020, There were rumours in the market that OnePlus was planning to launch a new digital product, Smart Watch. I gathered it's information and visualised it's User Interface. I have tried to design the same in this project.</p>
+                                        <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #EB002B;" onclick="window.open('resources/portfolio/project4/onePlusWatch_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="portfolio-item p-2" style="background: #F7F0FF; border-color: rgba(74, 6, 162);">
+                                    <img class="project-coverpage d-flex justify-content-center" src="resources/portfolio/project5/cloudPass_frontpage.png">
+                                    <div class="project-title d-flex justify-content-center align-items-center px-3">cloudPass</div>
+                                    <div class="project-details">
+                                        <p class="project-description p-3">The purpose of this project is to eliminate the problems with multiple login credentials on different social media platforms, that a user faces because of multiple platforms having different patterns for these credentials.</p>
+                                        <div class="px-3 pb-3"><button type="button" class="btn btn-block btn-fill view-project" style="background-color: #9F67E7;" onclick="window.open('resources/portfolio/project5/cloudPass_light.pdf#view=FitH'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>View Project</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#portfolioCarousel" data-slide="prev">
+                            <!-- <span class="carousel-control-prev-icon"></span> -->
+                        </a>
+                        <a class="carousel-control-next" href="#portfolioCarousel" data-slide="next">
+                            <!-- <span class="carousel-control-next-icon"></span> -->
+                        </a>  
+                    </div>
+                </div>
+            </section>
+            <!-- Portfolio Ends -->
+        </div>
+        <!-- Main Ends Content -->
+
+        <!-- Contact -->
+        <section id="contact" class="d-flex flex-column justify-content-between bg-negative">
+            <div class="d-flex flex-column justify-content-around align-items-center">
+                <heading class="d-flex flex-row justify-content-center negative" >Let's Connect</heading>
+                <p class="text-center py-4 negative">If you like my work, feel free to get in touch with me over WhatsApp or any social network.</p>
+            </div>
+            <div class="d-flex flex-column justify-content-around align-items-center">
+                <a href="https://wa.me/+917003243370 " target="_blank">
+                    <button type="button" class="btn btn-fill">
+                        <icon class="fa fa-phone" aria-hidden="true"></icon><span>+91 7003243370</span>
+                    </button>
+                </a>
+                <div class="d-flex flex-row justify-content-around icons-group pt-3">
+                    <a href="mailto://singh.umang1997@gmail.com" target="_blank" class="icon fa-envelope grey"><span class="label">Email</span></a>
+                    <a href="https://linkedin.com/in/umangsingh123/" target="_blank" class="icon fa-linkedin grey"><span class="label">Linked In</span></a>
+                    <a href="https://instagram.com/_umangsingh/" target="_blank" class="icon fa-instagram grey"><span class="label">Instagram</span></a>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-around p-4 footer">
+                <span><i>This Website is designed by Umang Singh.</i></span>
+            </div>
+        </section>
+        <!-- Contact Ends -->
+
+        <!-- JS files -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+        // $("a[href='#contact']").click(function() {
+        //     $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        //     return false;
+        // });
+        </script>
+    </body>
+</html>
