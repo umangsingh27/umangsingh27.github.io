@@ -3,7 +3,7 @@
 
     <head>
         <title>Umang Singh</title>
-        <link rel="icon" href="resources/intro/intro_pic.png" type="image/x-icon">
+        <link rel="icon" href="resources/home/home_pic.png" type="image/x-icon">
 
         <!-- Metadata -->
         <meta charset="utf-8">
@@ -21,19 +21,29 @@
 
     <body>
 
-        <!-- Progress Bar -->
-        <div class="">
-
+        <!-- Nav Bar Starts -->
+        <div class="navmenu-container d-none d-md-block">
+            <nav class="navmenu">
+                <div class="nav-progress">
+                    <div class="nav-progress-bar"></div>
+                </div>
+                <ul class="navmenulist">
+                    <li id="home-nav" class="active"><a href="#home">Home</a></li>
+                    <li id="about-me-nav"><a href="#about-me">About Me</a></li>
+                    <li id="portfolio-nav"><a href="#portfolio">Portfolio</a></li>
+                    <li id="contact-nav"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>    
         </div>
         <!-- Progress Bar Ends -->
 
-        <!-- Intro -->
-        <section id="intro" class="d-flex flex-column justify-content-between align-items-center bg-negative">
+        <!-- Home -->
+        <section id="home" class="d-flex flex-column justify-content-between align-items-center bg-negative">
             <div class="row">
                 <div class="col-md-5 col-lg-5 col-xl-5 align-self-center mr-0">
-                    <img id="intro-pic" src="resources/intro/intro_pic.png" class="mx-auto d-block" >
+                    <img id="home-pic" src="resources/home/home_pic.png" class="mx-auto d-block" >
                 </div>
-                <div id="intro-right" class="col-md-6 col-lg-6 col-xl-6 align-self-center">
+                <div id="home-right" class="col-md-6 col-lg-6 col-xl-6 align-self-center">
                     <heading class="negative py-4">Hey Friend!</heading>
                     <p class="negative">I would like to know more about people who visit my website. Hence, I request you to answer the question below.</p>
                     <div class="dropdown py-4">
@@ -63,10 +73,10 @@
                     <span class="white">Scroll for more</span> <!-- todo: add on hover cursor change to mouse scroll -->
             </div>
         </section>
-        <!-- Intro Ends -->
+        <!-- Home Ends -->
 
         <!-- Main Content -->
-        <div class="main-content">
+        <!-- <div class="main-content"> -->
 
             <!-- About Me -->
             <section id="about-me" class="row">
@@ -216,7 +226,7 @@
                 </div>
             </section>
             <!-- Portfolio Ends -->
-        </div>
+        <!-- </div> -->
         <!-- Main Ends Content -->
 
         <!-- Contact -->
@@ -249,10 +259,32 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <script>
-        // $("a[href='#contact']").click(function() {
-        //     $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-        //     return false;
-        // });
+            const progress_bar = document.getElementsByClassName("nav-progress-bar")[0];
+            const navmenulist = document.getElementsByClassName("navmenulist")[0];
+            const navmenuitems = navmenulist.children;
+            const sections = document.getElementsByTagName("section");
+            
+
+            window.addEventListener('scroll',()=> {
+                var setactive = 0;
+                const screenPos = window.innerHeight;
+                for (let i = sections.length-1; i >=0; i--) {
+                    const element = sections[i];
+                    
+                    const sectionPosTop = element.getBoundingClientRect().top;
+                    const sectionBottom = element.getBoundingClientRect().bottom;
+                    const diff = sectionBottom-sectionPosTop;
+                    
+                    if(setactive<=i && screenPos>(sectionPosTop+diff/2)){
+                        setactive=i;
+                    
+                        navmenuitems[i].classList.add("active");
+                        progress_bar.style.height=(25*(i+1))+'%';
+                    }else{
+                        navmenuitems[i].classList.remove("active");
+                    }
+                }
+            });
         </script>
     </body>
 </html>
