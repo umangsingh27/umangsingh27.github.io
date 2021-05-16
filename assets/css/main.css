@@ -192,12 +192,12 @@ body::-webkit-scrollbar {
 
 /* Container */
 
-/* Section One - Intro */
-    #intro {
+/* Section One - Home */
+    #home {
         padding-top: 10vh;
     }
 
-	#intro-pic {
+	#home-pic {
 		max-height:90vh;
         max-width: 70vw;
 	}
@@ -273,7 +273,7 @@ body::-webkit-scrollbar {
         animation-delay: 30ms;
     }
 
-	#intro > .footer {
+	#home > .footer {
 		cursor: s-resize;
 	}
 
@@ -434,8 +434,8 @@ body::-webkit-scrollbar {
 
 		/* Headings */
 
-		/* Section One - Intro */
-		#intro-pic {
+		/* Section One - Home */
+		#home-pic {
 			height: 32vh;
 			width: auto;
 		}
@@ -487,6 +487,70 @@ body::-webkit-scrollbar {
     /* Table */
 
     /* Progress Bar */
+	.navmenu-container {
+		z-index: 50;
+	}
+
+	.navmenu {
+		position: fixed;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.navmenu > ul{
+		list-style: none;
+
+		margin: 0;
+		padding: 0;
+
+		position: relative;
+		padding-left: 30px;
+	}
+
+	.nav-progress{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 10px;
+		width: 10px;
+		height: 100%;
+		background: rgba(140, 140, 140, 0.32);
+		border-radius: 6px;
+		z-index: 1;
+		position: fixed;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.nav-progress > .nav-progress-bar {
+		position: absolute;
+		top: 50px;
+		transform: translateY(-50px);
+		left: 0;
+		width: 10px;
+		/* height: 25%; */
+		background: #E93415;
+		border-radius: 6px;
+		z-index: 100;
+		transition: height 1s;
+	}
+
+	.navmenu > ul > li {
+		padding: 50px 0 50px 10px;
+	}
+
+	.navmenu > ul > li > a {
+		text-decoration: none;
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 21px;
+		color: #808080;
+	}
+
+	.navmenu > ul > li.active > a {
+		color: #E93415;
+	}
 
     /* Page-Breaks */
 
@@ -517,17 +581,17 @@ body::-webkit-scrollbar {
 
     /* Container */
 
-    /* Section One - Intro */
-        #intro {
+    /* Section One - Home */
+        #home {
             padding-top: 20vh;
         }
 
-		#intro-pic {
+		#home-pic {
 			max-height: 50vh;
 			max-width: 80vw;
 		}
 
-		#intro-right{
+		#home-right{
 			margin-right: 0px !important;
 			padding-left:5em;
 		}
@@ -655,7 +719,7 @@ body::-webkit-scrollbar {
 
 		/* Headings */
 
-		/* Section One - Intro */
+		/* Section One - Home */
 		
 		/* Section Two - About Me */
 
@@ -679,7 +743,7 @@ body::-webkit-scrollbar {
 
 		/* Headings */
 
-		/* Section One - Intro */
+		/* Section One - Home */
 		
 		/* Section Two - About Me */
 
@@ -696,18 +760,13 @@ body::-webkit-scrollbar {
 			background-color: blue;
 		} */
 
-		/* Main Content */
-		/* .main-content {
-			padding: 0 6rem;
-		} */
-
 		/* Section */
 
 		/* Container */
 
 		/* Headings */
 
-		/* Section One - Intro */
+		/* Section One - Home */
 		
 		/* Section Two - About Me */
 
@@ -733,7 +792,7 @@ body::-webkit-scrollbar {
 
 		/* Headings */
 
-		/* Section One - Intro */
+		/* Section One - Home */
 		
 		/* Section Two - About Me */
 
@@ -761,7 +820,7 @@ body::-webkit-scrollbar {
 
 		/* Headings */
 
-		/* Section One - Intro */
+		/* Section One - Home */
 		
 		/* Section Two - About Me */
 
