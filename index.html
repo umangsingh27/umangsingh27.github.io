@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="Umang Singh">
         <meta property="og:type" content="website">
+        <meta property="og:description" content="Umang Singh">
         <meta property="og:url" content="https://umangsingh27.github.io/">
         <meta property="og:image" content="resources/home/home_pic.png">
         <!-- shrink-to-fit=no -->
@@ -32,7 +33,7 @@
                     <div class="nav-progress-bar"></div>
                 </div>
                 <ul class="navmenulist">
-                    <li id="home-nav" class="active"><a href="#home">Home</a></li>
+                    <li id="home-nav"><a href="#home">Home</a></li>
                     <li id="about-me-nav"><a href="#about-me">About Me</a></li>
                     <li id="portfolio-nav"><a href="#portfolio">Portfolio</a></li>
                     <li id="contact-nav"><a href="#contact">Contact</a></li>
@@ -267,9 +268,16 @@
             const navmenulist = document.getElementsByClassName("navmenulist")[0];
             const navmenuitems = navmenulist.children;
             const sections = document.getElementsByTagName("section");
-            
 
-            window.addEventListener('scroll',()=> {
+            $(document).ready(function(){
+                progress_bar.style.height='0%';
+            });
+            
+            window.onload = updateNavBar;
+
+            window.addEventListener('scroll',updateNavBar);
+
+            function updateNavBar() {
                 var setactive = 0;
                 const screenPos = window.innerHeight;
                 for (let i = sections.length-1; i >=0; i--) {
@@ -279,16 +287,16 @@
                     const sectionBottom = element.getBoundingClientRect().bottom;
                     const diff = sectionBottom-sectionPosTop;
                     
+                    console.log(i);
                     if(setactive<=i && screenPos>(sectionPosTop+diff/2)){
                         setactive=i;
-                    
                         navmenuitems[i].classList.add("active");
                         progress_bar.style.height=(25*(i+1))+'%';
                     }else{
                         navmenuitems[i].classList.remove("active");
                     }
                 }
-            });
+            }
         </script>
     </body>
 </html>
