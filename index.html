@@ -3,7 +3,7 @@
 
     <head>
         <title>Umang Singh</title>
-        <meta name="description" content="I am a User Experience (UX) Designer</span> with a special focus on the process to create products that provide meaningful and relevant experiences to users. I am currently studying Master of Design (M. Des) from Chitkara University with a focus on acquiring and integrating products, that include aspects of branding, design, usability and function." />
+        <meta name="description" content="I am a User Experience (UX) Designer with a special focus on the process to create products that provide meaningful and relevant experiences to users. I am currently studying Master of Design (M. Des) from Chitkara University with a focus on acquiring and integrating products, that include aspects of branding, design, usability and function." />
         <meta name="type" content="website" />
         <link rel="icon" href="resources/home/home_pic.png" type="image/x-icon" />
 
@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title" content="Umang Singh" />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="I am a User Experience (UX) Designer</span> with a special focus on the process to create products that provide meaningful and relevant experiences to users. I am currently studying Master of Design (M. Des) from Chitkara University with a focus on acquiring and integrating products, that include aspects of branding, design, usability and function." />
+        <meta property="og:description" content="I am a User Experience (UX) Designer with a special focus on the process to create products that provide meaningful and relevant experiences to users. I am currently studying Master of Design (M. Des) from Chitkara University with a focus on acquiring and integrating products, that include aspects of branding, design, usability and function." />
         <meta property="og:url" content="https://umangsingh27.github.io/" />
         <meta property="og:image" content="resources/home/home_pic.png" />
         <!-- shrink-to-fit=no -->
@@ -43,6 +43,45 @@
             </nav>    
         </div>
         <!-- Progress Bar Ends -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <!-- <div class="modal-header">
+                        
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div> -->
+                    <div class="modal-body">
+                        <button type="button" class="close modal-close" data-dismiss="modal">&times;</button>
+                        <!-- <a download="realname.pdf" href="resources/aboutMe/Umang_Resume_light.pdf">
+                            <button type="button" class="download modal-download" click="">&#8595;</button>
+                        </a> -->
+
+                        <a id="downloadLink" href="resources/aboutMe/Umang_Resume_light.pdf" type="application/pdf" download="realname.pdf">
+                            <button type="button" class="download modal-download" click="">&#8595;</button>
+                        </a>
+
+                        <!-- <form method="get" action="resources/aboutMe/Umang_Resume_light.pdf">
+                            <button type="submit" class="download modal-download" >&#8595;</button>
+                        </form> -->
+
+                        <div class="w-100 h-100">
+                            <object data="resources/aboutMe/Umang_Resume_light.pdf#toolbar=0&navpanes=0&view=FitH"
+                            class="wh-100">
+                            </object>
+                        </div>
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div> -->
+                </div>
+            
+            </div>
+        </div>
 
         <!-- Home -->
         <section id="home" class="d-flex flex-column justify-content-between align-items-center bg-negative">
@@ -88,7 +127,12 @@
             <!-- About Me -->
             <section id="about-me" class="row">
                 <div class="col-md-5 col-lg-5 col-xl-5 align-self-center mr-0">
-                    <img id="about-pic" src="resources/aboutMe/about_me.png" class="mx-auto d-block" >
+                    <!-- <img id="about-pic" src="resources/aboutMe/about_me.png" class="mx-auto d-block" > -->
+                    <video class="mx-auto d-block wh-100" autoplay muted controls loop>
+                        <source src="resources/aboutMe/Video_Resume.mp4" type="video/mp4">
+                        Sorry, Your browser does not support the video tag.
+                    </video>
+                    <!-- <a href="resources/aboutMe/Video_Resume.mp4" download="Video_Resume.mp4">Download the video file</a> -->
                 </div>
                 <div id="about-details" class="col-md-6 col-lg-6 col-xl-6 align-self-center">
                     <heading>Hello! I’m Umang Singh</heading>
@@ -98,8 +142,8 @@
                     <div class="d-flex flex-row flex-wrap flex-md-nowrap justify-content-around btn-grp">                  
                         <!-- m-2 my-md-3 ml-md-5  -->
                         <button type="button" class="btn btn-block btn-fill w-100" onclick="window.open('resources/aboutMe/Umang_Resume_light.pdf#view=FitV'); return false"><icon class="fa fa-eye" aria-hidden="true"></icon>Resume</button>
-                        <a href="#contact">
-                            <button id="contact-me" type="button" class="btn btn-block btn-outline w-100"><icon class="fa fa-phone" aria-hidden="true"></icon>Contact Me</button>
+                        <a>
+                            <button id="contact-me" type="button" class="btn btn-block btn-outline w-100" data-toggle="modal" data-target="#myModal"><icon class="fa fa-phone" aria-hidden="true"></icon>Contact Me</button>
                         </a>
                     </div>
                 </div>    
@@ -110,7 +154,7 @@
 
             <!-- Portfolio -->
             <section id="portfolio">
-                <heading class="d-flex justify-content-center p-1 p-md-3">Check out few of my works!</heading>
+                <!-- <heading class="d-flex justify-content-center p-1 p-md-3">Check out few of my works!</heading> -->
                 <div class="d-none d-md-block">
                     <div class="d-flex flex-row justify-content-center align-items-start">  
                         <div class="portfolio-item m-1 p-2" style="background: #FFFAF5; border-color: rgba(89, 46, 0);">
@@ -265,6 +309,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+        <script> window.addEventListener('scroll', ()=>{
+            console.log("Mouse moved");
+        });</script>
         <script>
             const progress_bar = document.getElementsByClassName("nav-progress-bar")[0];
             const navmenulist = document.getElementsByClassName("navmenulist")[0];
@@ -289,7 +336,6 @@
                     const sectionBottom = element.getBoundingClientRect().bottom;
                     const diff = sectionBottom-sectionPosTop;
                     
-                    console.log(i);
                     if(setactive<=i && screenPos>(sectionPosTop+diff/2)){
                         setactive=i;
                         navmenuitems[i].classList.add("active");

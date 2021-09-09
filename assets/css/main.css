@@ -8,6 +8,11 @@
 --breakpoint-lg: 992px;
 --breakpoint-xl: 1200px; */
 
+.wh-100 {
+	width: 100%;
+	height: 100%;
+}
+
 /* Common */
 body {
     font-family: Ubuntu;
@@ -114,7 +119,77 @@ body::-webkit-scrollbar {
 		margin: 0px !important;
 	}
 
-/* Progress Bar */
+/* Modal */
+
+	.modal-backdrop { 
+		background-color: #000; 
+		opacity: 0.8 !important;
+	}
+
+	.modal-dialog {
+		max-width: unset;
+		/* width: calc(100% - 60px); */
+		width: 72%;
+		height: calc(100vh - 60px);
+		margin: 60px auto;
+		padding: 0;
+	}
+
+	.modal-content {
+		height: 100%;
+		margin: auto;
+		padding: 0;
+		background-color: unset;
+		border: none;
+	}
+
+	.close.modal-close {
+		position: fixed;
+		left: 20px;
+		top: 20px;
+		font-size: 2rem;
+	}
+
+	.close.modal-close:hover {
+		position: fixed;
+		right: 17px;
+		top: 17px;
+		font-size: 2.5rem;
+		color: #E93415;
+	}
+
+	.download {
+		background-color: unset;
+		border: none;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		color: #000;
+		opacity: 0.5;
+	}
+
+	.download.modal-download {
+		position: fixed;
+		right: 20px;
+		top: 20px;
+		font-size: 1.5rem;
+		font-weight: 500;
+	}
+
+	.modal-download:hover {
+		position: fixed;
+		right: 17px;
+		top: 17px;
+		font-size: 2rem;
+		color: #E93415;
+	}
+
+	.modal-body {
+		padding: 2px;
+	}
+
+	.modal-footer {
+		border-top: none;
+	}
 
 /* Page-Breaks */
 	hr.solid {
