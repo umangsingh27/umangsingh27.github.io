@@ -46,10 +46,10 @@
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
+            <div class="modal-dialog m-dialog">
             
                 <!-- Modal content-->
-                <div class="modal-content">
+                <div class="modal-content m-content">
                     <!-- <div class="modal-header">
                         
                         <h4 class="modal-title">Modal Header</h4>
@@ -83,6 +83,28 @@
             </div>
         </div>
 
+        <!-- <div class="modal fade" id="modalRecorded" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <span>dzfxgchvjbkn</span>
+                        <button type="button" class="close modal-close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div class="dropdown-alert-container">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Success! message sent successfully.
+            </div>
+        </div> -->
+
+        <!-- <div class="alert alert-warning" id="modalRecorded" role="alert">
+            A simple warning alert—check it out!
+        </div> -->
+
         <!-- Home -->
         <section id="home" class="d-flex flex-column justify-content-between align-items-center bg-negative">
             <div class="row">
@@ -94,18 +116,28 @@
                     <p class="negative">I would like to know more about people who visit my website. Hence, I request you to answer the question below.</p>
                     <div class="dropdown py-4">
                         <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!-- class="dropdown-toggle" -->
                             I’m visiting your website because
                             <i class="fa fa-angle-down fa-2x float-right"></i>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">I’m a recruiter</a>
-                          <a class="dropdown-item" href="#">I’m a student learning UI/UX</a>
-                          <a class="dropdown-item" href="#">I’m also a UI/UX designer</a>
-                          <a class="dropdown-item" href="#">We are a company intrested in UI/UX</a>
-                          <a class="dropdown-item" href="#">I’m curious about what you do</a>
-                          <a class="dropdown-item" href="#">Others</a>
-                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <!-- <li><button class="dropdown-item dropdown-alert">I’m a recruiter</button></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><button class="dropdown-item dropdown-alert">I’m a student learning UI/UX</button></li>
+                            <li><button class="dropdown-item dropdown-alert">I’m also a UI/UX designer</button></li>
+                            <li><button class="dropdown-item dropdown-alert">We are a company intrested in UI/UX</button></li>
+                            <li><button class="dropdown-item dropdown-alert">I’m curious about what you do</button></li>
+                            <li><button class="dropdown-item dropdown-alert">Others</button></li> -->
+
+                            <li><a class="dropdown-item" href="#" data-toggle="alert" data-target="#modalRecorded">I’m a recruiter</a></li>
+                            <li><a class="dropdown-item" href="#">I’m a student learning UI/UX</a></li>
+                            <li><a class="dropdown-item" href="#">I’m also a UI/UX designer</a></li>
+                            <li><a class="dropdown-item" href="#">We are a company intrested in UI/UX</a></li>
+                            <li><a class="dropdown-item" href="#">I’m curious about what you do</a></li>
+                            <li><a class="dropdown-item" href="#">Others</a></li>
+                        </ul>
                     </div>
+                    
                 </div>  
             </div>
             <div>
@@ -311,9 +343,22 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-        <script> window.addEventListener('scroll', ()=>{
+        <!-- <script> window.addEventListener('scroll', ()=>{
             console.log("Mouse moved");
-        });</script>
+        });</script> -->
+
+        <script>
+            $('.dropdown').hover(function(){ 
+                $('.dropdown-toggle',this).trigger('click'); 
+            });
+
+            $('.dropdown-alert').click(function(){
+                console.log('b');
+                $('.dropdown-alert-container').show()
+                console.log('c');
+            });
+        </script>
+
         <script>
             const progress_bar = document.getElementsByClassName("nav-progress-bar")[0];
             const navmenulist = document.getElementsByClassName("navmenulist")[0];

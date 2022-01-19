@@ -126,7 +126,7 @@ body::-webkit-scrollbar {
 		opacity: 0.8 !important;
 	}
 
-	.modal-dialog {
+	.m-dialog {
 		max-width: unset;
 		/* width: calc(100% - 60px); */
 		width: 72%;
@@ -135,7 +135,7 @@ body::-webkit-scrollbar {
 		padding: 0;
 	}
 
-	.modal-content {
+	.m-content {
 		height: 100%;
 		margin: auto;
 		padding: 0;
