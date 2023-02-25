@@ -16,7 +16,7 @@ export class ProjectsComponent implements OnInit{
               private route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.fileService.readFile('../assets/projects.json').subscribe(data=> {
+    this.fileService.readFile('../assets/json/projects.json').subscribe(data=> {
       this.projects = data as Project[];
     });
 

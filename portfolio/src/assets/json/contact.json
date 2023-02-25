@@ -1,0 +1,26 @@
+{
+    "headline": "Let's connect",
+    "subHeadline": "Get in touch via Email, Whatsapp or LinkedIn",
+    "socialMediaList": [
+        {
+            "order": 0,
+            "link": "mailto:mail2umangsingh@gmail.com",
+            "materialIcon": "../assets/images/icons/email.png"
+        },
+        {
+            "order": 1,
+            "link": "https://wa.me/+917003243370",
+            "materialIcon": "../assets/images/icons/whatsapp.png"
+        },
+        {
+            "order": 2,
+            "link": "https://linkedin.com/in/umangsingh123/",
+            "materialIcon": "../assets/images/icons/linkedin.png"
+        },
+        {
+            "order": 3,
+            "link": "https://instagram.com/_umangsingh/",
+            "materialIcon": "../assets/images/icons/instagram.png"
+        }
+    ]
+}
