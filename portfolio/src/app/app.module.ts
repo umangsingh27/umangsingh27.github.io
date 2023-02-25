@@ -11,6 +11,7 @@ import { ProjectTileComponent } from './project-tile/project-tile.component';
 import { ContactComponent } from './contact/contact.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './materials/materials.module';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MaterialsModule } from './materials/materials.module';
     AboutComponent,
     ProjectsComponent,
     ProjectTileComponent,
-    ContactComponent
+    ContactComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

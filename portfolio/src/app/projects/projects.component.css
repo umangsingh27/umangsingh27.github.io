@@ -1,0 +1,32 @@
+.view-archived-button {
+    padding: 0.5em 0.5em 0.5em 0;
+    margin: 0% 20%;
+    float: right;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #303030;
+    text-decoration: underline;
+    text-decoration-color: #303030;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 11px;
+}
+
+.view-archived-button:hover{
+    padding: 0.5em 0;
+}
+
+.view-archived-button::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('../../assets/images/icons/right_arrow.png') no-repeat center center;
+    background-size: 50%;
+}
+
+.view-archived-button:hover::after {
+    padding-left: 0.5em;
+    background-size: 40%;
+    /* transition: linear 0.25s; */
+}

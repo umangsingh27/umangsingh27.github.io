@@ -1,5 +1,5 @@
 .card{
-    margin: 3% 20%;
+    margin: 0% 20%;
     transition: none !important;
     box-shadow: none !important;
 }
@@ -8,7 +8,7 @@
     float: left;
     max-width: 100%;
     padding-right: 50px;
-    margin: 0% 0% 10%;
+    margin: 0em 0em 1em;
 }
 
 .material-symbols-outlined {
@@ -54,11 +54,21 @@
 
 .read-more-button {
     padding: 0.5em 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #303030;
     text-decoration: underline;
     text-decoration-color: #303030;
     text-decoration-thickness: 2px;
     text-underline-offset: 11px;
 }
+
+/* .read-more-button:hover{
+    fill-opacity: 0;
+    background-color: transparent !important;
+    box-shadow: none !important;
+} */
 
 .read-more-button::after {
     content: '';
@@ -69,11 +79,10 @@
     background-size: 50%;
 }
 
-#project-link {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 24px;
-    color: #303030;
+.read-more-button:hover::after {
+    padding-left: 0.5em;
+    background-size: 40%;
+    /* transition: linear 0.25s; */
 }
 
 /* .image-container {
@@ -96,3 +105,7 @@
     left: 0px;
     z-index: 0;
 } */
+
+.mat-button-toggle-focus-overlay {
+    display: none;
+}
