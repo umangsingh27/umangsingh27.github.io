@@ -1,0 +1,19 @@
+<mat-card class="card">
+    <mat-card-content>
+        <p>
+            <span id="image-container">
+                <!-- <mat-icon id="img1" class="material-symbols-outlined" [fontIcon]="project.team" [style.color]="project.primaryColorCode"></mat-icon> -->
+                <img id="img2" class="thumbnail" [src]="project.image" [alt]="project.name"/>
+            </span>
+            <span class="content-container">
+                    <mat-card-title class="project-title" [textContent]="project.name"></mat-card-title>
+                    <mat-card-subtitle *ngIf="project.type" class="project-sub-title" [textContent]="project.type"></mat-card-subtitle>
+                    <span class="project-description" [textContent]="project.description"></span>
+                    <br>
+                    <!-- target=_blank opens in new tab -->
+                    <a mat-button class="read-more-button" [href]="project.link" id="project-link" target="_blank">Read More</a>
+            </span>
+        </p>
+    </mat-card-content>
+</mat-card>
+  

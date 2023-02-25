@@ -1,0 +1,98 @@
+.card{
+    margin: 3% 20%;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+.thumbnail {
+    float: left;
+    max-width: 100%;
+    padding-right: 50px;
+    margin: 0% 0% 10%;
+}
+
+.material-symbols-outlined {
+    font-size: 28px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.content-container {
+    /* min-width: 400px; */
+    margin: 2% 0%;
+}
+
+.project-title {
+    padding: 0.75em 0;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 37px;
+    color: #303030;
+}
+
+.project-sub-title {
+    padding: 0.5em 0;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    color: #303030;
+}
+
+.project-description {
+    /* width: 427px;
+    height: 48px; */
+    padding: 0.5em 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #606060;
+}
+
+.read-more-button {
+    padding: 0.5em 0;
+    text-decoration: underline;
+    text-decoration-color: #303030;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 11px;
+}
+
+.read-more-button::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('../../assets/images/icons/right_arrow.png') no-repeat center center;
+    background-size: 50%;
+}
+
+#project-link {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #303030;
+}
+
+/* .image-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+} */
+
+/* #img1
+{
+    position:absolute;
+    top: 67%;
+    left: 47%;
+    z-index: 2;
+}
+#img2
+{
+    position:relative;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+} */

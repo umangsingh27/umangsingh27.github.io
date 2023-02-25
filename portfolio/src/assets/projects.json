@@ -1,0 +1,22 @@
+[
+  {
+    "order": 0,
+    "name": "PowerEase",
+    "type": "Thesis",
+    "team": "Person",
+    "primaryColorCode": "#7878",
+    "description": "The payment process at fuel stations takes more time than actual refueling of the vehicle’s fuel tank. Hence, an alternative ",
+    "link": "https://umangsingh27.github.io/",
+    "image": ""
+  },
+  {
+    "order": 1,
+    "name": "Indigo Website Revamp",
+    "type": "Case Study",
+    "team": "Groups",
+    "primaryColorCode": "",
+    "description": "The payment process at fuel stations takes more time than actual refueling of the vehicle’s fuel tank. Hence, an alternative contact-less method is needed to both expedite the payment process and also to eliminate physical handling of cash.",
+    "link": "https://umangsingh27.github.io/",
+    "image": "../assets/images/thumbnail/indigo.png"
+  }
+]
