@@ -8,7 +8,6 @@ import { ProjectsComponent } from './projects/projects.component';
 const routes: Routes = [
   { path: 'about', title: 'About', component: AboutComponent},
   { path: 'projects', title: 'projects', component: ProjectsComponent},
-  { path: 'project-tile', title: 'project-tile', component: ProjectTileComponent},
   { path: 'contact', title: 'contact', component: ContactComponent},
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', title: 'Umang Singh', component: AboutComponent}
