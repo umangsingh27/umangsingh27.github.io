@@ -12,4 +12,5 @@ export class Project {
     public link: string;
     public order: number;
     public image: string;
+    public archived: boolean;
 }

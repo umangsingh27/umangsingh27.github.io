@@ -1,4 +1,4 @@
 <div *ngFor="let project of projects">
-    <project-tile [project]="project"></project-tile>
+    <project-tile *ngIf="!project.archived" [project]="project"></project-tile>
 </div>
             
