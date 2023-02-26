@@ -1,9 +1,41 @@
+.page-margin {
+    /* margin: 0% 15% ; */
+}
+
 .nav-bar {
     background-color: transparent;
     position: fixed;
     z-index: 1;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.profile-pic {
+    height: 62px;
+    width: 62px;
+}
+
+.about-line-one {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #303030;
+}
+
+.about-line-two {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    color: #909090;
 }
 
 .spacer {
     flex: 1 1 auto;
 }
+
+/* .nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+} */

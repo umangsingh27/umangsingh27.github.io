@@ -1,5 +1,7 @@
 .page-margin {
-    margin: 0% 20%;
+    /* position: ; */
+    margin: 0% 15%;
+    bottom: 0;
     padding: 80px 10px 80px 10px;
 }
 

@@ -1,16 +1,35 @@
-<div *ngIf="home; else goBackTemplate">
-    <mat-toolbar class="nav-bar">
-        <span>My Application</span>
-        <div class="spacer"></div>
-        <a mat-button (click)="scrollToSection('about')">About</a>
-        <a mat-button (click)="scrollToSection('projects')">Work</a>
-        <a mat-button (click)="scrollToSection('contact')">Contact</a>
-        <a mat-button>Resume</a>
-    </mat-toolbar>
-</div>
+<div class="page-margin">
+    <div *ngIf="home; else goBackTemplate">
+        <mat-toolbar class="nav-bar">
+            <!-- <span>My Application</span> -->
+            <span><img class="profile-pic" [src]="'../assets/images/profile-pic.png'"/></span>
+            <span>
+                <mat-list>
+                    <mat-list-item>
+                      <span matListItemTitle class="about-line-one">Umang Singh</span>
+                      <span matListItemLine class="about-line-two">UX / UI Designer | Product Designer</span>
+                      <span matListItemLine class="about-line-two">M. Des (UX/UI)</span>
+                    </mat-list-item>
+                </mat-list>
+                <!-- <mat-list role="list">
+                    <mat-list-item class="about-line-one" role="listitem">Umang Singh</mat-list-item>
+                    <mat-list-item class="about-line-two" role="listitem">UX / UI Designer  |  Product Designer</mat-list-item>
+                    <mat-list-item class="about-line-two" role="listitem">M. Des (UX/UI)</mat-list-item>
+                </mat-list> -->
+            </span>
+            <div class="spacer"></div>
+            <div class="nav">
+                <a mat-button (click)="scrollToSection('about')">About</a>
+                <a mat-button (click)="scrollToSection('projects')">Work</a>
+                <a mat-button (click)="scrollToSection('contact')">Contact</a>
+                <a mat-button>Resume</a>
+            </div>
+        </mat-toolbar>
+    </div>
 
-<ng-template #goBackTemplate>
-    <mat-toolbar class="nav-bar">
-        <a mat-button (click)="goBack()">Home</a>
-    </mat-toolbar>
-</ng-template>
+    <ng-template #goBackTemplate>
+        <mat-toolbar class="nav-bar">
+            <a mat-button (click)="goBack()">Home</a>
+        </mat-toolbar>
+    </ng-template>
+</div>
