@@ -1,5 +1,4 @@
 .card{
-    margin: 0% 15%;
     transition: none !important;
     box-shadow: none !important;
 }
@@ -9,6 +8,12 @@
     max-width: 100%;
     padding-right: 50px;
     margin: 0em 0em 1em;
+}
+
+@media only screen and (max-width: 1245px){
+    .thumbnail {
+        width: 100%;
+    }
 }
 
 .material-symbols-outlined {

@@ -1,8 +1,12 @@
-<nav-bar class="nav-bar" [home]="false"></nav-bar>
+<nav-bar class="nav-bar" 
+        [home]="false" 
+        [download]="true" 
+        (downloadButtonClicked)="downloadResume($event)">
+</nav-bar>
+
 
 <pdf-viewer [src]="resumeLink"
-              [render-text]="false"
-              [original-size]="false"
-              style="width: 100%; height: 100%">
+            [render-text]="false"
+            [original-size]="false"
+            class="pdf-viewer page-margin">
 </pdf-viewer>
-

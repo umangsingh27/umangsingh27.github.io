@@ -1,19 +1,20 @@
 <nav-bar *ngIf="archivedProjects" class="nav-bar" [home]="false"></nav-bar>
+<div class="page-margin">
+    <div *ngFor="let project of projects">
+        <!-- main projects -->
+        <project-tile *ngIf="!archivedProjects && !project.archived" [project]="project"></project-tile>
+        <!-- archived projects -->
+        <project-tile *ngIf="archivedProjects && project.archived" [project]="project"></project-tile>
+    </div>
 
-<div *ngFor="let project of projects">
-    <!-- main projects -->
-    <project-tile *ngIf="!archivedProjects && !project.archived" [project]="project"></project-tile>
-    <!-- archived projects -->
-    <project-tile *ngIf="archivedProjects && project.archived" [project]="project"></project-tile>
+    <!-- target="_blank" opens in new tab -->
+    <a mat-button 
+        *ngIf="!archivedProjects" 
+        class="view-archived-button" 
+        [routerLink]="'projects/archived'">
+        View archived projects
+    </a> 
 </div>
-
-<!-- target="_blank" opens in new tab -->
-<a mat-button 
-    *ngIf="!archivedProjects" 
-    class="view-archived-button" 
-    [routerLink]="'projects/archived'">
-    View archived projects
-</a> 
 
 
             

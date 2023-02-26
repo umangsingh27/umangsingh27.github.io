@@ -1,8 +1,13 @@
 .page-margin {
-    /* position: ; */
     margin: 0% 15%;
     bottom: 0;
     padding: 20px 10px 80px 10px;
+}
+
+@media only screen and (max-width:599px) {
+    .page-margin {
+        margin: 0 20px;
+    }
 }
 
 footer {

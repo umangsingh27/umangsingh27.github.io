@@ -10,7 +10,10 @@ import { NavBarInfo } from '../model/nav-bar-info.model';
 })
 export class NavBarComponent implements OnInit{
   @Input() home: boolean = true;
+  @Input() download: boolean = false;
   @Output() scrollTo = new EventEmitter<string>();
+  @Output() downloadButtonClicked = new EventEmitter<boolean>();
+
   navBarInfo: NavBarInfo;
 
   constructor(private fileService:FileService,
@@ -24,6 +27,10 @@ export class NavBarComponent implements OnInit{
   
   public scrollToSection(elementId: string) {
     this.scrollTo.emit(elementId);
+  }
+
+  public downloadClicked(){
+    this.downloadButtonClicked.emit(true);
   }
 
   public goBack() {

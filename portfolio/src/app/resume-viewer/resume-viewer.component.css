@@ -1,0 +1,14 @@
+.page-margin {
+    margin: 0% 15%;
+}
+
+@media only screen and (max-width:599px) {
+    .page-margin {
+        margin: 0 20px;
+    }
+}
+
+.pdf-viewer {
+    width: 70%; 
+    height: 100%;
+}

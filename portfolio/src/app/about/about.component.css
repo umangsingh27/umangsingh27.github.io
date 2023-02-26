@@ -1,4 +1,28 @@
-.page-margin{
+.page-margin {
     margin: 0% 15%;
-    padding: 80px 10px 0px;
+    padding: 80px 15px 0px;
+}
+
+@media only screen and (max-width:599px) {
+    .page-margin {
+        margin: 0 20px;
+    }
+}
+
+.why-and-why-text {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 50px;
+    color: #303030;
+}
+
+.focus-text {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 100px;
+    color: #909090;
+    text-decoration: underline;
+    text-decoration-color: #909090;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 11px
 }

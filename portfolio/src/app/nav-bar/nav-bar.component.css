@@ -1,5 +1,11 @@
 .page-margin {
-    /* margin: 0% 15% ; */
+    margin: 0% 15%;
+}
+
+@media only screen and (max-width:599px) {
+    .page-margin {
+        margin: 0 20px;
+    }
 }
 
 .nav-bar {
@@ -38,7 +44,8 @@
 }
 
 .spacer {
-    flex: 1 1 auto;
+    /* width: 30%; */
+    flex: 0.45 1 auto;
 }
 
 /* .float-to-end {

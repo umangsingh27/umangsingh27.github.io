@@ -13,4 +13,10 @@ export class FileService {
   readFile(fileName: string){
     return this.http.get(fileName);
   }
+
+  downloadFile(fileName: string): any {
+    console.log("Downloading: ", fileName);
+    return this.http.get(fileName, {responseType: 'blob'});
+  }
+
 }
