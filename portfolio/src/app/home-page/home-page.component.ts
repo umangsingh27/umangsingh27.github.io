@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
-
+  scrollToSection(event: string){
+    let element = document.getElementById(event);
+    element?.scrollIntoView();
+  }
 }

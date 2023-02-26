@@ -1,3 +1,5 @@
+<nav-bar *ngIf="archivedProjects" class="nav-bar" [home]="false"></nav-bar>
+
 <div *ngFor="let project of projects">
     <!-- main projects -->
     <project-tile *ngIf="!archivedProjects && !project.archived" [project]="project"></project-tile>

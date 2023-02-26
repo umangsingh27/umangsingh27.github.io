@@ -1,0 +1,9 @@
+.nav-bar {
+    background-color: transparent;
+    position: fixed;
+    z-index: 1;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

@@ -1,1 +1,16 @@
-<p>nav-bar works!</p>
+<div *ngIf="home; else goBackTemplate">
+    <mat-toolbar class="nav-bar">
+        <span>My Application</span>
+        <div class="spacer"></div>
+        <a mat-button (click)="scrollToSection('about')">About</a>
+        <a mat-button (click)="scrollToSection('projects')">Work</a>
+        <a mat-button (click)="scrollToSection('contact')">Contact</a>
+        <a mat-button>Resume</a>
+    </mat-toolbar>
+</div>
+
+<ng-template #goBackTemplate>
+    <mat-toolbar class="nav-bar">
+        <a mat-button (click)="goBack()">Home</a>
+    </mat-toolbar>
+</ng-template>
