@@ -19,7 +19,6 @@ export class NavBarComponent implements OnInit{
   ngOnInit(): void {
     this.fileService.readFile('../../assets/json/nav-bar-info.json').subscribe(data => {
       this.navBarInfo = data as NavBarInfo;
-      console.log(this.navBarInfo);
     });
   }
   
