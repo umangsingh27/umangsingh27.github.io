@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './materials/materials.module';
 import { HomePageComponent } from './home-page/home-page.component';
+import {MediaObserver, FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     AppRoutingModule,
     HttpClientModule,
     NoopAnimationsModule,
-    MaterialsModule
+    MaterialsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

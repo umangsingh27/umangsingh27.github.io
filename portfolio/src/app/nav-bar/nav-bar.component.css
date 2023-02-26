@@ -6,20 +6,27 @@
     background-color: transparent;
     position: fixed;
     z-index: 1;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 42px;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+.nav-bar2 {
+    background-color: transparent;
+    margin-top: 64px;
+    position: fixed;
+    z-index: 1;
 }
 
 .profile-pic {
-    height: 62px;
-    width: 62px;
+    height: 64px;
+    width: 64px;
 }
 
 .about-line-one {
     font-weight: 700;
     font-size: 16px;
-    line-height: 18px;
+    line-height: 20px;
     color: #303030;
 }
 
@@ -34,8 +41,8 @@
     flex: 1 1 auto;
 }
 
-/* .nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+/* .float-to-end {
+    margin-right: auto;
+    justify-content: flex-end;
+    align-self: flex-end;
 } */
