@@ -1,13 +1,12 @@
 <div class="page-margin">
     <div *ngIf="home; else goBackTemplate">
         <mat-toolbar class="nav-bar">
-            <span><img class="profile-pic" [src]="'../assets/images/profile-pic.png'"/></span>
+            <span><img class="profile-pic" [src]="navBarInfo.profilePic"/></span>
             <span>
                 <mat-list>
                     <mat-list-item>
-                      <span matListItemTitle class="about-line-one">Umang Singh</span>
-                      <span matListItemLine class="about-line-two">UX / UI Designer | Product Designer</span>
-                      <span matListItemLine class="about-line-two">M. Des (UX/UI)</span>
+                      <span matListItemTitle class="about-line-one" [textContent]="navBarInfo.headline">Umang Singh</span>
+                      <span matListItemLine class="about-line-two" *ngFor="let line of navBarInfo.nextLines" [textContent]="line"></span>
                     </mat-list-item>
                 </mat-list>
             </span>
@@ -16,7 +15,7 @@
                 <a mat-button (click)="scrollToSection('about')">About</a>
                 <a mat-button (click)="scrollToSection('projects')">Work</a>
                 <a mat-button (click)="scrollToSection('contact')">Contact</a>
-                <a mat-button>Resume</a>
+                <a mat-button [href]="navBarInfo.resumeLink">Resume</a>
             </div>
         </mat-toolbar>
         <mat-toolbar class="nav-bar2">
@@ -24,7 +23,7 @@
                 <a mat-button (click)="scrollToSection('about')">About</a>
                 <a mat-button (click)="scrollToSection('projects')">Work</a>
                 <a mat-button (click)="scrollToSection('contact')">Contact</a>
-                <a mat-button>Resume</a>
+                <a mat-button [href]="navBarInfo.resumeLink">Resume</a>
             </div>
         </mat-toolbar>
     </div>
