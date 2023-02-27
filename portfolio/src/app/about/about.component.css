@@ -1,63 +1,122 @@
 .page-margin {
     margin: 0% 15%;
-    padding: 22vh 15px 22vh;
+    padding: 22vh 15px;
 }
 
 /* page-margin for small-sized screen devices*/
 @media only screen and (max-width:599px) {
     .page-margin {
-        margin: 0 20px;
+        margin: 0 20px !important;
     }
+}
+
+.flex-box {
+    width: 100%;
+    display: inline-flex;
+    /* responsively send to next line */
+    flex-wrap: wrap;
+    /* aligns items horizontolly */
+    justify-content: space-between;
+    /* aligns items vertically */
+    align-items: center;
+    /* add gap between flex items */
+    gap: 10px;
+}
+
+.text-container {
+
 }
 
 .why-and-why-text {
     font-weight: 400;
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 32px;
+    line-height: 80px;
     color: #303030;
 }
 
 .focus-text {
     font-weight: 400;
-    font-size: 40px;
-    line-height: 100px;
+    font-size: 32px;
+    line-height: 80px;
     color: #909090;
     text-decoration: underline;
     text-decoration-color: #909090;
-    text-decoration-thickness: 4px;
-    text-underline-offset: 11px;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
 }
 
-/* page-margin for medium-sized screen devices*/
-@media only screen and (min-width: 768px) and (max-width:991px) {
+
+/* font-sizes for large-sized screen devices*/
+@media only screen and (min-width: 992px) and (max-width: 1230px) {
+    /* (max-width: 1199px) */
     .why-and-why-text {
         font-weight: 400;
-        font-size: 32px;
-        line-height: 60px;
+        font-size: 24px !important;
+        line-height: 60px !important;
     }
 
     .focus-text {
         font-weight: 400;
-        font-size: 32px;
-        line-height:70px;
-        text-decoration-thickness: 4px;
-        text-underline-offset: 11px;
+        font-size: 24px !important;
+        line-height: 60px !important;
+        text-decoration-thickness: 2px !important;
+        text-underline-offset: 6px !important;
     }
 }
 
-/* page-margin for extra-small and small-sized screen devices*/
-@media only screen and (max-width:767px) {
+/* font-sizes for medium-sized screen devices*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
     .why-and-why-text {
         font-weight: 400;
-        font-size: 24px;
-        line-height: 50px;
+        font-size: 32px !important;
+        line-height: 60px !important;
     }
 
     .focus-text {
         font-weight: 400;
-        font-size: 24px;
-        line-height: 30px;
-        text-decoration-thickness: 4px;
-        text-underline-offset: 11px;
+        font-size: 32px !important;
+        line-height: 60px !important;
+        text-decoration-thickness: 3px !important;
+        text-underline-offset: 8px !important;
+    }
+}
+
+/* todo: not detecting this size */
+/* font-sizes for extra-small and small-sized screen devices */
+@media only screen and (max-width:767) {
+    .why-and-why-text {
+        font-weight: 400;
+        font-size: 24px !important;
+        line-height: 60px !important;
+    }
+
+    .focus-text {
+        font-weight: 400;
+        font-size: 24px !important;
+        line-height: 60px !important;
+        text-decoration-thickness: 2px !important;
+        text-underline-offset: 6px !important;
+    }
+}
+
+.video-container {
+
+}
+
+.video-resume {
+    width: 30vw;
+    height: calc(30vw * 9/16);
+}
+
+/* font-sizes for extra-small, small and medium-sized screen devices */
+@media only screen and (max-width: 991px){
+    .video-container {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .video-resume {
+        min-width: 100% !important;
+        height: calc(80vw * 9/16) !important;
     }
 }

@@ -1,13 +1,21 @@
 <div class="page-margin">
-    <div>
-        <p class="why-and-why-text">
-            Out of the box <span class="focus-text">t</span>hinking <br>
-            to <span class="focus-text">c</span>reate delightful experiences <br>
-            with a <span class="focus-text">p</span>urpose
-        </p>
+    <div class="flex-box">
+        <div class="text-container">
+            <p class="why-and-why-text">
+                Out of the box <span class="focus-text">t</span>hinking <br>
+                to <span class="focus-text">c</span>reate delightful experiences <br>
+                with a <span class="focus-text">p</span>urpose
+            </p>
+        </div>
+        <div class="video-container">
+            <iframe
+                class="video-resume"
+                [src]="safeUrl" 
+                title="Video Resume" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
     </div>
-
-    <!-- <div fxFlex="60" fxHide.gt-sm>
-
-    </div> -->
 </div>

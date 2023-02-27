@@ -3,4 +3,5 @@ export class Intro {
     public headline: string = '';
     public nextLines: string[];
     public resumeLink: string = '';
+    public videoResumeLink: string = '';
 }
