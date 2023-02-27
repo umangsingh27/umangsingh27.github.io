@@ -1,35 +1,35 @@
 <div class="">
     <div *ngIf="home; else goBackTemplate">
-        <mat-toolbar class="nav-bar nav-bar-background">
-            <span><img class="profile-pic" [src]="navBarInfo.profilePicPath"/></span>
-            <span>
-                <mat-list>
-                    <mat-list-item>
-                    <span matListItemTitle class="about-line-one" [textContent]="navBarInfo.headline">Umang Singh</span>
-                    <span matListItemLine class="about-line-two" *ngFor="let line of navBarInfo.nextLines" [textContent]="line"></span>
-                    </mat-list-item>
-                </mat-list>
-            </span>
-            <div class="spacer"></div>
-            <div fxHide.sm fxHide.lt-sm>
-                <a mat-button (click)="scrollToSection('about')">About</a>
-                <a mat-button (click)="scrollToSection('projects')">Work</a>
-                <a mat-button (click)="scrollToSection('contact')">Contact</a>
-                <a mat-button [routerLink]="'resume'">Resume</a>
+        <mat-toolbar class="nav-bar nav-bar-background flex-box" style="justify-content: space-between">
+            <div class="flex-box justify-flex-start">
+                <span><img class="profile-pic" [src]="navBarInfo.profilePicPath"/></span>
+                <span>
+                    <mat-list>
+                        <mat-list-item>
+                        <span matListItemTitle class="about-line-one" [textContent]="navBarInfo.headline">Umang Singh</span>
+                        <span matListItemLine class="about-line-two" *ngFor="let line of navBarInfo.nextLines" [textContent]="line"></span>
+                        </mat-list-item>
+                    </mat-list>
+                </span>
             </div>
-        </mat-toolbar>
-        <mat-toolbar class="nav-bar2">
-            <div fxHide.gt-sm>
-                <a mat-button (click)="scrollToSection('about')">About</a>
-                <a mat-button (click)="scrollToSection('projects')">Work</a>
-                <a mat-button (click)="scrollToSection('contact')">Contact</a>
-                <a mat-button [routerLink]="'resume'">Resume</a>
+
+            <div class="right flex-box" style="justify-content: space-between">
+                <!-- <div class="a"> <a mat-button (click)="scrollToSection('about')">About</a></div>
+                <div class="b"> <a mat-button (click)="scrollToSection('about')">About</a></div> -->
+                <div style="justify-content: flex-start">
+                    <a mat-button (click)="scrollToSection('about')">About</a>
+                    <a mat-button (click)="scrollToSection('projects')">Work</a>
+                    <a mat-button (click)="scrollToSection('contact')">Contact</a>
+                </div>
+                <div style="justify-content: flex-end">
+                    <a mat-button [routerLink]="'resume'">Resume</a>
+                </div>
             </div>
         </mat-toolbar>
     </div>
 
     <ng-template #goBackTemplate>
-        <mat-toolbar class="nav-bar nav-bar-background">
+        <mat-toolbar class="nav-bar nav-bar-background flex-box" style="justify-content: space-between">
             <a mat-button (click)="goBack()">Home</a>
             <a mat-button *ngIf="download" (click)="downloadClicked()">Download</a>
         </mat-toolbar>
