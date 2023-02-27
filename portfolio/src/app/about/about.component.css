@@ -25,5 +25,39 @@
     text-decoration: underline;
     text-decoration-color: #909090;
     text-decoration-thickness: 4px;
-    text-underline-offset: 11px
+    text-underline-offset: 11px;
+}
+
+/* page-margin for medium-sized screen devices*/
+@media only screen and (min-width: 768px) and (max-width:991px) {
+    .why-and-why-text {
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 60px;
+    }
+
+    .focus-text {
+        font-weight: 400;
+        font-size: 32px;
+        line-height:70px;
+        text-decoration-thickness: 4px;
+        text-underline-offset: 11px;
+    }
+}
+
+/* page-margin for extra-small and small-sized screen devices*/
+@media only screen and (max-width:767px) {
+    .why-and-why-text {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 50px;
+    }
+
+    .focus-text {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 30px;
+        text-decoration-thickness: 4px;
+        text-underline-offset: 11px;
+    }
 }
