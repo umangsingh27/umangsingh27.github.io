@@ -1,4 +1,4 @@
-/* page-margin */
+/* page-margin for small-sized screen devices*/
 @media only screen and (max-width:599px) {
     .nav-bar {
         padding: 0 20px !important;
@@ -9,7 +9,7 @@
     }
 }
 
-/* nav-bar-background-height */
+/* nav-bar-background-height for medium-sized screen devices */
 @media only screen and (max-width: 959px) {
     .nav-bar-background {
         min-height: 150px !important;

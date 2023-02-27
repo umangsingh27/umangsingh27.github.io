@@ -3,6 +3,7 @@
     padding: 15px;
 }
 
+/* page-margin for small-sized screen devices*/
 @media only screen and (max-width:599px) {
     .page-margin {
         margin: 0 20px;
