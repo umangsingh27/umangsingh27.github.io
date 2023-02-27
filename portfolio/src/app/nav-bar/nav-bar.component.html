@@ -1,12 +1,12 @@
-<div class="page-margin">
+<div class="">
     <div *ngIf="home; else goBackTemplate">
-        <mat-toolbar class="nav-bar">
+        <mat-toolbar class="nav-bar nav-bar-background">
             <span><img class="profile-pic" [src]="navBarInfo.profilePic"/></span>
             <span>
                 <mat-list>
                     <mat-list-item>
-                      <span matListItemTitle class="about-line-one" [textContent]="navBarInfo.headline">Umang Singh</span>
-                      <span matListItemLine class="about-line-two" *ngFor="let line of navBarInfo.nextLines" [textContent]="line"></span>
+                    <span matListItemTitle class="about-line-one" [textContent]="navBarInfo.headline">Umang Singh</span>
+                    <span matListItemLine class="about-line-two" *ngFor="let line of navBarInfo.nextLines" [textContent]="line"></span>
                     </mat-list-item>
                 </mat-list>
             </span>
@@ -29,7 +29,7 @@
     </div>
 
     <ng-template #goBackTemplate>
-        <mat-toolbar class="nav-bar">
+        <mat-toolbar class="nav-bar nav-bar-background">
             <a mat-button (click)="goBack()">Home</a>
             <a mat-button *ngIf="download" (click)="downloadClicked()">Download</a>
         </mat-toolbar>

@@ -1,27 +1,41 @@
-.page-margin {
-    margin: 0% 15%;
+/* page-margin */
+@media only screen and (max-width:599px) {
+    .nav-bar {
+        padding: 0 20px !important;
+    }
+
+    .nav-bar2 {
+        padding: 0 20px !important;
+    }
 }
 
-@media only screen and (max-width:599px) {
-    .page-margin {
-        margin: 0 20px;
+/* nav-bar-background-height */
+@media only screen and (max-width: 959px) {
+    .nav-bar-background {
+        min-height: 150px !important;
+        margin-top: -20px !important
     }
+}
+
+.nav-bar-background {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
 }
 
 .nav-bar {
     background-color: transparent;
+    z-index: 200;
+    padding: 10px 15%;
+    min-height: 80px;
     position: fixed;
-    z-index: 1;
-    padding-top: 42px;
-    padding-left: 22px;
-    padding-right: 22px;
 }
 
 .nav-bar2 {
-    background-color: transparent;
-    margin-top: 64px;
+    background: transparent;
+    z-index: 200;
+    margin-top: 90px;
+    padding: 0px 15%;
     position: fixed;
-    z-index: 1;
 }
 
 .profile-pic {
@@ -44,8 +58,7 @@
 }
 
 .spacer {
-    /* width: 30%; */
-    flex: 0.45 1 auto;
+    flex: 05 1 auto;
 }
 
 /* .float-to-end {
