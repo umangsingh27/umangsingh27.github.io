@@ -5,7 +5,7 @@ export interface SocialMedia {
 }
 
 export class Contact {
-    public headline: string;
-    public subHeadline: string;
+    public headline: string = '';
+    public subHeadline: string = '';
     public socialMediaList: SocialMedia[]; 
 }

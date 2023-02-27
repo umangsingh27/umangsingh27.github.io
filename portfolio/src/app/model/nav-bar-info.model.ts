@@ -1,6 +1,6 @@
 export class NavBarInfo {
-    public profilePic : string;
-    public headline: string;
+    public profilePicPath : string = '';
+    public headline: string = '';
     public nextLines: string[];
-    public resumeLink: string;
+    public resumeLink: string = '';
 }

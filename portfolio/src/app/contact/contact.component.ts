@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, } from '@angular/core';
 import { FileService } from '../file.service';
 import { Contact, SocialMedia } from '../model/contact.model';
 
@@ -7,11 +7,9 @@ import { Contact, SocialMedia } from '../model/contact.model';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit{
-  contact: Contact;
-  constructor(private fileService:FileService){}
-
-  ngOnInit(): void {
+export class ContactComponent{
+  contact: Contact = new Contact();
+  constructor(private fileService:FileService){
     this.fileService.readFile('../../assets/json/contact.json').subscribe(data=> {
       this.contact = data as Contact;
     });

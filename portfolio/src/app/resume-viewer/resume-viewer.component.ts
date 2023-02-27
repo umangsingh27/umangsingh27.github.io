@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FileService } from '../file.service';
 import { NavBarInfo } from '../model/nav-bar-info.model';
 import { saveAs } from 'file-saver';
@@ -8,12 +8,10 @@ import { saveAs } from 'file-saver';
   templateUrl: './resume-viewer.component.html',
   styleUrls: ['./resume-viewer.component.css']
 })
-export class ResumeViewerComponent implements OnInit{
+export class ResumeViewerComponent {
   resumeLink:string = '';
 
-  constructor(private fileService: FileService){}
-
-  ngOnInit(): void {
+  constructor(private fileService: FileService){
     this.fileService.readFile('../../assets/json/nav-bar-info.json').subscribe(data=>{
       let navBarInfo = data as NavBarInfo;
       this.resumeLink = navBarInfo.resumeLink;

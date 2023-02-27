@@ -13,13 +13,13 @@ export class ProjectsComponent implements OnInit{
   projects:Project[];
   archivedProjects: boolean = false;
   constructor(private fileService:FileService, 
-              private route: ActivatedRoute){}
-
-  ngOnInit(): void {
+              private route: ActivatedRoute){
     this.fileService.readFile('../assets/json/projects.json').subscribe(data=> {
       this.projects = data as Project[];
     });
+  }
 
+  ngOnInit(): void {
     this.route.params.subscribe((value)=>{
       if(value){
         this.archivedProjects = value['archived']=='archived';
