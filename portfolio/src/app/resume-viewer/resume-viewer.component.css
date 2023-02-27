@@ -9,6 +9,10 @@
     }
 }
 
+.nav-bar-margin {
+    padding: 70px 0px 14px;
+}
+
 .pdf-viewer {
     width: 70%; 
     height: 100%;
