@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ResumeViewerComponent } from './resume-viewer/resume-viewer.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +14,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectTileComponent } from './project-tile/project-tile.component';
 import { ContactComponent } from './contact/contact.component'
 import { HomePageComponent } from './home-page/home-page.component';
+import { ResumeViewerComponent } from './resume-viewer/resume-viewer.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +32,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     AppRoutingModule,
     HttpClientModule,
     NoopAnimationsModule,
-    MaterialsModule,
     FlexLayoutModule,
-    PdfViewerModule
+    PdfViewerModule,
+    MaterialsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
