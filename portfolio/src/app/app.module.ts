@@ -15,6 +15,7 @@ import { ProjectTileComponent } from './project-tile/project-tile.component';
 import { ContactComponent } from './contact/contact.component'
 import { HomePageComponent } from './home-page/home-page.component';
 import { ResumeViewerComponent } from './resume-viewer/resume-viewer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ResumeViewerComponent } from './resume-viewer/resume-viewer.component';
     ProjectTileComponent,
     ContactComponent,
     HomePageComponent,
-    ResumeViewerComponent
+    ResumeViewerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

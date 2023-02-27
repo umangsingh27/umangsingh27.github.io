@@ -25,3 +25,9 @@ To change the contents of the webpage, you can modify the below JSONs.
 - order: Not yet implemented. If order of the json list is maintained, order will be maintained.
 - link: Put proper application/http specific url to redirect correctly. ``` eg: mailto:mail2umangsingh@gmail.com ```
 - materialIcon: Put the path of png image (color: white, dimensions: 30px * 30px). Remember: Image paths must be relative to: ``` portfolio/src/app/contact/contact.component.ts ```. ``` eg: "../assets/images/icons/email.png" ```
+
+## Notes:
+
+#### @Media CSS:
+https://www.w3schools.com/cssref/css3_pr_mediaquery.php
+https://www.w3schools.com/css/css_rwd_mediaqueries.asp
