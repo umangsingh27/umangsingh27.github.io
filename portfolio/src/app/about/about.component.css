@@ -1,6 +1,5 @@
 .page-margin {
     margin: 0% 15%;
-    padding: 22vh 15px;
 }
 
 /* page-margin for small-sized screen devices*/
@@ -21,6 +20,10 @@
     align-items: center;
     /* add gap between flex items */
     gap: 10px;
+}
+
+.flex-box.outer-flex {
+    min-height: 92vh;
 }
 
 .text-container {
@@ -110,6 +113,10 @@
 
 /* font-sizes for extra-small, small and medium-sized screen devices */
 @media only screen and (max-width: 991px){
+    .page-margin{
+        padding: 150px 0%;
+    }
+
     .video-container {
         width: 100% !important;
         height: 100% !important;
