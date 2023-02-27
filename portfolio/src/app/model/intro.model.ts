@@ -1,4 +1,4 @@
-export class NavBarInfo {
+export class Intro {
     public profilePicPath : string = '';
     public headline: string = '';
     public nextLines: string[];

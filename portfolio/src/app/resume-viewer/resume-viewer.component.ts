@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FileService } from '../file.service';
-import { NavBarInfo } from '../model/nav-bar-info.model';
+import { Intro } from '../model/intro.model';
 import { saveAs } from 'file-saver';
 
 @Component({
@@ -12,8 +12,8 @@ export class ResumeViewerComponent {
   resumeLink:string = '';
 
   constructor(private fileService: FileService){
-    this.fileService.readFile('../../assets/json/nav-bar-info.json').subscribe(data=>{
-      let navBarInfo = data as NavBarInfo;
+    this.fileService.readFile('../../assets/json/intro.json').subscribe(data=>{
+      let navBarInfo = data as Intro;
       this.resumeLink = navBarInfo.resumeLink;
     });
   }

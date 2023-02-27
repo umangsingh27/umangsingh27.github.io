@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FileService } from '../file.service';
-import { NavBarInfo } from '../model/nav-bar-info.model';
+import { Intro } from '../model/intro.model';
 
 @Component({
   selector: 'nav-bar',
@@ -14,12 +14,12 @@ export class NavBarComponent {
   @Output() scrollTo = new EventEmitter<string>();
   @Output() downloadButtonClicked = new EventEmitter<boolean>();
 
-  navBarInfo: NavBarInfo = new NavBarInfo();
+  navBarInfo: Intro = new Intro();
 
   constructor(private fileService:FileService,
               private location:Location) {
-    this.fileService.readFile('../../assets/json/nav-bar-info.json').subscribe(data => {
-      this.navBarInfo = data as NavBarInfo;
+    this.fileService.readFile('../../assets/json/intro.json').subscribe(data => {
+      this.navBarInfo = data as Intro;
     });
   }
   
