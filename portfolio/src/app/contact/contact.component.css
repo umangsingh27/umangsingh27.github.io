@@ -10,51 +10,65 @@
     }
 }
 
-.gradient-design {
-    padding: 290px 0 0 0px;
-    /* background-image: url('../../assets/images/icons/l_background.png');
-    background-position: 2px;
-    background-repeat: no-repeat;
-    background-size: contain; */
+.flex-box-col {
+    /* width: 100%; */
+    display: inline-flex;
+    flex-direction: column;
+    /* responsively send to next line */
+    flex-wrap: wrap;
+    /* aligns items vertically */
+    /* justify-content: flex-end; */
+    /* aligns items horizontally as now flex-direction is column */
+    align-items: flex-start;
+    /* add gap between flex items */
+    gap: 30px;
+}
 
-    margin-bottom: 0%;
+.gradient-design {
+    height: 58vh;
+    display: inline-flex;
+    /* aligns items horizontolly */
+    justify-content: flex-start;
+    /* aligns items vertically */
+    align-items: flex-end;
     background: linear-gradient(180deg, rgba(48, 48, 48, 0) 0%, #303030 84.9%);
-    background-size: 7px 347.5px;
+    background-size: 7px auto;
     background-repeat: no-repeat;
 }
 
+p {
+    margin: 0%;
+}
+
 .headline {
-    /* position: absolute; */
     font-weight: 400;
     font-size: 40px;
     line-height: 46px;
     color: #303030;
-    padding: 0.5em 0em;
+    margin-bottom: -0.21em !important;
 }
 
 .subHeadline {
-    padding: 0.75em 0;
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
     color: #606060;
 }
 
-.socialMediaList {
+.flex-box-row {
+    width: 100%;
     display: inline-flex;
-    flex-direction: row;
-    /* justify-content:space-between; */
+    /* responsively send to next line */
+    flex-wrap: wrap;
+    /* aligns items horizontally */
+    justify-content: flex-start;
+    /* aligns items vertically */
+    /* align-items: flex-end; */
+    /* add gap between flex items */
+    gap: 15px;
 }
 
-.mat-mdc-list-base {
-    --mdc-list-list-item-one-line-container-height: 60px;
-}
-
-.mdc-list-item {
-    padding: 24px 24px 24px 0;
-}
-
-.social-media-icon {
+.social-media-icon-background {
     width: 50px;
     height: 50px;
     background: #606060;

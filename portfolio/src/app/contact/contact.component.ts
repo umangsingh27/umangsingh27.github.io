@@ -1,6 +1,6 @@
 import { Component, } from '@angular/core';
 import { FileService } from '../file.service';
-import { Contact, SocialMedia } from '../model/contact.model';
+import { Contact } from '../model/contact.model';
 
 @Component({
   selector: 'contact',

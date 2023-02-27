@@ -3,8 +3,7 @@
     display: inline-flex;
     /* responsively send to next line */
     flex-wrap: wrap;
-    /* aligns items horizontolly */
-    justify-content: attr(j);
+    /* justify-content aligns items horizontolly - set from HTML styles */ 
     /* aligns items vertically */
     align-items: center;
     /* add gap between flex items */

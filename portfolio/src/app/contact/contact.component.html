@@ -1,22 +1,15 @@
-<div class="page-margin">
+<div class="page-margin flex-box-col">
     <div class="gradient-design">
-        <div class="headline" [textContent]="contact.headline"></div>
+        <p class="headline" [textContent]="contact.headline"></p>
     </div>
-    <div class="subHeadline" [textContent]="contact.subHeadline"></div>
-    <!-- <div class="socialMediaList" *ngFor="let item of contact.socialMediaList">
-        <div class="headline" [textContent]="item.order"></div>
-        <div class="subHeadline" [textContent]="item.link"></div>
-        <div class="headline" [textContent]="item.materialIcon"></div>
-    </div> -->
-
-    <mat-list class="socialMediaList" role="list">
-        <mat-list-item class="socialMediaItem" role="listitem" *ngFor="let item of contact.socialMediaList">
-            <a [href]="item.link" 
-                target="_blank">
-                <div class="social-media-icon">
-                    <img class="thumbnail" [src]="item.materialIcon"/>
-                </div>
-            </a>
-        </mat-list-item>
-    </mat-list>
+    <p class="subHeadline" [textContent]="contact.subHeadline"></p>
+    <div class="flex-box-row">
+        <a [href]="item.link" 
+            target="_blank"
+            *ngFor="let item of contact.socialMediaList">
+            <div class="social-media-icon-background">
+                <img class="thumbnail" [src]="item.materialIcon"/>
+            </div>
+        </a>
+    </div>
 </div>
