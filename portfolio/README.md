@@ -36,6 +36,9 @@ To change the contents of the webpage, you can upload new files and modify the b
 
 ## Notes:
 
+##### Angular Material:
+- ``` https://material.angular.io/ ```
+
 ##### JSON Formatting:
 - ``` https://www.w3schools.com/js/js_json_syntax.asp ```
 - ``` https://jsonformatter.org/ ```

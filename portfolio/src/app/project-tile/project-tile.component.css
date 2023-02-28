@@ -1,19 +1,44 @@
-.card{
-    transition: none !important;
-    box-shadow: none !important;
+.flex-box {
+    width: 100%;
+    display: inline-flex;
+    /* aligns items horizontolly */
+    justify-content: space-around;
+    /* aligns items vertically */
+    align-items: center;
+    /* add gap between flex items */
+    gap: 40px;
+}
+
+@media screen and (max-width: 1199px){
+    .flex-box {
+        flex-wrap: wrap;
+    }
+}
+
+.flex-box-col {
+    display: inline-flex;
+    flex-direction: column;
+    /* aligns items horizontally as now flex-direction is column */
+    align-items: flex-start;
+    /* add gap between flex items */
+    gap: 15px;
+}
+
+.image-container {
 }
 
 .thumbnail {
-    float: left;
-    max-width: 100%;
-    padding-right: 50px;
-    margin: 0em 0em 1em;
+    width: 35vw;
+    height: 294px;
+    height: auto;
+    left: 0px;
+    top: 0px;
 }
 
-/* page-margin for medium-to-large-sized screen devices to fix project-description view */
-@media only screen and (max-width: 1245px){
+@media screen and (max-width: 991px) {
     .thumbnail {
-        width: 100%;
+        width: 350px;
+        max-width: calc(100vw - 40px);
     }
 }
 
@@ -27,12 +52,9 @@
 }
 
 .content-container {
-    /* min-width: 400px; */
-    margin: 2% 0%;
 }
 
 .project-title {
-    padding: 0.75em 0;
     font-size: 32px;
     font-weight: 400;
     line-height: 37px;
@@ -40,7 +62,6 @@
 }
 
 .project-sub-title {
-    padding: 0.5em 0;
     font-size: 20px;
     font-weight: 400;
     line-height: 23px;
@@ -48,9 +69,6 @@
 }
 
 .project-description {
-    /* width: 427px;
-    height: 48px; */
-    padding: 0.5em 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
@@ -59,7 +77,7 @@
 }
 
 .read-more-button {
-    padding: 0.5em 0;
+    padding: 0px !important;
     font-weight: 700;
     font-size: 14px;
     line-height: 30px;
@@ -71,8 +89,11 @@
 }
 
 .read-more-button::after {
+    /* content: "\2192"; */
+    /* font-family: "Material Icons";
+    content: "\e5c8"; */
     content: '';
-    display: block;
+    display: inline-flex;
     width: 24px;
     height: 24px;
     background: url('../../assets/images/icons/right_arrow.png') no-repeat center center;
@@ -81,31 +102,5 @@
 
 .read-more-button:hover::after {
     padding-left: 0.5em;
-    background-size: 40%;
     /* transition: linear 0.25s; */
 }
-
-/* mat-mdc-button:hover, .mat-mdc-outlined-button:hover {
-    --mat-mdc-button-persistent-ripple-color: none !important;
-} */
-
-/* .image-container {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-} */
-
-/* #img1
-{
-    position:absolute;
-    top: 67%;
-    left: 47%;
-    z-index: 2;
-}
-#img2
-{
-    position:relative;
-    top: 0px;
-    left: 0px;
-    z-index: 0;
-} */
