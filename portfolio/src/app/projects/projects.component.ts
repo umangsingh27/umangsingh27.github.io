@@ -11,11 +11,13 @@ import { Project } from '../model/project.model';
 })
 export class ProjectsComponent implements OnInit{
   projects:Project[];
+  projectsToShow: Project[] = [];
   archivedProjects: boolean = false;
   constructor(private fileService:FileService, 
               private route: ActivatedRoute){
     this.fileService.readFile('../assets/json/projects.json').subscribe(data=> {
       this.projects = data as Project[];
+      this.seperateProjects();
     });
   }
 
@@ -23,6 +25,19 @@ export class ProjectsComponent implements OnInit{
     this.route.params.subscribe((value)=>{
       if(value){
         this.archivedProjects = value['archived']=='archived';
+      }
+    });
+  }
+
+  seperateProjects():void {
+    this.projects.forEach(project => {
+      if(this.archivedProjects){
+        if(project.archived)
+          this.projectsToShow.push(project);
+      }else {
+        if(!project.archived){
+          this.projectsToShow.push(project);
+        }
       }
     });
   }

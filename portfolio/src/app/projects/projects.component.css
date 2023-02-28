@@ -20,9 +20,22 @@
     padding: 70px 10px 0;
 }
 
+.card-margin {
+    padding-bottom: 180px;
+}
+
+.card-margin:last-of-type {
+    padding-bottom: 0px;
+}
+
+@media screen and (max-width: 1199px){
+    .card-margin {
+        padding-bottom: 120px;
+    }
+}
+
 .view-archived-button {
     padding: 0.5em 0.5em 0.5em 1em;
-    margin: 1em 0;
     float: right;
     font-weight: 700;
     font-size: 18px;
