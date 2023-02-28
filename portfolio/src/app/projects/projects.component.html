@@ -1,9 +1,7 @@
 <nav-bar *ngIf="archivedProjects" class="nav-bar" [home]="false"></nav-bar>
 <div class="page-margin">
-    <div class="page-header nav-bar-margin">
-        <div *ngIf="archivedProjects">
-            Archived Projects
-        </div>
+    <div *ngIf="archivedProjects" class="page-header nav-bar-margin">
+        Archived Projects
     </div>
     <div class="card-margin" *ngFor="let project of projectsToShow">
         <project-tile [project]="project"></project-tile>
