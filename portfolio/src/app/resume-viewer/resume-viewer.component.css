@@ -10,10 +10,21 @@
 }
 
 .nav-bar-margin {
-    padding: 70px 0px 14px;
+    height: 70px;
+}
+
+.footer-margin {
+    height: 14px;
 }
 
 .pdf-viewer {
-    width: 70%; 
-    height: 100%;
+    width: 70%;
+    height: 70%;
+}
+
+@media screen and (max-width:599px) {
+    .pdf-viewer {
+        width: calc(100% - 40px);
+        height:calc(100% - 200px);
+    }
 }

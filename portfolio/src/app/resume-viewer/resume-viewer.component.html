@@ -4,8 +4,12 @@
         (downloadButtonClicked)="downloadResume($event)">
 </nav-bar>
 
+<div class="nav-bar-margin" [textContent]=""></div>
+
 <pdf-viewer [src]="resumeLink"
         [render-text]="false"
         [original-size]="false"
-        class="pdf-viewer page-margin nav-bar-margin">
+        class="pdf-viewer page-margin">
 </pdf-viewer>
+
+<div class="footer-margin" [textContent]=""></div>
