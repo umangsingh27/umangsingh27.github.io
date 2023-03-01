@@ -19,8 +19,9 @@ export class AboutComponent implements OnInit {
       let info_object = data as Intro;
       this.videoResumeLink = info_object.videoResumeLink;
       // console.log(this.videoResumeLink);
+      this.videoResumeLink = this.videoResumeLink+'?&mute=1';
       if(this.videoResumeLink && this.autoplay){
-        this.videoResumeLink = this.videoResumeLink + '?&autoplay=1';
+        this.videoResumeLink = this.videoResumeLink + '&autoplay=1';
       }
       this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoResumeLink);
       // console.log(this.safeUrl);
