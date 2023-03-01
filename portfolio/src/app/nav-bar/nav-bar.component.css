@@ -68,3 +68,12 @@
     background: url('../../assets/images/icons/right_arrow.png') no-repeat center center;
     background-size: 50%;
 }
+
+.home-button::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('../../assets/images/icons/left-arrow.svg') no-repeat center center;
+    background-size: 50%;
+}

@@ -34,7 +34,7 @@
         <mat-toolbar class="nav-bar nav-bar-background flex-box" 
                     style="justify-content: space-between"
                     id="go-back-nav-bar">
-            <a mat-button (click)="goBack()">Home</a>
+            <a mat-button (click)="goBack()" class="home-button">Home</a>
             <a mat-button *ngIf="download" (click)="downloadClicked()">Download</a>
         </mat-toolbar>
     </ng-template>
