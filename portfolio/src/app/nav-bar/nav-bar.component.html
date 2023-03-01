@@ -1,6 +1,8 @@
 <div class="">
     <div *ngIf="home; else goBackTemplate">
-        <mat-toolbar class="nav-bar nav-bar-background flex-box" style="justify-content: space-between">
+        <mat-toolbar class="nav-bar nav-bar-background flex-box" 
+                    style="justify-content: space-between"
+                    id="home-nav-bar">
             <div class="flex-box justify-flex-start">
                 <span><img class="profile-pic" [src]="navBarInfo.profilePicPath"/></span>
                 <span>
@@ -29,7 +31,9 @@
     </div>
 
     <ng-template #goBackTemplate>
-        <mat-toolbar class="nav-bar nav-bar-background flex-box" style="justify-content: space-between">
+        <mat-toolbar class="nav-bar nav-bar-background flex-box" 
+                    style="justify-content: space-between"
+                    id="go-back-nav-bar">
             <a mat-button (click)="goBack()">Home</a>
             <a mat-button *ngIf="download" (click)="downloadClicked()">Download</a>
         </mat-toolbar>
