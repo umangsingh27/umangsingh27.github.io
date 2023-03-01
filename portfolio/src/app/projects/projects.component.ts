@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { __values } from 'tslib';
 import { FileService } from '../file.service';
-import { Project } from '../model/project.model';
+import { Project, Projects } from '../model/projects.model';
 
 @Component({
   selector: 'projects',
@@ -13,10 +13,14 @@ export class ProjectsComponent implements OnInit{
   projects:Project[];
   projectsToShow: Project[] = [];
   archivedProjects: boolean = false;
+  hideArchivedProjects: boolean = false;
+
   constructor(private fileService:FileService, 
               private route: ActivatedRoute){
     this.fileService.readFile('../assets/json/projects.json').subscribe(data=> {
-      this.projects = data as Project[];
+      let jsonData = data as Projects;
+      this.projects = jsonData.projects;
+      this.hideArchivedProjects = jsonData.hideArchivedProjects;
       this.seperateProjects();
     });
   }

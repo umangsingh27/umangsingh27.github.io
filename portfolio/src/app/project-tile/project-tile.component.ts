@@ -1,5 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { Project } from '../model/project.model';
+import { Project } from '../model/projects.model';
 
 @Component({
   selector: 'project-tile',
