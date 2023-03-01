@@ -5,22 +5,22 @@
         {
             "order": 0,
             "link": "mailto:mail2umangsingh@gmail.com",
-            "materialIcon": "../assets/images/icons/email.png"
+            "materialIcon": "../assets/images/icons/email.svg"
         },
         {
             "order": 1,
             "link": "https://wa.me/+917003243370",
-            "materialIcon": "../assets/images/icons/whatsapp.png"
+            "materialIcon": "../assets/images/icons/whatsapp.svg"
         },
         {
             "order": 2,
             "link": "https://linkedin.com/in/umangsingh123/",
-            "materialIcon": "../assets/images/icons/linkedin.png"
+            "materialIcon": "../assets/images/icons/linkedin.svg"
         },
         {
             "order": 3,
             "link": "https://instagram.com/_umangsingh/",
-            "materialIcon": "../assets/images/icons/instagram.png"
+            "materialIcon": "../assets/images/icons/instagram.svg"
         }
     ]
 }
