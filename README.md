@@ -21,7 +21,7 @@ To change the contents of the webpage, you can upload new files and modify the b
 - profilePicPath: Put the path of png image. Remember: Image paths must be relative to: ``` portfolio/src/app/file.service.ts ```. ``` eg: "../assets/images/profile-pic.png" ```
 - nextLines: Currently background is setup for 2 lines.
 - resumeLink: Link to PDF Resume. Remember: Paths must be relative to: ``` portfolio/src/app/file.service.ts ```. ``` eg: "../assets/Umang_Resume_light.pdf" ```
-- videoResumeLink: This renders a youtube embedded video link. To check how to generate an embedded link, chheckout Notes-> Embedded Youtube vedios section below. eg: ``` "https://www.youtube.com/embed/pzzPowh241o" ``
+- videoResumeLink: This renders a youtube embedded video link. To check how to generate an embedded link, chheckout Notes-> Embedded Youtube vedios section below. eg: ``` "https://www.youtube.com/embed/pzzPowh241o" ```
 
 ##### portfolio/src/assets/json/projects.json:
 - order: Not yet implemented. If order of the json list is maintained, order will be maintained.
