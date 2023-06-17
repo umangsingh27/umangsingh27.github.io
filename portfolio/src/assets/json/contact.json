@@ -21,6 +21,11 @@
             "order": 3,
             "link": "https://instagram.com/_umangsingh/",
             "materialIcon": "../assets/images/icons/instagram.svg"
+        },
+        {
+            "order": 4,
+            "link": "https://www.behance.net/umangsingh/",
+            "materialIcon": "../assets/images/icons/behance.svg"
         }
     ]
 }
