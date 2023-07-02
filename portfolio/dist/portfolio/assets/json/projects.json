@@ -1,0 +1,46 @@
+{ 
+  "hideArchivedProjects": true,
+  "projects": [
+    {
+      "order": 0,
+      "name": "IndiGo",
+      "type": "Case Study",
+      "team": "Person",
+      "primaryColorCode": "#001B94",
+      "description": "This is a project to redesign the IndiGo Airlines existing website after careful evaluation and comparison with several other competitive websites from the same aviation industry both domestic & international. I have followed the heuristic analysis method and third party website data analysis to conduct a comprehensive competitive audit study. This information and insights derived from the analysis and the study was further used to redesign the indigo website with the sole purpose of improving the user’s experience apart from designing a soothing, pleasant and structured User Interfaces.",
+      "link": "https://www.behance.net/gallery/172732237/IndiGo-Go-IndiGo-Website-Redesign",
+      "image": "../assets/images/thumbnail/indigo.svg"
+    },
+    {
+      "order": 10,
+      "name": "MobiHeal",
+      "type": "Case Study",
+      "team": "Person",
+      "primaryColorCode": "#46B0DD",
+      "description": "The Indian rural healthcare system is highly complex and generally driven by the government. India being primarily an agriculture based economy, majority of the people live in rural areas with limited purchasing power. The healthcare institutions and facilities in the government sector are very few and limited to major towns. Even the private sector does not find much incentive in providing healthcare to the rural sector.",
+      "link": "https://www.behance.net/gallery/172849129/Mobi-Heal-The-hospital-that-travels-to-you",
+      "image": "../assets/images/thumbnail/mobiHeal.svg"
+    },
+    {
+      "order": 20,
+      "name": "FasTag",
+      "type": "Case Study",
+      "team": "Person",
+      "primaryColorCode": "#E98923",
+      "description": "The current payment process at fuel station is both time consuming and involves the risks attached with physical exchange of paper / plastic currency.",
+      "link": "https://www.behance.net/gallery/172729897/FasTag-Contactless-Fast-Payments-at-Fuel-Stations",
+      "image": "../assets/images/thumbnail/fasTag.svg"
+    },
+    {
+      "order":100,
+      "name": "Demo",
+      "type": "Case Study",
+      "team": "Groups",
+      "primaryColorCode": "",
+      "description": "This is atemporary placeholder or archived project template.",
+      "link": "https://umangsingh27.github.io/",
+      "image": "",
+      "archived": true
+    }
+  ]
+}
