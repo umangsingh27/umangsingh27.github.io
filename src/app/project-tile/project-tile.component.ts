@@ -8,6 +8,8 @@ import { Project } from '../model/projects.model';
 })
 export class ProjectTileComponent implements OnInit{
   @Input() project: Project;
+
+  static readonly descriptionLimit:number = 470;
   
   ngOnInit(): void {
     if(!this.project.image){
@@ -16,6 +18,14 @@ export class ProjectTileComponent implements OnInit{
 
     if(!this.project.primaryColorCode){
       this.project.primaryColorCode = '#303030';
+    }
+
+    if(this.project.description.length>470){
+      this.project.description = this.project.description.substring(0, 470);
+      this.project.description = 
+        this.project.description.substring(0, 
+          this.project.description.lastIndexOf(' ')
+        ) + '...';
     }
   }
   

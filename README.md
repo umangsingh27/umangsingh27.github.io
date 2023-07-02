@@ -12,6 +12,10 @@ This is a portfolio designed in Angular for Umang Singh.
 ### Running the application:
 ``` ng serve --open ```
 
+### Deploying the application (on GHPages):
+Run the following command to generate the static files in the output dir and push the changes to git.
+``` ng build ```
+
 ## Important Update Instructions:
 To change the contents of the webpage, you can upload new files and modify the below JSONs.
 
