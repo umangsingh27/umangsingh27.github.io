@@ -10,10 +10,14 @@ This is a portfolio designed in Angular for Umang Singh.
 ``` npm install ```
 
 ### Running the application:
+``` npm start ```
+or
 ``` ng serve --open ```
 
 ### Deploying the application (on GHPages):
 Run the following command to generate the static files in the output dir and push the changes to git.
+``` npm run build ```
+or
 ``` ng build ```
 
 ## Important Update Instructions:
