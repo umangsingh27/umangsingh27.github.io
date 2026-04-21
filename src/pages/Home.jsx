@@ -1,10 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useCountAnimation } from '../hooks/useCountAnimation'
 import './Home.css'
 
 export default function Home() {
+  const glowRef = useRef(null)
+  const heroRef = useRef(null)
 
   useEffect(() => {
     document.title = 'Umang Singh — Senior Product Designer'
@@ -12,6 +14,94 @@ export default function Home() {
 
   useScrollReveal()
   useCountAnimation(0.5)
+
+  // Cursor glow effect
+  useEffect(() => {
+    const isTouchDevice = () => {
+      return !!(typeof window !== 'undefined' &&
+        ('ontouchstart' in window ||
+          (window.DocumentTouch && document instanceof window.DocumentTouch)))
+    }
+
+    const touchDevice = isTouchDevice()
+
+    if (touchDevice) {
+      document.body.classList.add('touch-device')
+      return
+    }
+
+    const glow = glowRef.current
+    const hero = heroRef.current
+
+    if (!glow || !hero) return
+
+    const handleMouseMove = (e) => {
+      document.body.classList.add('mouse-active')
+
+      const mouseX = e.clientX
+      const mouseY = e.clientY
+
+      const heroRect = hero.getBoundingClientRect()
+      const isInsideHero =
+        mouseX >= heroRect.left &&
+        mouseX <= heroRect.right &&
+        mouseY >= heroRect.top &&
+        mouseY <= heroRect.bottom
+
+      if (isInsideHero) {
+        glow.style.opacity = '1'
+        glow.style.left = `${mouseX - 150}px`
+        glow.style.top = `${mouseY - 150}px`
+
+        const title = hero.querySelector('.hero-title')
+        const description = hero.querySelector('.hero-description')
+
+        if (title) {
+          const titleRect = title.getBoundingClientRect()
+          const titleDistance = Math.hypot(
+            mouseX - (titleRect.left + titleRect.width / 2),
+            mouseY - (titleRect.top + titleRect.height / 2)
+          )
+          if (titleDistance < 300) {
+            title.classList.add('glow')
+          } else {
+            title.classList.remove('glow')
+          }
+        }
+
+        if (description) {
+          const descRect = description.getBoundingClientRect()
+          const descDistance = Math.hypot(
+            mouseX - (descRect.left + descRect.width / 2),
+            mouseY - (descRect.top + descRect.height / 2)
+          )
+          if (descDistance < 300) {
+            description.classList.add('glow')
+          } else {
+            description.classList.remove('glow')
+          }
+        }
+      } else {
+        glow.style.opacity = '0'
+        hero.querySelectorAll('.glow').forEach(el => el.classList.remove('glow'))
+      }
+    }
+
+    const handleMouseLeave = () => {
+      document.body.classList.remove('mouse-active')
+      if (glow) glow.style.opacity = '0'
+      hero?.querySelectorAll('.glow').forEach(el => el.classList.remove('glow'))
+    }
+
+    document.addEventListener('mousemove', handleMouseMove, { passive: true })
+    document.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseleave', handleMouseLeave)
+      document.body.classList.remove('mouse-active')
+    }
+  }, [])
 
   useEffect(() => {
     const handleScrollToWork = (e) => {
@@ -50,41 +140,42 @@ export default function Home() {
 
   return (
     <>
+      {/* Cursor glow element */}
+      <div className="cursor-glow" ref={glowRef}></div>
+
       {/* Hero Section */}
-      <section className="home-hero fade-up">
-        <div className="home-hero__inner">
-          <div className="home-hero__content">
-            <span className="home-hero__label">Senior Product Designer</span>
-            <h1 className="home-hero__name">Umang Singh</h1>
-            <p className="home-hero__description">
-              I design Business-to-Business Software as a Service products for India's manufacturing industry — and build the Artificial Intelligence workflows that power the sales behind them.
-            </p>
-            <p className="home-hero__location">Currently at NowPurchase · Kolkata · Open to Bangalore, Hyderabad, Gurugram, Remote</p>
-            <div className="home-hero__actions">
-              <button className="btn btn--primary" data-scroll-to="#work">View Work</button>
-              <Link to="/about" className="btn btn--secondary">About Me</Link>
-            </div>
-            <div className="home-hero__stats">
-              <div className="hero-stat">
-                <div className="hero-stat__number">
-                  <span data-count-to="13">13</span> → <span data-count-to="120">120</span>
-                </div>
-                <p className="hero-stat__label">Enterprise clients</p>
-              </div>
-              <div className="hero-stat__divider"></div>
-              <div className="hero-stat">
-                <div className="hero-stat__number"><span data-count-to="10">10</span>%</div>
-                <p className="hero-stat__label">Revenue growth</p>
-              </div>
-              <div className="hero-stat__divider"></div>
-              <div className="hero-stat">
-                <div className="hero-stat__number"><span data-count-to="60">60</span>%</div>
-                <p className="hero-stat__label">Sales cycle reduction</p>
-              </div>
-            </div>
+      <section className="hero" ref={heroRef}>
+        <div className="hero-content">
+          <h1 className="hero-title">Umang Singh</h1>
+          <p className="hero-subtitle">Senior Product Designer</p>
+          <p className="hero-description">
+            I design Business-to-Business Software as a Service products for India's manufacturing industry — and build the Artificial Intelligence workflows that power the sales behind them.
+          </p>
+          <p className="hero-location">
+            Currently at NowPurchase · Kolkata · Open to Bangalore, Hyderabad, Gurugram, Remote
+          </p>
+          <div className="hero-buttons">
+            <button className="btn btn-primary" data-scroll-to="#work">View Work</button>
+            <Link to="/about" className="btn btn-secondary">About Me</Link>
           </div>
         </div>
-        <div className="home-hero__decoration"></div>
+
+        <div className="hero-stats">
+          <div className="stat">
+            <div className="stat-number">
+              <span data-count-to="13">13</span> → <span data-count-to="120">120</span>
+            </div>
+            <div className="stat-label">Enterprise clients</div>
+          </div>
+          <div className="stat">
+            <div className="stat-number"><span data-count-to="10">10</span>%</div>
+            <div className="stat-label">Revenue growth</div>
+          </div>
+          <div className="stat">
+            <div className="stat-number"><span data-count-to="60">60</span>%</div>
+            <div className="stat-label">Sales cycle reduction</div>
+          </div>
+        </div>
       </section>
 
       {/* Work Cards Section */}

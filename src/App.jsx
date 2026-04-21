@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import Navigation from './components/Navigation'
@@ -10,9 +11,17 @@ import DesignSystem from './pages/work/DesignSystem'
 import MetalcloudPlatform from './pages/work/MetalcloudPlatform'
 import NowpurchaseWebsite from './pages/work/NowpurchaseWebsite'
 
-function App() {
+function AppContent() {
+  useEffect(() => {
+    const redirect = sessionStorage.redirect
+    delete sessionStorage.redirect
+    if (redirect && redirect !== window.location.pathname) {
+      window.history.replaceState(null, null, redirect)
+    }
+  }, [])
+
   return (
-    <BrowserRouter basename="/">
+    <>
       <ScrollToTop />
       <Navigation />
       <Routes>
@@ -26,6 +35,14 @@ function App() {
         <Route path="/resume" element={<Resume />} />
       </Routes>
       <Footer />
+    </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter basename="/">
+      <AppContent />
     </BrowserRouter>
   )
 }
