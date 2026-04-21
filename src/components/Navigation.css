@@ -1,0 +1,349 @@
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 100px;
+}
+
+.nav-header-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.nav-bg-segment {
+  height: 100%;
+  transition: background-color 0.4s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  mask-image: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.01) 76.45%, rgba(0, 0, 0, 0.01) 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.01) 76.45%, rgba(0, 0, 0, 0.01) 100%);
+  background-color: #FFFFFF; /* Default */
+}
+
+.nav-bg-segment--logo {
+  flex: 0 0 25%;
+}
+
+.nav-bg-segment--links {
+  flex: 0 0 50%;
+}
+
+.nav-bg-segment--cta {
+  flex: 0 0 25%;
+}
+
+.nav-bg-segment.dark {
+  background-color: #000000;
+}
+
+.nav-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ─── Logo Frame ─── */
+
+.nav-logo-frame {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 20px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 27.5862px;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.nav-logo {
+  font-family: 'Rokkitt', Georgia, serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  transition: color 0.4s ease;
+}
+
+.nav-logo:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+/* ─── Nav Links Frame ─── */
+
+.nav-links-frame {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 20px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 27.5862px;
+  gap: 20px;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  font-family: 'Rokkitt', Georgia, serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  transition: color 0.4s ease, opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.6;
+}
+
+.nav-link.active {
+  color: #0066CC;
+  opacity: 1;
+}
+
+.nav-separator {
+  width: 1px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  transition: background-color 0.4s ease;
+}
+
+/* ─── CTA Button ─── */
+
+.nav-cta-frame {
+  display: flex;
+  align-items: center;
+}
+
+.nav-cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  height: 44px;
+  background: #0066CC;
+  border-radius: 980px;
+  font-family: 'Rokkitt', Georgia, serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: #004499;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* ─── Smart Theme: Individual Pill Overrides ─── */
+
+.pill--dark {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Ensure CTA frame doesn't show a square background fringe */
+.nav-cta-frame.pill--dark {
+  background: transparent !important;
+}
+
+.pill--dark .nav-logo,
+.pill--dark .nav-link {
+  color: #FFFFFF !important;
+}
+
+.pill--dark .nav-link.active {
+  color: #FFFFFF !important;
+  opacity: 1;
+}
+
+.pill--dark .nav-link:hover,
+.pill--dark .nav-link.active {
+  color: #FFFFFF !important;
+  opacity: 0.6;
+}
+
+.pill--dark .nav-separator {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Hamburger Button — mobile only ─── */
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  border-radius: 27.5862px;
+  flex-shrink: 0;
+  transition: background-color 0.4s ease;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.pill--dark.nav-hamburger span {
+  background-color: #FFFFFF !important;
+}
+
+.nav-hamburger:hover span {
+  opacity: 0.6;
+}
+
+.nav-hamburger--open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-hamburger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger--open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-hamburger--open:hover span:nth-child(2) {
+  opacity: 0;
+}
+
+/* ─── Mobile Overlay ─── */
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.01) 76.45%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav-overlay-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.overlay-link {
+  display: flex;
+  font-family: 'Rokkitt', Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #000000;
+  text-decoration: none;
+  padding: 8px 24px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.overlay-link:hover {
+  opacity: 0.6;
+}
+
+.overlay-link.active {
+  color: #0066CC;
+  opacity: 1;
+}
+
+.overlay-cta-container {
+  margin-top: 24px;
+}
+
+.overlay-cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32px;
+  height: 52px;
+  background: #0066CC;
+  border-radius: 980px;
+  font-family: 'Rokkitt', Georgia, serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.overlay-cta:hover {
+  background: #004499;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 767px) {
+  .nav-links-frame,
+  .nav-cta-frame {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+}

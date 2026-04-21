@@ -1,0 +1,691 @@
+/* ════════════════════════════════════════════════════════════
+   PAGE SHELL
+   ════════════════════════════════════════════════════════════ */
+
+.about {
+  flex: 1;
+}
+
+/* ════════════════════════════════════════════════════════════
+   1. HERO — 50/50 Grid Layout
+   ════════════════════════════════════════════════════════════ */
+
+.about-hero {
+  background-color: #FFFFFF;
+  padding: 4rem 0;
+}
+
+.about-hero__grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-hero__image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-hero__image {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-hero__headline {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #1D1D1F;
+  font-family: var(--font-family-heading);
+}
+
+.about-hero__subheading {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #6E6E73;
+  font-family: var(--font-family-body);
+}
+
+.about-hero__tagline {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #9D9D9F;
+  font-family: var(--font-family-body);
+  font-style: italic;
+}
+
+/* ════════════════════════════════════════════════════════════
+   2. JOURNEY NARRATIVE — Centered Column
+   ════════════════════════════════════════════════════════════ */
+
+.about-journey {
+  background-color: #FFFFFF;
+  padding: 4rem 0;
+}
+
+.about-journey__inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-journey h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.about-journey__text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #1D1D1F;
+  font-family: var(--font-family-body);
+}
+
+/* ════════════════════════════════════════════════════════════
+   3. WHAT DRIVES ME — 4 Value Cards Grid
+   ════════════════════════════════════════════════════════════ */
+
+.about-values {
+  background-color: #FFFFFF;
+  padding: 4rem 0;
+}
+
+.about-values__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-values__inner h2 {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.value-card {
+  background-color: #F5F5F7;
+  border: 1px solid #D2D2D7;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: calc(var(--stagger, 0) * 1s);
+}
+
+.value-card:hover {
+  transform: translateY(-2px);
+  background-color: #FAFAFA;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.value-card__icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.value-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1D1D1F;
+  font-family: var(--font-family-heading);
+  margin: 0;
+}
+
+.value-card__description {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #1D1D1F;
+  font-family: var(--font-family-body);
+  margin: 0;
+}
+
+.value-card__divider {
+  height: 1px;
+  background-color: #E8E8ED;
+  margin: 0.5rem 0;
+}
+
+.value-card__why {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6E6E73;
+  font-family: var(--font-family-body);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   4. TESTIMONIALS — Full Width Cards
+   ════════════════════════════════════════════════════════════ */
+
+.about-testimonials {
+  background-color: #1A1A1A;
+  color: white;
+  padding: 4rem 0;
+}
+
+.about-testimonials__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-testimonials__inner h2 {
+  margin-bottom: 3rem;
+  text-align: center;
+  color: white !important;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  animation-delay: calc(var(--stagger, 0) * 1s);
+}
+
+.testimonial-card__quote {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-family-body);
+  font-style: italic;
+  margin: 0 0 1rem 0;
+}
+
+.testimonial-card__author {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-family-body);
+  margin: 0;
+}
+
+.testimonial-card__title {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-family-body);
+  margin: 0.25rem 0 0 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   5. ALWAYS LEARNING — 3 Cards Grid
+   ════════════════════════════════════════════════════════════ */
+
+.about-learning {
+  background-color: #FFFFFF;
+  padding: 4rem 0;
+}
+
+.about-learning__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-learning__inner h2 {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.learning-card {
+  background-color: #F5F5F7;
+  border: 1px solid #D2D2D7;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation-delay: calc(var(--stagger, 0) * 1s);
+}
+
+.learning-card__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6E6E73;
+  font-family: var(--font-family-heading);
+  margin: 0;
+}
+
+.learning-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1D1D1F;
+  font-family: var(--font-family-heading);
+  margin: 0;
+}
+
+.learning-card__description {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #6E6E73;
+  font-family: var(--font-family-body);
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   6. TEACHING & THOUGHT LEADERSHIP — 2-Column Grid
+   ════════════════════════════════════════════════════════════ */
+
+.about-teaching {
+  background-color: #F5F5F7;
+  padding: 4rem 0;
+}
+
+.about-teaching__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-teaching__inner h2 {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.teaching-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.teaching-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.teaching-left h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1D1D1F;
+  font-family: var(--font-family-heading);
+  margin: 0;
+}
+
+.teaching-left p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #6E6E73;
+  font-family: var(--font-family-body);
+  margin: 0;
+}
+
+.teaching-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.achievement-card {
+  background-color: #F5F5F7;
+  border: 1px solid #D2D2D7;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: calc(var(--stagger, 0) * 1s);
+}
+
+.achievement-card:hover {
+  transform: translateY(-2px);
+  background-color: #FAFAFA;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.achievement-card__icon {
+  font-size: 28px;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.achievement-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1D1D1F;
+  font-family: var(--font-family-heading);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.achievement-card__description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6E6E73;
+  font-family: var(--font-family-body);
+  margin: 0;
+}
+
+.achievement-card__link {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0066CC;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.achievement-card__link:hover {
+  text-decoration: underline;
+}
+
+/* ════════════════════════════════════════════════════════════
+   7. CONNECT & CTA — Work Together Section
+   ════════════════════════════════════════════════════════════ */
+
+.home-cta-section {
+  padding: 96px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid #E8E8ED;
+}
+
+.home-cta__outer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-cta-card {
+  background: #F5F5F7;
+  border: none;
+  border-radius: 20px;
+  padding: 64px 48px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.about-cta__heading {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: #1D1D1F;
+  margin: 0;
+}
+
+.about-cta__subline {
+  font-size: 17px;
+  color: #6E6E73;
+  margin-top: 16px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.about-cta__buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: var(--font-family-heading);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  min-height: 44px;
+  border: none;
+}
+
+.btn--primary {
+  background-color: #0066CC;
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn--primary:hover {
+  background-color: #004499;
+  opacity: 1;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: #0066CC;
+  border: 1px solid #0066CC;
+}
+
+.btn--secondary:hover {
+  background-color: rgba(0, 102, 204, 0.06);
+  text-decoration: none;
+  color: #0066CC;
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE — Mobile-First Breakpoints
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .about-hero__headline {
+    font-size: 32px;
+  }
+
+  .learning-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero,
+  .about-journey,
+  .about-values,
+  .about-testimonials,
+  .about-learning,
+  .about-teaching,
+  .about-connect {
+    padding: 2.5rem 0;
+  }
+
+  .about-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-hero__image-placeholder {
+    max-width: 100%;
+  }
+
+  .about-hero__headline {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+
+  .about-hero__subheading {
+    font-size: 16px;
+  }
+
+  .about-journey h2,
+  .about-values__inner h2,
+  .about-testimonials__inner h2,
+  .about-learning__inner h2,
+  .about-connect h2 {
+    font-size: 32px;
+    margin-bottom: 2rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teaching-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .teaching-left h3 {
+    font-size: 21px;
+  }
+
+  .teaching-left p {
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 375px) {
+  .about-hero,
+  .about-journey,
+  .about-values,
+  .about-testimonials,
+  .about-learning,
+  .about-teaching,
+  .about-connect {
+    padding: 2rem 0;
+  }
+
+  .about-hero__grid {
+    gap: 1.5rem;
+  }
+
+  .about-hero__headline {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .about-hero__subheading {
+    font-size: 15px;
+  }
+
+  .about-hero__tagline {
+    font-size: 14px;
+  }
+
+  .about-journey h2,
+  .about-values__inner h2,
+  .about-testimonials__inner h2,
+  .about-learning__inner h2,
+  .about-teaching__inner h2,
+  .about-connect h2 {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+  }
+
+  .value-card,
+  .testimonial-card,
+  .learning-card {
+    padding: 1.25rem;
+  }
+
+  .value-card__title,
+  .learning-card__title {
+    font-size: 16px;
+  }
+
+  .value-card__description {
+    font-size: 15px;
+  }
+
+  .testimonial-card__quote {
+    font-size: 15px;
+  }
+
+  .teaching-grid {
+    gap: 1.5rem;
+  }
+
+  .teaching-left h3 {
+    font-size: 18px;
+  }
+
+  .teaching-left p {
+    font-size: 15px;
+  }
+
+  .achievement-card {
+    padding: 1.25rem;
+  }
+
+  .achievement-card__title {
+    font-size: 15px;
+  }
+
+  .achievement-card__description {
+    font-size: 13px;
+  }
+
+  .home-cta-section {
+    padding: 60px 0;
+    border-top: 1px solid #E8E8ED;
+  }
+
+  .about-cta-card {
+    padding: 40px 24px;
+    border-radius: 16px;
+  }
+
+  .about-cta__heading {
+    font-size: 36px;
+  }
+
+  .about-cta__subline {
+    font-size: 15px;
+  }
+
+  .about-cta__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+}

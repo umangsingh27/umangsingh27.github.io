@@ -1,0 +1,122 @@
+.case-hero {
+  padding: var(--section-padding) var(--section-padding) 60px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.case-hero__tag {
+  font-family: var(--font-family-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.case-hero h1 {
+  margin-bottom: 24px;
+}
+
+.case-hero__image {
+  margin-top: 60px;
+  width: 100%;
+  height: 400px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.case-overview {
+  padding: 60px var(--section-padding);
+  background-color: var(--color-surface);
+}
+
+.case-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.case-stat h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.case-stat p {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+}
+
+.case-body {
+  padding: var(--section-padding);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.case-body h2 {
+  margin-bottom: 24px;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+  margin-bottom: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: var(--font-family-heading);
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .case-hero {
+    padding: 60px var(--section-padding) 40px;
+  }
+
+  .case-hero h1 {
+    font-size: 52px;
+  }
+
+  .case-hero__image {
+    height: 250px;
+    margin-top: 40px;
+  }
+
+  .case-grid {
+    gap: 24px;
+  }
+
+  .case-body {
+    padding: 40px var(--section-padding);
+  }
+}
