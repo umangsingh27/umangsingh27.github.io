@@ -42,29 +42,36 @@ export default function NowpurchaseWebsite() {
               <p>Clickup · Miro · Microsoft Clarity · Google Analytics · Amplitude · Figma</p>
             </div>
           </div>
+
+          <div className="case-hero__visual">
+            <img
+              src="/images/nowpurchase-website/hero_image.png"
+              alt="NowPurchase website revamp — hero section design"
+              className="case-visual case-visual--hero"
+            />
+          </div>
         </div>
       </section>
 
       {/* 2. THE PROBLEM */}
-      <section className="case-section case-section--bg fade-up">
+      <section className="case-section case-section--dark context-dark fade-up">
         <div className="case-section__inner">
-          <h2>NowPurchase had outgrown its own website.</h2>
-          <div className="case-body">
-            <p>
-              NowPurchase — a B2B company digitising India's $19B foundry industry — had built significant credibility with enterprise clients through MetalCloud, its SaaS platform. But its public website still spoke the language of an early-stage startup: vague, jargon-heavy, and unclear about what the company actually did.
+          <h2 className="context-heading">NowPurchase had outgrown its own website.</h2>
+          <div className="context-body">
+            <p className="context-paragraph">
+              NowPurchase — a B2B company digitising India's $19B foundry industry — had built significant credibility with enterprise clients through MetalCloud, its SaaS platform. But its public website still spoke the language of an early-stage startup: vague, jargon-heavy, and unclear about what the company actually did. Four things were consistently failing visitors: users were confused about what the business did, technical jargon made content inaccessible, navigation was unclear, and company culture and investor credibility were invisible.
             </p>
-            <p>
-              Four things were consistently failing visitors:
+            <p className="context-paragraph">
+              The ask was simple but demanding: a complete website redesign in 30 days. One designer leading the project. Me.
             </p>
-            <ol className="problem-list">
-              <li>Users were confused about what the business actually did</li>
-              <li>Technical jargon made the content inaccessible to new visitors</li>
-              <li>Navigation was unclear — users couldn't find what they were looking for</li>
-              <li>Company culture and investor credibility were invisible</li>
-            </ol>
-            <p>
-              The ask: a complete website redesign in 30 days. One designer (me) leading the project.
+            <p className="context-paragraph">
+              That constraint — one month, one person, complete overhaul — became the thing that forced clarity. We couldn't afford to redesign for complexity. We had to redesign for understanding.
             </p>
+
+            <figure className="case-figure case-figure--full" style={{marginTop: '2rem'}}>
+              <img src="/images/nowpurchase-website/existing-website.png" alt="NowPurchase existing website before revamp" className="case-visual case-visual--screenshot" />
+              <figcaption>The existing NowPurchase website — before the revamp</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -90,6 +97,12 @@ export default function NowpurchaseWebsite() {
               <p className="research-finding">
                 <strong>Key findings:</strong> Users were scrolling past the hero without engaging. The MetalCloud section was being ignored despite being the company's core product. The "Why NowPurchase" section had near-zero interaction.
               </p>
+              <div className="case-image-row" style={{marginTop: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px'}}>
+                <img src="/images/nowpurchase-website/heatmap-1.png" alt="Heatmap — Hero section" className="case-visual case-visual--heatmap" />
+                <img src="/images/nowpurchase-website/heatmap-2.png" alt="Heatmap — Careers section" className="case-visual case-visual--heatmap" />
+                <img src="/images/nowpurchase-website/heatmap-3.png" alt="Heatmap — MetalCloud section" className="case-visual case-visual--heatmap" />
+                <img src="/images/nowpurchase-website/heatmap-4.png" alt="Heatmap — Footer" className="case-visual case-visual--heatmap" />
+              </div>
             </div>
 
             <div className="research-block">
@@ -114,6 +127,10 @@ export default function NowpurchaseWebsite() {
               <p className="research-finding">
                 <strong>12 priorities emerged</strong> — including: invest in technology to streamline procurement, provide superior service to become a trusted platform, digitise operations, expand to 200+ clients, and overcome the perception that cloud-based procurement is unreliable.
               </p>
+              <figure className="case-figure" style={{marginTop: '1.5rem'}}>
+                <img src="/images/nowpurchase-website/stakeholder-interview.png" alt="Stakeholder interview session with NowPurchase leadership" className="case-visual" />
+                <figcaption>Stakeholder interview session — NowPurchase leadership</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -146,6 +163,17 @@ export default function NowpurchaseWebsite() {
             <p>
               During brainstorming sessions with the team, we identified that NowPurchase was actually two distinct offerings being presented as one. The naming came from an internal competition among the team. Having distinct sub-brand names allowed each to speak clearly to its specific audience without creating confusion.
             </p>
+          </div>
+
+          <div className="case-image-row" style={{marginTop: '2rem', marginBottom: '2rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px'}}>
+            <figure className="case-figure">
+              <img src="/images/nowpurchase-website/brainstorm-1.png" alt="Strategy workshop with the team" className="case-visual" />
+              <figcaption>Strategy workshop — aligning on content and brand direction</figcaption>
+            </figure>
+            <figure className="case-figure">
+              <img src="/images/nowpurchase-website/brainstorm-2.png" alt="1-on-1 stakeholder discussion" className="case-visual" />
+              <figcaption>1-on-1 stakeholder session — defining the sub-brand strategy</figcaption>
+            </figure>
           </div>
 
           <div className="strategy-grid">
@@ -191,6 +219,11 @@ export default function NowpurchaseWebsite() {
               <li><strong>Content sections:</strong> Why-Vision, How-Benefits, What-Products, Statistics, Customer Map, Value, Place & Pricing, Graphs, Testimonials, Investors, Job Openings</li>
               <li><strong>Footer:</strong> Address, Terms, Email ID, Privacy Policy, Copyright Info, Corporate Social Responsibility, Events, Site Map</li>
             </ul>
+
+            <figure className="case-figure case-figure--full" style={{marginTop: '1.5rem'}}>
+              <img src="/images/nowpurchase-website/information-architecture.png" alt="NowPurchase website information architecture diagram" className="case-visual" />
+              <figcaption>Information architecture — full site structure across Home, NP MarketPlace, NP MetalCloud, Culture, and Career</figcaption>
+            </figure>
           </div>
 
           <div className="design-subsection">
@@ -198,6 +231,17 @@ export default function NowpurchaseWebsite() {
             <p>
               Built full wireframes for both the NowPurchase MarketPlace and NowPurchase MetalCloud landing pages before moving to visual design. Every content decision from the strategy phase was expressed in structure before any visual treatment was applied.
             </p>
+
+            <div className="case-image-row" style={{marginTop: '1.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px'}}>
+              <figure className="case-figure">
+                <img src="/images/nowpurchase-website/wireframe-1.png" alt="NowPurchase MarketPlace wireframes" className="case-visual" />
+                <figcaption>NP MarketPlace — wireframes</figcaption>
+              </figure>
+              <figure className="case-figure">
+                <img src="/images/nowpurchase-website/wireframe-2.png" alt="NP MetalCloud wireframes" className="case-visual" />
+                <figcaption>NP MetalCloud — wireframes</figcaption>
+              </figure>
+            </div>
           </div>
 
           <div className="design-subsection">
@@ -207,6 +251,11 @@ export default function NowpurchaseWebsite() {
               <li><strong>Color palette:</strong> Extended from the existing NowPurchase brand while introducing more visual hierarchy and contrast than the original site had.</li>
               <li><strong>Homepage design:</strong> Led with the company's core value proposition, supported by social proof (client logos, investor logos), then moved into the two product offerings with clear differentiation.</li>
             </ul>
+
+            <figure className="case-figure case-figure--full" style={{marginTop: '1.5rem'}}>
+              <img src="/images/nowpurchase-website/final-ui.png" alt="NowPurchase revamped homepage — final visual design" className="case-visual case-visual--screenshot" />
+              <figcaption>Final homepage design — NowPurchase website revamp</figcaption>
+            </figure>
           </div>
 
           <div className="design-subsection">
@@ -217,6 +266,19 @@ export default function NowpurchaseWebsite() {
             <p>
               After passing usability review, the website went live at nowpurchase.com.
             </p>
+
+            <div style={{marginTop: '1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '16px'}}>
+              <figure className="case-figure">
+                <img src="/images/nowpurchase-website/presentation-1.png" alt="Website showcase presentation to NowPurchase team" className="case-visual" />
+                <figcaption>Formal website presentation to NowPurchase leadership and investors</figcaption>
+              </figure>
+              <figure className="case-figure">
+                <img src="/images/nowpurchase-website/presentation-2.png" alt="Website presentation — team walkthrough" className="case-visual" />
+              </figure>
+              <figure className="case-figure">
+                <img src="/images/nowpurchase-website/presentation-3.png" alt="Website presentation — Q&A session" className="case-visual" />
+              </figure>
+            </div>
           </div>
         </div>
       </section>

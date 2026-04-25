@@ -53,18 +53,18 @@ export default function MetalcloudPlatform() {
         </div>
       </section>
 
-      {/* 2. THE CONTEXT SECTION */}
-      <section className="case-section case-section--bg fade-up">
+      {/* 2. THE CONTEXT SECTION - DARK MANIFESTO */}
+      <section className="case-section case-section--dark context-dark fade-up" data-theme="dark">
         <div className="case-section__inner">
-          <h2>India's foundries run on paper and instinct.</h2>
-          <div className="case-body">
-            <p>
+          <h2 className="context-heading">India's foundries run on paper and instinct.</h2>
+          <div className="context-body">
+            <p className="context-paragraph">
               India's $19B metal manufacturing sector — foundries — rely on paper records, Excel sheets, and decades of accumulated gut instinct to run production. A foundry takes raw materials, melts them in a furnace, analyses the molten metal's chemistry using a spectrometer, manually calculates how to adjust the mix, and pours it into moulds.
             </p>
-            <p>
+            <p className="context-paragraph">
               Every step in this chain was manual, time-consuming, and error-prone. NowPurchase's MetalCloud platform was already helping foundries with procurement — but the shop floor itself was still analogue.
             </p>
-            <p>
+            <p className="context-paragraph">
               I was brought in to design two new modules that would change that.
             </p>
           </div>

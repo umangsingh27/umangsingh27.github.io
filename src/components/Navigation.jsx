@@ -155,7 +155,7 @@ export default function Navigation() {
         <nav className="nav-inner">
           <div className={`nav-logo-frame ${(pillThemes.logo && !menuOpen) ? 'pill--dark' : ''}`}>
             <NavLink to="/" className="nav-logo">
-              Umang Singh
+              <img src="/umang_singh.svg" alt="Umang Singh" />
             </NavLink>
           </div>
 
