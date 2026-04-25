@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useCountAnimation } from '../hooks/useCountAnimation'
+import LazyImage from '../components/LazyImage'
 import './Home.css'
 
 export default function Home() {
@@ -201,7 +202,7 @@ export default function Home() {
 
             <Link to="/work/metalcloud-platform" className="work-card">
               <div className="work-card__cover work-card__cover--metalcloud">
-                <img src="/images/metalcloud/spectro-hero.png" alt="MetalCloud Platform" />
+                <LazyImage src="/images/metalcloud/spectro-hero.png" alt="MetalCloud Platform" />
               </div>
               <div className="work-card__meta">
                 <span className="work-card__tag">BUSINESS-TO-BUSINESS SOFTWARE AS A SERVICE · ENTERPRISE</span>

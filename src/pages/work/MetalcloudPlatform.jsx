@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useCountAnimation } from '../../hooks/useCountAnimation'
+import LazyImage from '../../components/LazyImage'
 import './MetalcloudPlatform.css'
 
 export default function MetalcloudPlatform() {
@@ -44,10 +45,11 @@ export default function MetalcloudPlatform() {
           </div>
 
           <div className="case-hero__visual">
-            <img
+            <LazyImage
               src="/images/metalcloud/spectro-hero.png"
               alt="MetalCloud Spectro Pro — Dashboard, Smart View shop floor display, and WhatsApp alerts"
               className="case-visual case-visual--hero"
+              priority={true}
             />
           </div>
         </div>
@@ -144,7 +146,7 @@ export default function MetalcloudPlatform() {
 
             <div className="case-image-row">
               <figure className="case-figure">
-                <img
+                <LazyImage
                   src="/images/metalcloud/spectro-machine.png"
                   alt="Metavision 1008i spectrometer machine at an Indian foundry"
                   className="case-visual"
@@ -152,7 +154,7 @@ export default function MetalcloudPlatform() {
                 <figcaption>Spectrometer machine (Metavision 1008i) at a partner foundry</figcaption>
               </figure>
               <figure className="case-figure">
-                <img
+                <LazyImage
                   src="/images/metalcloud/optimise-chalkboard.png"
                   alt="Chalk board showing hand-written ChargeMix table at a foundry"
                   className="case-visual"
@@ -187,7 +189,7 @@ export default function MetalcloudPlatform() {
               </p>
 
               <div className="case-image-single">
-                <img
+                <LazyImage
                   src="/images/metalcloud/spectro-opportunity.png"
                   alt="Radar chart showing impact on Production Cost, Energy Loss, Time, and Productivity — with 36 vs 41 heats per day comparison"
                   className="case-visual"
@@ -210,7 +212,7 @@ export default function MetalcloudPlatform() {
               </ol>
 
               <div className="case-image-single">
-                <img
+                <LazyImage
                   src="/images/metalcloud/optimise-painpoints.png"
                   alt="Optimise — 12% cost saving opportunity identified through pain point analysis"
                   className="case-visual"
@@ -240,7 +242,7 @@ export default function MetalcloudPlatform() {
               </ol>
 
               <div className="case-image-single case-image-single--flow">
-                <img
+                <LazyImage
                   src="/images/metalcloud/spectro-solution-flow.png"
                   alt="Spectro Pro 4-component solution: Internet of Things connection → Artificial Intelligence/Machine Learning calculation → WhatsApp delivery → Web app history"
                   className="case-visual"
@@ -257,7 +259,7 @@ export default function MetalcloudPlatform() {
             </ul>
 
             <div className="case-image-single">
-              <img
+              <LazyImage
                 src="/images/metalcloud/spectro-updates.png"
                 alt="Shop-floor Display TV showing live readings, and Spectrometer Dashboard for senior stakeholders"
                 className="case-visual"
@@ -269,7 +271,7 @@ export default function MetalcloudPlatform() {
             </p>
 
             <div className="case-image-single case-image-single--mockup">
-              <img
+              <LazyImage
                 src="/images/metalcloud/spectro-ui.png"
                 alt="Spectro Pro web application — data listing and reading detail screens"
                 className="case-visual"
@@ -285,7 +287,7 @@ export default function MetalcloudPlatform() {
               </p>
 
               <div className="case-image-single case-image-single--system">
-                <img
+                <LazyImage
                   src="/images/metalcloud/optimise-system-flow.png"
                   alt="Optimise system flow: Target product requirements + Raw materials + Furnace capacity → ChargeMix output"
                   className="case-visual"
@@ -297,7 +299,7 @@ export default function MetalcloudPlatform() {
               </p>
 
               <div className="case-image-single case-image-single--mockup">
-                <img
+                <LazyImage
                   src="/images/metalcloud/optimise-ui.png"
                   alt="Optimise ChargeMix module — multi-step web interface for calculating optimal raw material mix"
                   className="case-visual"
@@ -337,7 +339,7 @@ export default function MetalcloudPlatform() {
 
             <div className="case-image-row">
               <figure className="case-figure">
-                <img
+                <LazyImage
                   src="/images/metalcloud/spectro-testing.png"
                   alt="Usability testing of Spectro Pro — operator at the spectrometer machine on the factory floor"
                   className="case-visual"
@@ -345,7 +347,7 @@ export default function MetalcloudPlatform() {
                 <figcaption>Spectro Pro — testing at the spectrometer machine</figcaption>
               </figure>
               <figure className="case-figure">
-                <img
+                <LazyImage
                   src="/images/metalcloud/optimise-testing.png"
                   alt="Usability testing of Optimise — melting supervisors reviewing the ChargeMix interface"
                   className="case-visual"
@@ -394,7 +396,7 @@ export default function MetalcloudPlatform() {
           <div className="case-image-row case-image-row--dark">
             <figure className="case-figure case-figure--dark">
               <p className="chart-label">Spectro Pro — Monthly active users</p>
-              <img
+              <LazyImage
                 src="/images/metalcloud/spectro-growth.png"
                 alt="Spectro Pro monthly active users growth chart — 20 users in 2022 to 140+ in 2025"
                 className="case-visual"
@@ -403,7 +405,7 @@ export default function MetalcloudPlatform() {
             </figure>
             <figure className="case-figure case-figure--dark">
               <p className="chart-label">Optimise — New customers per month</p>
-              <img
+              <LazyImage
                 src="/images/metalcloud/optimise-growth.png"
                 alt="Optimise month-on-month customer growth chart — reaching 8+ new customers per month by month 6"
                 className="case-visual"

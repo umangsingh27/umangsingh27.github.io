@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useCountAnimation } from '../../hooks/useCountAnimation'
+import LazyImage from '../../components/LazyImage'
 import './NowpurchaseWebsite.css'
 
 export default function NowpurchaseWebsite() {
@@ -44,10 +45,11 @@ export default function NowpurchaseWebsite() {
           </div>
 
           <div className="case-hero__visual">
-            <img
+            <LazyImage
               src="/images/nowpurchase-website/hero_image.png"
               alt="NowPurchase website revamp — hero section design"
               className="case-visual case-visual--hero"
+              priority={true}
             />
           </div>
         </div>
@@ -69,7 +71,7 @@ export default function NowpurchaseWebsite() {
             </p>
 
             <figure className="case-figure case-figure--full" style={{marginTop: '2rem'}}>
-              <img src="/images/nowpurchase-website/existing-website.png" alt="NowPurchase existing website before revamp" className="case-visual case-visual--screenshot" />
+              <LazyImage src="/images/nowpurchase-website/existing-website.png" alt="NowPurchase existing website before revamp" className="case-visual case-visual--screenshot" />
               <figcaption>The existing NowPurchase website — before the revamp</figcaption>
             </figure>
           </div>
@@ -98,10 +100,10 @@ export default function NowpurchaseWebsite() {
                 <strong>Key findings:</strong> Users were scrolling past the hero without engaging. The MetalCloud section was being ignored despite being the company's core product. The "Why NowPurchase" section had near-zero interaction.
               </p>
               <div className="case-image-row" style={{marginTop: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px'}}>
-                <img src="/images/nowpurchase-website/heatmap-1.png" alt="Heatmap — Hero section" className="case-visual case-visual--heatmap" />
-                <img src="/images/nowpurchase-website/heatmap-2.png" alt="Heatmap — Careers section" className="case-visual case-visual--heatmap" />
-                <img src="/images/nowpurchase-website/heatmap-3.png" alt="Heatmap — MetalCloud section" className="case-visual case-visual--heatmap" />
-                <img src="/images/nowpurchase-website/heatmap-4.png" alt="Heatmap — Footer" className="case-visual case-visual--heatmap" />
+                <LazyImage src="/images/nowpurchase-website/heatmap-1.png" alt="Heatmap — Hero section" className="case-visual case-visual--heatmap" />
+                <LazyImage src="/images/nowpurchase-website/heatmap-2.png" alt="Heatmap — Careers section" className="case-visual case-visual--heatmap" />
+                <LazyImage src="/images/nowpurchase-website/heatmap-3.png" alt="Heatmap — MetalCloud section" className="case-visual case-visual--heatmap" />
+                <LazyImage src="/images/nowpurchase-website/heatmap-4.png" alt="Heatmap — Footer" className="case-visual case-visual--heatmap" />
               </div>
             </div>
 
@@ -128,7 +130,7 @@ export default function NowpurchaseWebsite() {
                 <strong>12 priorities emerged</strong> — including: invest in technology to streamline procurement, provide superior service to become a trusted platform, digitise operations, expand to 200+ clients, and overcome the perception that cloud-based procurement is unreliable.
               </p>
               <figure className="case-figure" style={{marginTop: '1.5rem'}}>
-                <img src="/images/nowpurchase-website/stakeholder-interview.png" alt="Stakeholder interview session with NowPurchase leadership" className="case-visual" />
+                <LazyImage src="/images/nowpurchase-website/stakeholder-interview.png" alt="Stakeholder interview session with NowPurchase leadership" className="case-visual" />
                 <figcaption>Stakeholder interview session — NowPurchase leadership</figcaption>
               </figure>
             </div>
@@ -167,11 +169,11 @@ export default function NowpurchaseWebsite() {
 
           <div className="case-image-row" style={{marginTop: '2rem', marginBottom: '2rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px'}}>
             <figure className="case-figure">
-              <img src="/images/nowpurchase-website/brainstorm-1.png" alt="Strategy workshop with the team" className="case-visual" />
+              <LazyImage src="/images/nowpurchase-website/brainstorm-1.png" alt="Strategy workshop with the team" className="case-visual" />
               <figcaption>Strategy workshop — aligning on content and brand direction</figcaption>
             </figure>
             <figure className="case-figure">
-              <img src="/images/nowpurchase-website/brainstorm-2.png" alt="1-on-1 stakeholder discussion" className="case-visual" />
+              <LazyImage src="/images/nowpurchase-website/brainstorm-2.png" alt="1-on-1 stakeholder discussion" className="case-visual" />
               <figcaption>1-on-1 stakeholder session — defining the sub-brand strategy</figcaption>
             </figure>
           </div>
@@ -221,7 +223,7 @@ export default function NowpurchaseWebsite() {
             </ul>
 
             <figure className="case-figure case-figure--full" style={{marginTop: '1.5rem'}}>
-              <img src="/images/nowpurchase-website/information-architecture.png" alt="NowPurchase website information architecture diagram" className="case-visual" />
+              <LazyImage src="/images/nowpurchase-website/information-architecture.png" alt="NowPurchase website information architecture diagram" className="case-visual" />
               <figcaption>Information architecture — full site structure across Home, NP MarketPlace, NP MetalCloud, Culture, and Career</figcaption>
             </figure>
           </div>
@@ -234,11 +236,11 @@ export default function NowpurchaseWebsite() {
 
             <div className="case-image-row" style={{marginTop: '1.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px'}}>
               <figure className="case-figure">
-                <img src="/images/nowpurchase-website/wireframe-1.png" alt="NowPurchase MarketPlace wireframes" className="case-visual" />
+                <LazyImage src="/images/nowpurchase-website/wireframe-1.png" alt="NowPurchase MarketPlace wireframes" className="case-visual" />
                 <figcaption>NP MarketPlace — wireframes</figcaption>
               </figure>
               <figure className="case-figure">
-                <img src="/images/nowpurchase-website/wireframe-2.png" alt="NP MetalCloud wireframes" className="case-visual" />
+                <LazyImage src="/images/nowpurchase-website/wireframe-2.png" alt="NP MetalCloud wireframes" className="case-visual" />
                 <figcaption>NP MetalCloud — wireframes</figcaption>
               </figure>
             </div>
@@ -253,7 +255,7 @@ export default function NowpurchaseWebsite() {
             </ul>
 
             <figure className="case-figure case-figure--full" style={{marginTop: '1.5rem'}}>
-              <img src="/images/nowpurchase-website/final-ui.png" alt="NowPurchase revamped homepage — final visual design" className="case-visual case-visual--screenshot" />
+              <LazyImage src="/images/nowpurchase-website/final-ui.png" alt="NowPurchase revamped homepage — final visual design" className="case-visual case-visual--screenshot" />
               <figcaption>Final homepage design — NowPurchase website revamp</figcaption>
             </figure>
           </div>
@@ -269,14 +271,14 @@ export default function NowpurchaseWebsite() {
 
             <div style={{marginTop: '1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '16px'}}>
               <figure className="case-figure">
-                <img src="/images/nowpurchase-website/presentation-1.png" alt="Website showcase presentation to NowPurchase team" className="case-visual" />
+                <LazyImage src="/images/nowpurchase-website/presentation-1.png" alt="Website showcase presentation to NowPurchase team" className="case-visual" />
                 <figcaption>Formal website presentation to NowPurchase leadership and investors</figcaption>
               </figure>
               <figure className="case-figure">
-                <img src="/images/nowpurchase-website/presentation-2.png" alt="Website presentation — team walkthrough" className="case-visual" />
+                <LazyImage src="/images/nowpurchase-website/presentation-2.png" alt="Website presentation — team walkthrough" className="case-visual" />
               </figure>
               <figure className="case-figure">
-                <img src="/images/nowpurchase-website/presentation-3.png" alt="Website presentation — Q&A session" className="case-visual" />
+                <LazyImage src="/images/nowpurchase-website/presentation-3.png" alt="Website presentation — Q&A session" className="case-visual" />
               </figure>
             </div>
           </div>
