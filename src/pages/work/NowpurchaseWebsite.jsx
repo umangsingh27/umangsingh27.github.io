@@ -26,19 +26,19 @@ export default function NowpurchaseWebsite() {
           </p>
 
           <div className="case-metadata-grid">
-            <div className="metadata-item">
+            <div className="metadata-item fade-up-child">
               <h3>My Role</h3>
               <p>Project Head & User Experience Designer</p>
             </div>
-            <div className="metadata-item">
+            <div className="metadata-item fade-up-child">
               <h3>Team</h3>
               <p>3 Members</p>
             </div>
-            <div className="metadata-item">
+            <div className="metadata-item fade-up-child">
               <h3>Timeline</h3>
               <p>April 1 – April 30, 2023</p>
             </div>
-            <div className="metadata-item">
+            <div className="metadata-item fade-up-child">
               <h3>Tools</h3>
               <p>Clickup · Miro · Microsoft Clarity · Google Analytics · Amplitude · Figma</p>
             </div>
@@ -89,7 +89,7 @@ export default function NowpurchaseWebsite() {
           </div>
 
           <div className="research-grid">
-            <div className="research-block">
+            <div className="research-block fade-up-child">
               <span className="research-label">DATA ANALYSIS</span>
               <h3>30-Day Heatmap & Session Recording Analysis</h3>
               <p className="research-tool"><strong>Tool:</strong> Microsoft Clarity</p>
@@ -107,7 +107,7 @@ export default function NowpurchaseWebsite() {
               </div>
             </div>
 
-            <div className="research-block">
+            <div className="research-block fade-up-child">
               <span className="research-label">COMPETITIVE ANALYSIS</span>
               <h3>Benchmarking Against 6 Competitors</h3>
               <p className="research-tool"><strong>Competitors studied:</strong> Zetwerk · Grainmart · IndiaMART · BlazerCart · Gravio · and others</p>
@@ -119,7 +119,7 @@ export default function NowpurchaseWebsite() {
               </p>
             </div>
 
-            <div className="research-block">
+            <div className="research-block fade-up-child">
               <span className="research-label">STAKEHOLDER INTERVIEWS</span>
               <h3>12 Strategic Priorities, One Framework</h3>
               <p className="research-tool"><strong>Framework used:</strong> Why-How-What</p>
@@ -179,13 +179,13 @@ export default function NowpurchaseWebsite() {
           </div>
 
           <div className="strategy-grid">
-            <div className="strategy-card strategy-card--marketplace">
+            <div className="strategy-card strategy-card--marketplace fade-up-child">
               <span className="strategy-tag">NOWPURCHASE MARKETPLACE</span>
               <h3>A procurement platform for raw material buyers.</h3>
               <p><strong>Core value:</strong> Optimise raw material supply chain for timely, high-quality delivery. Explore different alloys to add value to procurement. Develop a sustainable scrap ecosystem. Analyse procurement data at a granular level. Aim to make India the largest supplier in the market.</p>
             </div>
 
-            <div className="strategy-card strategy-card--metalcloud">
+            <div className="strategy-card strategy-card--metalcloud fade-up-child">
               <span className="strategy-tag">NOWPURCHASE METALCLOUD</span>
               <h3>A SaaS platform for foundry operations.</h3>
               <p><strong>Core value:</strong> Real-time updates to foundries to optimise workflows and ensure timely delivery. Identify patterns and trends to increase efficiency. Save costs and improve casting quality with precise control over melting processes. Determine optimal combination of raw materials for desired alloys at lowest cost and highest efficiency.</p>
@@ -291,17 +291,17 @@ export default function NowpurchaseWebsite() {
           <h2 className="impact-heading">The numbers after launch.</h2>
 
           <div className="impact-stats">
-            <div className="impact-stat">
+            <div className="impact-stat fade-up-child">
               <div className="impact-stat__number"><span data-count-to="20" data-suffix="x">20x</span></div>
               <p className="impact-stat__label">Growth in organic sessions</p>
               <p className="impact-stat__sub">Measured post-launch vs pre-revamp baseline</p>
             </div>
-            <div className="impact-stat">
+            <div className="impact-stat fade-up-child">
               <div className="impact-stat__number"><span data-count-to="50" data-suffix="%">50%</span></div>
               <p className="impact-stat__label">Sales growth in 6 months</p>
               <p className="impact-stat__sub">Attributed to improved website conversion</p>
             </div>
-            <div className="impact-stat">
+            <div className="impact-stat fade-up-child">
               <div className="impact-stat__number"><span data-count-to="1" data-suffix=" month">1 month</span></div>
               <p className="impact-stat__label">End-to-end delivery</p>
               <p className="impact-stat__sub">Research, IA, wireframes, UI, and launch</p>
@@ -334,7 +334,7 @@ export default function NowpurchaseWebsite() {
           </div>
 
           <div className="learning-points">
-            <div className="learning-point">
+            <div className="learning-point fade-up-child">
               <div className="learning-point__number">1</div>
               <div className="learning-point__content">
                 <h3>Go to where the work happens.</h3>
@@ -344,7 +344,7 @@ export default function NowpurchaseWebsite() {
               </div>
             </div>
 
-            <div className="learning-point">
+            <div className="learning-point fade-up-child">
               <div className="learning-point__number">2</div>
               <div className="learning-point__content">
                 <h3>Naming is a design decision.</h3>
@@ -354,7 +354,7 @@ export default function NowpurchaseWebsite() {
               </div>
             </div>
 
-            <div className="learning-point">
+            <div className="learning-point fade-up-child">
               <div className="learning-point__number">3</div>
               <div className="learning-point__content">
                 <h3>Present the work. Don't just deliver it.</h3>

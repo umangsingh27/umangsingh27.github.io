@@ -36,8 +36,15 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
   },
   server: {
+    hmr: false,
     headers: {
       'Cache-Control': 'public, max-age=31536000, immutable',
     },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
+  },
+  resolve: {
+    dedupe: ['react', 'react-dom'],
   },
 })

@@ -26,19 +26,19 @@ export default function MetalcloudPlatform() {
           </p>
 
           <div className="case-metadata-grid">
-            <div className="metadata-item">
+            <div className="metadata-item fade-up-child">
               <h3>My Role</h3>
               <p>Lead User Experience/User Interface Designer & Project Head</p>
             </div>
-            <div className="metadata-item">
+            <div className="metadata-item fade-up-child">
               <h3>Team</h3>
               <p>4 Members</p>
             </div>
-            <div className="metadata-item">
+            <div className="metadata-item fade-up-child">
               <h3>Timeline</h3>
               <p>45 days (Spectro Pro) · 30 days (Optimise)</p>
             </div>
-            <div className="metadata-item">
+            <div className="metadata-item fade-up-child">
               <h3>Tools</h3>
               <p>FigJam · Figma · Clarity · Amplitude · Google Analytics · Notion</p>
             </div>
@@ -79,7 +79,7 @@ export default function MetalcloudPlatform() {
           <h2>Two separate problems. Both costing foundries money every day.</h2>
 
           <div className="problems-grid">
-            <div className="problem-card problem-card--spectro">
+            <div className="problem-card problem-card--spectro fade-up-child">
               <h3>Furnace idle time</h3>
               <span className="problem-label">SPECTRO PRO</span>
               <p>
@@ -92,7 +92,7 @@ export default function MetalcloudPlatform() {
               </div>
             </div>
 
-            <div className="problem-card problem-card--optimise">
+            <div className="problem-card problem-card--optimise fade-up-child">
               <h3>ChargeMix inaccuracy</h3>
               <span className="problem-label">OPTIMISE</span>
               <p>
@@ -376,17 +376,17 @@ export default function MetalcloudPlatform() {
           <h2 className="impact-heading">The numbers after launch.</h2>
 
           <div className="impact-stats">
-            <div className="impact-stat">
+            <div className="impact-stat fade-up-child">
               <div className="impact-stat__number"><span>20 → </span><span data-count-to="140" data-suffix="+">140+</span></div>
               <p className="impact-stat__label">Monthly active users (Spectro Pro)</p>
               <p className="impact-stat__sub">Growth since inception, 2022 → 2025</p>
             </div>
-            <div className="impact-stat">
+            <div className="impact-stat fade-up-child">
               <div className="impact-stat__number"><span data-count-to="8" data-suffix="+">8+</span></div>
               <p className="impact-stat__label">New customers per month (Optimise)</p>
               <p className="impact-stat__sub">By month 6 post-launch</p>
             </div>
-            <div className="impact-stat">
+            <div className="impact-stat fade-up-child">
               <div className="impact-stat__number"><span data-count-to="2" data-suffix="">2</span></div>
               <p className="impact-stat__label">Real testimonials from foundry owners</p>
               <p className="impact-stat__sub">Below this section</p>
@@ -415,7 +415,7 @@ export default function MetalcloudPlatform() {
           </div>
 
           <div className="testimonials-grid">
-            <div className="testimonial-card">
+            <div className="testimonial-card fade-up-child">
               <p className="testimonial-quote">
                 "With MetalCloud's Spectro Pro module, there's no more furnace idle time. We get instant results, adjust immediately, and save energy and costs every day."
               </p>
@@ -425,7 +425,7 @@ export default function MetalcloudPlatform() {
               <p className="testimonial-rating">★★★★½</p>
             </div>
 
-            <div className="testimonial-card">
+            <div className="testimonial-card fade-up-child">
               <p className="testimonial-quote">
                 "MetalCloud's ChargeMix module helped us reduce production costs by guiding us toward more affordable raw materials — all without compromising on quality."
               </p>
@@ -435,7 +435,7 @@ export default function MetalcloudPlatform() {
               <p className="testimonial-rating">★★★★★</p>
             </div>
 
-            <div className="testimonial-card testimonial-card--small">
+            <div className="testimonial-card testimonial-card--small fade-up-child">
               <p className="testimonial-quote">
                 "Melting supervisors can act immediately without follow-ups or last-minute rush. It's simplified our workflow."
               </p>
@@ -463,7 +463,7 @@ export default function MetalcloudPlatform() {
           </div>
 
           <div className="learning-points">
-            <div className="learning-point">
+            <div className="learning-point fade-up-child">
               <div className="learning-point__number">1</div>
               <div className="learning-point__content">
                 <h3>Go to where the work happens.</h3>
@@ -473,7 +473,7 @@ export default function MetalcloudPlatform() {
               </div>
             </div>
 
-            <div className="learning-point">
+            <div className="learning-point fade-up-child">
               <div className="learning-point__number">2</div>
               <div className="learning-point__content">
                 <h3>Minimum Viable Products should be ugly. Validate before you polish.</h3>
@@ -483,7 +483,7 @@ export default function MetalcloudPlatform() {
               </div>
             </div>
 
-            <div className="learning-point">
+            <div className="learning-point fade-up-child">
               <div className="learning-point__number">3</div>
               <div className="learning-point__content">
                 <h3>Real metrics are earned, not assumed.</h3>

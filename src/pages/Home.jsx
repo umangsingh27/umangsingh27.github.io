@@ -212,34 +212,22 @@ export default function Home() {
               </div>
             </Link>
 
-            <div className="work-card" style={{ cursor: 'default' }}>
+            <Link to="/work/design-system" className="work-card">
               <div className="work-card__cover work-card__cover--design-system">
-                <div className="design-grid">
-                  {[
-                    '#0071E3', '#1D1D1D', '#6B6B6B', '#E5E5E7',
-                    '#34C759', '#FF3B30', '#FF9500', '#FFFFFF',
-                    '#5856D6', '#00B4DB', '#A2845E', '#F5F5F7',
-                    '#D70015', '#FFD700', '#8B7355', '#2D2D2D'
-                  ].map((color, i) => (
-                    <div key={i} className="grid-square" style={{ backgroundColor: color }}></div>
-                  ))}
-                </div>
-                <div className="card-coming-soon">Coming Soon</div>
+                <LazyImage src="/images/design-system/design_system_cover.png" alt="NowPurchase & MetalCloud Design System" />
+                <div className="card-status">In Progress</div>
               </div>
               <div className="work-card__meta">
-                <span className="work-card__tag">DESIGN SYSTEMS</span>
-                <h3 className="work-card__title">NowPurchase & MetalCloud Design System</h3>
+                <span className="work-card__tag">DESIGN SYSTEMS · B2B SAAS</span>
+                <h3 className="work-card__title">Design System — NowPurchase × MetalCloud</h3>
                 <p className="work-card__description">Unified atomic design system spanning two products — built to reduce design inconsistencies and accelerate engineering handoff.</p>
-                <div className="work-card__metric">30% faster dev handoff target</div>
+                <div className="work-card__metric">30% faster dev handoff · 50% fewer inconsistencies</div>
               </div>
-            </div>
+            </Link>
 
             <Link to="/work/nowpurchase-website" className="work-card">
               <div className="work-card__cover work-card__cover--nowpurchase">
-                <div className="work-card__cover-text">
-                  <span className="work-card__cover-domain">nowpurchase.com</span>
-                  <div className="work-card__cover-line"></div>
-                </div>
+                <LazyImage src="/images/nowpurchase-website/nowpurchase_cover.png" alt="NowPurchase Website Revamp" />
               </div>
               <div className="work-card__meta">
                 <span className="work-card__tag">WEBSITE · GROWTH</span>

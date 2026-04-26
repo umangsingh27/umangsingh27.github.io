@@ -13,11 +13,8 @@
 /* ─── SECTIONS ─── */
 
 .case-section {
-  padding: 88px 0;
+  padding: clamp(48px, 7vw, 96px) 0;
 }
-
-@media (max-width: 1024px) { .case-section { padding: 64px 0; } }
-@media (max-width: 768px)  { .case-section { padding: 48px 0; } }
 
 .case-section--bg      { background-color: #FFFFFF; }
 .case-section--surface { background-color: #F5F5F7; }
@@ -33,12 +30,9 @@
    ──────────────────────────────────────────────────────────── */
 
 .case-hero {
-  padding: 100px 0 72px;
+  padding: clamp(48px, 7vw, 100px) 0 clamp(40px, 5vw, 72px);
   background-color: #FFFFFF;
 }
-
-@media (max-width: 768px) { .case-hero { padding: 72px 0 56px; } }
-@media (max-width: 375px) { .case-hero { padding: 56px 0 40px; } }
 
 .case-hero__inner {
   max-width: var(--max-width);
@@ -57,7 +51,7 @@
 }
 
 .case-hero h1 {
-  font-size: 72px;
+  font-size: clamp(36px, 6vw, 72px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -66,19 +60,13 @@
   max-width: 900px;
 }
 
-@media (max-width: 1024px) { .case-hero h1 { font-size: 56px; } }
-@media (max-width: 768px)  { .case-hero h1 { font-size: 48px; } }
-@media (max-width: 375px)  { .case-hero h1 { font-size: 40px; } }
-
 .case-hero__subtitle {
-  font-size: 24px;
-  line-height: 1.5;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.55;
   color: #6E6E73;
-  margin-bottom: 40px;
+  margin-bottom: clamp(24px, 4vw, 44px);
   max-width: 720px;
 }
-
-@media (max-width: 768px) { .case-hero__subtitle { font-size: 17px; margin-bottom: 28px; } }
 
 /* Metadata — flexible grid layout */
 .case-metadata-grid {
@@ -138,28 +126,22 @@
    ──────────────────────────────────────────────────────────── */
 
 .case-section h2 {
-  font-size: 48px;
+  font-size: clamp(26px, 4vw, 48px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
   color: #1D1D1F;
-  margin-bottom: 24px;
+  margin-bottom: clamp(20px, 2.5vw, 28px);
   max-width: 800px;
 }
 
-@media (max-width: 1024px) { .case-section h2 { font-size: 40px; } }
-@media (max-width: 768px)  { .case-section h2 { font-size: 32px; margin-bottom: 20px; } }
-@media (max-width: 375px)  { .case-section h2 { font-size: 28px; } }
-
 .case-section h3 {
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 600;
   line-height: 1.25;
   color: #1D1D1F;
   margin-bottom: 16px;
 }
-
-@media (max-width: 768px) { .case-section h3 { font-size: 20px; } }
 
 /* ────────────────────────────────────────────────────────────
    BODY COPY

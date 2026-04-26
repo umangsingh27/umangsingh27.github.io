@@ -13,11 +13,8 @@
 /* ─── SECTIONS ─── */
 
 .case-section {
-  padding: 88px 0;
+  padding: clamp(48px, 7vw, 96px) 0;
 }
-
-@media (max-width: 1024px) { .case-section { padding: 64px 0; } }
-@media (max-width: 768px)  { .case-section { padding: 48px 0; } }
 
 .case-section--bg      { background-color: #FFFFFF; }
 .case-section--surface { background-color: #F5F5F7; }
@@ -34,12 +31,9 @@
    ──────────────────────────────────────────────────────────── */
 
 .case-hero {
-  padding: 80px 0 64px;
+  padding: clamp(48px, 7vw, 88px) 0 clamp(40px, 5vw, 72px);
   background-color: #FFFFFF;
 }
-
-@media (max-width: 768px) { .case-hero { padding: 72px 0 56px; } }
-@media (max-width: 375px) { .case-hero { padding: 56px 0 40px; } }
 
 .case-hero__inner {
   max-width: var(--max-width);
@@ -58,7 +52,7 @@
 }
 
 .case-hero h1 {
-  font-size: 72px;
+  font-size: clamp(36px, 6vw, 72px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -67,19 +61,13 @@
   max-width: 900px;
 }
 
-@media (max-width: 1024px) { .case-hero h1 { font-size: 56px; } }
-@media (max-width: 768px)  { .case-hero h1 { font-size: 48px; } }
-@media (max-width: 375px)  { .case-hero h1 { font-size: 40px; } }
-
 .case-hero__subtitle {
-  font-size: 24px;
-  line-height: 1.5;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.55;
   color: #6E6E73;
-  margin-bottom: 40px;
+  margin-bottom: clamp(24px, 4vw, 44px);
   max-width: 720px;
 }
-
-@media (max-width: 768px) { .case-hero__subtitle { font-size: 17px; margin-bottom: 28px; } }
 
 /* Metadata — horizontal pill layout */
 .case-metadata-grid {
@@ -140,18 +128,14 @@
    ──────────────────────────────────────────────────────────── */
 
 .case-section h2 {
-  font-size: 48px;
+  font-size: clamp(26px, 4vw, 48px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
   color: #1D1D1F;
-  margin-bottom: 28px;
+  margin-bottom: clamp(20px, 2.5vw, 32px);
   max-width: 800px;
 }
-
-@media (max-width: 1024px) { .case-section h2 { font-size: 40px; } }
-@media (max-width: 768px)  { .case-section h2 { font-size: 32px; margin-bottom: 20px; } }
-@media (max-width: 375px)  { .case-section h2 { font-size: 28px; } }
 
 /* ────────────────────────────────────────────────────────────
    DARK CONTEXT SECTION (Problem Statement)
@@ -159,26 +143,19 @@
 
 .context-dark {
   background-color: #1A1A1A !important;
-  padding: 96px 0 !important;
+  padding: clamp(56px, 8vw, 104px) 0 !important;
   color: white;
 }
 
-@media (max-width: 768px) { .context-dark { padding: 72px 0 !important; } }
-@media (max-width: 375px) { .context-dark { padding: 56px 0 !important; } }
-
 .context-heading {
-  font-size: 56px;
+  font-size: clamp(28px, 5vw, 56px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: white !important;
-  margin-bottom: 48px;
+  margin-bottom: clamp(24px, 4vw, 52px);
   max-width: 900px;
 }
-
-@media (max-width: 1024px) { .context-heading { font-size: 48px; } }
-@media (max-width: 768px) { .context-heading { font-size: 40px; margin-bottom: 32px; } }
-@media (max-width: 375px) { .context-heading { font-size: 32px; margin-bottom: 24px; } }
 
 .context-body {
   display: flex;
@@ -190,8 +167,8 @@
 @media (max-width: 768px) { .context-body { gap: 24px; } }
 
 .context-paragraph {
-  font-size: 21px;
-  line-height: 1.7;
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.72;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
   position: relative;
@@ -298,12 +275,16 @@
 .problem-card {
   background: #FFFFFF;
   border: 1px solid #E8E8ED;
-  border-radius: 12px;
-  padding: 36px 32px;
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 40px) clamp(20px, 2.5vw, 36px);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow: var(--shadow-card);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+}
+.problem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
 }
 
 .problem-card h3 {

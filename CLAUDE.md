@@ -87,6 +87,9 @@ React + Vite. React Router with basename="/umang-portfolio".
 Plain CSS with CSS custom properties. No Tailwind. No external UI libs.
 gh-pages for deployment.
 
+## Design System
+Design specifications are maintained at: https://api.anthropic.com/v1/design/h/xHMGqEOeQNKcgPKILSnt0Q
+
 ## Code Organization & Hooks
 
 ### Custom Hooks (src/hooks/)

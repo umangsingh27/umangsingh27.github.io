@@ -417,7 +417,6 @@
   border-radius: 18px;
   overflow: hidden;
   text-decoration: none;
-  color: inherit;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
@@ -427,6 +426,22 @@
   box-shadow: var(--shadow-card-hover);
   text-decoration: none;
   color: inherit;
+}
+
+.work-card * {
+  text-decoration: none !important;
+}
+
+a.work-card {
+  color: unset;
+}
+
+.work-card__tag {
+  color: #6E6E73 !important;
+}
+
+.work-card__description {
+  color: #6E6E73 !important;
 }
 
 .work-card__cover {
@@ -475,7 +490,7 @@
 .work-card__cover img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -500,25 +515,8 @@
 
 /* Card 3: Design System */
 .work-card__cover--design-system {
+  aspect-ratio: auto;
   background-color: #F5F5F7;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.design-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  padding: 32px;
-}
-
-.grid-square {
-  aspect-ratio: 1;
-  border-radius: 4px;
-  width: 32px;
-  height: 32px;
 }
 
 /* Coming Soon Badge */
@@ -537,9 +535,26 @@
   z-index: 10;
 }
 
+/* In Progress Badge */
+.card-status {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0, 180, 100, 0.85);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 980px;
+  z-index: 10;
+}
+
 /* Card 4: NowPurchase */
 .work-card__cover--nowpurchase {
-  background: linear-gradient(160deg, #FAF9F7 0%, #F0EDE8 100%);
+  aspect-ratio: auto;
+  background-color: #F5F5F7;
 }
 
 .work-card__cover-domain {
@@ -572,7 +587,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6E6E73;
+  color: #6E6E73 !important;
   margin-bottom: 8px;
   display: block;
 }
@@ -590,7 +605,7 @@
   font-size: 17px;
   font-weight: 400;
   line-height: 1.6;
-  color: #6E6E73;
+  color: #6E6E73 !important;
   margin-bottom: 28px;
 }
 

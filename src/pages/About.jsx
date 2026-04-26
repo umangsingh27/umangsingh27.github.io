@@ -153,7 +153,7 @@ export default function About() {
           <h2>What Drives Me</h2>
           <div className="values-grid">
             {values.map((value, idx) => (
-              <div key={idx} className="value-card fade-up" style={{ '--stagger': idx * 0.1 }}>
+              <div key={idx} className="value-card fade-up-child">
                 <div className="value-card__icon">{value.icon}</div>
                 <h3 className="value-card__title">{value.title}</h3>
                 <p className="value-card__description">{value.description}</p>
@@ -171,7 +171,7 @@ export default function About() {
           <h2>What Others Say</h2>
           <div className="testimonials-grid">
             {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="testimonial-card fade-up" style={{ '--stagger': idx * 0.1 }}>
+              <div key={idx} className="testimonial-card fade-up-child">
                 <p className="testimonial-card__quote">{testimonial.quote}</p>
                 <p className="testimonial-card__author">{testimonial.author}</p>
                 <p className="testimonial-card__title">{testimonial.title}</p>
@@ -187,7 +187,7 @@ export default function About() {
           <h2>Always Learning</h2>
           <div className="learning-grid">
             {learning.map((item, idx) => (
-              <div key={idx} className="learning-card fade-up" style={{ '--stagger': idx * 0.1 }}>
+              <div key={idx} className="learning-card fade-up-child">
                 <p className="learning-card__label">{item.label}</p>
                 <h3 className="learning-card__title">{item.title}</h3>
                 <p className="learning-card__description">{item.description}</p>
@@ -210,7 +210,7 @@ export default function About() {
             </div>
             <div className="teaching-right">
               {achievements.map((achievement, idx) => (
-                <div key={idx} className="achievement-card fade-up" style={{ '--stagger': idx * 0.1 }}>
+                <div key={idx} className="achievement-card fade-up-child">
                   <div className="achievement-card__icon">{achievement.icon}</div>
                   <h4 className="achievement-card__title">{achievement.title}</h4>
                   <p className="achievement-card__description">{achievement.description}</p>
