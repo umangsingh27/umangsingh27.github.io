@@ -17,18 +17,17 @@
     <meta name="twitter:description" content="B2B SaaS product designer who builds AI workflows." />
     <meta name="twitter:image" content="https://umangsingh27.github.io/umang-portfolio/images/metalcloud/spectro-hero.webp" />
     <link rel="canonical" href="https://umangsingh27.github.io/umang-portfolio/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <title>Umang Singh — Senior Product Designer</title>
-    <script type="module" crossorigin src="/assets/index-BHlx1vPx.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-297CnYNL.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor-CkvoH-LZ.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor-react-DQKUE_tB.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DGN20lVf.css">
+    <script type="module" crossorigin src="/assets/index-BAIJO3At.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-FPZURlb5.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-Df25OEEu.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-AWLVNCuF.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BlMiHz_V.css">
   </head>
   <body>
     <div id="root"></div>
+    <script src="/lib/cursor.js" defer></script>
+    <script src="/lib/magnetic.js" defer></script>
+    <script src="/lib/page-loader.js" defer></script>
   </body>
 </html>
