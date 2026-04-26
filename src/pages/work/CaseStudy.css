@@ -1,5 +1,5 @@
 .case-hero {
-  padding: var(--section-padding) var(--section-padding) 60px;
+  padding: var(--section-padding) var(--page-padding-h) 60px;
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -38,7 +38,7 @@
 }
 
 .case-overview {
-  padding: 60px var(--section-padding);
+  padding: 60px var(--page-padding-h);
   background-color: var(--color-surface);
 }
 
@@ -61,13 +61,33 @@
 }
 
 .case-body {
-  padding: var(--section-padding);
-  max-width: 680px;
   margin: 0 auto;
 }
 
 .case-body h2 {
   margin-bottom: 24px;
+}
+
+.case-body p {
+  margin: 0;
+}
+
+.case-body > * + * {
+  margin-top: 24px;
+}
+
+.case-image-row {
+  margin: 0;
+  margin-left: calc(-1 * var(--section-padding));
+  margin-right: calc(-1 * var(--section-padding));
+}
+
+.case-figure {
+  margin: 0;
+}
+
+.case-figure figcaption {
+  margin: 0;
 }
 
 .text-secondary {

@@ -1,7 +1,9 @@
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const imageDir = path.join(__dirname, '../public/images');
 const sizes = [1920, 1280, 768, 480];
 const formats = ['webp', 'jpeg'];

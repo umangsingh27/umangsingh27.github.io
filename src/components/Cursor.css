@@ -1,0 +1,70 @@
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size, 12px);
+  height: var(--cursor-size, 12px);
+  background-color: var(--color-accent, #0066CC);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: var(--z-cursor, 9998);
+  margin-top: calc(var(--cursor-size, 12px) / -2);
+  margin-left: calc(var(--cursor-size, 12px) / -2);
+  transition: width 0.3s var(--ease-spring), height 0.3s var(--ease-spring), background-color 0.3s var(--ease-spring), opacity 0.3s var(--ease-spring);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor--link {
+  width: var(--cursor-size-link, 40px);
+  height: var(--cursor-size-link, 40px);
+  margin-top: calc(var(--cursor-size-link, 40px) / -2);
+  margin-left: calc(var(--cursor-size-link, 40px) / -2);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.custom-cursor--media {
+  width: var(--cursor-size-media, 80px);
+  height: var(--cursor-size-media, 80px);
+  margin-top: calc(var(--cursor-size-media, 80px) / -2);
+  margin-left: calc(var(--cursor-size-media, 80px) / -2);
+  background-color: #FFFFFF;
+  mix-blend-mode: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.cursor-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-cursor.clicking {
+  transform: scale(0.8) !important;
+}
+
+body.cursor-hidden .custom-cursor {
+  opacity: 0;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+/* Force hide default cursor on all interactive elements */
+a, button, [role="button"], .magnetic-pull, .work-card {
+  cursor: none !important;
+}

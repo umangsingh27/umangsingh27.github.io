@@ -5,25 +5,38 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#FFFFFF" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="description" content="Umang Singh — Senior Product Designer specialising in B2B SaaS and AI workflows. Based in Kolkata, open to Bangalore, Hyderabad, Gurugram, Remote." />
     <meta name="keywords" content="product designer, B2B SaaS, AI workflows, UX design, MetalCloud, NowPurchase" />
-    <meta property="og:title" content="Umang Singh — Senior Product Designer" />
-    <meta property="og:description" content="B2B SaaS product designer who builds AI workflows. MetalCloud, NowPurchase, N8N Sales Agent." />
+    <meta property="og:title" content="Umang Singh — Lead Product Designer" />
+    <meta property="og:description" content="Lead Product Designer at NowPurchase. Designs B2B SaaS that ships, and AI agents that sell." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://umangsingh27.github.io/umang-portfolio/" />
-    <meta property="og:image" content="https://umangsingh27.github.io/umang-portfolio/images/metalcloud/spectro-hero.webp" />
+    <meta property="og:url" content="https://umangsingh27.github.io/" />
+    <meta property="og:image" content="https://umangsingh27.github.io/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Umang Singh — Senior Product Designer" />
-    <meta name="twitter:description" content="B2B SaaS product designer who builds AI workflows." />
-    <meta name="twitter:image" content="https://umangsingh27.github.io/umang-portfolio/images/metalcloud/spectro-hero.webp" />
-    <link rel="canonical" href="https://umangsingh27.github.io/umang-portfolio/" />
+    <meta name="twitter:title" content="Umang Singh — Lead Product Designer" />
+    <meta name="twitter:description" content="Designs B2B SaaS that ships, and AI agents that sell." />
+    <meta name="twitter:image" content="https://umangsingh27.github.io/og-image.jpg" />
+    <link rel="canonical" href="https://umangsingh27.github.io/" />
     <title>Umang Singh — Senior Product Designer</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script src="/lib/cursor.js" defer></script>
-    <script src="/lib/magnetic.js" defer></script>
-    <script src="/lib/page-loader.js" defer></script>
+    <style>
+      body {
+        opacity: 0;
+        animation: appear 0.5s var(--ease-spring, cubic-bezier(0.16, 1, 0.3, 1)) 0.1s forwards;
+      }
+      @keyframes appear {
+        to { opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        body {
+          opacity: 1;
+          animation: none;
+        }
+      }
+    </style>
   </body>
 </html>

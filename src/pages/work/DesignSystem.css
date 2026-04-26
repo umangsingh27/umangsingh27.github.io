@@ -19,7 +19,7 @@
 .case-section__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-padding-h);
 }
 
 /* ────────────────────────────────────────────────────────────
@@ -34,7 +34,7 @@
 .case-hero__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-padding-h);
 }
 
 .case-hero__tag {
@@ -1061,7 +1061,7 @@
 .case-hero__visual {
   max-width: 100%;
   margin: 56px auto 0;
-  padding: 0 24px;
+  padding: 0;
 }
 
 .case-visual {

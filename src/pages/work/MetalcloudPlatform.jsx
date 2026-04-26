@@ -22,13 +22,13 @@ export default function MetalcloudPlatform() {
           <span className="case-hero__tag">B2B SAAS · ENTERPRISE</span>
           <h1>MetalCloud Platform</h1>
           <p className="case-hero__subtitle">
-            Digitising India's $19 billion foundry industry — from paper records and gut instinct to Internet of Things-connected, Artificial Intelligence-powered manufacturing intelligence.
+            Digitising India's $19 billion foundry industry — from paper records and gut instinct to IoT-connected, AI-powered manufacturing intelligence.
           </p>
 
           <div className="case-metadata-grid">
             <div className="metadata-item fade-up-child">
               <h3>My Role</h3>
-              <p>Lead User Experience/User Interface Designer & Project Head</p>
+              <p>Lead UX/UI Designer & Project Head</p>
             </div>
             <div className="metadata-item fade-up-child">
               <h3>Team</h3>
@@ -50,13 +50,14 @@ export default function MetalcloudPlatform() {
               alt="MetalCloud Spectro Pro — Dashboard, Smart View shop floor display, and WhatsApp alerts"
               className="case-visual case-visual--hero"
               priority={true}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 1000px"
             />
           </div>
         </div>
       </section>
 
       {/* 2. THE CONTEXT SECTION - DARK MANIFESTO */}
-      <section className="case-section case-section--dark context-dark fade-up" data-theme="dark">
+      <section className="case-section case-section--dark context-dark fade-up" data-nav-theme="dark">
         <div className="case-section__inner">
           <h2 className="context-heading">India's foundries run on paper and instinct.</h2>
           <div className="context-body">
@@ -138,7 +139,7 @@ export default function MetalcloudPlatform() {
       {/* 5. UNDERSTANDING THE SYSTEM */}
       <section className="case-section case-section--surface fade-up">
         <div className="case-section__inner">
-          <h2>We went to the factory floor. Not to a meeting room.</h2>
+          <h2>Field research, not stakeholder interviews.</h2>
           <div className="case-body">
             <p>
               Research for both modules started with on-ground visits to foundries. We didn't interview stakeholders in an office — we watched operators work, stood next to spectrometer machines, photographed real ChargeMix boards written in chalk, and observed the exact moment a supervisor got a printed report and started calculating by hand.
@@ -179,7 +180,7 @@ export default function MetalcloudPlatform() {
       {/* 6. IDENTIFYING OPPORTUNITIES */}
       <section className="case-section case-section--bg fade-up">
         <div className="case-section__inner">
-          <h2>The numbers told us exactly where the pain was.</h2>
+          <h2>20% and 12% — measured, not estimated.</h2>
 
           <div className="opportunities-grid">
             <div className="opportunity-block">
@@ -228,15 +229,15 @@ export default function MetalcloudPlatform() {
       {/* 7. THE SOLUTION */}
       <section className="case-section case-section--surface fade-up">
         <div className="case-section__inner">
-          <h2>Connected. Calculated. Delivered.</h2>
+          <h2>Four components, working in real time.</h2>
 
           <div className="solution-subsection">
             <h3>Spectro Pro — what we built</h3>
             <div>
               <p>The solution had 4 components working together:</p>
               <ol className="solution-list">
-                <li><strong>Connect Spectrometer</strong> — Internet of Things integration connects the spectrometer machine to MetalCloud's server, streaming chemical analysis data in real time.</li>
-                <li><strong>Data Analysis & Calculation</strong> — Artificial Intelligence/Machine Learning engine calculates the required Addition/Dilution suggestion instantly, eliminating the manual calculation step.</li>
+                <li><strong>Connect Spectrometer</strong> — IoT integration connects the spectrometer machine to MetalCloud's server, streaming chemical analysis data in real time.</li>
+                <li><strong>Data Analysis & Calculation</strong> — AI/ML engine calculates the required Addition/Dilution suggestion instantly, eliminating the manual calculation step.</li>
                 <li><strong>WhatsApp Delivery</strong> — Results are pushed to the supervisor's WhatsApp immediately, no paper required.</li>
                 <li><strong>Web App History</strong> — Full heat history stored and accessible. Every past reading, every adjustment, timestamped and searchable.</li>
               </ol>
@@ -251,7 +252,7 @@ export default function MetalcloudPlatform() {
             </div>
 
             <p>
-              After Minimum Viable Product launch and 5-customer validation, two new features were added based on field feedback:
+              After MVP launch and 5-customer validation, two new features were added based on field feedback:
             </p>
             <ul className="solution-list">
               <li><strong>Shop-floor Display:</strong> A large TV screen at the factory floor showing live readings and AI suggestions — addressing the reality that not all foundries allow mobile phones on the floor.</li>
@@ -295,7 +296,7 @@ export default function MetalcloudPlatform() {
               </div>
 
               <p>
-                <strong>Outputs:</strong> On-screen ChargeMix recommendation → WhatsApp sharing → Portable Document Format/Comma-Separated Values export for records.
+                <strong>Outputs:</strong> On-screen ChargeMix recommendation → WhatsApp sharing → PDF/CSV export for records.
               </p>
 
               <div className="case-image-single case-image-single--mockup">
@@ -325,10 +326,10 @@ export default function MetalcloudPlatform() {
       {/* 8. USABILITY TESTING */}
       <section className="case-section case-section--bg fade-up">
         <div className="case-section__inner">
-          <h2>We tested in real foundries. Not in a lab.</h2>
+          <h2>Usability testing, on the factory floor.</h2>
           <div className="case-body">
             <p>
-              Once each Minimum Viable Product was ready, we conducted usability testing with actual operators and supervisors at partner foundries — standing on the factory floor, next to the equipment, with real users performing real tasks.
+              Once each MVP was ready, we conducted usability testing with actual operators and supervisors at partner foundries — standing on the factory floor, next to the equipment, with real users performing real tasks.
             </p>
             <p>
               For Spectro Pro: Testing was conducted at the spectrometer machine itself. We observed operators interact with the system in real working conditions — high heat, low lighting, the physical rhythm of a working foundry.
@@ -371,9 +372,9 @@ export default function MetalcloudPlatform() {
       </section>
 
       {/* 9. IMPACT SECTION */}
-      <section className="case-section impact-section fade-up" data-theme="dark">
+      <section className="case-section impact-section fade-up" data-nav-theme="dark">
         <div className="case-section__inner">
-          <h2 className="impact-heading">The numbers after launch.</h2>
+          <h2 className="impact-heading">Growth metrics post-launch.</h2>
 
           <div className="impact-stats">
             <div className="impact-stat fade-up-child">
@@ -422,7 +423,6 @@ export default function MetalcloudPlatform() {
               <p className="testimonial-attribution">
                 <strong>Owner, 500-ton foundry, Maharashtra</strong>
               </p>
-              <p className="testimonial-rating">★★★★½</p>
             </div>
 
             <div className="testimonial-card fade-up-child">
@@ -432,7 +432,6 @@ export default function MetalcloudPlatform() {
               <p className="testimonial-attribution">
                 <strong>Owner, 100-ton foundry, West Bengal</strong>
               </p>
-              <p className="testimonial-rating">★★★★★</p>
             </div>
 
             <div className="testimonial-card testimonial-card--small fade-up-child">
@@ -442,7 +441,6 @@ export default function MetalcloudPlatform() {
               <p className="testimonial-attribution">
                 <strong>Owner, 650-ton foundry, Punjab</strong>
               </p>
-              <p className="testimonial-rating">★★★★★</p>
             </div>
           </div>
         </div>
@@ -451,7 +449,7 @@ export default function MetalcloudPlatform() {
       {/* 10. WHAT I LEARNED */}
       <section className="case-section case-section--bg case-section--learnings fade-up">
         <div className="case-section__inner">
-          <h2>The hardest design challenge wasn't the interface.</h2>
+          <h2>The real challenge: designing for industrial users.</h2>
 
           <div className="case-body">
             <p>

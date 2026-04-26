@@ -31,7 +31,7 @@
 - Console logs removed in production
 
 #### 4. **Font Optimization**
-- Removed unused font weights (Rokkitt 400 weight)
+- Replaced Rokkitt with Orbitron (Google Fonts)
 - Preconnect to Google Fonts CDN
 - DNS prefetch for font servers
 - Font display: swap (shows text immediately with fallback)

@@ -18,11 +18,12 @@
 
 .case-section--bg      { background-color: #FFFFFF; }
 .case-section--surface { background-color: #F5F5F7; }
+.case-section--dark    { background-color: #1A1A1A; }
 
 .case-section__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-padding-h);
 }
 
 /* ────────────────────────────────────────────────────────────
@@ -30,14 +31,14 @@
    ──────────────────────────────────────────────────────────── */
 
 .case-hero {
-  padding: clamp(48px, 7vw, 100px) 0 clamp(40px, 5vw, 72px);
+  padding: calc(100px + clamp(48px, 7vw, 100px)) 0 clamp(40px, 5vw, 72px);
   background-color: #FFFFFF;
 }
 
 .case-hero__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-padding-h);
 }
 
 .case-hero__tag {
@@ -141,6 +142,80 @@
   line-height: 1.25;
   color: #1D1D1F;
   margin-bottom: 16px;
+}
+
+/* ────────────────────────────────────────────────────────────
+   DARK CONTEXT SECTION (Problem Statement)
+   ──────────────────────────────────────────────────────────── */
+
+.context-dark {
+  background-color: #1A1A1A !important;
+  padding: clamp(56px, 8vw, 104px) 0 !important;
+  color: white;
+}
+
+.context-heading {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: white !important;
+  margin-bottom: clamp(24px, 4vw, 52px);
+  max-width: 900px;
+}
+
+.context-body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+}
+
+@media (max-width: 768px) { .context-body { gap: 24px; } }
+
+.context-paragraph {
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  position: relative;
+}
+
+.context-paragraph:nth-child(1) {
+  animation: contextReveal 1.2s cubic-bezier(0.33, 0.66, 0.66, 1) forwards;
+}
+
+.context-paragraph:nth-child(2) {
+  animation: contextReveal 1.2s cubic-bezier(0.33, 0.66, 0.66, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.context-paragraph:nth-child(3) {
+  animation: contextReveal 1.2s cubic-bezier(0.33, 0.66, 0.66, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes contextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .context-paragraph {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  .context-paragraph {
+    font-size: 16px;
+  }
 }
 
 /* ────────────────────────────────────────────────────────────

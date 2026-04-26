@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useCountAnimation } from '../hooks/useCountAnimation'
+import LazyImage from '../components/LazyImage'
 import './About.css'
 
 export default function About() {
@@ -14,28 +15,28 @@ export default function About() {
 
   const values = [
     {
-      icon: '🤝',
-      title: 'Empathy Over Ego',
-      description: 'I design for the human, not the brief. Every decision starts with genuine empathy—understanding what users actually need, leaving personal biases aside.',
-      whyItMatters: 'This is how we scale from 13 to 120 clients and create meaningful impact.'
+      icon: '▲',
+      title: 'Build Systems, Not Screens',
+      description: 'A design system that scales beats a brilliant one-off. I build reusable components, patterns, and frameworks that let teams ship faster and stay consistent.',
+      whyItMatters: 'MetalCloud\'s design system reduced inconsistencies by 50% and accelerated handoff to engineering.'
     },
     {
-      icon: '🔄',
-      title: 'Compound Work, Forever Impact',
-      description: 'I think in systems. Whether it\'s design systems or AI prototypes, I ask: "How do we do this once and let it compound forever?"',
-      whyItMatters: 'Consistency, scalability, and reusable frameworks that let teams move faster.'
+      icon: '▲',
+      title: 'Go to Where the Work Happens',
+      description: 'The foundry floor taught me more than any design brief ever could. I observe real users in real context, not in meeting rooms.',
+      whyItMatters: 'Understanding the spectrometer machine meant designing specs that actually work on the shop floor, not in theory.'
     },
     {
-      icon: '🚀',
+      icon: '▲',
+      title: 'Ship Ugly. Validate. Polish.',
+      description: 'Speed matters more than perfection on day one. Launch early with an MVP, measure what users actually do, then refine based on data—not assumptions.',
+      whyItMatters: 'MetalCloud went from concept to production in 45 days. The refinement happened post-launch, guided by real usage.'
+    },
+    {
+      icon: '▲',
       title: 'Design at the AI Frontier',
-      description: 'Design and AI aren\'t competing—they\'re merging. I\'m building AI agents and intelligent systems that prove beautiful design amplifies technology.',
-      whyItMatters: 'The companies winning in 2026 are the ones who get this balance right.'
-    },
-    {
-      icon: '✨',
-      title: 'Authenticity as Design',
-      description: 'Design is architecture, not costume jewelry. I\'m true to the work, true to users, and true to myself. That means honest feedback and integral work.',
-      whyItMatters: 'People trust authentic work. Teams respect honest feedback.'
+      description: 'AI is rewriting what design can do. I build AI agents and intelligent systems that prove beautiful, intuitive design amplifies technology.',
+      whyItMatters: 'The next competitive advantage isn\'t the feature set—it\'s how well the AI understands and anticipates the user.'
     }
   ]
 
@@ -69,19 +70,19 @@ export default function About() {
 
   const learning = [
     {
-      label: '📖 Exploring',
-      title: 'AI-Driven Design Systems',
-      description: 'How do we build systems that adapt and learn? Exploring how AI makes consistency smarter, not just systematic.'
+      label: '📖 Reading',
+      title: '"The Beginning of Infinity" by David Deutsch',
+      description: 'Exploring how systems of knowledge and problem-solving transfer across domains—thinking about epistemology in design systems.'
     },
     {
-      label: '🤔 Interested In',
-      title: 'Future of B2B SaaS',
-      description: 'The next wave is intelligent, adaptive experiences. Design systems + AI = competitive advantage.'
+      label: '🛠 Building',
+      title: 'An n8n + Claude RFQ-to-quote Agent',
+      description: 'Applying everything I\'ve learned about AI design to a foundry use case: an autonomous agent that handles quote generation from raw material requests.'
     },
     {
-      label: '🎓 Reading',
-      title: 'Emerging Tech & Design',
-      description: 'Deep dives into AI-powered experiences, design systems at scale, and building better products.'
+      label: '🎤 Speaking',
+      title: 'Friends of Figma 2025 — "Design at the AI Frontier"',
+      description: 'Sharing lessons from two years building AI-powered experiences: what works, what doesn\'t, and how design enables AI (not the other way around).'
     }
   ]
 
@@ -105,13 +106,6 @@ export default function About() {
     }
   ]
 
-  const contactItems = [
-    { label: 'Email', value: 'mail2umangsingh@gmail.com' },
-    { label: 'Phone', value: '+91 7044703370' },
-    { label: 'LinkedIn', value: 'linkedin.com/in/umangsingh123' },
-    { label: 'Portfolio', value: 'umangsingh27.github.io' }
-  ]
-
   return (
     <main className="about">
 
@@ -119,16 +113,17 @@ export default function About() {
       <section className="about-hero fade-up">
         <div className="about-hero__grid">
           <div className="about-hero__image-wrapper">
-            <img
-              src="/images/hero.png"
+            <LazyImage
+              src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/hero.png`}
               alt="Umang Singh portrait"
               className="about-hero__image"
+              priority={true}
             />
           </div>
           <div className="about-hero__content">
-            <h1 className="about-hero__headline">I'm Umang Singh. I design human-centered AI experiences that turn complexity into clarity.</h1>
+            <h1 className="about-hero__headline">I design B2B SaaS that ships, and AI agents that sell. Currently at NowPurchase, scaling MetalCloud from 13 to 120 enterprise foundries.</h1>
             <p className="about-hero__subheading">
-              Senior Product Experience Designer at NowPurchase, designing the intersection of AI and intuitive UX. I'm driven by curiosity, obsessed with solving problems, and passionate about creating experiences that compound value—work once, impact forever.
+              Lead Product Designer at NowPurchase. I lead design across two products — MetalCloud (IoT + AI for foundry operations) and our procurement platform (used by 120+ enterprises). Driven by clarity, obsessed with solving real problems, and focused on shipping work that compounds impact.
             </p>
             <p className="about-hero__tagline">
               Currently focused on: AI-driven Design Systems, B2B SaaS, and proving that great design + technology can transform entire industries.
@@ -141,9 +136,26 @@ export default function About() {
       <section className="about-journey fade-up">
         <div className="about-journey__inner">
           <h2>How I Became a Designer</h2>
-          <p className="about-journey__text">
-            I've always been a problem solver. As a kid, I was the one sketching in notebooks, taking apart electrical appliances to understand how they worked, winning science fair prizes for curiosity more than anything else. That restless need to understand, fix, and improve things never left me. In college, I discovered Photoshop and Illustrator and fell in love. Within months, I'd joined the design team creating social media posts and graphics. By final year, I was leading it. But I knew I was just scratching the surface. So I took a leap. I enrolled in a Master's degree in UX/UI Design at a time when I had zero prior design degree and minimal professional experience. Every classmate had years in the industry. I was starting from zero. But that restlessness from childhood kicked in again—I couldn't accept being average. By graduation, I'd topped the university with a 9.57 CGPA. The corporate world came next, and I brought that same hunger to every role. At Winjit, I delivered 14 client projects end-to-end. At NowPurchase, I scaled adoption from 13 to 120 clients, revamped a website that generated 20x organic sessions, and started designing AI-powered experiences that are shaping how an entire industry operates. Every role taught me something: it's never about the tools. It's about understanding the human on the other side of the screen, and solving their problems in ways that feel inevitable, not clever.
-          </p>
+          <div className="about-journey__content flow">
+            <p className="about-journey__text">
+              I've always been a problem solver. As a kid, I was the one sketching in notebooks, taking apart electrical appliances to understand how they worked, winning science fair prizes for curiosity more than anything else. That restless need to understand, fix, and improve things never left me.
+            </p>
+            <p className="about-journey__text">
+              In college, I discovered Photoshop and Illustrator and fell in love. Within months, I'd joined the design team creating social media posts and graphics. By final year, I was leading it. But I knew I was just scratching the surface. So I took a leap.
+            </p>
+            <blockquote className="about-journey__pullquote">
+              "Every classmate had years in the industry. I was starting from zero. But that restlessness from childhood kicked in again—I couldn't accept being average."
+            </blockquote>
+            <p className="about-journey__text">
+              I enrolled in a Master's degree in UX/UI Design at a time when I had zero prior design degree and minimal professional experience. By graduation, I'd topped the university with a 9.57 CGPA.
+            </p>
+            <p className="about-journey__text">
+              The corporate world came next, and I brought that same hunger to every role. At Winjit, I delivered 14 client projects end-to-end. At NowPurchase, I scaled adoption from 13 to 120 clients, revamped a website that generated 20x organic sessions, and started designing AI-powered experiences that are shaping how an entire industry operates.
+            </p>
+            <p className="about-journey__text">
+              Every role taught me something: it's never about the tools. It's about understanding the human on the other side of the screen, and solving their problems in ways that feel inevitable, not clever.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -166,7 +178,7 @@ export default function About() {
       </section>
 
       {/* 4. TESTIMONIALS */}
-      <section className="about-testimonials fade-up" data-theme="dark">
+      <section className="about-testimonials fade-up" data-nav-theme="dark">
         <div className="about-testimonials__inner">
           <h2>What Others Say</h2>
           <div className="testimonials-grid">
@@ -227,12 +239,12 @@ export default function About() {
       </section>
 
       {/* 7. CONNECT & CTA */}
-      <section className="home-cta-section fade-up">
+      <section className="home-cta-section fade-up" data-nav-theme="dark">
         <div className="home-cta__outer">
           <div className="about-cta-card">
             <h2 className="about-cta__heading">Let's work together.</h2>
             <p className="about-cta__subline">
-              Open to Lead/Senior Product Designer roles at Business-to-Business Software as a Service and Artificial Intelligence-first companies.
+              Open to Lead Product Designer roles at B2B SaaS and AI-first companies.
             </p>
             <div className="about-cta__buttons">
               <a

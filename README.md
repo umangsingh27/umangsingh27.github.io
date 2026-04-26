@@ -124,7 +124,7 @@ public/
 - Console log removal in production
 
 ### Fonts (src/index.css)
-- Rokkitt (headings): wght 600, 700
+- Orbitron (headings): wght 400-900
 - Ubuntu (body): wght 400, 500, 600, 700
 - Google Fonts with `display=swap`
 - Preconnect for performance

@@ -5,11 +5,18 @@ export function useCountAnimation(threshold = 0.3) {
     const countEls = document.querySelectorAll('[data-count-to]')
     if (!countEls.length) return
 
+    let rafId = null
+
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return
           const el = entry.target
+
+          // Idempotency check for StrictMode
+          if (el.dataset.counted === 'true') return
+          el.dataset.counted = 'true'
+
           const target = parseFloat(el.dataset.countTo)
           const suffix = el.dataset.suffix ?? ''
           const duration = 1200
@@ -19,10 +26,10 @@ export function useCountAnimation(threshold = 0.3) {
           const tick = (now) => {
             const progress = Math.min((now - startTime) / duration, 1)
             el.textContent = Math.round(easeOut(progress) * target) + suffix
-            if (progress < 1) requestAnimationFrame(tick)
+            if (progress < 1) rafId = requestAnimationFrame(tick)
           }
 
-          requestAnimationFrame(tick)
+          rafId = requestAnimationFrame(tick)
           obs.unobserve(el)
         })
       },
@@ -30,6 +37,10 @@ export function useCountAnimation(threshold = 0.3) {
     )
 
     countEls.forEach((el) => obs.observe(el))
-    return () => obs.disconnect()
+
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId)
+      obs.disconnect()
+    }
   }, [threshold])
 }

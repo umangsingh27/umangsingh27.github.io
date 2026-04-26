@@ -5,7 +5,11 @@
 .about { flex: 1; }
 
 /* Section spacing utility */
-.about-hero, .about-journey, .about-values,
+.about-hero {
+  padding: calc(100px + clamp(32px, 5vw, 80px)) var(--page-padding-h) clamp(48px, 6vw, 96px);
+}
+
+.about-journey, .about-values,
 .about-testimonials, .about-learning, .about-teaching {
   padding: clamp(48px, 6vw, 96px) 0;
 }
@@ -19,7 +23,7 @@
 .about-hero__grid {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 24px);
+  padding: 0 var(--page-padding-sm);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(32px, 4vw, 56px);
@@ -30,18 +34,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   border-radius: 16px;
 }
 
 .about-hero__image {
   width: 100%;
   max-width: 460px;
-  aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: 16px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  transition: transform 0.6s var(--ease-spring);
+  filter: contrast(1.05) saturate(1.05);
 }
 .about-hero__image-wrapper:hover .about-hero__image {
   transform: scale(1.03);
@@ -54,7 +58,7 @@
 }
 
 .about-hero__headline {
-  font-size: clamp(26px, 3.5vw, 40px);
+  font-size: clamp(26px, 3.5vw, 36px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -78,8 +82,12 @@
 }
 
 @media (max-width: 768px) {
-  .about-hero__grid { grid-template-columns: 1fr; gap: 28px; }
-  .about-hero__image-wrapper { max-width: 320px; margin: 0 auto; }
+  .about-hero__grid { grid-template-columns: 1fr; gap: 28px; align-items: stretch; }
+  .about-hero__image-wrapper { max-width: min(360px, 60vw); margin: 0 auto; }
+}
+
+@media (max-width: 480px) {
+  .about-hero__image-wrapper { max-width: none; aspect-ratio: 4/5; margin: 0; }
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -91,7 +99,7 @@
 .about-journey__inner {
   max-width: 680px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 24px);
+  padding: 0 var(--page-padding-sm);
 }
 
 .about-journey h2 { margin-bottom: 2rem; text-align: center; }
@@ -103,6 +111,18 @@
   font-family: var(--font-family-body);
 }
 
+.about-journey__pullquote {
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-accent);
+  border-left: 3px solid var(--color-accent);
+  padding-left: 24px;
+  margin: 32px 0;
+  font-family: var(--font-family-heading);
+}
+
 /* ════════════════════════════════════════════════════════════
    3. VALUE CARDS
    ════════════════════════════════════════════════════════════ */
@@ -112,7 +132,7 @@
 .about-values__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 24px);
+  padding: 0 var(--page-padding-sm);
 }
 
 .about-values__inner h2 { margin-bottom: clamp(24px, 3vw, 40px); text-align: center; }
@@ -131,7 +151,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
 }
 .value-card.fade-up-child { opacity: 0; }
 .value-card:hover {
@@ -163,7 +183,7 @@
   margin: 0;
 }
 
-@media (max-width: 640px) { .values-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .values-grid { grid-template-columns: 1fr; } }
 
 /* ════════════════════════════════════════════════════════════
    4. TESTIMONIALS — Dark Section
@@ -177,7 +197,7 @@
 .about-testimonials__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 24px);
+  padding: 0 var(--page-padding-sm);
 }
 
 .about-testimonials__inner h2 {
@@ -197,7 +217,7 @@
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   padding: clamp(20px, 2.5vw, 28px);
-  transition: background 0.3s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+  transition: background 0.3s ease, transform 0.35s var(--ease-spring);
 }
 .testimonial-card.fade-up-child { opacity: 0; }
 .testimonial-card:hover {
@@ -233,7 +253,7 @@
 .about-learning__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 24px);
+  padding: 0 var(--page-padding-sm);
 }
 .about-learning__inner h2 { margin-bottom: clamp(24px, 3vw, 40px); text-align: center; }
 
@@ -251,7 +271,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
 }
 .learning-card.fade-up-child { opacity: 0; }
 .learning-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
@@ -290,7 +310,7 @@
 .about-teaching__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 24px);
+  padding: 0 var(--page-padding-sm);
 }
 .about-teaching__inner h2 { margin-bottom: clamp(24px, 3vw, 40px); text-align: center; }
 
@@ -329,7 +349,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
 }
 .achievement-card.fade-up-child { opacity: 0; }
 .achievement-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
@@ -361,7 +381,7 @@
 .home-cta__outer {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 24px);
+  padding: 0 var(--page-padding-sm);
 }
 .about-cta-card {
   background: #F5F5F7;
@@ -406,7 +426,7 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
   display: inline-flex;
   align-items: center;
   min-height: 44px;
@@ -431,7 +451,7 @@
   text-decoration: none;
   border: 1.5px solid #D2D2D7;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.2s ease;
+  transition: transform 0.3s var(--ease-spring), border-color 0.2s ease;
   display: inline-flex;
   align-items: center;
   min-height: 44px;

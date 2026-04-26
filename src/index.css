@@ -7,7 +7,7 @@
 /* ─────────────────────────────────────
    FONTS (local, zero CDN dependency)
 ───────────────────────────────────── */
-@font-face { font-family: 'Rokkitt'; src: url('/fonts/Rokkitt-VariableFont_wght.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Regular.ttf')      format('truetype'); font-weight: 400; font-style: normal;  font-display: swap; }
 @font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Italic.ttf')       format('truetype'); font-weight: 400; font-style: italic;  font-display: swap; }
 @font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Light.ttf')        format('truetype'); font-weight: 300; font-style: normal;  font-display: swap; }
@@ -36,7 +36,7 @@
      tertiary  #9D9D9F   3.3:1 ✓ (large text only) */
   --color-text-primary:   #1D1D1F;
   --color-text-secondary: #6E6E73;
-  --color-text-tertiary:  #9D9D9F;
+  --color-text-tertiary:  #86868B;
 
   /* Text on dark sections (always dark: hero, testimonials) */
   --color-on-dark:    rgba(255,255,255,0.95);
@@ -64,14 +64,14 @@
   --color-metric-bg:    #FFFFFF;
 
   /* Typography */
-  --font-heading: 'Rokkitt', Georgia, serif;
+  --font-heading: 'Orbitron', sans-serif;
   --font-body:    'Ubuntu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --font-family-body: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-  --font-family-heading: 'Rokkitt', Georgia, serif;
+  --font-family-heading: 'Orbitron', sans-serif;
 
   /* Type scale — fixed */
   --text-hero:   100px;
-  --text-h1:     80px;
+  --text-h1:     72px;
   --text-h2:     40px;
   --text-h3:     24px;
   --text-body:   17px;
@@ -79,11 +79,11 @@
   --text-xs:     14px;
   --text-2xs:    13px;
   --text-label:  12px;
-
+  
   /* Type scale — fluid (clamp) */
   --text-display:     clamp(56px,  11vw, 160px);
   --text-hero-fluid:  clamp(48px,   8vw, 120px);
-  --text-h1-fluid:    clamp(40px,   6vw,  80px);
+  --text-h1-fluid:    clamp(40px,   6vw,  72px);
   --text-h2-fluid:    clamp(28px, 3.5vw,  48px);
   --text-lead:        clamp(20px, 1.6vw,  26px);
 
@@ -104,8 +104,13 @@
   --max-width:          1200px;
   --case-study-width:    680px;
   --section-padding:     100px;
-  --nav-height:           80px;
-  --page-gutter:          24px;
+  --nav-height:          100px;
+
+  /* Responsive padding system */
+  --page-padding-h:      clamp(16px, 3vw, 56px);   /* Main container horizontal padding */
+  --page-padding-sm:     clamp(16px, 3vw, 24px);   /* Smaller section padding */
+  --card-padding:        clamp(20px, 3vw, 32px);   /* Card and component padding */
+  --page-gutter:         24px;  /* Fallback fixed value */
 
   /* Spacing scale */
   --space-4:   4px;
@@ -233,6 +238,7 @@
 html {
   font-size: 16px;
   color-scheme: light;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -258,7 +264,7 @@ body {
 
 h1 {
   font-family: var(--font-family-heading);
-  font-size: 80px;
+  font-size: var(--text-h1-fluid);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -267,7 +273,7 @@ h1 {
 
 h2 {
   font-family: var(--font-family-heading);
-  font-size: 40px;
+  font-size: var(--text-h2-fluid);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -276,7 +282,7 @@ h2 {
 
 h3 {
   font-family: var(--font-family-heading);
-  font-size: 24px;
+  font-size: var(--text-h3);
   font-weight: 600;
   letter-spacing: -0.005em;
   line-height: 1.25;
@@ -305,6 +311,12 @@ p {
 
 .text-tertiary {
   color: var(--color-text-tertiary);
+}
+
+/* ─── Utilities ─── */
+
+.flow > * + * {
+  margin-top: 1.25em;
 }
 
 /* ─── Layout ─── */

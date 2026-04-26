@@ -8,7 +8,7 @@
 .footer-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-padding-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,4 +46,13 @@
     gap: 12px;
   }
 
+  .footer-inner::before {
+    content: '—';
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    color: #D2D2D7;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
 }

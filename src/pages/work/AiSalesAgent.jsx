@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import LazyImage from '../../components/LazyImage'
 import './CaseStudy.css'
 
 export default function AiSalesAgent() {
@@ -14,7 +15,11 @@ export default function AiSalesAgent() {
         <span className="case-hero__tag">AI · AUTOMATION</span>
         <h1>AI Sales Agent</h1>
         <div className="case-hero__image">
-          <img src="/hero.png" alt="AI Sales Agent case study" />
+          <LazyImage 
+            src="/images/hero.png" 
+            alt="AI Sales Agent case study" 
+            priority={true}
+          />
         </div>
       </section>
 

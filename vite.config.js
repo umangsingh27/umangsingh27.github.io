@@ -1,15 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import compression from 'vite-plugin-compression'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    compression({
-      algorithm: 'brotli',
-      ext: '.br',
-    }),
   ],
   base: '/',
   build: {
@@ -28,7 +23,7 @@ export default defineConfig({
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true,
+        pure_funcs: ['console.log', 'console.debug'],
       },
     },
     cssCodeSplit: true,
@@ -36,9 +31,8 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
   },
   server: {
-    hmr: false,
     headers: {
-      'Cache-Control': 'public, max-age=31536000, immutable',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
     },
   },
   optimizeDeps: {

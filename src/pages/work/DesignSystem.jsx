@@ -45,11 +45,11 @@ export default function DesignSystem() {
           </div>
 
           <div className="case-hero__visual">
-            <img
+            <LazyImage
               src="/images/design-system/ds-thumbnail.png"
               alt="NowPurchase and MetalCloud Design System cover"
-              width="100%"
-              style={{borderRadius: '12px', display: 'block'}}
+              priority={true}
+              style={{borderRadius: '12px'}}
             />
           </div>
         </div>
@@ -92,11 +92,10 @@ export default function DesignSystem() {
               As the product and design teams kept growing, inconsistencies crept in across different platforms (desktop, mobile, TV, Kiosk, print) and across different modules of the same product. Each team was solving the same UI problems from scratch, every time. Time to design and develop new features was also very high.
             </p>
 
-            <img
+            <LazyImage
               src="/images/design-system/ds-foundry-context.png"
               alt="Melting process in a foundry — the industrial world we were designing for"
-              width="100%"
-              style={{borderRadius: '12px', marginTop: '24px', marginBottom: '8px', display: 'block'}}
+              style={{borderRadius: '12px', marginTop: '24px', marginBottom: '8px'}}
             />
             <p style={{fontSize: '13px', color: '#888', marginTop: '8px', textAlign: 'center', marginBottom: '24px'}}>
               Melting process in a foundry — the industrial world we were designing for
@@ -178,11 +177,10 @@ export default function DesignSystem() {
           <h2>The Design Process</h2>
           <p className="process-intro">8 steps to building the system:</p>
 
-          <img
+          <LazyImage
             src="/images/design-system/ds-process-steps.png"
             alt="8-step design process for the design system"
-            width="100%"
-            style={{borderRadius: '12px', marginBottom: '24px', display: 'block'}}
+            style={{borderRadius: '12px', marginBottom: '24px'}}
           />
 
           <div className="process-staircase">
@@ -216,11 +214,10 @@ export default function DesignSystem() {
           <div className="section-subsection">
             <h3>Why Is It Needed?</h3>
 
-            <img
+            <LazyImage
               src="/images/design-system/ds-why-illustrations.png"
               alt="Six reasons why a design system was needed"
-              width="100%"
-              style={{borderRadius: '12px', marginBottom: '32px', display: 'block'}}
+              style={{borderRadius: '12px', marginBottom: '32px'}}
             />
 
             <div className="reasons-grid">
@@ -262,11 +259,10 @@ export default function DesignSystem() {
             <h3>Cost of Not Having a Design System</h3>
             <p className="table-note">Example is for a single Landing Page with 5 design variants. Figures are illustrative only.</p>
 
-            <img
+            <LazyImage
               src="/images/design-system/ds-cost-comparison.png"
               alt="Cost comparison table: with vs without a design system"
-              width="100%"
-              style={{borderRadius: '12px', marginBottom: '24px', display: 'block'}}
+              style={{borderRadius: '12px', marginBottom: '24px'}}
             />
 
             <div className="cost-comparison" style={{display: 'none'}}>
@@ -339,21 +335,19 @@ export default function DesignSystem() {
 
           <div className="section-subsection">
             <h3>Why Atomic Design System?</h3>
-            <img
+            <LazyImage
               src="/images/design-system/ds-atomic-design.png"
               alt="Atomic design methodology diagram"
-              width="100%"
-              style={{borderRadius: '12px', marginBottom: '24px', display: 'block'}}
+              style={{borderRadius: '12px', marginBottom: '24px'}}
             />
           </div>
 
           <div className="section-subsection">
             <h3>Project Plan</h3>
-            <img
+            <LazyImage
               src="/images/design-system/ds-project-plan.png"
               alt="Project plan with stages and timeline"
-              width="100%"
-              style={{borderRadius: '12px', marginBottom: '24px', display: 'block'}}
+              style={{borderRadius: '12px', marginBottom: '24px'}}
             />
             <div className="timeline-table" style={{display: 'none'}}>
               <div className="timeline-row timeline-row--header">
@@ -452,11 +446,10 @@ export default function DesignSystem() {
                   <h4>{finding.title}</h4>
                   <span className="finding-severity">{finding.severity}</span>
                 </div>
-                <img
+                <LazyImage
                   src={`/images/design-system/${finding.image}`}
                   alt={finding.alt}
-                  width="100%"
-                  style={{borderRadius: '12px', marginTop: '12px', display: 'block'}}
+                  style={{borderRadius: '12px', marginTop: '12px'}}
                 />
               </div>
             ))}
@@ -475,54 +468,49 @@ export default function DesignSystem() {
           <div className="design-language-sections">
             <div className="language-section fade-up-child">
               <h4>Listing Pages</h4>
-              <img
+              <LazyImage
                 src="/images/design-system/ds-lang-listing.png"
                 alt="Design language for listing pages"
-                width="100%"
-                style={{borderRadius: '12px', display: 'block'}}
+                style={{borderRadius: '12px'}}
               />
             </div>
 
             <div className="language-section fade-up-child">
               <h4>Details & Add New/Edit Pages</h4>
-              <img
+              <LazyImage
                 src="/images/design-system/ds-lang-details.png"
                 alt="Design language for details and form pages"
-                width="100%"
-                style={{borderRadius: '12px', display: 'block'}}
+                style={{borderRadius: '12px'}}
               />
             </div>
 
             <div className="language-section fade-up-child">
               <h4>PDFs & Reports</h4>
-              <img
+              <LazyImage
                 src="/images/design-system/ds-lang-reports.png"
                 alt="Design language for PDF and report exports"
-                width="100%"
-                style={{borderRadius: '12px', display: 'block'}}
+                style={{borderRadius: '12px'}}
               />
             </div>
 
             <div className="language-section fade-up-child">
               <h4>Other Elements (states, empty states, notifications)</h4>
               {['ds-lang-elements-1.png', 'ds-lang-elements-2.png', 'ds-lang-elements-3.png', 'ds-lang-elements-4.png'].map((image, i) => (
-                <img
+                <LazyImage
                   key={i}
                   src={`/images/design-system/${image}`}
                   alt={`Design language elements part ${i + 1}`}
-                  width="100%"
-                  style={{borderRadius: '12px', display: 'block', marginTop: i > 0 ? '12px' : '0'}}
+                  style={{borderRadius: '12px', marginTop: i > 0 ? '12px' : '0'}}
                 />
               ))}
             </div>
 
             <div className="language-section fade-up-child">
               <h4>Switch Device — Responsive Layouts</h4>
-              <img
+              <LazyImage
                 src="/images/design-system/ds-lang-responsive.png"
                 alt="Design language for responsive layouts across devices"
-                width="100%"
-                style={{borderRadius: '12px', display: 'block'}}
+                style={{borderRadius: '12px'}}
               />
             </div>
           </div>
@@ -537,11 +525,10 @@ export default function DesignSystem() {
             <p>Once the design language was ready, we tested its usability before investing further effort into building the actual system. Based on insights from testing, we revised the design language.</p>
           </div>
 
-          <img
+          <LazyImage
             src="/images/design-system/ds-usability-testing.png"
             alt="Usability testing sessions and findings"
-            width="100%"
-            style={{borderRadius: '12px', marginTop: '32px', display: 'block'}}
+            style={{borderRadius: '12px', marginTop: '32px'}}
           />
         </div>
       </section>
@@ -561,38 +548,34 @@ export default function DesignSystem() {
                 <div className="component-item">
                   <h5>Colors</h5>
                   <p>7 scales (Grey, Blue, Red, Green, Yellow, Purple, Teal), each with 11 steps (100–1100)</p>
-                  <img
+                  <LazyImage
                     src="/images/design-system/ds-system-colors.png"
                     alt="Color scales system with 7 palettes and 11 steps"
-                    width="100%"
-                    style={{borderRadius: '12px', marginTop: '12px', display: 'block'}}
+                    style={{borderRadius: '12px', marginTop: '12px'}}
                   />
                 </div>
                 <div className="component-item">
                   <h5>Typography</h5>
-                  <img
+                  <LazyImage
                     src="/images/design-system/ds-system-typography.png"
                     alt="Typography system with font scales and styles"
-                    width="100%"
-                    style={{borderRadius: '12px', display: 'block'}}
+                    style={{borderRadius: '12px'}}
                   />
                 </div>
                 <div className="component-item">
                   <h5>Scale, Border, Spacing</h5>
-                  <img
+                  <LazyImage
                     src="/images/design-system/ds-system-spacing.png"
                     alt="Spacing and border tokens system"
-                    width="100%"
-                    style={{borderRadius: '12px', display: 'block'}}
+                    style={{borderRadius: '12px'}}
                   />
                 </div>
                 <div className="component-item">
                   <h5>Icons</h5>
-                  <img
+                  <LazyImage
                     src="/images/design-system/ds-system-icons.png"
                     alt="Icon library with complete set of system icons"
-                    width="100%"
-                    style={{borderRadius: '12px', display: 'block'}}
+                    style={{borderRadius: '12px'}}
                   />
                 </div>
               </div>
@@ -613,11 +596,10 @@ export default function DesignSystem() {
                 ].map((atom, i) => (
                   <div key={i} className="component-item">
                     <h5>{atom.name}</h5>
-                    <img
+                    <LazyImage
                       src={`/images/design-system/${atom.image}`}
                       alt={atom.alt}
-                      width="100%"
-                      style={{borderRadius: '12px', display: 'block'}}
+                      style={{borderRadius: '12px'}}
                     />
                   </div>
                 ))}
@@ -635,11 +617,10 @@ export default function DesignSystem() {
                 ].map((mol, i) => (
                   <div key={i} className="component-item">
                     <h5>{mol.name}</h5>
-                    <img
+                    <LazyImage
                       src={`/images/design-system/${mol.image}`}
                       alt={mol.alt}
-                      width="100%"
-                      style={{borderRadius: '12px', display: 'block'}}
+                      style={{borderRadius: '12px'}}
                     />
                   </div>
                 ))}
@@ -650,11 +631,10 @@ export default function DesignSystem() {
               <h3>Organisms</h3>
               <div className="component-item">
                 <h5>Profile Menu</h5>
-                <img
+                <LazyImage
                   src="/images/design-system/ds-organisms-profile.png"
                   alt="Profile menu organism component"
-                  width="100%"
-                  style={{borderRadius: '12px', display: 'block'}}
+                  style={{borderRadius: '12px'}}
                 />
               </div>
             </div>
@@ -668,11 +648,10 @@ export default function DesignSystem() {
                 ].map((layout, i) => (
                   <div key={i} className="component-item">
                     <h5>{layout.name}</h5>
-                    <img
+                    <LazyImage
                       src={`/images/design-system/${layout.image}`}
                       alt={layout.alt}
-                      width="100%"
-                      style={{borderRadius: '12px', display: 'block'}}
+                      style={{borderRadius: '12px'}}
                     />
                   </div>
                 ))}
@@ -683,11 +662,10 @@ export default function DesignSystem() {
               <h3>Pages</h3>
               <div className="component-item">
                 <h5>Listing Page</h5>
-                <img
+                <LazyImage
                   src="/images/design-system/ds-pages-listing.png"
                   alt="Listing page template"
-                  width="100%"
-                  style={{borderRadius: '12px', display: 'block'}}
+                  style={{borderRadius: '12px'}}
                 />
               </div>
             </div>
