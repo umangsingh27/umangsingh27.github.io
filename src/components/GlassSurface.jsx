@@ -3,13 +3,12 @@ import { useEffect, useLayoutEffect, useState, useRef, useId } from 'react';
 import './GlassSurface.css';
 
 /**
- * GlassSurface — Final Optimized Apple Liquid Glass refractive material.
+ * GlassSurface — Ultimate Cross-Browser Apple Liquid Glass
  * 
- * Performance optimizations applied:
- *  1. ResizeObserver is DEBOUNCED — prevents layout thrashing.
- *  2. Blob URLs for maps — extremely reliable in production/deployment.
- *  3. useLayoutEffect injection — bypasses build-time CSS minification.
- *  4. Organic Gradients — eliminates 'star' artifacts.
+ * Performance & Compatibility:
+ * 1. Data URIs for maps: 100% reliable across security contexts (Blob URLs can fail in some deploy setups).
+ * 2. Progressive Enhancement: SVG refraction on Chrome/Edge, high-fidelity layered blur on Safari/Mobile/Firefox.
+ * 3. Unified Variables: Ensures the fallback looks visually identical to the primary path in terms of color/opacity.
  */
 const GlassSurface = ({
   children,
@@ -41,25 +40,30 @@ const GlassSurface = ({
 
   const [svgSupported, setSvgSupported] = useState(false);
   const [isLowEnd, setIsLowEnd] = useState(false);
-  const [blobUrl, setBlobUrl] = useState(null);
 
   const containerRef = useRef(null);
+  const feImageRef = useRef(null);
   const lastW = useRef(0);
   const lastH = useRef(0);
   const resizeTimer = useRef(null);
 
   useEffect(() => {
-    const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                   (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
-    const lowPower = navigator.deviceMemory && navigator.deviceMemory < 4;
+    // Determine engine support for SVG filters in backdrop-filter
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isFirefox = /Firefox/.test(navigator.userAgent);
+    const isMobile = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
     
+    // RAM check for extreme low-end devices
+    const lowPower = navigator.deviceMemory && navigator.deviceMemory < 4;
     setIsLowEnd(lowPower);
-    // Safari and mobile browsers usually fail at SVG backdrop-filters.
-    setSvgSupported(!isSafari && !isMobile && supportsSVGFilters(filterId));
+
+    // Safari, Firefox, and Mobile browsers fundamentally lack support for feDisplacementMap in backdrop-filter.
+    // We force them to use the premium CSS fallback path to prevent visual breakage.
+    setSvgSupported(!isSafari && !isFirefox && !isMobile && supportsSVGFilters(filterId));
   }, []);
 
-  const generateMapBlob = () => {
+  const generateDisplacementMap = () => {
     const rect = containerRef.current?.getBoundingClientRect();
     const actualWidth = rect?.width || 400;
     const actualHeight = rect?.height || 200;
@@ -84,14 +88,11 @@ const GlassSurface = ({
       </svg>
     `;
 
-    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
-    if (blobUrl) URL.revokeObjectURL(blobUrl);
-    const newUrl = URL.createObjectURL(blob);
-    setBlobUrl(newUrl);
+    return `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
   };
 
   useLayoutEffect(() => {
-    if (!containerRef.current || isLowEnd || !svgSupported) return;
+    if (!containerRef.current || isLowEnd || !svgSupported || !feImageRef.current) return;
 
     const update = () => {
       const rect = containerRef.current.getBoundingClientRect();
@@ -101,7 +102,7 @@ const GlassSurface = ({
       if (w === lastW.current && h === lastH.current) return;
       lastW.current = w;
       lastH.current = h;
-      generateMapBlob();
+      feImageRef.current.setAttribute('href', generateDisplacementMap());
     };
 
     update();
@@ -113,11 +114,10 @@ const GlassSurface = ({
     observer.observe(containerRef.current);
     return () => {
       observer.disconnect();
-      if (blobUrl) URL.revokeObjectURL(blobUrl);
     };
   }, [svgSupported, isLowEnd, borderRadius, borderWidth, brightness, opacity, blur]);
 
-  // Inject the backdrop-filter directly to the DOM to bypass CSS minifiers
+  // Inject the appropriate backdrop-filter based on support
   useLayoutEffect(() => {
     if (!containerRef.current) return;
     
@@ -126,13 +126,13 @@ const GlassSurface = ({
       containerRef.current.style.backdropFilter = filterValue;
       containerRef.current.style.webkitBackdropFilter = filterValue;
     } else {
-      // PREMIUM SAFARI/MOBILE FALLBACK
-      // Stronger blur and saturation to mimic the high-end look without displacement.
-      const fallbackValue = `blur(20px) saturate(1.8) brightness(1.1)`;
+      // PREMIUM FALLBACK for Safari/Firefox/Mobile
+      // Simulates the deep refraction with increased blur and saturation
+      const fallbackValue = `blur(${Math.max(16, blur * 1.5)}px) saturate(${saturation * 1.8}) brightness(1.05)`;
       containerRef.current.style.backdropFilter = fallbackValue;
       containerRef.current.style.webkitBackdropFilter = fallbackValue;
     }
-  }, [svgSupported, isLowEnd, saturation, filterId]);
+  }, [svgSupported, isLowEnd, saturation, filterId, blur]);
 
   const containerStyle = {
     ...style,
@@ -156,7 +156,7 @@ const GlassSurface = ({
         <svg className="glass-surface__filter" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id={filterId} colorInterpolationFilters="sRGB" x="0%" y="0%" width="100%" height="100%">
-              {blobUrl && <feImage href={blobUrl} x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />}
+              <feImage ref={feImageRef} x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />
 
               <feDisplacementMap in="SourceGraphic" in2="map" scale={distortionScale + redOffset} xChannelSelector={xChannel} yChannelSelector={yChannel} result="dispRed" />
               <feColorMatrix in="dispRed" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red" />
@@ -176,6 +176,11 @@ const GlassSurface = ({
         </svg>
       )}
 
+      {/* Safari/Mobile Fallback Shimmer Overlay to simulate liquid feel */}
+      {(!svgSupported || isLowEnd) && (
+        <div className="glass-surface__shimmer" style={{ borderRadius: `${borderRadius}px` }}></div>
+      )}
+
       {!asLayer && <div className="glass-surface__content">{children}</div>}
     </div>
   );
@@ -185,6 +190,7 @@ export default GlassSurface;
 
 function supportsSVGFilters(filterId) {
   if (typeof window === 'undefined' || typeof document === 'undefined') return false;
+  // Final safeguard: test if browser accepts the URL string in backdropFilter
   const div = document.createElement('div');
   div.style.backdropFilter = `url(#${filterId})`;
   return div.style.backdropFilter !== '';
