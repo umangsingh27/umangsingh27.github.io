@@ -153,7 +153,9 @@
   --dur-hero:    0.8s;
   --dur-page:    1.2s;
 
-  --transition: all var(--dur-slow) var(--ease-spring);
+  /* NOTE: avoid using --transition directly — it triggers 'all' recalc.
+     Prefer explicit property lists in each component. */
+  --transition: transform var(--dur-slow) var(--ease-spring), opacity var(--dur-slow) var(--ease-spring);
 
   /* Cursor system */
   --cursor-size:       12px;
@@ -238,7 +240,9 @@
 html {
   font-size: 16px;
   color-scheme: light;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth removed — use JS smooth scroll instead.
+     Native CSS smooth scroll blocks the main thread and causes jank
+     on low-end hardware during fast scrolling. */
 }
 
 body {
@@ -251,6 +255,7 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Specific properties only — 'transition: all' recalculates every CSS property */
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
@@ -372,22 +377,19 @@ button, a, [role="button"] {
 .fade-up {
   opacity: 0;
   transform: translateY(24px);
-  will-change: transform, opacity;
+  /* Only hint during animation; removed in .visible to free GPU memory */
 }
 .fade-up.visible {
   animation: fadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  will-change: auto;
 }
 
 /* Child-level stagger — triggered by useScrollReveal when parent becomes visible */
 .fade-up-child {
   opacity: 0;
   transform: translateY(20px);
-  will-change: transform, opacity;
 }
 .fade-up-child.visible {
   animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  will-change: auto;
 }
 
 /* Hero word-by-word span animation */
@@ -395,11 +397,9 @@ button, a, [role="button"] {
   display: inline-block;
   opacity: 0;
   transform: translateY(28px);
-  will-change: transform, opacity;
 }
 .hero-word.visible {
   animation: fadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  will-change: auto;
 }
 
 /* ─── Responsive typography scale ─── */
@@ -426,10 +426,64 @@ button, a, [role="button"] {
   h2 { font-size: 28px; }
 }
 
+
 /* ─── Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─────────────────────────────────────
+   PERFORMANCE UTILITIES
+   Applied globally for GPU & layout budgeting
+─────────────────────────────────────── */
+
+/**
+ * content-visibility: auto — tells the browser to skip rendering
+ * off-screen sections entirely. The browser only renders them when
+ * they approach the viewport. This is the single biggest perf gain
+ * for pages with lots of below-fold content.
+ *
+ * contain-intrinsic-size provides a placeholder height so scrollbar
+ * position remains accurate before the section is rendered.
+ *
+ * Applied to sections that are NOT the first visible section (hero).
+ */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/**
+ * GPU layer promotion utility.
+ * Use sparingly — only on elements that are DEFINITELY animated.
+ * Excessive use wastes GPU memory.
+ */
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/**
+ * On low-end hardware (coarse pointer = touch device, or reduced-motion):
+ * disable backdrop-filter which is GPU-expensive.
+ */
+@media (hover: none) and (pointer: coarse) {
+  .glass-surface {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  [data-theme="dark"] .glass-surface {
+    background: rgba(22, 22, 31, 0.96) !important;
+  }
+
+  .nav-header-bg {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
   }
 }

@@ -27,6 +27,7 @@
   z-index: 0;
 }
 
+/* Hero ambient animation — transform only (compositor thread, no repaint) */
 @keyframes heroAmbient {
   to {
     transform: translate3d(2%, -1%, 0) scale(1.03);
@@ -150,73 +151,18 @@
 }
 
 /* BUTTONS */
-
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
   margin-top: 2rem;
   animation: fadeInUp 0.8s ease-out 0.6s backwards;
-}
-
-.btn {
-  padding: 14px 40px;
-  border-radius: 24px;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s var(--ease-smooth);
-  display: inline-block;
-  min-height: 44px;
-}
-
-.btn-primary {
-  background: #0066CC;
-  color: white;
-}
-
-.btn-primary:hover {
-  background: #0052A3;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0, 102, 204, 0.3);
-}
-
-.btn-primary:active {
-  transition: transform 0.06s ease-out;
-  transform: translateY(-1px) scale(0.98);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #1D1D1F;
-  border: 2px solid #1D1D1F;
-}
-
-.btn-secondary:hover {
-  background: rgba(29, 29, 31, 0.08);
-  border-color: #0066CC;
-  color: #0066CC;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0, 102, 204, 0.2);
-}
-
-.btn-secondary:active {
-  transition: transform 0.06s ease-out;
-  transform: translateY(-1px) scale(0.98);
 }
 
 @media (max-width: 768px) {
   .hero-buttons {
     flex-direction: column;
     width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
   }
 }
 
@@ -406,20 +352,23 @@
 .work-card {
   display: grid;
   grid-template-columns: 40% 60%;
-  min-height: 400px; /* Increased slightly for a more substantial feel */
+  min-height: 400px;
   background-color: #2A2A2A;
   border: none;
   border-radius: 18px;
   overflow: hidden;
   text-decoration: none;
+  /* Only animate compositor-only properties */
   transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring);
   cursor: pointer;
   align-items: stretch;
+  /* Promote to own layer so hover transform doesn't repaint siblings */
+  will-change: transform;
 }
 
 .work-card:hover {
+  transform: translateY(-3px);
   box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
-  border-color: rgba(0, 0, 0, 0.04);
   text-decoration: none;
   color: inherit;
 }
@@ -464,7 +413,9 @@ a.work-card {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  /* Transform-only scale — compositor thread, no layout */
   transition: transform 0.6s var(--ease-spring);
+  will-change: transform;
 }
 
 .work-card__cover-text {
@@ -676,6 +627,7 @@ a.work-card {
   align-items: center;
   text-decoration: none;
   color: inherit;
+  /* opacity-only: compositor thread */
   transition: opacity 0.2s ease;
 }
 
@@ -715,8 +667,8 @@ a.work-card {
 
 .home-cta-section {
   padding: 96px 0;
-  background-color: #1A1A1A;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #FFFFFF;
+  border-top: 1px solid #E8E8ED;
 }
 
 .home-cta__outer {
@@ -726,13 +678,19 @@ a.work-card {
 }
 
 .about-cta-card {
-  background: #2A2A2A;
+  background: #F5F5F7;
   border: none;
   border-radius: 20px;
   padding: 64px 48px;
   text-align: center;
   width: 100%;
   margin: 0 auto;
+  /* Specific property — not 'all' */
+  transition: box-shadow 0.4s ease;
+}
+
+.about-cta-card:hover {
+  box-shadow: 0 8px 48px rgba(0,0,0,0.06);
 }
 
 .about-cta__heading {
@@ -740,13 +698,13 @@ a.work-card {
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.1;
-  color: rgba(255, 255, 255, 0.95);
+  color: #1D1D1F;
   margin: 0;
 }
 
 .about-cta__subline {
   font-size: 17px;
-  color: rgba(255, 255, 255, 0.65);
+  color: #6E6E73;
   margin-top: 16px;
   margin-bottom: 40px;
   line-height: 1.6;

@@ -152,6 +152,7 @@
   flex-direction: column;
   gap: 12px;
   transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
+  will-change: transform;
 }
 .value-card.fade-up-child { opacity: 0; }
 .value-card:hover {
@@ -217,7 +218,8 @@
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   padding: clamp(20px, 2.5vw, 28px);
-  transition: background 0.3s ease, transform 0.35s var(--ease-spring);
+  transition: background-color 0.3s ease, transform 0.35s var(--ease-spring);
+  will-change: transform;
 }
 .testimonial-card.fade-up-child { opacity: 0; }
 .testimonial-card:hover {
@@ -272,6 +274,7 @@
   flex-direction: column;
   gap: 10px;
   transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
+  will-change: transform;
 }
 .learning-card.fade-up-child { opacity: 0; }
 .learning-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
@@ -350,6 +353,7 @@
   flex-direction: column;
   gap: 8px;
   transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
+  will-change: transform;
 }
 .achievement-card.fade-up-child { opacity: 0; }
 .achievement-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
@@ -373,17 +377,17 @@
    7. CTA  (shared with Home page)
    ════════════════════════════════════════════════════════════ */
 
-.home-cta-section {
+.about .home-cta-section {
   padding: clamp(56px, 7vw, 96px) 0;
   background: #FFFFFF;
   border-top: 1px solid #E8E8ED;
 }
-.home-cta__outer {
+.about .home-cta__outer {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--page-padding-sm);
 }
-.about-cta-card {
+.about .about-cta-card {
   background: #F5F5F7;
   border-radius: 20px;
   padding: clamp(36px, 5vw, 72px) clamp(24px, 5vw, 56px);
@@ -391,9 +395,9 @@
   width: 100%;
   transition: box-shadow 0.4s ease;
 }
-.about-cta-card:hover { box-shadow: 0 8px 48px rgba(0,0,0,0.06); }
+.about .about-cta-card:hover { box-shadow: 0 8px 48px rgba(0,0,0,0.06); }
 
-.about-cta__heading {
+.about .about-cta__heading {
   font-size: clamp(26px, 4vw, 48px);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -401,72 +405,22 @@
   color: #1D1D1F;
   margin: 0;
 }
-.about-cta__subline {
+.about .about-cta__subline {
   font-size: clamp(14px, 1.4vw, 17px);
   color: #6E6E73;
   margin: 14px 0 36px;
   line-height: 1.6;
 }
-.about-cta__buttons {
+.about .about-cta__buttons {
   display: flex;
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Shared CTA buttons */
-.btn--primary {
-  padding: 12px 30px;
-  border-radius: 980px;
-  background: #0066CC;
-  color: white;
-  font-family: var(--font-family-body);
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  box-shadow: 0 4px 16px rgba(0,102,204,0.25);
-}
-.btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0,102,204,0.38);
-  text-decoration: none;
-  color: white;
-  background: #0052A3;
-}
-
-.btn--secondary {
-  padding: 11px 30px;
-  border-radius: 980px;
-  background: transparent;
-  color: #1D1D1F;
-  font-family: var(--font-family-body);
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-  border: 1.5px solid #D2D2D7;
-  cursor: pointer;
-  transition: transform 0.3s var(--ease-spring), border-color 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-}
-.btn--secondary:hover {
-  border-color: #1D1D1F;
-  background: rgba(0,0,0,0.04);
-  transform: translateY(-2px);
-  text-decoration: none;
-  color: #1D1D1F;
-}
-
+/* Shared CTA buttons - Handled by Button component */
 @media (max-width: 480px) {
   .about-cta__buttons { flex-direction: column; align-items: stretch; }
-  .btn--primary, .btn--secondary { width: 100%; justify-content: center; }
 }
 
 /* ════════════════════════════════════════════════════════════

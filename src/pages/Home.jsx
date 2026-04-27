@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useCountAnimation } from '../hooks/useCountAnimation'
 import LazyImage from '../components/LazyImage'
+import Button from '../components/Button'
 import './Home.css'
 
 export default function Home() {
@@ -42,8 +43,8 @@ export default function Home() {
             Kolkata, India — open to remote
           </p>
           <div className="hero-buttons">
-            <a href="#work" className="btn btn-primary magnetic-pull">View Work</a>
-            <Link to="/about" className="btn btn-secondary magnetic-pull">About Me</Link>
+            <Button href="#work" variant="primary">View Work</Button>
+            <Button to="/about" variant="secondary">About Me</Button>
           </div>
         </div>
 
@@ -74,7 +75,7 @@ export default function Home() {
       </section>
 
       {/* Work Cards Section */}
-      <section className="home-work fade-up" id="work" data-nav-theme="dark">
+      <section className="home-work fade-up content-visibility-auto" id="work" data-nav-theme="dark">
         <div className="home-work__inner">
           <div className="work-grid">
             <Link to="/work/metalcloud-platform" className="work-card">
@@ -133,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Other Work Section */}
-      <section className="home-other-work fade-up" data-nav-theme="dark">
+      <section className="home-other-work fade-up content-visibility-auto" data-nav-theme="dark">
         <div className="home-other-work__inner">
           <h2>Other Work</h2>
           <div className="other-work-list">
@@ -149,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="home-cta-section fade-up" data-nav-theme="dark">
+      <section className="home-cta-section fade-up content-visibility-auto">
         <div className="home-cta__outer">
           <div className="about-cta-card">
             <h2 className="about-cta__heading">Let's work together.</h2>
@@ -157,21 +158,20 @@ export default function Home() {
               Open to Lead Product Designer roles at B2B SaaS and AI-first companies.
             </p>
             <div className="about-cta__buttons">
-              <a
+              <Button
                 href={`${import.meta.env.BASE_URL}resume.pdf`}
                 download="Umang_Singh_Resume.pdf"
-                className="btn btn--primary"
+                variant="primary"
               >
                 Download Resume
-              </a>
-              <a
+              </Button>
+              <Button
                 href="https://www.linkedin.com/in/umangsingh123/"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn--secondary"
+                variant="secondary"
               >
                 Connect on LinkedIn
-              </a>
+              </Button>
             </div>
           </div>
         </div>

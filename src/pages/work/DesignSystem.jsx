@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useCountAnimation } from '../../hooks/useCountAnimation'
 import LazyImage from '../../components/LazyImage'
+import Button from '../../components/Button'
 import './DesignSystem.css'
 
 export default function DesignSystem() {
@@ -755,9 +756,13 @@ export default function DesignSystem() {
               <p className="status-badge">In Progress · Implementation rolling out over 3 months</p>
               <p className="maintenance-note">Long-term governance led by the design team lead</p>
             </div>
-            <a href="https://www.figma.com/design/JAwKifrBtSKtk2z4DexTa8/Other?node-id=49-5020" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
+            <Button 
+              href="https://www.figma.com/design/JAwKifrBtSKtk2z4DexTa8/Other?node-id=49-5020" 
+              target="_blank" 
+              variant="primary"
+            >
               View Design System in Figma →
-            </a>
+            </Button>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Resume.css'
+import Button from '../components/Button'
 
 const ZOOM_STEPS = [50, 75, 100, 125, 150, 175, 200]
 
@@ -56,7 +57,8 @@ export default function Resume() {
 
       {/* ── Floating controls ── */}
       <div className="resume-float-bar">
-        <button
+        <Button
+          variant="glass"
           className="resume-float-bar__btn"
           onClick={handleZoomOut}
           aria-label="Zoom out"
@@ -65,17 +67,19 @@ export default function Resume() {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M2 7h10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
           </svg>
-        </button>
+        </Button>
 
-        <button
+        <Button
+          variant="glass"
           className="resume-float-bar__zoom-label"
           onClick={() => setZoom(null)}
           title="Reset to fit page"
         >
           {zoomLabel}
-        </button>
+        </Button>
 
-        <button
+        <Button
+          variant="glass"
           className="resume-float-bar__btn"
           onClick={handleZoomIn}
           aria-label="Zoom in"
@@ -84,23 +88,25 @@ export default function Resume() {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
           </svg>
-        </button>
+        </Button>
 
         <div className="resume-float-bar__divider" aria-hidden="true" />
 
-        <a
+        <Button
           href={resumeUrl}
           download="Umang_Singh_Resume.pdf"
           className="resume-float-bar__btn resume-float-bar__download"
           title="Download PDF"
           aria-label="Download"
+          variant="glass"
+          isMagnetic={true}
         >
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <path d="M7.5 1.5v8M4 7l3.5 3.5L11 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M1.5 11.5v1A1.5 1.5 0 003 14h9a1.5 1.5 0 001.5-1.5v-1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
           </svg>
           Download
-        </a>
+        </Button>
       </div>
 
     </main>

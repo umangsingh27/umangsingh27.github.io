@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../../components/Button'
 import LazyImage from '../../components/LazyImage'
 import './CaseStudy.css'
 
@@ -48,7 +49,7 @@ export default function AiSalesAgent() {
           Detailed case study content coming soon. Check back for an in-depth look at the design
           process, challenges, and outcomes of this project.
         </p>
-        <Link to="/work" className="btn btn--secondary">← Back to Work</Link>
+        <Button to="/work" variant="secondary">← Back to Work</Button>
       </section>
     </main>
   )

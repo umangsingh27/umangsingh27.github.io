@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useCountAnimation } from '../hooks/useCountAnimation'
 import LazyImage from '../components/LazyImage'
+import Button from '../components/Button'
 import './About.css'
 
 export default function About() {
@@ -247,21 +248,20 @@ export default function About() {
               Open to Lead Product Designer roles at B2B SaaS and AI-first companies.
             </p>
             <div className="about-cta__buttons">
-              <a
+              <Button
                 href={`${import.meta.env.BASE_URL}resume.pdf`}
                 download="Umang_Singh_Resume.pdf"
-                className="btn btn--primary"
+                variant="primary"
               >
                 Download Resume
-              </a>
-              <a
+              </Button>
+              <Button
                 href="https://www.linkedin.com/in/umangsingh123/"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn--secondary"
+                variant="secondary"
               >
                 Connect on LinkedIn
-              </a>
+              </Button>
             </div>
           </div>
         </div>

@@ -1,74 +1,119 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import './Cursor.css'
 
+/**
+ * Cursor — zero-React-state implementation.
+ * All position updates go straight to the DOM via requestAnimationFrame
+ * and CSS custom properties, so React never re-renders on mousemove.
+ */
 export default function Cursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [isHovering, setIsHovering] = useState(false)
-  const [isClicking, setIsClicking] = useState(false)
-  const [cursorType, setCursorType] = useState('default') // default, link, media
+  const cursorRef = useRef(null)
 
   useEffect(() => {
-    const updatePosition = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY })
-    }
+    const el = cursorRef.current
+    if (!el) return
 
-    const handleMouseDown = () => setIsClicking(true)
-    const handleMouseUp = () => setIsClicking(false)
+    let rafId = null
+    let rawX = 0
+    let rawY = 0
+    // Smoothed positions for lerp
+    let lerpX = 0
+    let lerpY = 0
+    let needsRaf = false
 
-    const handleMouseOver = (e) => {
-      const target = e.target.closest('a, button, .magnetic-pull, .work-card')
-      if (target) {
-        setIsHovering(true)
-        if (target.classList.contains('work-card') || target.closest('.work-card')) {
-          setCursorType('media')
-        } else {
-          setCursorType('link')
+    // Track current type to avoid redundant className operations
+    let currentType = 'default'
+    let currentHovering = false
+    let currentClicking = false
+
+    const LERP = 0.18 // Lower = more lag, higher = snappier
+
+    const applyType = (type, hovering, clicking) => {
+      if (type !== currentType || hovering !== currentHovering || clicking !== currentClicking) {
+        el.className = [
+          'custom-cursor',
+          `custom-cursor--${type}`,
+          hovering ? 'hovering' : '',
+          clicking ? 'clicking' : '',
+        ].filter(Boolean).join(' ')
+
+        // Update inner text
+        const inner = el.querySelector('.cursor-inner')
+        if (inner) {
+          inner.textContent = type === 'media' ? 'VIEW' : ''
         }
-      } else {
-        setIsHovering(false)
-        setCursorType('default')
+
+        currentType = type
+        currentHovering = hovering
+        currentClicking = clicking
       }
     }
 
-    const handleWindowLeave = () => {
-      document.body.classList.add('cursor-hidden')
-    }
-    
-    const handleWindowEnter = () => {
-      document.body.classList.remove('cursor-hidden')
+    const tick = () => {
+      rafId = null
+      // Lerp toward raw position for smooth trailing feel
+      lerpX += (rawX - lerpX) * LERP
+      lerpY += (rawY - lerpY) * LERP
+
+      el.style.transform = `translate3d(${lerpX}px, ${lerpY}px, 0)`
+
+      // Keep ticking while there's remaining distance
+      const dx = rawX - lerpX
+      const dy = rawY - lerpY
+      if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05) {
+        rafId = requestAnimationFrame(tick)
+      }
+      needsRaf = false
     }
 
-    window.addEventListener('mousemove', updatePosition)
-    window.addEventListener('mousedown', handleMouseDown)
-    window.addEventListener('mouseup', handleMouseUp)
-    document.addEventListener('mouseover', handleMouseOver)
-    document.documentElement.addEventListener('mouseleave', handleWindowLeave)
-    document.documentElement.addEventListener('mouseenter', handleWindowEnter)
+    const scheduleTick = () => {
+      if (!rafId) {
+        rafId = requestAnimationFrame(tick)
+      }
+    }
 
-    // Hide default cursor
+    const onMouseMove = (e) => {
+      rawX = e.clientX
+      rawY = e.clientY
+      scheduleTick()
+
+      const target = e.target.closest('a, button, .magnetic-pull, .work-card')
+      if (target) {
+        const isMedia = target.classList.contains('work-card') || target.closest('.work-card')
+        applyType(isMedia ? 'media' : 'link', true, currentClicking)
+      } else {
+        applyType('default', false, currentClicking)
+      }
+    }
+
+    const onMouseDown = () => applyType(currentType, currentHovering, true)
+    const onMouseUp   = () => applyType(currentType, currentHovering, false)
+
+    const onMouseLeave = () => el.classList.add('cursor-hidden')
+    const onMouseEnter = () => el.classList.remove('cursor-hidden')
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true })
+    window.addEventListener('mousedown', onMouseDown, { passive: true })
+    window.addEventListener('mouseup',   onMouseUp,   { passive: true })
+    document.documentElement.addEventListener('mouseleave', onMouseLeave)
+    document.documentElement.addEventListener('mouseenter', onMouseEnter)
+
     document.body.style.cursor = 'none'
 
     return () => {
-      window.removeEventListener('mousemove', updatePosition)
-      window.removeEventListener('mousedown', handleMouseDown)
-      window.removeEventListener('mouseup', handleMouseUp)
-      document.removeEventListener('mouseover', handleMouseOver)
-      document.documentElement.removeEventListener('mouseleave', handleWindowLeave)
-      document.documentElement.removeEventListener('mouseenter', handleWindowEnter)
+      if (rafId) cancelAnimationFrame(rafId)
+      window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('mousedown', onMouseDown)
+      window.removeEventListener('mouseup',   onMouseUp)
+      document.documentElement.removeEventListener('mouseleave', onMouseLeave)
+      document.documentElement.removeEventListener('mouseenter', onMouseEnter)
       document.body.style.cursor = 'auto'
     }
   }, [])
 
   return (
-    <div 
-      className={`custom-cursor custom-cursor--${cursorType} ${isHovering ? 'hovering' : ''} ${isClicking ? 'clicking' : ''}`}
-      style={{ 
-        transform: `translate3d(${position.x}px, ${position.y}px, 0)` 
-      }}
-    >
-      <div className="cursor-inner">
-        {cursorType === 'media' && <span className="cursor-text">VIEW</span>}
-      </div>
+    <div ref={cursorRef} className="custom-cursor custom-cursor--default">
+      <div className="cursor-inner" />
     </div>
   )
 }

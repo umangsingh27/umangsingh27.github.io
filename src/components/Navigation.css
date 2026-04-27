@@ -6,6 +6,8 @@
   width: 100%;
   z-index: 100;
   height: 100px;
+  /* Isolate nav rendering: changes inside don't affect layout/paint outside */
+  contain: layout style;
 }
 
 .nav-header-bg {
@@ -15,25 +17,22 @@
   height: 100%;
   z-index: -1;
   pointer-events: none;
-  backdrop-filter: blur(8px); /* Matches the '8' start in the image */
+  backdrop-filter: blur(8px);
+  /* Matches the '8' start in the image */
   -webkit-backdrop-filter: blur(8px);
   /* Progressive mask for smooth transition */
-  mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    rgba(0, 0, 0, 0.9) 20%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.1) 80%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    rgba(0, 0, 0, 0.9) 20%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.1) 80%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(to bottom,
+      black 0%,
+      rgba(0, 0, 0, 0.9) 20%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.1) 80%,
+      transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom,
+      black 0%,
+      rgba(0, 0, 0, 0.9) 20%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.1) 80%,
+      transparent 100%);
   background-color: rgba(255, 255, 255, 0.5);
   transition: background-color 0.3s ease;
 }
@@ -44,7 +43,8 @@
 
 .nav-inner {
   position: relative;
-  z-index: 1;
+  z-index: 101;
+  /* Above mobile overlay */
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -73,19 +73,21 @@
 /* 2. DEPTH & 3. DISPERSION */
 .glass-depth-dispersion {
   /* Depth: Physical thickness via internal rim lighting */
-  box-shadow: 
-    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.65), /* Top curved rim */
-    inset 0 -1px 2px rgba(255, 255, 255, 0.1), /* Bottom rim reflection */
-    inset 1px 0 1px rgba(255, 255, 255, 0.2), /* Side rim */
-    inset -1px 0 1px rgba(255, 255, 255, 0.1); /* Side rim */
-    
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.65),
+    /* Top curved rim */
+    inset 0 -1px 2px rgba(255, 255, 255, 0.1),
+    /* Bottom rim reflection */
+    inset 1px 0 1px rgba(255, 255, 255, 0.2),
+    /* Side rim */
+    inset -1px 0 1px rgba(255, 255, 255, 0.1);
+  /* Side rim */
+
   /* Dispersion: Chromatic aberration (prism effect) at the edges */
-  background: linear-gradient(
-    135deg, 
-    rgba(255, 50, 50, 0.03) 0%, 
-    rgba(50, 255, 50, 0.01) 50%, 
-    rgba(50, 50, 255, 0.03) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 50, 50, 0.03) 0%,
+      rgba(50, 255, 50, 0.01) 50%,
+      rgba(50, 50, 255, 0.03) 100%);
   mix-blend-mode: screen;
 }
 
@@ -115,11 +117,11 @@
   border-radius: 27.5862px;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  border: none;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   font-family: 'Orbitron', sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -128,7 +130,8 @@
   color: #000000;
   text-decoration: none;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  z-index: 101;
 }
 
 .nav-logo-image {
@@ -162,13 +165,13 @@
   height: 40px;
   border-radius: 27.5862px;
   overflow: hidden;
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  border: none;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-links-pill.pill--dark {
@@ -245,6 +248,7 @@
   border-radius: 40px;
   z-index: 0;
   transition: left 0.35s var(--ease-spring), width 0.35s var(--ease-spring);
+  will-change: left, width;
   pointer-events: none;
 }
 
@@ -259,23 +263,24 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 4px 24px;
+  padding: 0 24px;
+  /* Use height for vertical centering, only horizontal padding */
   height: 40px;
   border-radius: 27.5862px;
   overflow: hidden;
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  border: none !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   font-family: 'Orbitron', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  line-height: 24px;
+  line-height: normal;
   color: #000000;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
   flex-shrink: 0;
   position: relative;
 }
@@ -294,68 +299,64 @@
   /* No background override */
 }
 
+/* Lifts the text above the absolutely-positioned GlassSurface layer.
+   Same pattern as .nav-logo-image (z-index: 1) and .nav-items (z-index: 1). */
+.nav-cta-label {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
 /* ─── Hamburger Button — mobile only ─── */
 
 .nav-hamburger {
-  display: none;
+  display: none !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4px;
-  width: 40px;
-  height: 40px;
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  gap: 6px;
+  /* Increased gap for bolder look */
+  width: 48px;
+  /* Slightly larger button for bolder icon */
+  height: 48px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  border-radius: 27.5862px;
+  border-radius: 980px;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
   padding: 0;
   position: relative;
   overflow: hidden;
 }
 
-.nav-hamburger span {
+.nav-hamburger.nav-hamburger--open {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border: none !important;
+  z-index: 101;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-hamburger svg {
   display: block;
-  width: 18px;
-  height: 2px;
-  background-color: #000000;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  transform-origin: center;
+  width: 24px;
+  height: 24px;
+  color: #000000;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 1;
 }
 
-.nav-hamburger.pill--dark {
-  /* No background override */
+.nav-hamburger.pill--dark svg {
+  color: #FFFFFF;
 }
 
-.nav-hamburger.pill--dark span {
-  background-color: #FFFFFF;
-}
-
-.nav-hamburger:hover {
-  background-color: rgba(0, 0, 0, 0.15);
-}
-
-.nav-hamburger.nav-hamburger--open {
-  z-index: 101; /* Above overlay */
-}
-
-.nav-hamburger--open span:nth-of-type(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.nav-hamburger--open span:nth-of-type(2) {
-  opacity: 0;
-}
-
-.nav-hamburger--open span:nth-of-type(3) {
-  transform: translateY(-6px) rotate(-45deg);
+.nav-hamburger.nav-hamburger--open svg {
+  color: #000000 !important;
 }
 
 /* ─── Mobile Overlay ─── */
@@ -370,10 +371,12 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.4s var(--ease-spring);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.1);
+  transition: opacity 0.4s var(--ease-spring);
+  backdrop-filter: blur(20px);
+  /* Increased blur to match image */
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.6);
+  /* Lighter background to match image */
 }
 
 .nav-overlay--open {
@@ -391,13 +394,15 @@
   justify-content: center;
   border-radius: 40px;
   overflow: hidden;
-  
-  /* Liquid Glass Stack */
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
+
+  /* Full screen centered look from image */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  /* Space for logo/close button */
 }
 
 .nav-overlay-links {
@@ -436,32 +441,18 @@
 }
 
 .overlay-cta-container {
-  margin-top: 24px;
+  margin-top: auto;
+  margin-bottom: 60px;
+  width: 100%;
+  padding: 0 40px;
   position: relative;
   z-index: 1;
 }
 
 .overlay-cta {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0 32px;
-  height: 52px;
-  background: #1579BE;
-  border-radius: 30px;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: #FFFFFF;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.overlay-cta:hover {
-  background: #0d5fa8;
-  text-decoration: none;
-  transform: translateY(-2px);
+  width: 100%;
+  height: 56px !important;
+  font-size: 18px !important;
 }
 
 /* ─── Skip Link ─── */
@@ -493,11 +484,11 @@
 
   .nav-links-pill,
   .nav-cta-btn {
-    display: none;
+    display: none !important;
   }
 
   .nav-hamburger {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-logo-pill {

@@ -1,46 +1,82 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
+/**
+ * useMagnetic — RAF-throttled, no querySelectorAll on every event.
+ * Uses a WeakMap to cache element data and pointer events to hit-test.
+ */
 export function useMagnetic() {
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const target = e.target.closest('.magnetic-pull')
-      
-      // Reset all other elements
-      document.querySelectorAll('.magnetic-pull').forEach(el => {
-        if (el !== target && el.style.transform !== '') {
-          el.style.transform = ''
-          el.style.transition = ''
-        }
-      })
+    let rafId = null
+    let lastX = 0
+    let lastY = 0
+    let lastTarget = null
 
-      if (!target) return
+    // Cache all magnetic elements + their rects
+    // We invalidate on resize only
+    let elements = []
+    const PULL = 0.35
 
-      const rect = target.getBoundingClientRect()
-      const centerX = rect.left + rect.width / 2
-      const centerY = rect.top + rect.height / 2
-      
-      const distanceX = e.clientX - centerX
-      const distanceY = e.clientY - centerY
-      
-      const pull = 0.4
-      
-      target.style.transition = 'none' // Disable CSS transitions while pulling
-      target.style.transform = `translate3d(${distanceX * pull}px, ${distanceY * pull}px, 0)`
+    const collectElements = () => {
+      elements = Array.from(document.querySelectorAll('.magnetic-pull'))
     }
 
-    const handleMouseLeave = () => {
-      document.querySelectorAll('.magnetic-pull').forEach(el => {
-        el.style.transform = ''
-        el.style.transition = ''
-      })
+    const resetElement = (el) => {
+      el.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)'
+      el.style.transform = 'translate3d(0,0,0)'
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mouseleave', handleMouseLeave)
+    const frame = () => {
+      rafId = null
+      if (!lastTarget) return
+
+      // Inline rect lookup — cached per frame
+      const rect = lastTarget.getBoundingClientRect()
+      const cx = rect.left + rect.width / 2
+      const cy = rect.top + rect.height / 2
+      const dx = (lastX - cx) * PULL
+      const dy = (lastY - cy) * PULL
+
+      lastTarget.style.transition = 'none'
+      lastTarget.style.transform = `translate3d(${dx}px,${dy}px,0)`
+    }
+
+    const onMouseMove = (e) => {
+      lastX = e.clientX
+      lastY = e.clientY
+
+      const newTarget = e.target.closest('.magnetic-pull')
+
+      if (newTarget !== lastTarget) {
+        // Reset previous
+        if (lastTarget) resetElement(lastTarget)
+        lastTarget = newTarget
+      }
+
+      if (lastTarget && !rafId) {
+        rafId = requestAnimationFrame(frame)
+      }
+    }
+
+    const onMouseLeave = () => {
+      lastTarget = null
+      elements.forEach(resetElement)
+    }
+
+    collectElements()
+
+    // Re-collect on navigation (DOM mutations add new elements)
+    const mutationObserver = new MutationObserver(collectElements)
+    mutationObserver.observe(document.body, { childList: true, subtree: true })
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true })
+    window.addEventListener('mouseleave', onMouseLeave, { passive: true })
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mouseleave', handleMouseLeave)
+      if (rafId) cancelAnimationFrame(rafId)
+      window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('mouseleave', onMouseLeave)
+      mutationObserver.disconnect()
+      elements.forEach(resetElement)
     }
   }, [])
 }

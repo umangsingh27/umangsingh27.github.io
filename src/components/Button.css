@@ -1,0 +1,161 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  /* Specific properties — 'all' forces recalc of every property */
+  transition:
+    transform 0.3s var(--ease-spring),
+    box-shadow 0.3s var(--ease-spring),
+    background-color 0.3s var(--ease-spring),
+    border-color 0.3s var(--ease-spring),
+    color 0.3s var(--ease-spring),
+    opacity 0.3s var(--ease-spring);
+  min-height: 44px;
+  white-space: nowrap;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* --- Variants --- */
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px var(--color-accent-glow);
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--color-accent-glow);
+  color: #FFFFFF !important;
+  text-decoration: none;
+}
+
+.btn--primary:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn--secondary:hover {
+  background: var(--color-accent-muted);
+  border-color: var(--color-accent-hover);
+  color: var(--color-accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px var(--color-accent-glow);
+  text-decoration: none;
+}
+
+/* For truly dark backgrounds where blue accent might not be enough contrast */
+.btn--secondary-light {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn--secondary-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-text-primary);
+  background: rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn--text {
+  background: transparent;
+  color: var(--color-text-secondary);
+  padding: 8px 16px;
+  min-height: auto;
+  border: none;
+}
+
+.btn--text:hover {
+  color: var(--color-text-primary);
+  background: rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+
+/* Glass variant for Navigation elements */
+.btn--glass {
+  display: inline-flex;
+  background: transparent;
+  border: none;
+  padding: 0;
+  min-height: auto;
+  border-radius: inherit;
+  gap: 0; /* Important: prevent gaps between glass layers and text */
+}
+
+.btn--glass:hover {
+  transform: scale(1.02);
+}
+
+/* --- Sizes --- */
+
+.btn--small {
+  padding: 8px 20px;
+  font-size: 13px;
+  min-height: 36px;
+}
+
+.btn--medium {
+  padding: 12px 32px;
+  font-size: 15px;
+  min-height: 44px;
+}
+
+.btn--large {
+  padding: 16px 44px;
+  font-size: 17px;
+  min-height: 54px;
+}
+
+/* --- Mobile --- */
+
+@media (max-width: 768px) {
+  .btn:not(.btn--glass):not(.btn--text) {
+    width: 100%;
+    padding: 12px 24px;
+  }
+}
+
+/* --- Disabled State --- */
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* --- Magnetic Effect specific transition --- */
+.magnetic-pull {
+  will-change: transform;
+}
