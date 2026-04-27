@@ -20,7 +20,7 @@ const GlassSurface = ({
   brightness = 50,
   opacity = 0.93,
   blur = 11,
-  displace = 0.8,
+  displace = 3.7, 
   backgroundOpacity = 0.12,
   saturation = 1,
   distortionScale = -180,
@@ -49,16 +49,14 @@ const GlassSurface = ({
   const resizeTimer = useRef(null);
 
   useEffect(() => {
-    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+    const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
                    (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
     const lowPower = navigator.deviceMemory && navigator.deviceMemory < 4;
     
-    // Webkit (Safari) and Firefox are notoriously buggy with SVG displacement maps in backdrop-filter.
-    const isUnsupported = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent) || 
-                          /Firefox/.test(navigator.userAgent);
-
-    setIsLowEnd(mobile || lowPower);
-    setSvgSupported(!isUnsupported && supportsSVGFilters(filterId));
+    setIsLowEnd(lowPower);
+    // Safari and mobile browsers usually fail at SVG backdrop-filters.
+    setSvgSupported(!isSafari && !isMobile && supportsSVGFilters(filterId));
   }, []);
 
   const generateMapBlob = () => {
@@ -128,8 +126,9 @@ const GlassSurface = ({
       containerRef.current.style.backdropFilter = filterValue;
       containerRef.current.style.webkitBackdropFilter = filterValue;
     } else {
-      // Clean fallback string
-      const fallbackValue = `blur(12px) saturate(1.8) brightness(1.1)`;
+      // PREMIUM SAFARI/MOBILE FALLBACK
+      // Stronger blur and saturation to mimic the high-end look without displacement.
+      const fallbackValue = `blur(20px) saturate(1.8) brightness(1.1)`;
       containerRef.current.style.backdropFilter = fallbackValue;
       containerRef.current.style.webkitBackdropFilter = fallbackValue;
     }
