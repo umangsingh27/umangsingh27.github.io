@@ -128,7 +128,7 @@ const GlassSurface = ({
     '--glass-frost': backgroundOpacity,
     '--glass-saturation': saturation,
     '--glass-blur': `${blur}px`,
-    '--filter-id': isLowEnd ? 'none' : `url(#${filterId})`,
+    '--filter-id': isLowEnd ? 'none' : `url(${typeof window !== 'undefined' ? window.location.href.split('#')[0] : ''}#${filterId})`,
   };
 
   return (
