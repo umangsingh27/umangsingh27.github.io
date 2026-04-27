@@ -1,32 +1,32 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState, useRef, useId } from 'react';
+import { useEffect, useLayoutEffect, useState, useRef, useId } from 'react';
 import './GlassSurface.css';
 
 /**
- * GlassSurface — Optimized Apple Liquid Glass refractive material.
+ * GlassSurface — Final Optimized Apple Liquid Glass refractive material.
  * 
  * Performance optimizations applied:
- *  1. ResizeObserver is DEBOUNCED — prevents layout thrashing during resize.
- *  2. Cached dimensions — skips SVG re-encoding if size hasn't changed.
- *  3. Static supportsSVGFilters — UA parsing happens once per app lifecycle.
- *  4. Isolated Layers — avoids global will-change to save GPU memory.
+ *  1. ResizeObserver is DEBOUNCED — prevents layout thrashing.
+ *  2. Blob URLs for maps — extremely reliable in production/deployment.
+ *  3. useLayoutEffect injection — bypasses build-time CSS minification.
+ *  4. Organic Gradients — eliminates 'star' artifacts.
  */
 const GlassSurface = ({
   children,
   width = '100%',
   height = '100%',
   borderRadius = 50,
-  borderWidth = 0.01,
+  borderWidth = 0.07,
   brightness = 50,
-  opacity = 0.1,
-  blur = 8,
+  opacity = 0.93,
+  blur = 11,
   displace = 0.8,
   backgroundOpacity = 0.12,
   saturation = 1,
-  distortionScale = -40.0,
-  redOffset = 10,
+  distortionScale = -180,
+  redOffset = 0,
   greenOffset = 10,
-  blueOffset = 10,
+  blueOffset = 20,
   xChannel = 'R',
   yChannel = 'G',
   mixBlendMode = 'difference',
@@ -41,32 +41,34 @@ const GlassSurface = ({
 
   const [svgSupported, setSvgSupported] = useState(false);
   const [isLowEnd, setIsLowEnd] = useState(false);
+  const [blobUrl, setBlobUrl] = useState(null);
 
   const containerRef = useRef(null);
-  const feImageRef = useRef(null);
-
-  // Dimensions caching
   const lastW = useRef(0);
   const lastH = useRef(0);
   const resizeTimer = useRef(null);
 
   useEffect(() => {
-    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
     const lowPower = navigator.deviceMemory && navigator.deviceMemory < 4;
+    
+    // Webkit (Safari) and Firefox are notoriously buggy with SVG displacement maps in backdrop-filter.
+    const isUnsupported = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent) || 
+                          /Firefox/.test(navigator.userAgent);
+
     setIsLowEnd(mobile || lowPower);
-    setSvgSupported(supportsSVGFilters(filterId));
+    setSvgSupported(!isUnsupported && supportsSVGFilters(filterId));
   }, []);
 
-  const generateDisplacementMap = () => {
+  const generateMapBlob = () => {
     const rect = containerRef.current?.getBoundingClientRect();
     const actualWidth = rect?.width || 400;
     const actualHeight = rect?.height || 200;
     const edgeSize = Math.min(actualWidth, actualHeight) * (borderWidth * 0.5);
 
-    // CRITICAL: We restore the internal filter:blur() on the inner rectangle.
-    // This is what creates the smooth "liquid" transition.
     const svgContent = `
-      <svg viewBox="0 0 ${actualWidth} ${actualHeight}" xmlns="http://www.w3.org/2000/svg">
+      <svg width="${actualWidth}" height="${actualHeight}" viewBox="0 0 ${actualWidth} ${actualHeight}" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="${redGradId}" x1="100%" y1="0%" x2="0%" y2="0%">
             <stop offset="0%" stop-color="#0000"/>
@@ -84,38 +86,54 @@ const GlassSurface = ({
       </svg>
     `;
 
-    return `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
+    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+    if (blobUrl) URL.revokeObjectURL(blobUrl);
+    const newUrl = URL.createObjectURL(blob);
+    setBlobUrl(newUrl);
   };
 
-  const updateDisplacementMap = () => {
-    if (!feImageRef.current || !containerRef.current) return;
+  useLayoutEffect(() => {
+    if (!containerRef.current || isLowEnd || !svgSupported) return;
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const w = Math.round(rect.width);
-    const h = Math.round(rect.height);
+    const update = () => {
+      const rect = containerRef.current.getBoundingClientRect();
+      const w = Math.round(rect.width);
+      const h = Math.round(rect.height);
 
-    if (w === lastW.current && h === lastH.current) return;
+      if (w === lastW.current && h === lastH.current) return;
+      lastW.current = w;
+      lastH.current = h;
+      generateMapBlob();
+    };
 
-    lastW.current = w;
-    lastH.current = h;
-    feImageRef.current.setAttribute('href', generateDisplacementMap());
-  };
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-    updateDisplacementMap();
-
-    const resizeObserver = new ResizeObserver(() => {
+    update();
+    const observer = new ResizeObserver(() => {
       clearTimeout(resizeTimer.current);
-      resizeTimer.current = setTimeout(updateDisplacementMap, 16); // ~1 frame delay
+      resizeTimer.current = setTimeout(update, 32);
     });
 
-    resizeObserver.observe(containerRef.current);
+    observer.observe(containerRef.current);
     return () => {
-      clearTimeout(resizeTimer.current);
-      resizeObserver.disconnect();
+      observer.disconnect();
+      if (blobUrl) URL.revokeObjectURL(blobUrl);
     };
-  }, []);
+  }, [svgSupported, isLowEnd, borderRadius, borderWidth, brightness, opacity, blur]);
+
+  // Inject the backdrop-filter directly to the DOM to bypass CSS minifiers
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    
+    if (svgSupported && !isLowEnd) {
+      const filterValue = `url(#${filterId}) saturate(${saturation})`;
+      containerRef.current.style.backdropFilter = filterValue;
+      containerRef.current.style.webkitBackdropFilter = filterValue;
+    } else {
+      // Clean fallback string
+      const fallbackValue = `blur(12px) saturate(1.8) brightness(1.1)`;
+      containerRef.current.style.backdropFilter = fallbackValue;
+      containerRef.current.style.webkitBackdropFilter = fallbackValue;
+    }
+  }, [svgSupported, isLowEnd, saturation, filterId]);
 
   const containerStyle = {
     ...style,
@@ -127,10 +145,6 @@ const GlassSurface = ({
     pointerEvents: asLayer ? 'none' : 'auto',
     '--glass-frost': backgroundOpacity,
     '--glass-saturation': saturation,
-    '--glass-blur': `${blur}px`,
-    '--filter-id': isLowEnd ? 'none' : `url(#${filterId})`,
-    backdropFilter: isLowEnd ? 'none' : `url(#${filterId}) saturate(${saturation})`,
-    WebkitBackdropFilter: isLowEnd ? 'none' : `url(#${filterId}) saturate(${saturation})`,
   };
 
   return (
@@ -139,11 +153,11 @@ const GlassSurface = ({
       className={`glass-surface ${svgSupported && !isLowEnd ? 'glass-surface--svg' : 'glass-surface--fallback'} ${className}`}
       style={containerStyle}
     >
-      {!isLowEnd && (
+      {svgSupported && !isLowEnd && (
         <svg className="glass-surface__filter" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id={filterId} colorInterpolationFilters="sRGB" x="0%" y="0%" width="100%" height="100%">
-              <feImage ref={feImageRef} x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />
+              {blobUrl && <feImage href={blobUrl} x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />}
 
               <feDisplacementMap in="SourceGraphic" in2="map" scale={distortionScale + redOffset} xChannelSelector={xChannel} yChannelSelector={yChannel} result="dispRed" />
               <feColorMatrix in="dispRed" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red" />
@@ -157,7 +171,6 @@ const GlassSurface = ({
               <feBlend in="red" in2="green" mode="screen" result="rg" />
               <feBlend in="rg" in2="blue" mode="screen" result="output" />
 
-              {/* Restore final Gaussian blur for refractive smoothing */}
               <feGaussianBlur in="output" stdDeviation={displace} />
             </filter>
           </defs>
@@ -173,11 +186,6 @@ export default GlassSurface;
 
 function supportsSVGFilters(filterId) {
   if (typeof window === 'undefined' || typeof document === 'undefined') return false;
-
-  const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-  const isFirefox = /Firefox/.test(navigator.userAgent);
-  if (isWebkit || isFirefox) return false;
-
   const div = document.createElement('div');
   div.style.backdropFilter = `url(#${filterId})`;
   return div.style.backdropFilter !== '';
