@@ -20,7 +20,7 @@ const GlassSurface = ({
   brightness = 50,
   opacity = 0.1,
   blur = 8,
-  displace = 2.0,
+  displace = 0.8,
   backgroundOpacity = 0.12,
   saturation = 1,
   distortionScale = -40.0,
@@ -127,6 +127,7 @@ const GlassSurface = ({
     pointerEvents: asLayer ? 'none' : 'auto',
     '--glass-frost': backgroundOpacity,
     '--glass-saturation': saturation,
+    '--glass-blur': `${blur}px`,
     '--filter-id': isLowEnd ? 'none' : `url(#${filterId})`,
   };
 

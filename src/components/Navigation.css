@@ -267,7 +267,7 @@
   /* Use height for vertical centering, only horizontal padding */
   height: 40px;
   border-radius: 27.5862px;
-  overflow: hidden;
+  /* overflow: hidden; Removed to prevent text-blurring artifacts */
   background: transparent;
   border: none !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
@@ -306,6 +306,9 @@
   z-index: 1;
   pointer-events: none;
   white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ─── Hamburger Button — mobile only ─── */
