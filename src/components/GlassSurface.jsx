@@ -129,6 +129,8 @@ const GlassSurface = ({
     '--glass-saturation': saturation,
     '--glass-blur': `${blur}px`,
     '--filter-id': isLowEnd ? 'none' : `url(${typeof window !== 'undefined' ? window.location.href.split('#')[0] : ''}#${filterId})`,
+    backdropFilter: isLowEnd ? 'none' : `url(${typeof window !== 'undefined' ? window.location.href.split('#')[0] : ''}#${filterId}) saturate(${saturation})`,
+    WebkitBackdropFilter: isLowEnd ? 'none' : `url(${typeof window !== 'undefined' ? window.location.href.split('#')[0] : ''}#${filterId}) saturate(${saturation})`,
   };
 
   return (
