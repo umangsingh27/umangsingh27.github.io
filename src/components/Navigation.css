@@ -5,7 +5,7 @@
   right: 0;
   width: 100%;
   z-index: 100;
-  height: 100px;
+  height: 150px;
   /* Isolate nav rendering: changes inside don't affect layout/paint outside */
   contain: layout style;
 }

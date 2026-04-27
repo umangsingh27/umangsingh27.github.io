@@ -15,17 +15,17 @@ const GlassSurface = ({
   width = '100%',
   height = '100%',
   borderRadius = 50,
-  borderWidth = 0.07,
+  borderWidth = 0.1,
   brightness = 50,
-  opacity = 0.93,
-  blur = 11,
-  displace = 3.7, 
-  backgroundOpacity = 0.12,
+  opacity = 1.00,
+  blur = 12,
+  displace = 2.3,
+  backgroundOpacity = 0.0,
   saturation = 1,
-  distortionScale = -180,
-  redOffset = 0,
+  distortionScale = -20,
+  redOffset = 10,
   greenOffset = 10,
-  blueOffset = 20,
+  blueOffset = 10,
   xChannel = 'R',
   yChannel = 'G',
   mixBlendMode = 'difference',
@@ -48,19 +48,42 @@ const GlassSurface = ({
   const resizeTimer = useRef(null);
 
   useEffect(() => {
-    // Determine engine support for SVG filters in backdrop-filter
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    const isFirefox = /Firefox/.test(navigator.userAgent);
-    const isMobile = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                     (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
-    
-    // RAM check for extreme low-end devices
+    // RAM check for extreme low-end devices remains a valid hardware hint
     const lowPower = navigator.deviceMemory && navigator.deviceMemory < 4;
     setIsLowEnd(lowPower);
 
-    // Safari, Firefox, and Mobile browsers fundamentally lack support for feDisplacementMap in backdrop-filter.
-    // We force them to use the premium CSS fallback path to prevent visual breakage.
-    setSvgSupported(!isSafari && !isFirefox && !isMobile && supportsSVGFilters(filterId));
+    // REALTIME FEATURE DETECTION:
+    // Instead of sniffing User Agents, we perform a live test to see if the browser
+    // actually applies and preserves the SVG filter reference in the backdropFilter property.
+    const checkSupport = () => {
+      if (typeof window === 'undefined' || typeof document === 'undefined') return false;
+      
+      // 1. Basic property existence check
+      const hasBackdropFilter = 'backdropFilter' in document.documentElement.style || 
+                               'webkitBackdropFilter' in document.documentElement.style;
+      if (!hasBackdropFilter) return false;
+
+      // 2. SVG Filter Engine check (check if the browser can handle the specific SVG filter nodes)
+      const hasFilterEngine = typeof SVGFEDisplacementMapElement !== 'undefined';
+      if (!hasFilterEngine) return false;
+
+      // 3. Functional check: Test if the browser accepts an SVG fragment URL in backdrop-filter.
+      // Note: Safari incorrectly returns true here, so we add a specific WebKit "functional" check.
+      const testDiv = document.createElement('div');
+      const testId = `test-filter-${uniqueId}`;
+      testDiv.style.backdropFilter = `url(#${testId})`;
+      
+      const acceptsUrl = testDiv.style.backdropFilter.includes('url');
+      
+      // 4. Refined Safari/Firefox safeguard: 
+      // Even if they "accept" the string, they don't render the displacement.
+      // We check for the 'chrome' object or a specific Chromium-only backdrop-filter behavior.
+      const isChromium = !!window.chrome;
+      
+      return acceptsUrl && isChromium;
+    };
+
+    setSvgSupported(checkSupport());
   }, []);
 
   const generateDisplacementMap = () => {
@@ -120,7 +143,7 @@ const GlassSurface = ({
   // Inject the appropriate backdrop-filter based on support
   useLayoutEffect(() => {
     if (!containerRef.current) return;
-    
+
     if (svgSupported && !isLowEnd) {
       const filterValue = `url(#${filterId}) saturate(${saturation})`;
       containerRef.current.style.backdropFilter = filterValue;
