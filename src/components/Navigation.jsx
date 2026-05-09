@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react'
 import { NavLink, useLocation, Link } from 'react-router-dom'
 import './Navigation.css'
 import GlassSurface from './GlassSurface'
@@ -22,27 +22,63 @@ export default function Navigation() {
   const isActive = (page) => getPathname() === page
 
   // Update active indicator position smoothly
-  useEffect(() => {
-    const updateIndicator = () => {
-      const navLinksContainer = navLinksRef.current
-      if (!navLinksContainer) return
+  const updateIndicator = useCallback(() => {
+    const navLinksContainer = navLinksRef.current
+    if (!navLinksContainer) return
 
-      const activeLink = navLinksContainer.querySelector('.nav-item.active')
-      if (!activeLink) return
-
-      const containerRect = navLinksContainer.getBoundingClientRect()
-      const activeRect = activeLink.getBoundingClientRect()
-
-      setActiveIndicatorStyle({
-        left: `${activeRect.left - containerRect.left}px`,
-        width: `${activeRect.width}px`,
-      })
+    const activeLink = navLinksContainer.querySelector('.nav-item.active')
+    if (!activeLink) {
+      setActiveIndicatorStyle(prev => ({ ...prev, opacity: 0 }))
+      return
     }
 
+    // Using offset properties is more stable during initial layout than getBoundingClientRect
+    // as they are relative to the offsetParent (the container)
+    const left = activeLink.offsetLeft
+    const width = activeLink.offsetWidth
+
+    setActiveIndicatorStyle({
+      left: `${left}px`,
+      width: `${width}px`,
+      opacity: 1
+    })
+  }, [])
+
+  useLayoutEffect(() => {
+    const navLinksContainer = navLinksRef.current
+    if (!navLinksContainer) return
+
+    // Initial update
     updateIndicator()
+
+    // Multiple passes to ensure layout is captured as it stabilizes
+    const raf = requestAnimationFrame(updateIndicator)
+    const timer = setTimeout(updateIndicator, 100)
+    
+    // Create a ResizeObserver to handle container/child size changes (including font loads)
+    const resizeObserver = new ResizeObserver(() => {
+      updateIndicator()
+    })
+    
+    // Observe both the container and individual items - this ensures any layout shift 
+    // (even if the container width is fixed) will trigger an update
+    resizeObserver.observe(navLinksContainer)
+    const navItems = navLinksContainer.querySelectorAll('.nav-item')
+    navItems.forEach(item => resizeObserver.observe(item))
+
+    // Safeguard for font loading which can change widths
+    if (document.fonts) {
+      document.fonts.ready.then(updateIndicator)
+    }
+
     window.addEventListener('resize', updateIndicator)
-    return () => window.removeEventListener('resize', updateIndicator)
-  }, [location])
+    return () => {
+      window.removeEventListener('resize', updateIndicator)
+      resizeObserver.disconnect()
+      clearTimeout(timer)
+      cancelAnimationFrame(raf)
+    }
+  }, [location, menuOpen, updateIndicator])
 
   // Handle escape key to close mobile menu
   useEffect(() => {
@@ -135,8 +171,8 @@ export default function Navigation() {
         {/* Nav Links Pill */}
         <nav className={`nav-links-pill magnetic-pull ${pillThemes.links ? 'pill--dark' : ''}`} ref={navLinksRef}>
           <GlassSurface asLayer borderRadius={27.5862} />
-          <div className="nav-indicator" style={activeIndicatorStyle} />
           <ul className="nav-items">
+            <div className="nav-indicator" style={activeIndicatorStyle} />
             <li className={`nav-item ${isActive('') ? 'active' : ''}`}>
               <NavLink to="/">Work</NavLink>
             </li>

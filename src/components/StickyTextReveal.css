@@ -1,0 +1,42 @@
+.sticky-text-reveal-container {
+  position: relative;
+  width: 100%;
+}
+
+.sticky-text-reveal-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--page-padding-h);
+}
+
+.sticky-text-reveal-p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-color);
+  max-width: 1000px;
+  text-align: left;
+}
+
+.sticky-text-word {
+  transition: opacity 0.1s ease-out;
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+/* Adjust for dark sections if needed */
+[data-nav-theme="dark"] .sticky-text-reveal-p {
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .sticky-text-reveal-p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}

@@ -91,36 +91,32 @@
 }
 
 /* ════════════════════════════════════════════════════════════
-   2. JOURNEY NARRATIVE
+   2. JOURNEY NARRATIVE — Sticky Reveal
    ════════════════════════════════════════════════════════════ */
 
-.about-journey { background: #FFFFFF; }
+.about-journey-reveal {
+  background: #FFFFFF;
+  position: relative;
+}
 
-.about-journey__inner {
-  max-width: 680px;
+.about-journey-reveal__header {
+  padding: clamp(64px, 8vw, 120px) 0 clamp(80px, 10vw, 160px);
+  position: relative;
+  z-index: 10;
+}
+
+.about-journey-reveal__inner {
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--page-padding-sm);
+  text-align: center;
 }
 
-.about-journey h2 { margin-bottom: 2rem; text-align: center; }
-
-.about-journey__text {
-  font-size: clamp(15px, 1.4vw, 17px);
-  line-height: 1.8;
-  color: #1D1D1F;
-  font-family: var(--font-family-body);
-}
-
-.about-journey__pullquote {
-  font-size: clamp(18px, 1.8vw, 22px);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.6;
-  color: var(--color-accent);
-  border-left: 3px solid var(--color-accent);
-  padding-left: 24px;
-  margin: 32px 0;
+.about-journey-reveal__inner h2 {
+  font-size: clamp(24px, 3.5vw, 40px);
+  margin-bottom: 0;
   font-family: var(--font-family-heading);
+  color: #1D1D1F;
 }
 
 /* ════════════════════════════════════════════════════════════

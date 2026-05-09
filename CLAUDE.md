@@ -1,267 +1,314 @@
 # CLAUDE.md — Umang Singh Portfolio
 
-## Identity
-Lead Product Designer at NowPurchase (MetalCloud), Kolkata.
-Founding designer. 4.5 years experience. B2B SaaS + AI workflows.
-Targeting Lead/Senior Product Designer roles at Indian B2B SaaS and AI-first companies.
-This portfolio must work hard to explain itself — the company name is not well-known. 
-Depth of process and clarity of outcomes are the competitive advantage.
+---
+
+## 1. WHO & WHY
+
+**Identity:** Lead/Senior Product Designer at NowPurchase (founding designer, 4.5 yrs). B2B SaaS + AI workflows. Based in Kolkata, targeting remote/Bangalore/Hyderabad/Gurugram roles.
+
+**Job search goal:** Land Senior Product Designer at Tier 1 Indian B2B SaaS or AI-first startup within 60 days of April 2, 2026. Target: ₹25–35 LPA (stretch ₹35–45 LPA).
+
+**Canonical positioning (use verbatim across all copy):**
+> "A Senior Product Designer who sits at the intersection of enterprise B2B UX and AI automation — someone who doesn't just design for AI features, but actually builds and ships AI-driven product workflows."
+
+**Three proof points (anchor all portfolio messaging to these):**
+1. AI Sales Agent (N8N + LLM) shipped to production → 10% revenue growth in month 1
+2. MetalCloud: 13 → 120 enterprise clients in 12 months ($19B foundry industry digitised)
+3. Unified Design System (Atomic Design) → 30% faster dev handoff, 50% fewer inconsistencies
+
+**Second-order differentiator:** Google Stitch → Figma → MCP → Claude Code pipeline. Almost no Indian designer has this set up. Position as "compressed a 3–4 day design-to-handoff cycle to one morning."
+
+**Target companies (Tier 1):** Razorpay, Postman, BrowserStack, Sarvam AI, Krutrim, Freshworks, Groww
+**Target companies (Tier 2):** Atlassian, Microsoft, Salesforce, Adobe
 
 **Hero positioning:** "Designs B2B SaaS. Ships AI that sells."
-**Core message:** Lead Product Designer at NowPurchase. Designs the platform digitizing India's $19B foundry industry, and builds the AI agents closing the B2B sales pipeline behind it.
 
-## Design Philosophy
-Clean, professional, content-led. The work carries the weight, not visual theatrics.
-Every element earns its place. Fast load = good judgment.
-Case study depth is the competitive advantage. Clarity beats cleverness.
+---
 
-## Typography
-Fonts: Orbitron (headings) + Ubuntu (body).
-- Hero name: 80px desktop / 56px tablet / 52px mobile / 44px small mobile, weight 700, letter-spacing -0.003em, font-family: 'Orbitron', sans-serif
-- H1 (page titles): 80px desktop / 56px tablet / 52px mobile / 40px small mobile, weight 700, letter-spacing -0.003em, line-height 1.05, font-family: 'Orbitron', sans-serif
-- H2 (section headings): 40px desktop / 32px mobile / 28px small mobile, weight 700, letter-spacing -0.01em, font-family: 'Orbitron', sans-serif
-- H3 (sub-headings): 24px desktop / 21px mobile, weight 600, letter-spacing -0.005em, font-family: 'Orbitron', sans-serif
-- Body: 17px desktop / 16px mobile, weight 400, line-height 1.75, font-family: 'Ubuntu', sans-serif
-- Tags/labels: 12px, weight 600, letter-spacing 0.08em, UPPERCASE, font-family: 'Orbitron', sans-serif
-- Navigation logo: 16px, weight 600, font-family: 'Orbitron', sans-serif
-- All body copy: left-aligned always
+## 2. TYPOGRAPHY
 
-## Color System (in index.css)
-Light mode (only defined color scheme):
-- --color-bg: #FFFFFF (background)
-- --color-surface: #F5F5F7 (cards, surfaces)
-- --color-surface-2: #FAFAFA (alternate surface)
-- --color-text-primary: #1D1D1F (16.7:1 contrast on white — WCAG AAA)
-- --color-text-secondary: #6E6E73 (6.1:1 contrast — WCAG AA)
-- --color-text-tertiary: #86868B (4.6:1 contrast — WCAG AA, was 3.3:1, upgraded in latest session)
-- --color-accent: #0066CC (primary action color)
-- --color-accent-hover: #004499 (darker accent on hover)
-- --color-border: #D2D2D7 (primary border color)
-- --color-border-light: #E8E8ED (subtle borders)
-- --color-card-hover: #F5F5F7 (card background on hover)
+**Fonts in use (actual code):** Orbitron (headings) + Ubuntu (body)
+- Note: An earlier strategy doc references Rokkitt — that was superseded. Orbitron is locked in the implementation. Do NOT change.
 
-All text/bg pairs verified for WCAG AA/AAA compliance.
+**Font size scale (locked — do not alter):**
+- Hero name: 80px desktop / 56px tablet / 52px mobile / 44px small mobile, weight 700, letter-spacing -0.003em
+- H1 (page titles): 80px → 56px → 52px → 40px, weight 700, letter-spacing -0.003em, line-height 1.05
+- H2 (section headings): 40px → 32px → 28px, weight 700, letter-spacing -0.01em
+- H3 (sub-headings): 24px → 21px, weight 600, letter-spacing -0.005em
+- Body: 17px → 16px, weight 400, line-height 1.75
+- Tags/labels: 12px, weight 600, letter-spacing 0.08em, UPPERCASE
+- Navigation logo: 16px, weight 600, Orbitron
 
-## Dark Stats Section
-Used on About page and MetalCloud case study.
-Background: #1A1A1A (hardcoded, NOT a CSS variable — stays dark in both modes).
-Text: white. Numbers: white. Accent: #0066CC.
-This is intentional — the dark section is a deliberate contrast moment.
+**CSS variables:** `--font-family-heading: 'Orbitron', sans-serif` / `--font-family-body: 'Ubuntu', sans-serif`
+**All body copy:** left-aligned always.
 
-## Scroll Animations
-Every page uses IntersectionObserver to add class "visible" to ".fade-up" elements.
-Animation: fadeUp keyframe, 0.6s, cubic-bezier(0.25, 0.46, 0.45, 0.94).
-Stagger: direct children get delay 0, 0.1s, 0.2s, 0.3s etc.
-Observer threshold: 0. Fire once — never reset on scroll-up.
-This logic must be in EVERY page component.
+---
 
-## Navigation
-Logo left: "Umang Singh" with logo SVG — 16px weight 600, Orbitron sans-serif.
-Links right: Work · About · Resume — nav pills with animated indicator.
-Sticky header with backdrop-filter blur and gradient fade mask.
+## 3. COLOR SYSTEM
 
-**Theme detection:** IntersectionObserver-based (no longer per-pixel sampling).
-- Observes sections with `data-nav-theme="dark"` attribute
-- Dynamically adjusts logo/links/CTA pill colors based on dark section visibility
-- Mobile hamburger button with:
-  - `aria-label`, `aria-expanded`, `aria-controls` attributes
-  - Escape key handler to close overlay
-  - `body { overflow: hidden }` when menu open
-  - Overlay has `aria-modal="true"`, `role="dialog"`, `aria-label`
+```css
+--color-bg: #FFFFFF                  /* primary background */
+--color-surface: #F5F5F7             /* cards, alt sections */
+--color-surface-2: #FAFAFA           /* alternate surface */
+--color-text-primary: #1D1D1F        /* WCAG AAA on white */
+--color-text-secondary: #6E6E73      /* WCAG AA */
+--color-text-tertiary: #86868B       /* WCAG AA */
+--color-accent: #0066CC              /* primary CTA */
+--color-accent-hover: #004499
+--color-border: #D2D2D7
+--color-border-light: #E8E8ED
+--color-card-hover: #F5F5F7
+```
 
-Mobile: hamburger → full-screen overlay with large centered links (32px font) + Get in Touch CTA.
+**Dark stats section:** `background: #1A1A1A` (hardcoded, not a CSS var). Text/numbers: white. Accent: `#0066CC`. Used on About page and MetalCloud case study — deliberate contrast moment.
 
-## Project Cards (Home Page Work Grid)
-3 case study cards displayed (N8N card removed — was "Coming Soon" placeholder):
-1. **MetalCloud Platform** — B2B SaaS + IoT/AI modules for foundries
-2. **Design System** — Unified atomic system across 2 products (In Progress status)
-3. **NowPurchase Website** — End-to-end redesign with 20× organic growth
+**Section alternation rule (LOCKED — follow this exact order in case studies):**
+1. Hero: `--color-bg` white
+2. Context: `--color-bg` white
+3. Problems: `--color-surface` grey
+4. Design Process: `--color-bg` white
+5. Understanding System: `--color-surface` grey
+6. Identifying Opportunities: `--color-bg` white
+7. The Solution: `--color-surface` grey
+8. Usability Testing: `--color-bg` white
+9. Impact: `#1A1A1A` dark
+10. What I Learned: `--color-bg` white
+11. Next Project CTA: `--color-surface` grey
 
-Card layout: Horizontal split grid `grid-template-columns: 5fr 7fr` on desktop, responsive on tablet/mobile.
-Background: #F5F5F7. Border-radius: 18px. Min-height: 340px.
-Hover effect: Shadow elevation + image zoom (1.04x) instead of uniform scale.
-Images use LazyImage component with WebP variants + responsive srcset.
+---
 
-## Case Study Pages
-Max-width `--case-study-width: 680px` for text content. Centered on page.
-Section headings have border-left: 3px solid var(--color-accent).
-Full-width breakouts allowed for: dark stats sections, hero.
-No scroll animations at page load — only triggered by IntersectionObserver.
+## 4. VISUAL LANGUAGE — WHAT NOT TO BUILD
 
-## Responsiveness — NON-NEGOTIABLE
-Mobile-first. Test every component at 375px.
-Breakpoints: 375px, 768px, 1024px.
-No horizontal overflow at any breakpoint.
-Touch targets minimum 44x44px.
+- NO gradient backgrounds (except image placeholders)
+- NO glassmorphism or backdrop-filter (navigation only exception)
+- NO particle systems or WebGL
+- NO centered body copy (hero text on mobile is only exception)
+- NO skill bars or percentage rings
+- NO neon or glow effects
+- NO decorative large quote marks
+- NO excessive shadows
+- NO horizontal overflow at any breakpoint
+- NO "Coming Soon" cards (remove or build the actual thing)
 
-## Routes
-/ → Home
-/work → Home (work listing)  
-/work/ai-sales-agent → Case Study (Stubbed - "Coming Soon")
-/work/design-system → Case Study (Stubbed - "Coming Soon")
-/work/metalcloud-platform → Case Study
-/work/nowpurchase-website → Case Study
-/about → About
+**Design philosophy:** Apple-inspired minimalism. Generous whitespace. Surgical use of accent. Content carries the weight, not visual theatrics. Case study depth = competitive advantage.
 
-## Stack
-React + Vite. React Router with basename="/umang-portfolio".
-Plain CSS with CSS custom properties. No Tailwind. No external UI libs.
-gh-pages for deployment.
+---
 
-## Design System
-Design specifications are maintained at: https://api.anthropic.com/v1/design/h/xHMGqEOeQNKcgPKILSnt0Q
+## 5. ROUTES & PAGES
 
-## Code Organization & Hooks
+```
+/                          → Home.jsx
+/work                      → Home.jsx (work listing)
+/work/ai-sales-agent       → AiSalesAgent.jsx  ← P0, currently a stub, MUST BUILD
+/work/design-system        → DesignSystem.jsx   ← has content + images
+/work/metalcloud-platform  → MetalcloudPlatform.jsx ← full case study ✅
+/work/nowpurchase-website  → NowpurchaseWebsite.jsx ← full case study ✅
+/tools                     → Tools.jsx          ← NOT YET CREATED, high priority
+/about                     → About.jsx ✅
+/resume                    → Resume.jsx ✅
+```
+
+**basename:** `"/"` (GitHub Pages root). Router is BrowserRouter.
+
+---
+
+## 6. CASE STUDY PAGE PATTERN
+
+All 4 case studies follow this section order:
+```
+Hero → Context → Problem → Design Process → Solution → Usability Testing → Impact → What I Learned → Next Project CTA
+```
+
+- Max-width for text: `--case-study-width: 680px`, centered
+- Section h2 headings: NO blue left border (border-left was removed)
+- Stats: 3-column block, clean typography, no boxes around numbers
+- Images: full-width, break out of 680px to 100% width
+- Dark Impact section: `#1A1A1A` background
+
+---
+
+## 7. CASE STUDY CONTENT REFERENCE
+
+### AI Sales Agent (N8N) — P0, MUST BUILD
+**Status:** Stub page. Content and assets NOT yet in code.
+**Positioning:** Highest signal project. Shipped to production. Revenue impact. AI differentiator.
+**Key facts to write from:**
+- Built N8N + LLM workflow to automate B2B sales follow-ups
+- Shipped to production → 10% revenue growth in month 1
+- Differentiator: designer who actually builds and ships AI agents
+- Assets needed: N8N workflow screenshots, WhatsApp agent-in-action screenshots, before/after data
+
+### MetalCloud Platform — ✅ Full case study exists
+**Two modules merged into one case study (NOT two separate ones):**
+
+**Spectro Pro (IoT spectrometer module):**
+- Connects spectrometer machine → MetalCloud server → real-time chemical analysis
+- AI/ML calculates Addition/Dilution suggestions (eliminates manual calc)
+- WhatsApp delivery of results to supervisor
+- Post-MVP: Shop-floor TV display + Spectrometer Dashboard for stakeholders
+- Task flow: Start → Login → Spectrometer Listing → View Reading → Details Page
+
+**Optimise (ChargeMix module):**
+- Inputs: Target Product Requirement, Raw Materials (yield % + price), Furnace Capacity
+- Output: On-screen ChargeMix → WhatsApp sharing → PDF/CSV export
+- Post-PMF: Grades module + Inventory module
+- Task flow: Start → Login → ChargeMix Listing → Add New/View → Step 1 → Step 2 → Step 3 → Details
+
+**Key metrics:**
+- 36 heats/day → 41 heats/day (20% productivity improvement via Spectro Pro)
+- Optimise: 12% cost saving
+- Client growth: 13 → 120 enterprise foundries in 12 months
+- Industry: $19B Indian foundry sector
+
+### NowPurchase Website Revamp — ✅ Full case study + images exist
+**Lead with:** 20x organic sessions, 50% sales growth in 6 months
+**Research documented:** Clarity heatmaps (4 tiles), Amplitude, stakeholder interviews, Miro IA diagrams, wireframes
+**Image assets:** All present in `/public/images/nowpurchase-website/`
+
+### Design System — ✅ Content + images exist
+**Figma source:** `JAwKifrBtSKtk2z4DexTa8` node `49-5020`
+**Atomic Design layers:**
+- Sub-atoms: Colors, Typography, Scale/Border/Spacing, Icons
+- Atoms: Tooltip, Buttons, CheckBoxes, Toggles, Input & Label, Left Nav Panel Items, Breadcrumb & Menu Items, Menu
+- Molecules: Text Boxes, Dropdowns, Left Panel Modules + Breadcrumbs + Profile Menu, Search
+- Organisms: Profile Menu
+- Layouts: Left Panel, Top Bar
+- Pages: Listing Page
+**Image naming:** `ds-[layer]-[component].png` (e.g., `ds-atoms-buttons.png`)
+
+---
+
+## 8. TOOLS PAGE ("How I Work in 2026") — NOT YET BUILT
+
+**Route:** `/tools`
+**Priority:** High — key differentiator page
+**Purpose:** Showcase Google Stitch → Figma → MCP → Claude Code pipeline with real screenshots.
+**Content angle:** "I compressed a 3–4 day design-to-handoff cycle to one morning."
+**File to create:** `src/pages/Tools.jsx` + `src/pages/Tools.css`
+
+---
+
+## 9. HOME PAGE — PROJECT CARDS
+
+**4 case studies total (once AI Sales Agent is built):**
+1. AI Sales Agent (N8N) — P0 — build first
+2. MetalCloud Platform — B2B SaaS + IoT/AI modules for foundries
+3. Design System — Unified atomic system across 2 products
+4. NowPurchase Website — End-to-end redesign, 20× organic growth
+
+**Card layout:** Desktop 2-column grid. Mobile: full-width stack, 16px gap.
+`grid-template-columns: 5fr 7fr` on desktop.
+Background: `#F5F5F7`. Border-radius: 18px. Min-height: 340px.
+Hover: shadow elevation + image zoom (1.04x).
+
+---
+
+## 10. COMPONENT & HOOK ARCHITECTURE
 
 ### Custom Hooks (src/hooks/)
-**useScrollReveal.js** — IntersectionObserver-based fade-up animations.
-- Applies `.visible` class to `.fade-up` elements when they enter viewport
-- Fires once on initial page load and on scroll
-- Used on: Home, About, all case study pages
-- Threshold: 0.05 (5% of element must be visible)
-
-**useCountAnimation.js** — Counting number animations with easing.
-- Animates `[data-count-to]` elements with `cubic-bezier(0.25, 0.46, 0.45, 0.94)` easing
-- Configurable threshold (default 0.3)
-- Used on: Home (0.5), About (0.3), MetalCloud (0.3), NowPurchase (0.1)
-- Duration: 1200ms per animation
+- **useScrollReveal.js** — IntersectionObserver fade-up. `.visible` on `.fade-up`. Threshold: 0.05. Fire once.
+- **useCountAnimation.js** — `[data-count-to]` count animations. Threshold configurable. Duration 1200ms. StrictMode idempotency fixed.
 
 ### Components (src/components/)
-**Navigation.jsx** — Smart header with background-aware theming.
-- 40-segment horizontal sampling with 3 vertical points per segment
-- Detects dark backgrounds and adjusts text/logo color automatically
-- Mobile: hamburger menu → full-screen overlay
-- Sticky, backdrop-filter blur
-
-**Footer.jsx** — Clean footer with email + LinkedIn links.
-
-**ScrollToTop.jsx** — Auto-scroll to top on route change.
-
-### Pages (src/pages/)
-**Home.jsx** — Work listing + hero + stats + CTA.
-Uses: useScrollReveal, useCountAnimation(0.5), data-scroll-to for smooth scroll
-
-**About.jsx** — Bio, experience, education, tools, teaching.
-Uses: useScrollReveal, useCountAnimation(0.3)
-
-**Resume.jsx** — PDF viewer with zoom controls (50% to 200%).
-Custom zoom state management, not tied to hooks.
-
-### Case Studies (src/pages/work/)
-**MetalcloudPlatform.jsx** — Full case study with 10+ sections.
-Uses: useScrollReveal, useCountAnimation(0.3)
-
-**NowpurchaseWebsite.jsx** — Full case study with research → strategy → design flow.
-Uses: useScrollReveal, useCountAnimation(0.1)
-
-**AiSalesAgent.jsx, DesignSystem.jsx** — Stub pages ("Coming Soon").
-Both use CaseStudy.css for consistent styling.
+- **Navigation.jsx** — Sticky, backdrop-blur. IntersectionObserver-based theme detection via `data-nav-theme="dark"`. Mobile hamburger → full-screen overlay with aria-label/aria-expanded/aria-modal/role="dialog". Escape key closes.
+- **StickyTextReveal.jsx** — Scroll-driven word opacity reveal. `scrollDistance` prop controls container height. Sticky inner at 100vh.
+- **LazyImage.jsx** — `<picture>` with WebP srcset at 480w/768w/1280w/1920w.
+- **Button.jsx**, **Footer.jsx**, **ScrollToTop.jsx** — standard utility components.
 
 ### CSS Organization
-Root styles: **src/index.css** (typography, colors, reset)
-Page styles: **src/pages/*.css** (page-specific layouts)
-Component styles: **src/components/*.css** (scoped to components)
-Case study shared: **src/pages/work/CaseStudy.css** (stub pages)
-Case study specific: **src/pages/work/*.css** (full case studies)
+- Global: `src/index.css` (variables, reset, typography)
+- Per-page: `src/pages/*.css`
+- Per-component: `src/components/*.css`
+- Case study shared (stubs): `src/pages/work/CaseStudy.css`
+- Case study specific: `src/pages/work/*.css`
 
-## Recent Fixes & Improvements (Latest Session)
+---
 
-### Content & Copy
-✅ V1-010: Email standardized to `hello@umangsingh.dev` (Footer, Navigation)
-✅ V1-014: "View Work" converted from button to semantic anchor with smooth scroll (`scroll-behavior: smooth`)
-✅ V1-015: N8N "Coming Soon" card removed from work grid (was placeholder, kept project clean)
+## 11. SCROLL ANIMATIONS
 
-### Visual Design
-✅ V1-019: Star ratings removed from MetalCloud testimonial cards (★★★★★ removed)
-✅ V1-020: Visual connection line added to process timeline using CSS gradient `::before`
-✅ V1-013: Navigation indicator easing updated to `var(--ease-spring)` (removed bouncy cubic-bezier)
+Every page uses IntersectionObserver → class `"visible"` on `.fade-up` elements.
+Animation: `fadeUp` keyframe, 0.6s, `cubic-bezier(0.25, 0.46, 0.45, 0.94)`.
+Stagger: direct children get delay 0, 0.1s, 0.2s, 0.3s...
+`useScrollReveal()` must be called in EVERY page component.
 
-### Code Architecture & Accessibility
-✅ V4-007: Mobile menu accessibility enhanced:
-  - Escape key handler closes overlay
-  - Body overflow lock when menu open
-  - `aria-controls`, `aria-modal`, `role="dialog"` attributes added
-  - Semantic HTML with skip-link for keyboard navigation
-✅ V4-011: Heading font-sizes now use CSS tokens:
-  - h1: `var(--text-h1-fluid)` with responsive clamp
-  - h2: `var(--text-h2-fluid)` with responsive clamp
-  - h3: `var(--text-h3)` with fixed size
-✅ V4-017: Added `.flow > * + *` utility for consistent paragraph spacing (1.25em margin-top)
-✅ V2-003: useCountAnimation fixed to prevent double-fire in StrictMode (idempotency check added)
+---
 
-## Best Practices (Implemented)
-✅ Do Not Repeat Yourself principle: Counting animation extracted into reusable hook
-✅ Lazy observer cleanup: IntersectionObserver disconnects after use
-✅ Event listener management: Proper add/remove in useEffect cleanup
-✅ Accessibility: aria-labels, alt text, semantic HTML, rel="noopener noreferrer", skip-link, keyboard support
-✅ Performance: RequestAnimationFrame for animations, passive scroll listeners, IntersectionObserver theming
-✅ No security vulnerabilities: No inline HTML, safe string handling
-✅ Semantic HTML: Main landmark with id="main-content", proper heading hierarchy
-✅ Responsive design: 100svh (mobile Safari fix), clamp() for fluid typography, media queries at 480px/768px/1024px
+## 12. RESPONSIVENESS — NON-NEGOTIABLE
 
-## Build Configuration & Deployment
-**Vite config settings:**
-- Base path: `/` (GitHub Pages root)
-- Dev server: `no-cache, no-store, must-revalidate` headers (forces fresh content)
-- Terser minification with selective `pure_funcs: ['console.log', 'console.debug']`
-- HMR enabled (removed earlier `hmr: false` setting)
-- Brotli compression disabled (GitHub Pages doesn't serve pre-compressed)
-- CSS code splitting enabled
-- Rollup output with manualChunks for vendor isolation
+Mobile-first. Test at 375px first.
+Breakpoints: 375px, 768px, 1024px, 1200px.
+No horizontal overflow at any breakpoint.
+Touch targets minimum 44×44px.
+Nav collapses to hamburger at < 768px.
 
-**Deployment target:** GitHub Pages (gh-pages branch)
-**Build output:** `/dist` folder (cleared between builds to force fresh compile)
+---
 
-## Known Issues & Workarounds
-1. **Dev server HMR caching:** Changes to React components sometimes don't immediately reflect in browser preview despite correct source files. 
-   - Workaround: Clear `.vite/` and `node_modules/.vite/` caches, restart dev server
-   - This does NOT affect production builds — deployed code is correct
-   - Workaround confirmed working: Manual DOM manipulation verified the underlying code was correct
+## 13. BUILD & DEPLOYMENT
 
-2. **Unused routes:** `/work/ai-sales-agent` and `/work/design-system` are "Coming Soon" stubs
-   - Consider: Complete one of these case studies or remove routes entirely
+- **Stack:** React + Vite. React Router. Plain CSS. No Tailwind. No UI libs.
+- **Deployment:** GitHub Pages via `gh-pages` npm package.
+- **URL:** `https://umangsingh27.github.io`
+- **Basename:** `"/"`
+- **Vite:** HMR enabled. Terser minification. CSS code splitting. Rollup manualChunks.
+- **Dev server HMR issue:** Changes sometimes don't reflect without clearing `.vite/` cache and restarting. Does NOT affect production builds.
 
-## Project Status & Remaining Work
+---
 
-### Completed (Latest Session)
-- 11 major fixes across content, design, and code architecture
-- All accessibility improvements for mobile menu
-- Responsive heading typography with CSS tokens
-- Visual enhancements (timeline line, hover effects, spacing utilities)
-- Email standardization and CTA improvements
+## 14. IMPORTANT IDs & REFERENCES
 
-### High Priority (Not Yet Done)
-- [ ] V1-016: Break About journey text into scannable paragraphs with pull quotes
-- [ ] V1-017: Redesign testimonials grid as asymmetric masonry layout
-- [ ] V2-009: Add page transition animations between routes
-- [ ] V4-013: Implement route-based lazy loading for case study pages
-- [ ] V4-015: Convert fonts from TTF to WOFF2 format (50% smaller)
+| Resource | Value |
+|---|---|
+| Portfolio URL | `https://umangsingh27.github.io` |
+| LinkedIn | `https://www.linkedin.com/in/umangsingh123/` |
+| Email | `mail2umangsingh@gmail.com` |
+| Phone | +91 70447 03370 |
+| Figma file (case studies) | `JAwKifrBtSKtk2z4DexTa8` |
+| Figma node (Design System) | `49-5020` |
+| Figma node (NP Website Revamp) | `18-735` |
+| AI Vision demo video | `https://youtu.be/74HHLrdwrZc` |
+| UX Gyan Sessions YouTube | `https://rb.gy/xvwogp` |
+| Notion Kanban board | `335b3c26-d217-81fc-938d-c02115e73172` |
 
-### Medium Priority
-- [ ] V2-002: Upgrade useScrollReveal with MutationObserver for dynamic content
-- [ ] V2-006: Implement CSS custom properties for animation stagger
-- [ ] V4-016: Move passive scroll listeners from document to refs
-- [ ] Complete or delete stub case studies (AI Sales Agent, Design System)
+---
 
-### Quality Gates
-- Production build passes Lighthouse > 90 (currently overstated at 95)
-- LCP < 2.5s (currently overstated at 1.8s)
-- Zero ESLint warnings
-- Mobile (375px) and desktop (1920px) tested
-- WCAG AA accessibility throughout
-- No console errors or warnings
+## 15. ANALYTICS (PLANNED — NOT YET IMPLEMENTED)
 
-### Image Optimization Status
-- WebP variants generated at 480w, 768w, 1280w, 1920w breakpoints
-- LazyImage component uses `<picture>` element with srcset fallbacks
-- Estimated image weight reduction: 67MB → ~2.5MB for case studies
+- **GA4** — backbone (all traffic/behavior)
+- **Microsoft Clarity** — heatmaps + session recordings (free, unlimited)
+- **Google Search Console** — organic keyword intelligence
+- **Events to track:** `resume_download` (P0 KPI), `contact_click`, `case_study_open` (per project), `youtube_play`, `linkedin_click`
 
-## NEVER build
-- Gradient backgrounds (except for image placeholders)
-- Glassmorphism or backdrop-filter (except navigation)
-- Particle systems or WebGL
-- Centered body copy (hero text mobile only exception)
-- Skill bars or percentage rings
-- Neon or glow effects
-- Horizontal overflow
-- "Coming Soon" placeholder cards (remove or complete the work)
+---
+
+## 16. CURRENT STATUS
+
+### Completed ✅
+- Portfolio: React + Vite deployed to GitHub Pages
+- MetalCloud Platform — full case study with images
+- NowPurchase Website Revamp — full case study with images
+- Design System — content + images (review for completeness)
+- About page — redesigned, sticky text reveal animation
+- Navigation — IntersectionObserver theming, mobile menu accessibility
+- All scroll animations, count animations
+- Responsive at 375px
+
+### Pending / Must Build ❌
+- **AI Sales Agent case study** — P0. Content NOT written. Needs N8N screenshots, WhatsApp screenshots, revenue data from Umang.
+- **Tools page** (`/tools`) — NOT created. Showcase Google Stitch → Figma → MCP → Claude Code pipeline.
+- **Analytics implementation** — GA4 + Clarity + Search Console scripts not added.
+- **AI Sales Agent home card** — Add back to home work grid once case study is built.
+
+### High Priority Polish
+- Page transition animations between routes
+- Route-based lazy loading for case study pages
+- Font format: TTF → WOFF2 (50% smaller)
+
+---
+
+## 17. CODE RULES (NON-NEGOTIABLE)
+
+1. **INSERT, don't restructure.** All changes must insert into existing structure. Never alter component structure unless explicitly asked.
+2. **Metric-first everywhere.** Every headline, bullet, and stat leads with the number.
+3. **Non-destructive by default.** Verify which version/file you're editing before changing.
+4. **No comments** unless the WHY is genuinely non-obvious (hidden constraint, workaround for a bug).
+5. **Mobile-first always.** Write CSS for 375px, then add breakpoints upward.

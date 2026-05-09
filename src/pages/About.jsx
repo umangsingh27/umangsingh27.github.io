@@ -3,6 +3,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useCountAnimation } from '../hooks/useCountAnimation'
 import LazyImage from '../components/LazyImage'
 import Button from '../components/Button'
+import StickyTextReveal from '../components/StickyTextReveal'
 import './About.css'
 
 export default function About() {
@@ -133,31 +134,18 @@ export default function About() {
         </div>
       </section>
 
-      {/* 2. JOURNEY NARRATIVE */}
-      <section className="about-journey fade-up">
-        <div className="about-journey__inner">
-          <h2>How I Became a Designer</h2>
-          <div className="about-journey__content flow">
-            <p className="about-journey__text">
-              I've always been a problem solver. As a kid, I was the one sketching in notebooks, taking apart electrical appliances to understand how they worked, winning science fair prizes for curiosity more than anything else. That restless need to understand, fix, and improve things never left me.
-            </p>
-            <p className="about-journey__text">
-              In college, I discovered Photoshop and Illustrator and fell in love. Within months, I'd joined the design team creating social media posts and graphics. By final year, I was leading it. But I knew I was just scratching the surface. So I took a leap.
-            </p>
-            <blockquote className="about-journey__pullquote">
-              "Every classmate had years in the industry. I was starting from zero. But that restlessness from childhood kicked in again—I couldn't accept being average."
-            </blockquote>
-            <p className="about-journey__text">
-              I enrolled in a Master's degree in UX/UI Design at a time when I had zero prior design degree and minimal professional experience. By graduation, I'd topped the university with a 9.57 CGPA.
-            </p>
-            <p className="about-journey__text">
-              The corporate world came next, and I brought that same hunger to every role. At Winjit, I delivered 14 client projects end-to-end. At NowPurchase, I scaled adoption from 13 to 120 clients, revamped a website that generated 20x organic sessions, and started designing AI-powered experiences that are shaping how an entire industry operates.
-            </p>
-            <p className="about-journey__text">
-              Every role taught me something: it's never about the tools. It's about understanding the human on the other side of the screen, and solving their problems in ways that feel inevitable, not clever.
-            </p>
+      {/* 2. JOURNEY NARRATIVE - STICKY REVEAL */}
+      <section className="about-journey-reveal">
+        <div className="about-journey-reveal__header">
+          <div className="about-journey-reveal__inner">
+            <h2 className="fade-up">How I Became a Designer</h2>
           </div>
         </div>
+        
+        <StickyTextReveal
+          scrollDistance="400vh"
+          text={`I've always been a problem solver—sketching in notebooks, taking apart appliances, winning science fair prizes for curiosity. That restless need to understand and improve things never left me.\nIn college, I discovered Photoshop and fell in love. Within months I'd joined the design team; by final year, I was leading it. But I knew I was scratching the surface, so I took a leap.\nI enrolled in a Master's degree in UX/UI Design with zero prior design background. Every classmate had years in the industry. "I couldn't accept being average." By graduation, I'd topped the university with a 9.57 CGPA.\nThe corporate world came next with the same hunger. At Winjit, I delivered 14 client projects end-to-end. At NowPurchase, I scaled adoption from 13 to 120 clients, revamped a website that generated 20x organic sessions, and started designing AI-powered experiences shaping how an entire industry operates.\nEvery role taught me the same lesson: it's never about the tools. It's about understanding the human on the other side of the screen, and solving their problems in ways that feel inevitable.`}
+        />
       </section>
 
       {/* 3. WHAT DRIVES ME */}
