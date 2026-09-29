@@ -5,17 +5,18 @@
  */
 
 /* ─────────────────────────────────────
-   FONTS (local, zero CDN dependency)
+   FONTS
 ───────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Regular.ttf')      format('truetype'); font-weight: 400; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Italic.ttf')       format('truetype'); font-weight: 400; font-style: italic;  font-display: swap; }
-@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Light.ttf')        format('truetype'); font-weight: 300; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-LightItalic.ttf')  format('truetype'); font-weight: 300; font-style: italic;  font-display: swap; }
-@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Medium.ttf')       format('truetype'); font-weight: 500; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-MediumItalic.ttf') format('truetype'); font-weight: 500; font-style: italic;  font-display: swap; }
-@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Bold.ttf')         format('truetype'); font-weight: 700; font-style: normal;  font-display: swap; }
-@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-BoldItalic.ttf')   format('truetype'); font-weight: 700; font-style: italic;  font-display: swap; }
+
+@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Regular.woff2')      format('woff2'); font-weight: 400; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Italic.woff2')       format('woff2'); font-weight: 400; font-style: italic;  font-display: swap; }
+@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Light.woff2')        format('woff2'); font-weight: 300; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-LightItalic.woff2')  format('woff2'); font-weight: 300; font-style: italic;  font-display: swap; }
+@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Medium.woff2')       format('woff2'); font-weight: 500; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-MediumItalic.woff2') format('woff2'); font-weight: 500; font-style: italic;  font-display: swap; }
+@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-Bold.woff2')         format('woff2'); font-weight: 700; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Ubuntu'; src: url('/fonts/Ubuntu-BoldItalic.woff2')   format('woff2'); font-weight: 700; font-style: italic;  font-display: swap; }
 
 /* ─────────────────────────────────────
    LIGHT MODE TOKENS  (default :root)
@@ -55,36 +56,26 @@
   --color-border-dark:  rgba(255,255,255,0.15);
 
   /* Dark sections (solid in light mode) */
-  --color-dark-bg:  #0F0F1E;
   --color-dark-alt: #1A1A1A;
+  --color-section-dark: #F5F5F7;
+  --color-on-section:   #1D1D1F;
+  --color-on-section-2: #6E6E73;
+  --color-on-section-3: #86868B;
+  --color-card-on-section:   #FFFFFF;
+  --color-border-on-section: #E8E8ED;
 
   /* Cards */
   --color-card-hover:   #FAFAFA;
   --color-card-on-dark: rgba(255,255,255,0.08);
-  --color-metric-bg:    #FFFFFF;
 
   /* Typography */
-  --font-heading: 'Orbitron', sans-serif;
-  --font-body:    'Ubuntu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --font-family-body: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --font-family-heading: 'Orbitron', sans-serif;
 
-  /* Type scale — fixed */
-  --text-hero:   100px;
-  --text-h1:     72px;
-  --text-h2:     40px;
-  --text-h3:     24px;
-  --text-body:   17px;
-  --text-sm:     15px;
-  --text-xs:     14px;
-  --text-2xs:    13px;
-  --text-label:  12px;
-  
-  /* Type scale — fluid (clamp) */
-  --text-display:     clamp(56px,  11vw, 160px);
-  --text-hero-fluid:  clamp(48px,   8vw, 120px);
-  --text-h1-fluid:    clamp(40px,   6vw,  72px);
-  --text-h2-fluid:    clamp(28px, 3.5vw,  48px);
+  /* Responsive type scale */
+  --text-h1-fluid:    80px;
+  --text-h2-fluid:    40px;
+  --text-h3:          24px;
   --text-lead:        clamp(20px, 1.6vw,  26px);
 
   /* Line heights */
@@ -92,13 +83,11 @@
   --lh-heading: 1.15;
   --lh-snug:    1.25;
   --lh-body:    1.75;
-  --lh-copy:    1.7;
 
   /* Letter spacing */
   --ls-tight:    -0.02em;
   --ls-snug:     -0.01em;
   --ls-label:     0.08em;
-  --ls-subtitle:  1px;
 
   /* Layout */
   --max-width:          1200px;
@@ -124,7 +113,9 @@
   --space-48:  48px;
   --space-56:  56px;
   --space-64:  64px;
+  --space-72:  72px;
   --space-96:  96px;
+  --space-128: 128px;
 
   /* Border radius */
   --radius-sm:   8px;
@@ -137,95 +128,73 @@
   --shadow-card:         none;
   --shadow-card-hover:   0 4px 24px rgba(0,0,0,0.06);
   --shadow-cta:          0 12px 24px rgba(0,102,204,0.3);
-  --shadow-elevated:     0 32px 80px rgba(0,0,0,0.2);
 
   /* Motion — named by semantic intent */
   --ease-spring:    cubic-bezier(0.16, 1, 0.3, 1);       /* settle: card hover, modal in */
   --ease-smooth:    cubic-bezier(0.25, 0.46, 0.45, 0.94); /* reveal: scroll fade-ups */
-  --ease-out-expo:  cubic-bezier(0.19, 1, 0.22, 1);       /* snap entry: hero word reveals */
   --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);        /* reversible: page transitions */
-  --ease-magnetic:  cubic-bezier(0.2, 0.8, 0.2, 1);        /* magnetic pull: cursor/button */
 
   --dur-fast:    0.2s;
   --dur-base:    0.3s;
   --dur-slow:    0.4s;
   --dur-reveal:  0.6s;
   --dur-hero:    0.8s;
-  --dur-page:    1.2s;
-
-  /* NOTE: avoid using --transition directly — it triggers 'all' recalc.
-     Prefer explicit property lists in each component. */
-  --transition: transform var(--dur-slow) var(--ease-spring), opacity var(--dur-slow) var(--ease-spring);
-
-  /* Cursor system */
-  --cursor-size:       12px;
-  --cursor-size-link:  40px;
-  --cursor-size-media: 80px;
 
   /* Z-index stack */
   --z-base:    1;
   --z-sticky:  10;
   --z-nav:     50;
-  --z-cursor:  9998;
   --z-loader:  9999;
 }
 
 /* ─────────────────────────────────────
-   DARK MODE TOKENS
-   Applied via [data-theme="dark"] on <html>
-   JS also sets this from prefers-color-scheme
-   WCAG AA verified on all text/bg pairs
+   DARK MODE TOKENS — follows the device's system setting
 ───────────────────────────────────── */
-[data-theme="dark"] {
-  color-scheme: dark;
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
 
-  /* Backgrounds — never pure #000; soft dark navy avoids halation */
-  --color-bg:        #0D0D14;   /* base — near-black navy */
-  --color-surface:   #16161F;   /* cards, surface sections */
-  --color-surface-2: #1D1D28;   /* hover / elevated */
-  --color-surface-3: #22222E;   /* deepest elevation */
+    --color-bg:        #000000;
+    --color-surface:   #161617;
+    --color-surface-2: #1D1D1F;
+    --color-surface-3: #242426;
 
-  /* Text — off-white to reduce halation; never pure white
-     primary   #F2F2F7 on #0D0D14 → ~14:1 ✓
-     secondary #A0A0B0 on #0D0D14 →  5.2:1 ✓
-     tertiary  #6E6E82 on #0D0D14 →  3.2:1 ✓ (labels/large only) */
-  --color-text-primary:   #F2F2F7;
-  --color-text-secondary: #A0A0B0;
-  --color-text-tertiary:  #6E6E82;
+    --color-text-primary:   #F5F5F7;
+    --color-text-secondary: #A1A1A6;
+    --color-text-tertiary:  #86868B;
 
-  /* Accent — lightened for dark bg
-     #4DA3FF on #0D0D14 → 6.1:1 ✓ */
-  --color-accent:        #4DA3FF;
-  --color-accent-hover:  #79BBFF;
-  --color-accent-muted:  rgba(77,163,255,0.12);
-  --color-accent-glow:   rgba(77,163,255,0.25);
+    --color-accent:        #2997FF;
+    --color-accent-hover:  #5CB0FF;
+    --color-accent-muted:  rgba(41,151,255,0.14);
+    --color-accent-glow:   rgba(41,151,255,0.28);
 
-  /* Borders */
-  --color-border:       #2A2A38;
-  --color-border-light: #1F1F2C;
+    --color-border:       #424245;
+    --color-border-light: #2C2C2E;
 
-  /* Dark sections → GRADIENTS in dark mode */
-  --color-dark-bg:  #0D0D14;
-  --color-dark-alt: #0D0D14;
+    --color-section-dark: #0D0D0E;
+    --color-on-section:   rgba(255,255,255,0.92);
+    --color-on-section-2: rgba(255,255,255,0.68);
+    --color-on-section-3: rgba(255,255,255,0.5);
+    --color-card-on-section:   #1C1C1E;
+    --color-border-on-section: rgba(255,255,255,0.12);
+    --color-dark-alt:     #0D0D0E;
 
-  /* Cards */
-  --color-card-hover:   #1D1D28;
-  --color-card-on-dark: rgba(255,255,255,0.05);
-  --color-metric-bg:    #16161F;
+    --color-card-hover:   #1D1D1F;
+    --color-metric-bg:    #161617;
+  }
 
-  /* Shadows deeper in dark mode */
-  --shadow-card-hover:  0 4px 32px rgba(0,0,0,0.4);
-  --shadow-elevated:    0 32px 80px rgba(0,0,0,0.6);
+  .hero-title-svg {
+    filter: invert(1);
+  }
+
+  img:not(.hero-title-svg) {
+    filter: brightness(0.94);
+  }
 }
 
-/* ─────────────────────────────────────
-   DARK SECTION GRADIENTS
-───────────────────────────────────── */
-[data-theme="dark"] .dark-section-hero {
-  background: linear-gradient(135deg, #0A0A18 0%, #0C1428 35%, #110A20 65%, #0A0A14 100%);
-}
-[data-theme="dark"] .dark-section-alt {
-  background: linear-gradient(135deg, #080810 0%, #0E1520 45%, #0A0A16 70%, #06060E 100%);
+/* LazyImage wrapper — radius lives here (not inline) so page classes can override it */
+.lazy-image-container {
+  border-radius: inherit;
 }
 
 /* ─────────────────────────────────────
@@ -239,7 +208,6 @@
 
 html {
   font-size: 16px;
-  color-scheme: light;
   /* scroll-behavior: smooth removed — use JS smooth scroll instead.
      Native CSS smooth scroll blocks the main thread and causes jank
      on low-end hardware during fast scrolling. */
@@ -271,7 +239,7 @@ h1 {
   font-family: var(--font-family-heading);
   font-size: var(--text-h1-fluid);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.003em;
   line-height: 1.05;
   color: var(--color-text-primary);
 }
@@ -280,7 +248,7 @@ h2 {
   font-family: var(--font-family-heading);
   font-size: var(--text-h2-fluid);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.15;
   color: var(--color-text-primary);
 }
@@ -298,7 +266,7 @@ p {
   font-family: var(--font-family-body);
   font-size: 17px;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: var(--lh-body);
 }
 
 .label {
@@ -405,25 +373,29 @@ button, a, [role="button"] {
 /* ─── Responsive typography scale ─── */
 
 @media (max-width: 1024px) {
-  h1 { font-size: 56px; }
+  :root { --text-h1-fluid: 56px; }
 }
 
 @media (max-width: 768px) {
   :root {
     --section-padding: 72px;
+    --text-h1-fluid: 52px;
+    --text-h2-fluid: 32px;
+    --text-h3: 21px;
   }
-  h1 { font-size: 52px; }
-  h2 { font-size: 32px; }
-  h3 { font-size: 21px; }
   p  { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  :root { --text-h2-fluid: 28px; }
 }
 
 @media (max-width: 375px) {
   :root {
     --section-padding: 56px;
+    --text-h1-fluid: 40px;
+    --text-h2-fluid: 28px;
   }
-  h1 { font-size: 40px; }
-  h2 { font-size: 28px; }
 }
 
 

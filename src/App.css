@@ -1,1 +1,12 @@
 /* App-level styles — component styles live in their own CSS files */
+
+.route-content { flex: 1; animation: route-enter var(--dur-slow) var(--ease-smooth) both; }
+
+@keyframes route-enter {
+  from { opacity: .72; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-content { animation: none; }
+}

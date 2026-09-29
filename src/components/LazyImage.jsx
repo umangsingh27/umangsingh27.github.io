@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import imageVariants from '../imageVariants.json'
 
 /**
  * LazyImage — zero-jank lazy loading.
@@ -23,28 +24,26 @@ export default function LazyImage({
   const [isLoaded, setIsLoaded] = useState(false)
   const imgRef = useRef(null)
 
-  // If image is already cached, it may fire onLoad synchronously before mount
+  // Reset load state when the source changes, and handle images already
+  // cached (which may fire onLoad synchronously before this effect runs)
   useEffect(() => {
     if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
       setIsLoaded(true)
+    } else {
+      setIsLoaded(false)
     }
-  }, [])
+  }, [src])
 
-  const base = src.startsWith('http')
-    ? src.replace(/\.(png|jpe?g)$/i, '')
-    : (import.meta.env.BASE_URL.replace(/\/$/, '') + src).replace(/\.(png|jpe?g)$/i, '')
-
-  const webpSrcset = [480, 768, 1280, 1920]
-    .map(w => `${base}-${w}w.webp ${w}w`)
-    .join(', ')
-
-  const fallbackSrcset = [480, 768, 1280, 1920]
-    .map(w => `${base}-${w}w.jpeg ${w}w`)
-    .join(', ')
+  const variantKey = src.replace(/\.(png|jpe?g|webp)$/i, '')
+  const variants = imageVariants[variantKey]
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '') + variantKey
+  const srcset = (format) => variants?.[format]?.map(w => `${base}-${w}w.${format} ${w}w`).join(', ')
 
   const fullSrc = src.startsWith('http')
     ? src
     : import.meta.env.BASE_URL.replace(/\/$/, '') + src
+
+  const { width, height } = variants || {}
 
   return (
     <div
@@ -52,18 +51,20 @@ export default function LazyImage({
       style={{
         position: 'relative',
         overflow: 'hidden',
-        borderRadius: 'inherit',
         backgroundColor: isLoaded ? 'transparent' : 'rgba(0,0,0,0.04)',
+        ...(width && height ? { aspectRatio: `${width} / ${height}` } : {}),
         ...style
       }}
     >
       <picture>
-        <source type="image/webp" srcSet={webpSrcset} sizes={sizes} />
-        <source type="image/jpeg" srcSet={fallbackSrcset} sizes={sizes} />
+        {variants?.webp && <source type="image/webp" srcSet={srcset('webp')} sizes={sizes} />}
+        {variants?.jpeg && <source type="image/jpeg" srcSet={srcset('jpeg')} sizes={sizes} />}
         <img
           ref={imgRef}
           src={fullSrc}
           alt={alt}
+          width={width}
+          height={height}
           onLoad={() => setIsLoaded(true)}
           loading={priority ? 'eager' : 'lazy'}
           decoding={priority ? 'sync' : 'async'}

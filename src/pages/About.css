@@ -18,7 +18,7 @@
    1. HERO — 50/50 Grid
    ════════════════════════════════════════════════════════════ */
 
-.about-hero { background: #FFFFFF; }
+.about-hero { background: var(--color-bg); }
 
 .about-hero__grid {
   max-width: var(--max-width);
@@ -58,25 +58,25 @@
 }
 
 .about-hero__headline {
-  font-size: clamp(26px, 3.5vw, 36px);
+  font-size: var(--text-h1-fluid);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: #1D1D1F;
+  letter-spacing: -0.003em;
+  line-height: 1.05;
+  color: var(--color-text-primary);
   font-family: var(--font-family-heading);
 }
 
 .about-hero__subheading {
   font-size: clamp(15px, 1.4vw, 17px);
   line-height: 1.75;
-  color: #6E6E73;
+  color: var(--color-text-secondary);
   font-family: var(--font-family-body);
 }
 
 .about-hero__tagline {
   font-size: clamp(13px, 1.2vw, 15px);
   line-height: 1.6;
-  color: #9D9D9F;
+  color: var(--color-text-tertiary);
   font-family: var(--font-family-body);
   font-style: italic;
 }
@@ -95,12 +95,12 @@
    ════════════════════════════════════════════════════════════ */
 
 .about-journey-reveal {
-  background: #FFFFFF;
+  background: var(--color-bg);
   position: relative;
 }
 
 .about-journey-reveal__header {
-  padding: clamp(64px, 8vw, 120px) 0 clamp(80px, 10vw, 160px);
+  padding: clamp(48px, 6vw, 80px) 0 24px;
   position: relative;
   z-index: 10;
 }
@@ -113,17 +113,31 @@
 }
 
 .about-journey-reveal__inner h2 {
-  font-size: clamp(24px, 3.5vw, 40px);
+  font-size: var(--text-h2-fluid);
   margin-bottom: 0;
   font-family: var(--font-family-heading);
-  color: #1D1D1F;
+  color: var(--color-text-primary);
+}
+
+.about-journey-copy {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding-h) clamp(56px, 7vw, 96px);
+  display: grid;
+  gap: 20px;
+}
+
+.about-journey-copy p {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.65;
+  color: var(--color-text-secondary);
 }
 
 /* ════════════════════════════════════════════════════════════
    3. VALUE CARDS
    ════════════════════════════════════════════════════════════ */
 
-.about-values { background: #F5F5F7; }
+.about-values { background: var(--color-surface); }
 
 .about-values__inner {
   max-width: var(--max-width);
@@ -140,8 +154,8 @@
 }
 
 .value-card {
-  background: #FFFFFF;
-  border: 1px solid #E8E8ED;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
   border-radius: 16px;
   padding: clamp(20px, 2.5vw, 28px);
   display: flex;
@@ -156,26 +170,36 @@
   box-shadow: 0 16px 40px rgba(0,0,0,0.07);
 }
 
-.value-card__icon { font-size: 28px; line-height: 1; }
+.icon-tile {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: var(--color-accent);
+  background: var(--color-accent-muted);
+  border: 1px solid var(--color-border-light);
+  border-radius: 12px;
+  flex: none;
+}
 .value-card__title {
   font-size: clamp(16px, 1.5vw, 18px);
   font-weight: 600;
-  color: #1D1D1F;
+  color: var(--color-text-primary);
   font-family: var(--font-family-heading);
   margin: 0;
 }
 .value-card__description {
   font-size: clamp(14px, 1.3vw, 16px);
   line-height: 1.7;
-  color: #1D1D1F;
+  color: var(--color-text-primary);
   font-family: var(--font-family-body);
   margin: 0;
 }
-.value-card__divider { height: 1px; background: #E8E8ED; }
+.value-card__divider { height: 1px; background: var(--color-border-light); }
 .value-card__why {
   font-size: clamp(13px, 1.1vw, 14px);
   line-height: 1.6;
-  color: #6E6E73;
+  color: var(--color-text-secondary);
   font-style: italic;
   margin: 0;
 }
@@ -187,8 +211,9 @@
    ════════════════════════════════════════════════════════════ */
 
 .about-testimonials {
-  background: #1A1A1A;
-  color: white;
+  background: var(--color-section-dark);
+  color: var(--color-on-section);
+  scroll-margin-top: 100px;
 }
 
 .about-testimonials__inner {
@@ -200,7 +225,7 @@
 .about-testimonials__inner h2 {
   margin-bottom: clamp(24px, 3vw, 40px);
   text-align: center;
-  color: white !important;
+  color: var(--color-on-section) !important;
 }
 
 .testimonials-grid {
@@ -210,8 +235,8 @@
 }
 
 .testimonial-card {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--color-card-on-section);
+  border: 1px solid var(--color-border-on-section);
   border-radius: 16px;
   padding: clamp(20px, 2.5vw, 28px);
   transition: background-color 0.3s ease, transform 0.35s var(--ease-spring);
@@ -219,26 +244,26 @@
 }
 .testimonial-card.fade-up-child { opacity: 0; }
 .testimonial-card:hover {
-  background: rgba(255,255,255,0.1);
+  background: var(--color-card-on-section);
   transform: translateY(-2px);
 }
 
 .testimonial-card__quote {
   font-size: clamp(14px, 1.3vw, 16px);
   line-height: 1.75;
-  color: rgba(255,255,255,0.88);
+  color: var(--color-on-section);
   font-style: italic;
   margin: 0 0 14px;
 }
 .testimonial-card__author {
   font-size: 15px;
   font-weight: 600;
-  color: rgba(255,255,255,0.9);
+  color: var(--color-on-section);
   margin: 0;
 }
 .testimonial-card__title {
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  color: var(--color-on-section-3);
   margin: 4px 0 0;
 }
 
@@ -246,7 +271,7 @@
    5. ALWAYS LEARNING — 3-card grid
    ════════════════════════════════════════════════════════════ */
 
-.about-learning { background: #FFFFFF; }
+.about-learning { background: var(--color-bg); }
 
 .about-learning__inner {
   max-width: var(--max-width);
@@ -262,8 +287,8 @@
 }
 
 .learning-card {
-  background: #F5F5F7;
-  border: 1px solid #E8E8ED;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
   border-radius: 16px;
   padding: clamp(18px, 2.5vw, 28px);
   display: flex;
@@ -280,20 +305,20 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6E6E73;
+  color: var(--color-text-secondary);
   margin: 0;
 }
 .learning-card__title {
   font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 600;
-  color: #1D1D1F;
+  color: var(--color-text-primary);
   font-family: var(--font-family-heading);
   margin: 0;
 }
 .learning-card__description {
   font-size: clamp(13px, 1.2vw, 14px);
   line-height: 1.7;
-  color: #6E6E73;
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
@@ -304,7 +329,7 @@
    6. TEACHING & ACHIEVEMENTS
    ════════════════════════════════════════════════════════════ */
 
-.about-teaching { background: #F5F5F7; }
+.about-teaching { background: var(--color-surface); }
 
 .about-teaching__inner {
   max-width: var(--max-width);
@@ -328,21 +353,21 @@
 .teaching-left h3 {
   font-size: clamp(18px, 2vw, 24px);
   font-weight: 600;
-  color: #1D1D1F;
+  color: var(--color-text-primary);
   margin: 0;
 }
 .teaching-left p {
   font-size: clamp(14px, 1.4vw, 17px);
   line-height: 1.75;
-  color: #6E6E73;
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
 .teaching-right { display: flex; flex-direction: column; gap: clamp(12px, 2vw, 16px); }
 
 .achievement-card {
-  background: #FFFFFF;
-  border: 1px solid #E8E8ED;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
   border-radius: 16px;
   padding: clamp(16px, 2vw, 24px);
   display: flex;
@@ -354,18 +379,22 @@
 .achievement-card.fade-up-child { opacity: 0; }
 .achievement-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
 
-.achievement-card__icon { font-size: 24px; line-height: 1; }
-.achievement-card__title { font-size: clamp(14px, 1.4vw, 16px); font-weight: 600; color: #1D1D1F; margin: 0; }
-.achievement-card__description { font-size: clamp(13px, 1.2vw, 14px); line-height: 1.6; color: #6E6E73; margin: 0; }
+.achievement-card__title { font-size: clamp(14px, 1.4vw, 16px); font-weight: 600; color: var(--color-text-primary); margin: 0; }
+.achievement-card__description { font-size: clamp(13px, 1.2vw, 14px); line-height: 1.6; color: var(--color-text-secondary); margin: 0; }
 .achievement-card__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 5px;
+  align-self: flex-start;
   font-size: 13px;
   font-weight: 500;
-  color: #0066CC;
+  color: var(--color-accent);
   text-decoration: none;
   margin-top: 4px;
   transition: color 0.2s ease;
 }
-.achievement-card__link:hover { color: #004499; text-decoration: underline; }
+.achievement-card__link:hover { color: var(--color-accent-hover); text-decoration: underline; }
 
 @media (max-width: 768px) { .teaching-grid { grid-template-columns: 1fr; } }
 
@@ -375,8 +404,8 @@
 
 .about .home-cta-section {
   padding: clamp(56px, 7vw, 96px) 0;
-  background: #FFFFFF;
-  border-top: 1px solid #E8E8ED;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border-light);
 }
 .about .home-cta__outer {
   max-width: var(--max-width);
@@ -384,7 +413,7 @@
   padding: 0 var(--page-padding-sm);
 }
 .about .about-cta-card {
-  background: #F5F5F7;
+  background: var(--color-surface);
   border-radius: 20px;
   padding: clamp(36px, 5vw, 72px) clamp(24px, 5vw, 56px);
   text-align: center;
@@ -394,16 +423,16 @@
 .about .about-cta-card:hover { box-shadow: 0 8px 48px rgba(0,0,0,0.06); }
 
 .about .about-cta__heading {
-  font-size: clamp(26px, 4vw, 48px);
+  font-size: var(--text-h2-fluid);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.1;
-  color: #1D1D1F;
+  color: var(--color-text-primary);
   margin: 0;
 }
 .about .about-cta__subline {
   font-size: clamp(14px, 1.4vw, 17px);
-  color: #6E6E73;
+  color: var(--color-text-secondary);
   margin: 14px 0 36px;
   line-height: 1.6;
 }

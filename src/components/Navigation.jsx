@@ -3,23 +3,29 @@ import { NavLink, useLocation, Link } from 'react-router-dom'
 import './Navigation.css'
 import GlassSurface from './GlassSurface'
 import Button from './Button'
+import Icon from './Icon'
 
 export default function Navigation() {
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [pillThemes, setPillThemes] = useState({ logo: false, links: false, cta: false })
   const [activeIndicatorStyle, setActiveIndicatorStyle] = useState({})
   const navLinksRef = useRef(null)
   const logoRef = useRef(null)
   const ctaRef = useRef(null)
   const hamburgerRef = useRef(null)
-  const observerRef = useRef(null)
   const navHeaderRef = useRef(null)
-  const darkSectionsRef = useRef(new Set())
+  const [prefersDark, setPrefersDark] = useState(() => window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+  useEffect(() => {
+    const mql = window.matchMedia('(prefers-color-scheme: dark)')
+    const onChange = (e) => setPrefersDark(e.matches)
+    mql.addEventListener('change', onChange)
+    return () => mql.removeEventListener('change', onChange)
+  }, [])
 
 
   const getPathname = () => location.pathname.split('/')[1]
-  const isActive = (page) => getPathname() === page
+  const isActive = (page) => page === '' ? ['', 'work'].includes(getPathname()) : getPathname() === page
 
   // Update active indicator position smoothly
   const updateIndicator = useCallback(() => {
@@ -80,77 +86,68 @@ export default function Navigation() {
     }
   }, [location, menuOpen, updateIndicator])
 
-  // Handle escape key to close mobile menu
+  // Handle escape key, focus trap, and background inertness for mobile menu
   useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape' && menuOpen) {
+    if (!menuOpen) return undefined
+
+    const overlay = document.getElementById('mobile-nav-overlay')
+    const mainContent = document.getElementById('main-content')
+    const footer = document.querySelector('.site-footer, footer')
+    const backgroundEls = [logoRef.current, navLinksRef.current, ctaRef.current, mainContent, footer].filter(Boolean)
+    const previousOverflow = document.body.style.overflow
+    const previouslyFocused = document.activeElement
+    const focusFrame = requestAnimationFrame(() => document.querySelector('.nav-overlay-links a')?.focus())
+
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape') {
         setMenuOpen(false)
+        hamburgerRef.current?.focus()
+        return
+      }
+      if (e.key === 'Tab' && overlay) {
+        const focusable = overlay.querySelectorAll('a[href], button:not([disabled])')
+        if (focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
       }
     }
 
-    if (menuOpen) {
-      document.addEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'hidden'
+    const handleResize = () => {
+      if (window.innerWidth < 1024) return
+      backgroundEls.forEach(el => el.removeAttribute('inert'))
+      navLinksRef.current?.querySelector('.nav-item.active a')?.focus()
+      setMenuOpen(false)
     }
 
+    document.addEventListener('keydown', handleKeydown)
+    window.addEventListener('resize', handleResize)
+    document.body.style.overflow = 'hidden'
+    backgroundEls.forEach(el => el.setAttribute('inert', ''))
+
     return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'unset'
+      document.removeEventListener('keydown', handleKeydown)
+      window.removeEventListener('resize', handleResize)
+      cancelAnimationFrame(focusFrame)
+      document.body.style.overflow = previousOverflow
+      backgroundEls.forEach(el => el.removeAttribute('inert'))
+      if (document.activeElement === document.body || overlay?.contains(document.activeElement)) {
+        previouslyFocused?.focus?.()
+      }
     }
   }, [menuOpen])
 
-  // IntersectionObserver-based theme detection
-  useEffect(() => {
-    const nav = navHeaderRef.current
-    if (!nav) return
-
-    const updatePillThemes = () => {
-      const hasDarkSection = darkSectionsRef.current.size > 0
-      setPillThemes({
-        logo: hasDarkSection,
-        links: hasDarkSection,
-        cta: hasDarkSection
-      })
-    }
-
-    // Observe all sections with data-nav-theme attribute
-    if (observerRef.current) observerRef.current.disconnect()
-
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          darkSectionsRef.current.add(entry.target)
-        } else {
-          darkSectionsRef.current.delete(entry.target)
-        }
-      })
-      updatePillThemes()
-    }, {
-      threshold: 0,
-      rootMargin: '0px 0px -100% 0px'
-    })
-
-    // Observe all dark theme sections
-    const scanSections = () => {
-      document.querySelectorAll('[data-nav-theme="dark"]').forEach(el => {
-        observerRef.current.observe(el)
-      })
-    }
-
-    scanSections()
-    
-    // Also re-scan after a short delay to account for potential late renders
-    const timer = setTimeout(scanSections, 500)
-
-    return () => {
-      if (observerRef.current) observerRef.current.disconnect()
-      clearTimeout(timer)
-    }
-  }, [location.pathname])
+  const themes = { logo: prefersDark, links: prefersDark, cta: prefersDark }
 
   return (
     <header className="nav-header" ref={navHeaderRef}>
-      <div className={`nav-header-bg ${pillThemes.logo ? 'dark' : ''}`}></div>
+      <div className={`nav-header-bg ${themes.logo ? 'dark' : ''}`}></div>
 
       <a href="#main-content" className="skip-link">Skip to content</a>
 
@@ -158,7 +155,7 @@ export default function Navigation() {
         {/* Logo Pill */}
         <Link 
           to="/" 
-          className={`nav-logo-pill magnetic-pull ${(pillThemes.logo && !menuOpen) ? 'pill--dark' : ''} ${menuOpen ? 'nav-logo--menu-open' : ''}`}
+          className={`nav-logo-pill ${(themes.logo && !menuOpen) ? 'pill--dark' : ''} ${menuOpen ? 'nav-logo--menu-open' : ''}`}
           ref={logoRef}
           onClick={() => setMenuOpen(false)}
         >
@@ -169,10 +166,10 @@ export default function Navigation() {
         </Link>
 
         {/* Nav Links Pill */}
-        <nav className={`nav-links-pill magnetic-pull ${pillThemes.links ? 'pill--dark' : ''}`} ref={navLinksRef}>
+        <nav className={`nav-links-pill ${themes.links ? 'pill--dark' : ''}`} ref={navLinksRef}>
           <GlassSurface asLayer borderRadius={27.5862} />
           <ul className="nav-items">
-            <div className="nav-indicator" style={activeIndicatorStyle} />
+            <li className="nav-indicator" style={activeIndicatorStyle} aria-hidden="true" />
             <li className={`nav-item ${isActive('') ? 'active' : ''}`}>
               <NavLink to="/">Work</NavLink>
             </li>
@@ -188,7 +185,7 @@ export default function Navigation() {
         {/* CTA Button */}
         <Button 
           href="mailto:mail2umangsingh@gmail.com" 
-          className={`nav-cta-btn ${pillThemes.cta ? 'pill--dark' : ''}`}
+          className={`nav-cta-btn ${themes.cta ? 'pill--dark' : ''}`}
           ref={ctaRef}
           variant="glass"
         >
@@ -198,7 +195,7 @@ export default function Navigation() {
 
         {/* Mobile Menu Button */}
         <Button
-          className={`nav-hamburger ${menuOpen ? 'nav-hamburger--open' : ''} ${(pillThemes.links && !menuOpen) ? 'pill--dark' : ''}`}
+          className={`nav-hamburger ${menuOpen ? 'nav-hamburger--open' : ''} ${(themes.links && !menuOpen) ? 'pill--dark' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
           ref={hamburgerRef}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -207,15 +204,7 @@ export default function Navigation() {
           variant="glass"
         >
           <GlassSurface asLayer borderRadius={27.5862} />
-          {menuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-              <path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"></path>
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-              <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
-            </svg>
-          )}
+          <Icon name={menuOpen ? 'close' : 'menu'} />
         </Button>
       </div>
 
@@ -223,9 +212,11 @@ export default function Navigation() {
       <div
         id="mobile-nav-overlay"
         className={`nav-overlay ${menuOpen ? 'nav-overlay--open' : ''}`}
-        aria-modal="true"
-        role="dialog"
+        aria-modal={menuOpen ? 'true' : undefined}
+        role={menuOpen ? 'dialog' : undefined}
         aria-label="Navigation menu"
+        aria-hidden={!menuOpen}
+        {...(!menuOpen ? { inert: '' } : {})}
       >
         <div className="nav-overlay-panel">
           <GlassSurface asLayer borderRadius={27.5862} />

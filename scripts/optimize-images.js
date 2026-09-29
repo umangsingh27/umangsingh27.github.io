@@ -5,44 +5,56 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const imageDir = path.join(__dirname, '../public/images');
-const sizes = [1920, 1280, 768, 480];
+const sizes = [480, 768, 1280, 1920];
 const formats = ['webp', 'jpeg'];
 
 async function optimizeImages() {
-  const walkDir = (dir) => {
+  const isGeneratedVariant = (file) => /-\d+w\.(webp|jpeg)$/i.test(file) || /\.webp$/i.test(file);
+
+  const walkDir = async (dir) => {
     const files = fs.readdirSync(dir);
-    files.forEach((file) => {
+    for (const file of files) {
       const filePath = path.join(dir, file);
       const stat = fs.statSync(filePath);
 
       if (stat.isDirectory()) {
-        walkDir(filePath);
-      } else if (/\.(png|jpg|jpeg)$/i.test(file)) {
-        optimizeImage(filePath);
+        await walkDir(filePath);
+      } else if (/\.(png|jpg|jpeg)$/i.test(file) && !isGeneratedVariant(file)) {
+        await optimizeImage(filePath);
       }
-    });
+    }
   };
 
   const optimizeImage = async (filePath) => {
     const filename = path.parse(filePath).name;
     const dirname = path.dirname(filePath);
-    const ext = path.extname(filePath);
 
     try {
       const originalSize = fs.statSync(filePath).size;
+      const { width: sourceWidth } = await sharp(filePath).metadata();
+      const outputWidths = [...new Set(sizes.map((size) => Math.min(size, sourceWidth)))];
+      const expectedWidth = new Set(outputWidths);
+
+      for (const file of fs.readdirSync(dirname)) {
+        const match = file.match(new RegExp(`^${filename}-(\\d+)w\\.(webp|jpeg)$`, 'i'));
+        if (match && !expectedWidth.has(Number(match[1]))) {
+          fs.unlinkSync(path.join(dirname, file));
+        }
+      }
 
       for (const format of formats) {
-        // Optimize for different sizes
-        for (const size of sizes) {
+        for (const size of outputWidths) {
           const outputName = `${filename}-${size}w.${format}`;
           const outputPath = path.join(dirname, outputName);
 
           const quality = size <= 768 ? 75 : 80;
 
-          await sharp(filePath)
-            .resize(size, null, { withoutEnlargement: true })
-            [format]({ quality, progressive: true })
-            .toFile(outputPath);
+          const pipeline = sharp(filePath).resize(size, null, { withoutEnlargement: true });
+          if (format === 'webp') {
+            await pipeline.webp({ quality, alphaQuality: 80 }).toFile(outputPath);
+          } else {
+            await pipeline.jpeg({ quality, progressive: true }).toFile(outputPath);
+          }
 
           const optimizedSize = fs.statSync(outputPath).size;
           const saved = ((1 - optimizedSize / originalSize) * 100).toFixed(2);
@@ -50,7 +62,6 @@ async function optimizeImages() {
         }
       }
 
-      // Create WebP version at original size with aggressive compression
       const webpPath = path.join(dirname, `${filename}.webp`);
       await sharp(filePath)
         .webp({ quality: 80, alphaQuality: 80 })
@@ -67,7 +78,7 @@ async function optimizeImages() {
   };
 
   console.log('Starting image optimization...\n');
-  walkDir(imageDir);
+  await walkDir(imageDir);
   console.log('Image optimization complete!');
 }
 

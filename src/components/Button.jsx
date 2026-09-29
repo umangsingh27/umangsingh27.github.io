@@ -9,7 +9,6 @@ const Button = forwardRef(({
   onClick,
   variant = 'primary', // primary, secondary, text, outline, tab
   size = 'medium', // small, medium, large
-  isMagnetic = true,
   className = '',
   disabled = false,
   type = 'button',
@@ -21,16 +20,16 @@ const Button = forwardRef(({
   const baseClass = 'btn'
   const variantClass = `btn--${variant}`
   const sizeClass = `btn--${size}`
-  const magneticClass = isMagnetic ? 'magnetic-pull' : ''
-  
-  const combinedClasses = `${baseClass} ${variantClass} ${sizeClass} ${magneticClass} ${className}`.trim()
+
+  const combinedClasses = `${baseClass} ${variantClass} ${sizeClass} ${className}`.trim()
 
   // If "to" is provided, it's a React Router Link
   if (to) {
     return (
-      <Link 
-        to={to} 
-        className={combinedClasses} 
+      <Link
+        to={to}
+        className={combinedClasses}
+        onClick={onClick}
         ref={ref}
         {...props}
       >
@@ -42,11 +41,12 @@ const Button = forwardRef(({
   // If "href" is provided, it's a standard anchor
   if (href) {
     return (
-      <a 
-        href={href} 
-        className={combinedClasses} 
+      <a
+        href={href}
+        className={combinedClasses}
         download={download}
         target={target}
+        onClick={onClick}
         ref={ref}
         rel={target === '_blank' ? 'noopener noreferrer' : rel}
         {...props}

@@ -3,7 +3,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useCountAnimation } from '../hooks/useCountAnimation'
 import LazyImage from '../components/LazyImage'
 import Button from '../components/Button'
-import StickyTextReveal from '../components/StickyTextReveal'
+import Icon from '../components/Icon'
 import './About.css'
 
 export default function About() {
@@ -17,25 +17,25 @@ export default function About() {
 
   const values = [
     {
-      icon: '▲',
+      icon: 'systems',
       title: 'Build Systems, Not Screens',
       description: 'A design system that scales beats a brilliant one-off. I build reusable components, patterns, and frameworks that let teams ship faster and stay consistent.',
-      whyItMatters: 'MetalCloud\'s design system reduced inconsistencies by 50% and accelerated handoff to engineering.'
+      whyItMatters: 'The shared system covers NowPurchase and MetalCloud; reduced inconsistencies and faster handoff are rollout targets.'
     },
     {
-      icon: '▲',
+      icon: 'field',
       title: 'Go to Where the Work Happens',
       description: 'The foundry floor taught me more than any design brief ever could. I observe real users in real context, not in meeting rooms.',
       whyItMatters: 'Understanding the spectrometer machine meant designing specs that actually work on the shop floor, not in theory.'
     },
     {
-      icon: '▲',
+      icon: 'iterate',
       title: 'Ship Ugly. Validate. Polish.',
       description: 'Speed matters more than perfection on day one. Launch early with an MVP, measure what users actually do, then refine based on data—not assumptions.',
       whyItMatters: 'MetalCloud went from concept to production in 45 days. The refinement happened post-launch, guided by real usage.'
     },
     {
-      icon: '▲',
+      icon: 'ai',
       title: 'Design at the AI Frontier',
       description: 'AI is rewriting what design can do. I build AI agents and intelligent systems that prove beautiful, intuitive design amplifies technology.',
       whyItMatters: 'The next competitive advantage isn\'t the feature set—it\'s how well the AI understands and anticipates the user.'
@@ -72,17 +72,20 @@ export default function About() {
 
   const learning = [
     {
-      label: '📖 Reading',
+      label: 'Reading',
+      icon: 'book',
       title: '"The Beginning of Infinity" by David Deutsch',
       description: 'Exploring how systems of knowledge and problem-solving transfer across domains—thinking about epistemology in design systems.'
     },
     {
-      label: '🛠 Building',
+      label: 'Building',
+      icon: 'build',
       title: 'An n8n + Claude RFQ-to-quote Agent',
       description: 'Applying everything I\'ve learned about AI design to a foundry use case: an autonomous agent that handles quote generation from raw material requests.'
     },
     {
-      label: '🎤 Speaking',
+      label: 'Speaking',
+      icon: 'speaking',
       title: 'Friends of Figma 2025 — "Design at the AI Frontier"',
       description: 'Sharing lessons from two years building AI-powered experiences: what works, what doesn\'t, and how design enables AI (not the other way around).'
     }
@@ -90,17 +93,19 @@ export default function About() {
 
   const achievements = [
     {
-      icon: '🎤',
+      icon: 'speaking',
       title: 'Lead Speaker at Friends of Figma',
-      description: 'Spoke on "Solving real-life problems through design" at 2025 event. Shared insights on bridging the gap between design theory and practical product impact.'
+      description: 'Spoke at Friends of Figma Kolkata about what Config 2026 means for product designers building with AI.',
+      linkText: 'Watch Session',
+      linkUrl: 'https://www.youtube.com/watch?v=15OKpiRyF9E'
     },
     {
-      icon: '🏆',
-      title: 'NowPurchase Hackathon Winner',
-      description: 'Best Presenter & Runner-up for "AI-based purchase prediction" project in 2023. Demonstrated how design thinking applies to AI-driven features.'
+      icon: 'trophy',
+      title: 'NowPurchase Hackathon — Best Presenter & Runner-up',
+      description: 'Recognized for "AI-based purchase prediction" project in 2023. Demonstrated how design thinking applies to AI-driven features.'
     },
     {
-      icon: '🎓',
+      icon: 'teaching',
       title: 'UX Gyan Sessions',
       description: 'Conducted regular teaching sessions for MetalCloud team covering design principles, systems thinking, and emerging tech applications. Available on YouTube.',
       linkText: 'Watch sessions',
@@ -123,9 +128,9 @@ export default function About() {
             />
           </div>
           <div className="about-hero__content">
-            <h1 className="about-hero__headline">I design B2B SaaS that ships, and AI agents that sell. Currently at NowPurchase, scaling MetalCloud from 13 to 120 enterprise foundries.</h1>
+            <h1 className="about-hero__headline">I design B2B SaaS that ships.</h1>
             <p className="about-hero__subheading">
-              Lead Product Designer at NowPurchase. I lead design across two products — MetalCloud (IoT + AI for foundry operations) and our procurement platform (used by 120+ enterprises). Driven by clarity, obsessed with solving real problems, and focused on shipping work that compounds impact.
+              Lead Product Designer at NowPurchase. I lead design across MetalCloud (IoT + AI for foundry operations), our procurement platform, and the shared design system. Driven by clarity, obsessed with solving real problems, and focused on shipping work that compounds impact.
             </p>
             <p className="about-hero__tagline">
               Currently focused on: AI-driven Design Systems, B2B SaaS, and proving that great design + technology can transform entire industries.
@@ -134,18 +139,18 @@ export default function About() {
         </div>
       </section>
 
-      {/* 2. JOURNEY NARRATIVE - STICKY REVEAL */}
+      {/* 2. JOURNEY */}
       <section className="about-journey-reveal">
         <div className="about-journey-reveal__header">
           <div className="about-journey-reveal__inner">
             <h2 className="fade-up">How I Became a Designer</h2>
           </div>
         </div>
-        
-        <StickyTextReveal
-          scrollDistance="400vh"
-          text={`I've always been a problem solver—sketching in notebooks, taking apart appliances, winning science fair prizes for curiosity. That restless need to understand and improve things never left me.\nIn college, I discovered Photoshop and fell in love. Within months I'd joined the design team; by final year, I was leading it. But I knew I was scratching the surface, so I took a leap.\nI enrolled in a Master's degree in UX/UI Design with zero prior design background. Every classmate had years in the industry. "I couldn't accept being average." By graduation, I'd topped the university with a 9.57 CGPA.\nThe corporate world came next with the same hunger. At Winjit, I delivered 14 client projects end-to-end. At NowPurchase, I scaled adoption from 13 to 120 clients, revamped a website that generated 20x organic sessions, and started designing AI-powered experiences shaping how an entire industry operates.\nEvery role taught me the same lesson: it's never about the tools. It's about understanding the human on the other side of the screen, and solving their problems in ways that feel inevitable.`}
-        />
+        <div className="about-journey-copy fade-up">
+          <p>I started by sketching in notebooks and taking apart appliances. In college I discovered Photoshop; by my final year I was leading the design team. I later earned a Master's in UX/UI Design, graduating with a 9.57 CGPA.</p>
+          <p>At Winjit, I worked on client projects. At NowPurchase, my work has included MetalCloud, a shared design system, and the website revamp. MetalCloud grew from 13 to 120 clients, and the site reported 20× organic sessions within six months of the revamp.</p>
+          <p>Across those projects, I keep coming back to the person using the product and the context they work in.</p>
+        </div>
       </section>
 
       {/* 3. WHAT DRIVES ME */}
@@ -155,7 +160,7 @@ export default function About() {
           <div className="values-grid">
             {values.map((value, idx) => (
               <div key={idx} className="value-card fade-up-child">
-                <div className="value-card__icon">{value.icon}</div>
+                <span className="value-card__icon icon-tile"><Icon name={value.icon} size={25} /></span>
                 <h3 className="value-card__title">{value.title}</h3>
                 <p className="value-card__description">{value.description}</p>
                 <div className="value-card__divider" />
@@ -167,7 +172,7 @@ export default function About() {
       </section>
 
       {/* 4. TESTIMONIALS */}
-      <section className="about-testimonials fade-up" data-nav-theme="dark">
+      <section id="testimonials" className="about-testimonials fade-up" data-nav-theme="dark">
         <div className="about-testimonials__inner">
           <h2>What Others Say</h2>
           <div className="testimonials-grid">
@@ -189,6 +194,7 @@ export default function About() {
           <div className="learning-grid">
             {learning.map((item, idx) => (
               <div key={idx} className="learning-card fade-up-child">
+                <span className="learning-card__icon icon-tile"><Icon name={item.icon} size={25} /></span>
                 <p className="learning-card__label">{item.label}</p>
                 <h3 className="learning-card__title">{item.title}</h3>
                 <p className="learning-card__description">{item.description}</p>
@@ -212,12 +218,12 @@ export default function About() {
             <div className="teaching-right">
               {achievements.map((achievement, idx) => (
                 <div key={idx} className="achievement-card fade-up-child">
-                  <div className="achievement-card__icon">{achievement.icon}</div>
+                  <span className="achievement-card__icon icon-tile"><Icon name={achievement.icon} size={25} /></span>
                   <h4 className="achievement-card__title">{achievement.title}</h4>
                   <p className="achievement-card__description">{achievement.description}</p>
                   {achievement.linkUrl && (
                     <a href={achievement.linkUrl} target="_blank" rel="noopener noreferrer" className="achievement-card__link">
-                      {achievement.linkText} →
+                      {achievement.linkText} <Icon name="arrowRight" size={16} />
                     </a>
                   )}
                 </div>

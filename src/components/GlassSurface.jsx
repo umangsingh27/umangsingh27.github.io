@@ -39,7 +39,7 @@ const GlassSurface = ({
   const blueGradId = `blue-grad-${uniqueId}`;
 
   const [svgSupported, setSvgSupported] = useState(false);
-  const [isLowEnd, setIsLowEnd] = useState(false);
+  const [isLowEnd] = useState(() => Boolean(navigator.deviceMemory && navigator.deviceMemory < 4));
 
   const containerRef = useRef(null);
   const feImageRef = useRef(null);
@@ -48,10 +48,6 @@ const GlassSurface = ({
   const resizeTimer = useRef(null);
 
   useEffect(() => {
-    // RAM check for extreme low-end devices remains a valid hardware hint
-    const lowPower = navigator.deviceMemory && navigator.deviceMemory < 4;
-    setIsLowEnd(lowPower);
-
     // REALTIME FEATURE DETECTION:
     // Instead of sniffing User Agents, we perform a live test to see if the browser
     // actually applies and preserves the SVG filter reference in the backdropFilter property.
@@ -83,7 +79,8 @@ const GlassSurface = ({
       return acceptsUrl && isChromium;
     };
 
-    setSvgSupported(checkSupport());
+    const frame = requestAnimationFrame(() => setSvgSupported(checkSupport()));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const generateDisplacementMap = () => {
@@ -210,11 +207,3 @@ const GlassSurface = ({
 };
 
 export default GlassSurface;
-
-function supportsSVGFilters(filterId) {
-  if (typeof window === 'undefined' || typeof document === 'undefined') return false;
-  // Final safeguard: test if browser accepts the URL string in backdropFilter
-  const div = document.createElement('div');
-  div.style.backdropFilter = `url(#${filterId})`;
-  return div.style.backdropFilter !== '';
-}

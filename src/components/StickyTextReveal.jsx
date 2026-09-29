@@ -38,27 +38,27 @@ const StickyTextReveal = ({ text, scrollDistance = '200vh' }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Split text into words, preserving line breaks if any (not used here but good practice)
-  const words = text.split(' ');
+  const paragraphs = text.split('\n').map(p => p.trim().split(/\s+/));
+  const totalWords = paragraphs.reduce((sum, p) => sum + p.length, 0);
+  let wordIndex = 0;
 
   return (
-    <div 
-      className="sticky-text-reveal-container" 
-      ref={containerRef} 
+    <div
+      className="sticky-text-reveal-container"
+      ref={containerRef}
       style={{ height: scrollDistance }}
     >
       <div className="sticky-text-reveal-inner">
-        <p className="sticky-text-reveal-p">
-          {words.map((word, i) => {
-            // Calculate opacity for this specific word
-            // We want the word to start revealing at a certain point in the scroll
-            // and be fully visible shortly after.
-            const start = i / words.length;
-            const end = (i + 1) / words.length;
-            
-            // Adjust the window of reveal to be smoother
-            // We can make it reveal over a span of 10% of the total scroll
-            const wordProgress = (progress - start) / (end - start);
+        <div className="sticky-text-reveal-body">
+        {paragraphs.map((words, pIdx) => (
+        <p className="sticky-text-reveal-p" key={pIdx}>
+          {words.map((word) => {
+            const i = wordIndex++;
+            // Finish revealing at 85% so the full text holds on screen before the sticky block releases.
+            const revealProgress = Math.min(1, progress / 0.85);
+            const start = i / totalWords;
+            const end = (i + 1) / totalWords;
+            const wordProgress = (revealProgress - start) / (end - start);
             const opacity = Math.max(0.1, Math.min(1, wordProgress));
 
             return (
@@ -72,6 +72,8 @@ const StickyTextReveal = ({ text, scrollDistance = '200vh' }) => {
             );
           })}
         </p>
+        ))}
+        </div>
       </div>
     </div>
   );

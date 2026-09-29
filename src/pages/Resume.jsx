@@ -2,113 +2,94 @@ import { useEffect, useState } from 'react'
 import './Resume.css'
 import Button from '../components/Button'
 
-const ZOOM_STEPS = [50, 75, 100, 125, 150, 175, 200]
+const MOBILE_QUERY = '(max-width: 767px)'
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia(MOBILE_QUERY).matches)
+
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_QUERY)
+    const onChange = (e) => setIsMobile(e.matches)
+    mql.addEventListener('change', onChange)
+    return () => mql.removeEventListener('change', onChange)
+  }, [])
+
+  return isMobile
+}
 
 export default function Resume() {
   useEffect(() => {
     document.title = 'Resume — Umang Singh'
   }, [])
 
+  const isMobile = useIsMobile()
   const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`
+  const previewUrl = `${import.meta.env.BASE_URL}resume-preview.webp`
 
-  // null = page-fit (whole page visible), number = percentage
-  const [zoom, setZoom] = useState(null)
-
-  const iframeSrc = zoom === null
-    ? `${resumeUrl}#toolbar=0&zoom=page-fit`
-    : `${resumeUrl}#toolbar=0&zoom=${zoom}`
-
-  const zoomLabel = zoom === null ? 'Fit' : `${zoom}%`
-
-  const handleZoomIn = () => {
-    setZoom(prev => {
-      const base = prev === null ? 100 : prev
-      const next = ZOOM_STEPS.find(z => z > base)
-      return next ?? prev
-    })
-  }
-
-  const handleZoomOut = () => {
-    setZoom(prev => {
-      const base = prev === null ? 100 : prev
-      const next = [...ZOOM_STEPS].reverse().find(z => z < base)
-      return next ?? prev
-    })
+  if (isMobile) {
+    return (
+      <main className="resume-page">
+        <div className="resume-mobile">
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="resume-mobile__preview"
+            aria-label="Open resume PDF in a new tab"
+          >
+            <img
+              src={previewUrl}
+              alt="Preview of Umang Singh's resume"
+              width="1400"
+              height="1978"
+              decoding="async"
+            />
+          </a>
+          <div className="resume-mobile__actions">
+            <Button href={resumeUrl} download="Umang_Singh_Resume.pdf" variant="primary">
+              Download PDF
+            </Button>
+            <Button href={resumeUrl} target="_blank" variant="secondary">
+              Open full screen
+            </Button>
+          </div>
+        </div>
+      </main>
+    )
   }
 
   return (
     <main className="resume-page">
-
-      {/* ── PDF Viewer ── */}
       <div className="resume-viewer">
         <div className="resume-viewer__stage">
           <div className="resume-viewer__embed-wrap">
-            <iframe
-              key={iframeSrc}
-              src={iframeSrc}
-              className="resume-viewer__embed"
-              title="Umang Singh Resume"
-              frameBorder="0"
-              allowFullScreen
-            />
+            <a href={resumeUrl} target="_blank" rel="noopener noreferrer" aria-label="Open resume PDF in a new tab">
+              <img
+                src={previewUrl}
+                className="resume-viewer__preview"
+                alt="Preview of Umang Singh's resume"
+                width="1400"
+                height="1978"
+                decoding="async"
+              />
+            </a>
           </div>
         </div>
       </div>
 
-      {/* ── Floating controls ── */}
       <div className="resume-float-bar">
-        <Button
-          variant="glass"
-          className="resume-float-bar__btn"
-          onClick={handleZoomOut}
-          aria-label="Zoom out"
-          disabled={zoom !== null && zoom <= ZOOM_STEPS[0]}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M2 7h10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
-          </svg>
+        <Button href={resumeUrl} target="_blank" variant="glass" className="resume-float-bar__action">
+          Open PDF
         </Button>
-
-        <Button
-          variant="glass"
-          className="resume-float-bar__zoom-label"
-          onClick={() => setZoom(null)}
-          title="Reset to fit page"
-        >
-          {zoomLabel}
-        </Button>
-
-        <Button
-          variant="glass"
-          className="resume-float-bar__btn"
-          onClick={handleZoomIn}
-          aria-label="Zoom in"
-          disabled={zoom !== null && zoom >= ZOOM_STEPS[ZOOM_STEPS.length - 1]}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
-          </svg>
-        </Button>
-
-        <div className="resume-float-bar__divider" aria-hidden="true" />
-
         <Button
           href={resumeUrl}
           download="Umang_Singh_Resume.pdf"
-          className="resume-float-bar__btn resume-float-bar__download"
-          title="Download PDF"
-          aria-label="Download"
+          className="resume-float-bar__action resume-float-bar__download"
           variant="glass"
-          isMagnetic={true}
         >
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-            <path d="M7.5 1.5v8M4 7l3.5 3.5L11 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M1.5 11.5v1A1.5 1.5 0 003 14h9a1.5 1.5 0 001.5-1.5v-1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-          </svg>
-          Download
+          Download PDF
         </Button>
       </div>
-
     </main>
   )
 }

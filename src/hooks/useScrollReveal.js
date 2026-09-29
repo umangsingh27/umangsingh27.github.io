@@ -26,6 +26,11 @@ export function useScrollReveal() {
       })
     }
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof IntersectionObserver === 'undefined') {
+      elementsToReveal.forEach(applyReveal)
+      return
+    }
+
     // FIRST PASS: elements already in viewport on load — no need to observe
     const alreadyVisible = []
     elementsToReveal.forEach((el) => {
@@ -59,4 +64,3 @@ export function useScrollReveal() {
     return () => observer.disconnect()
   }, [])
 }
-

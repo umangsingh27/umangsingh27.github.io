@@ -36,7 +36,7 @@ export function usePerformance() {
         })
 
         return () => observer.disconnect()
-      } catch (e) {
+      } catch {
         // Silent fail for unsupported browsers
       }
     }
